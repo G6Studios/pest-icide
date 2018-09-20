@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class characterController : MonoBehaviour {
+public class characterController : MonoBehaviour
+{
 
     private Vector3 movementVector; //Movement vector for the player
-    private float speed = 10.0f; // Variable controlling how fast the player moves
+    public float speed = 10.0f; // Variable controlling how fast the player moves
     private float jump = 15; //Players jump value
-    private float gravity = 40; 
+    private float gravity = 40;
 
-	// Use this for initialization
-	void Start () {
-        Cursor.lockState = CursorLockMode.Locked; 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         //float translation = Input.GetAxis("Vertical") * speed;
         //  float strafe = Input.GetAxis("Horizontal") * speed;
@@ -24,20 +27,35 @@ public class characterController : MonoBehaviour {
 
         // transform.Translate(strafe, 0, translation);
 
-    
-       
-        //movementVector.x = Input.GetAxis("Vertical") * speed;
-        //movementVector.z = Input.GetAxis("Horizontal") * speed;
-        
 
-        movementVector.x = Input.GetAxis("LeftJoystickX") * speed;
-        movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
-        movementVector.x *= Time.deltaTime;
-        movementVector.z *= Time.deltaTime;
+        if (Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("w") || Input.GetKey("s"))
+        {
+            movementVector.x = Input.GetAxis("Horizontal") * speed;
+            movementVector.x *= Time.deltaTime;
+
+            movementVector.z = Input.GetAxis("Vertical") * speed;
+            movementVector.z *= Time.deltaTime;
+
+            transform.Translate(movementVector.x, 0, movementVector.z);
+
+        }
+        else
+        {
+            movementVector.x = Input.GetAxis("LeftJoystickX") * speed;
+            movementVector.x *= Time.deltaTime;
+
+            movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
+            movementVector.z *= Time.deltaTime;
+
+            transform.Translate(movementVector.x, 0, movementVector.z);
+
+        }
+
+
 
 
         /* if (character isGrounded)
-         {
+         
              movementVector.y = 0;
 
              if (Input.GetButtonDown("A"))
@@ -49,13 +67,13 @@ public class characterController : MonoBehaviour {
          movementVector.y -= (gravity * Time.deltaTime);
          */
 
-        transform.Translate(movementVector.x, 0, movementVector.z);
+
 
         // Pressing escape will unlock the cursor
-        if(Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("escape"))
         {
             Cursor.lockState = CursorLockMode.None;
         }
 
-	}
+    }
 }
