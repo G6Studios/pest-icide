@@ -10,6 +10,7 @@ public class camMouseLook : MonoBehaviour {
     Vector2 smoothV;
     public float sensitivity = 3.0f; // Variable to control sensitivity
     public float smoothing = 2.0f; // Variable to control degree of mouse smoothing
+    public int joystickNumber;
 
     GameObject character;
 
@@ -20,8 +21,10 @@ public class camMouseLook : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        string joystickString = joystickNumber.ToString();
+
         var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        var jd = new Vector2(Input.GetAxis("RightJoystickX"), Input.GetAxis("RightJoystickY")); //right joystick direction
+        var jd = new Vector2(Input.GetAxis("RightJoystickX_P" + joystickString), Input.GetAxis("RightJoystickY_P" + joystickString)); //right joystick direction for each controller
 
         md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
         jd = Vector2.Scale(jd, new Vector2(sensitivity * smoothing, sensitivity * smoothing));

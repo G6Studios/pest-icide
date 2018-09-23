@@ -6,9 +6,10 @@ public class characterController : MonoBehaviour
 {
 
     private Vector3 movementVector; //Movement vector for the player
-    public float speed = 10.0f; // Variable controlling how fast the player moves
     private float jump = 15; //Players jump value
     private float gravity = 40;
+    public float speed = 10.0f; // Variable controlling how fast the player moves
+    public int joystickNumber; // public variable to which we can assign the player to the controller number
 
     // Use this for initialization
     void Start()
@@ -27,6 +28,8 @@ public class characterController : MonoBehaviour
 
         // transform.Translate(strafe, 0, translation);
 
+        string joystickString = joystickNumber.ToString(); // converts the controller number to string
+
 
         if (Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("w") || Input.GetKey("s"))
         {
@@ -41,10 +44,10 @@ public class characterController : MonoBehaviour
         }
         else
         {
-            movementVector.x = Input.GetAxis("LeftJoystickX") * speed;
+            movementVector.x = Input.GetAxis("LeftJoystickX_P" + joystickString) * speed; // gets axis depending on which controller is using the input
             movementVector.x *= Time.deltaTime;
 
-            movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
+            movementVector.z = Input.GetAxis("LeftJoystickY_P" + joystickString) * speed;
             movementVector.z *= Time.deltaTime;
 
             transform.Translate(movementVector.x, 0, movementVector.z);
@@ -58,7 +61,7 @@ public class characterController : MonoBehaviour
          
              movementVector.y = 0;
 
-             if (Input.GetButtonDown("A"))
+             if (Input.GetButtonDown("A_P" + joystickString))
              {
                  movementVector.y = jump;
              }
