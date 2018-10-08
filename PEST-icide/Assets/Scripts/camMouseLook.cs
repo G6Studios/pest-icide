@@ -31,8 +31,8 @@ public class camMouseLook : MonoBehaviour {
 
         smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
         smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
-        joySmooth.x = Mathf.Lerp(smoothV.x, jd.x, 1f / smoothing);
-        joySmooth.y = Mathf.Lerp(smoothV.y, jd.y, 1f / smoothing);
+        joySmooth.x = Mathf.Lerp(joySmooth.x, jd.x, 1f / smoothing);
+        joySmooth.y = Mathf.Lerp(joySmooth.y, jd.y, 1f / smoothing);
 
         // Updating the mouselook vector
         mouseLook += smoothV;
@@ -43,13 +43,19 @@ public class camMouseLook : MonoBehaviour {
         joyLook.y = Mathf.Clamp(joyLook.y, -90f, 90f);
 
 
+        if (Input.GetJoystickNames().Length <= 0)
+        {
+            transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+            character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.AngleAxis(-joyLook.y, Vector3.right);
+            character.transform.localRotation = Quaternion.AngleAxis(joyLook.x, character.transform.up);
+        }
 
-        transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
-        transform.localRotation = Quaternion.AngleAxis(-joyLook.y, Vector3.right);
-
-        character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-        character.transform.localRotation = Quaternion.AngleAxis(joyLook.x, character.transform.up);
-
+        
+        
 
     }
 }
