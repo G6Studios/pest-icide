@@ -9,7 +9,7 @@ public class camMouseLook : MonoBehaviour {
     Vector2 joySmooth; //smoothing for joystick
     Vector2 smoothV;
     public float sensitivity = 3.0f; // Variable to control sensitivity
-    public float smoothing = 2.0f; // Variable to control degree of mouse smoothing
+    public float smoothing = 5.0f; // Variable to control degree of mouse smoothing
     public int joystickNumber;
 
     GameObject character;
@@ -40,7 +40,7 @@ public class camMouseLook : MonoBehaviour {
 
         // This ensures that the player cannot flip the camera upside-down by looking too far forward or back
         mouseLook.y = Mathf.Clamp(mouseLook.y, -90f, 90f);
-        joyLook.y = Mathf.Clamp(joyLook.y, -90f, 90f);
+        joyLook.y = Mathf.Clamp(joyLook.y, -45f, 45f);
 
 
         if (Input.GetJoystickNames().Length <= 0)
