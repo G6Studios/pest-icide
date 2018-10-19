@@ -31,7 +31,7 @@ public class characterController : MonoBehaviour
         string joystickString = joystickNumber.ToString(); // converts the controller number to string
 
 
-        if (Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("w") || Input.GetKey("s"))
+        if ((Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("w") || Input.GetKey("s")) && joystickNumber == 1)
         {
             movementVector.x = Input.GetAxis("Horizontal") * speed;
             movementVector.x *= Time.deltaTime;

@@ -43,12 +43,12 @@ public class camMouseLook : MonoBehaviour {
         joyLook.y = Mathf.Clamp(joyLook.y, -45f, 45f);
 
 
-        if (Input.GetJoystickNames().Length <= 0)
+        if (Input.GetJoystickNames().Length <= 0) //no controllers connected
         {
             transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
             character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
         }
-        else
+        else // controllers connected
         {
             transform.localRotation = Quaternion.AngleAxis(-joyLook.y, Vector3.right);
             character.transform.localRotation = Quaternion.AngleAxis(joyLook.x, character.transform.up);
