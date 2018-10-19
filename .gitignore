@@ -4,7 +4,7 @@
 # Unity folders and files
 ###
 [Aa]ssets/AssetStoreTools*
-[Bb]uild/
+[Bb]uilds/
 [Ll]ibrary/
 [Ll]ocal[Cc]ache/
 [Oo]bj/
@@ -19,7 +19,7 @@ sysinfo.txt
 # VS/MD solution and project files
 ###
 [Ee]xportedObj/
-.vs/
+*.vs/
 *.booproj
 *.csproj
 *.sln

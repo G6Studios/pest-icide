@@ -11,7 +11,7 @@ public class PoisonShot : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown("f"))
+		if(Input.GetButtonDown("A_P1"))
         {
             FirePoison();
         }

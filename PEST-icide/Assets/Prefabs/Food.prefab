@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4067076505422182}
   - component: {fileID: 33500829285504884}
   - component: {fileID: 23584726557666274}
-  - component: {fileID: 65814538794824366}
   - component: {fileID: 114665481155714076}
+  - component: {fileID: 64644674420798238}
   m_Layer: 0
   m_Name: Food
   m_TagString: Food
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861588042057804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1225052, y: 1.09, z: 16.532734}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 8.33, y: 1.6, z: -6.37}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,9 +84,9 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861588042057804}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65814538794824366
-BoxCollider:
+  m_Mesh: {fileID: 4300000, guid: 5429c33b1cf79a248a215801dcc655be, type: 3}
+--- !u!64 &64644674420798238
+MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -94,9 +94,11 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 5429c33b1cf79a248a215801dcc655be, type: 3}
 --- !u!114 &114665481155714076
 MonoBehaviour:
   m_ObjectHideFlags: 1
