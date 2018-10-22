@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2542a35bc1d0845aa41fb48e1c126f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jump: 2
   speed: 10
   joystickNumber: 3
 --- !u!54 &465368562
@@ -1422,6 +1423,26 @@ Prefab:
       propertyPath: m_Center.z
       value: 0.098498344
       objectReference: {fileID: 0}
+    - target: {fileID: 114780986211244834, guid: 604bbd1f221b0334cb89e73537e893ec,
+        type: 2}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 54570573256837328, guid: 604bbd1f221b0334cb89e73537e893ec,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54570573256837328, guid: 604bbd1f221b0334cb89e73537e893ec,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780986211244834, guid: 604bbd1f221b0334cb89e73537e893ec,
+        type: 2}
+      propertyPath: jump
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604bbd1f221b0334cb89e73537e893ec, type: 2}
   m_IsPrefabAsset: 0
@@ -1549,6 +1570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2542a35bc1d0845aa41fb48e1c126f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jump: 2
   speed: 10
   joystickNumber: 4
 --- !u!54 &1191660591
@@ -2285,6 +2307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2542a35bc1d0845aa41fb48e1c126f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jump: 2
   speed: 10
   joystickNumber: 2
 --- !u!54 &1774010590
