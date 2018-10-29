@@ -39,8 +39,8 @@ public class camMouseLook : MonoBehaviour {
         joyLook += joySmooth;
 
         // This ensures that the player cannot flip the camera upside-down by looking too far forward or back
-        mouseLook.y = Mathf.Clamp(mouseLook.y, -90f, 90f);
-        joyLook.y = Mathf.Clamp(joyLook.y, -45f, 45f);
+        mouseLook.y = Mathf.Clamp(mouseLook.y, -5f, 0f);
+        joyLook.y = Mathf.Clamp(joyLook.y, -5f, 0f);
 
 
         if (Input.GetJoystickNames().Length <= 0 && joystickNumber == 1) //no controllers connected & player 1
