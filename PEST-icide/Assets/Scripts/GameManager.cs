@@ -2,7 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : Singleton<GameManager> {
+public class GameManager : MonoBehaviour {
+
+    public static GameManager instance = null;
+
+    // Awake() runs before any Start() calls
+    // Enforces the singleton pattern
+    private void Awake()
+    {
+        // Check if instance exists
+        if(instance == null)
+        {
+            // If not, set the game manager to this
+            instance = this;
+        }
+
+        else if(instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        // Ensures that this persists between scenes
+        DontDestroyOnLoad(gameObject);
+    }
 
     // For internal use
     private float timeRemaining;
@@ -41,8 +63,6 @@ public class GameManager : Singleton<GameManager> {
         get { return player4Food; }
         set { player4Food = value; }
     }
-
-
 
     private float startTime = 5 * 60; // Sixty seconds times five
 

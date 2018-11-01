@@ -10,25 +10,25 @@ public class Food : MonoBehaviour {
     {
         if(coll.gameObject.tag == "Player1")
         {
-            GameManager.publicInstance.Player1Food++;
+            GameManager.instance.Player1Food++;
             GameObject.FindGameObjectWithTag("Player1").GetComponent<AudioSource>().PlayOneShot(crunch);
             Destroy(this.gameObject);
         }
         else if (coll.gameObject.tag == "Player2")
         {
-            GameManager.publicInstance.Player2Food++;
+            GameManager.instance.Player2Food++;
             GameObject.FindGameObjectWithTag("Player2").GetComponent<AudioSource>().PlayOneShot(crunch);
             Destroy(this.gameObject);
         }
         else if (coll.gameObject.tag == "Player3")
         {
-            GameManager.publicInstance.Player3Food++;
+            GameManager.instance.Player3Food++;
             GameObject.FindGameObjectWithTag("Player3").GetComponent<AudioSource>().PlayOneShot(crunch);
             Destroy(this.gameObject);
         }
         else if(coll.gameObject.tag == "Player4")
         {
-            GameManager.publicInstance.Player4Food++;
+            GameManager.instance.Player4Food++;
             GameObject.FindGameObjectWithTag("Player4").GetComponent<AudioSource>().PlayOneShot(crunch);
             Destroy(this.gameObject);
         }

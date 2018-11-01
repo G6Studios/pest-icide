@@ -11,7 +11,8 @@ public class characterController : MonoBehaviour
     private float m_distToGround;
     Rigidbody playerRigidbody;
 
-    public float jump = 1.0f; //Players jump value
+    public float jump = 0.5f; //Players jump value
+    public float jumpLength = 1.0f;
     public float speed = 10.0f; // Variable controlling how fast the player moves
     public int joystickNumber; // public variable to which we can assign the player to the controller number
 
@@ -83,8 +84,10 @@ public class characterController : MonoBehaviour
 
        // movementVector.y -= (m_gravity * Time.deltaTime);
 
-
-
+        if(Input.GetKey("h"))
+        {
+            EventManager.TriggerEvent("test");
+        }
 
         if ((Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("w") || Input.GetKey("s")) && joystickNumber == 1)
         {
