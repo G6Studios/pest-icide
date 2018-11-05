@@ -13,29 +13,36 @@ public class Rat : MonoBehaviour {
     Rigidbody r_rigidBody;
 
     // For events
-    private UnityAction rat;
+    private UnityAction ratMoveEvent;
+    private UnityAction ratJumpEvent;
 
     // Use this for initialization
     void Start ()
     {
+        // Individual statistics
         Resources = 0.0f;
         Speed = 7.0f;
         JumpHeight = 0.5f;
         JumpLength = 1.0f;
 
-	}
+        // Components
+        r_rigidBody = gameObject.GetComponent<Rigidbody>();
 
-    public void OnEnable()
-    {
-        EventManager.StartListening("rat", rat);
+        // Enables the listeners for rat-related events
+        EventManager.instance.StartListening("ratMoveEvent", ratMoveEvent);
+        EventManager.instance.StartListening("ratJumpEvent", ratJumpEvent);
+
     }
 
+    // Cleans up after we disable its gameobject
     public void OnDisable()
     {
-        EventManager.StopListening("rat", rat);
+        EventManager.instance.StopListening("ratMoveEvent", ratMoveEvent);
+        EventManager.instance.StopListening("ratJumpEvent", ratJumpEvent);
     }
 
-    public void ratMovement()
+    // Movement for the rat
+    private void ratMovement()
     {
         r_movementVector.x = Input.GetAxis("Horizontal");
         r_movementVector.z = Input.GetAxis("Vertical");
@@ -45,9 +52,18 @@ public class Rat : MonoBehaviour {
         transform.Translate(r_movementVector.x, 0, r_movementVector.z);
     }
 
+    // Jumping for the rat
+    private void ratJump()
+    {
+        r_rigidBody.AddForce(0.0f, r_jumpHeight, 0.0f, ForceMode.Impulse);
+
+    }
+
+
     private void Awake()
     {
-        rat = new UnityAction(ratMovement);
+        ratMoveEvent = new UnityAction(ratMovement);
+        ratJumpEvent = new UnityAction(ratJump);
     }
 
     // Getters and setters

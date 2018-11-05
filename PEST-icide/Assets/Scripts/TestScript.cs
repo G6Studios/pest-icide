@@ -21,12 +21,12 @@ public class TestScript : MonoBehaviour {
     // These two functions ensure memory leaks do not occur
     public void OnEnable()
     {
-        EventManager.StartListening("test", testListener);
+        EventManager.instance.StartListening("test", testListener);
     }
 
     public void OnDisable()
     {
-        EventManager.StopListening("test", testListener);
+        EventManager.instance.StopListening("test", testListener);
     }
 
     void Awake()

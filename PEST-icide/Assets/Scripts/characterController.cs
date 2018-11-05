@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class characterController : MonoBehaviour
 {
@@ -77,7 +78,8 @@ public class characterController : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.Space) && joystickNumber == 1)
             {
-                playerRigidbody.AddForce(0.0f, jump, 0.0f,ForceMode.Impulse);
+                // playerRigidbody.AddForce(0.0f, jump, 0.0f,ForceMode.Impulse);
+                EventManager.instance.TriggerEvent("ratJumpEvent");
                 Debug.Log("Space pressed");
             }
         }
@@ -86,26 +88,28 @@ public class characterController : MonoBehaviour
 
         if(Input.GetKey("h"))
         {
-            EventManager.TriggerEvent("test");
+            //EventManager.TriggerEvent("test");
         }
 
         if ((Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("w") || Input.GetKey("s")) && joystickNumber == 1)
         {
-            m_movementVector.x = Input.GetAxis("Horizontal");// * speed;
-            m_movementVector.z = Input.GetAxis("Vertical");// * speed;
+            EventManager.instance.TriggerEvent("ratMoveEvent");
+            //m_movementVector.x = Input.GetAxis("Horizontal");// * speed;
+            //m_movementVector.z = Input.GetAxis("Vertical");// * speed;
 
-            m_movementVector = m_movementVector.normalized * speed * Time.deltaTime;
+            //m_movementVector = m_movementVector.normalized * speed * Time.deltaTime;
 
             //movementVector.x *= Time.deltaTime;
             //movementVector.z *= Time.deltaTime;
 
             //playerRigidbody.MovePosition(transform.position + movementVector);
 
-            transform.Translate(m_movementVector.x, 0, m_movementVector.z);
+            //transform.Translate(m_movementVector.x, 0, m_movementVector.z);
 
         }
         else
         {
+            EventManager.instance.TriggerEvent("spiderMoveEvent");
             m_movementVector.x = Input.GetAxis("LeftJoystickX_P" + joystickString) * speed; // gets axis depending on which controller is using the input
             m_movementVector.z = Input.GetAxis("LeftJoystickY_P" + joystickString) * speed;
 

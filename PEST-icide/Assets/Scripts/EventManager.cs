@@ -41,7 +41,7 @@ public class EventManager : MonoBehaviour {
         }
     }
 
-    public static void StartListening(string eventName, UnityAction listener)
+    public void StartListening(string eventName, UnityAction listener)
     {
         // Creating an empty UnityEvent
         UnityEvent currentEvent = null;
@@ -61,7 +61,7 @@ public class EventManager : MonoBehaviour {
         }
     }
 
-    public static void StopListening(string eventName, UnityAction listener)
+    public void StopListening(string eventName, UnityAction listener)
     {
         // Checking to see if the eventmanager exists so that we don't get any errors
         if (instance == null)
@@ -77,7 +77,7 @@ public class EventManager : MonoBehaviour {
 
     }
 
-    public static void TriggerEvent(string eventName)
+    public void TriggerEvent(string eventName)
     {
         // Creating empty UnityEvent
         UnityEvent currentEvent = null;
