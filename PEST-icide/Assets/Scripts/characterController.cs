@@ -88,7 +88,7 @@ public class characterController : MonoBehaviour
 
         if(Input.GetKey("h"))
         {
-            //EventManager.TriggerEvent("test");
+            EventManager.instance.TriggerEvent("ratScratch");
         }
 
         if ((Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("w") || Input.GetKey("s")) && joystickNumber == 1)

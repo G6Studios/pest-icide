@@ -12,9 +12,13 @@ public class Rat : MonoBehaviour {
     private float r_distToGround;
     Rigidbody r_rigidBody;
 
+    // Attacks
+    GameObject scratch;
+
     // For events
     private UnityAction ratMoveEvent;
     private UnityAction ratJumpEvent;
+    private UnityAction ratScratch;
 
     // Use this for initialization
     void Start ()
@@ -31,7 +35,10 @@ public class Rat : MonoBehaviour {
         // Enables the listeners for rat-related events
         EventManager.instance.StartListening("ratMoveEvent", ratMoveEvent);
         EventManager.instance.StartListening("ratJumpEvent", ratJumpEvent);
+        EventManager.instance.StartListening("ratScratch", ratScratch);
 
+        // Attacks
+        scratch = GameObject.Find("scratchAttack");
     }
 
     // Cleans up after we disable its gameobject
@@ -39,13 +46,14 @@ public class Rat : MonoBehaviour {
     {
         EventManager.instance.StopListening("ratMoveEvent", ratMoveEvent);
         EventManager.instance.StopListening("ratJumpEvent", ratJumpEvent);
+        EventManager.instance.StopListening("ratScratch", ratScratch);
     }
 
     // Movement for the rat
     private void ratMovement()
     {
-        r_movementVector.x = Input.GetAxis("Horizontal");
-        r_movementVector.z = Input.GetAxis("Vertical");
+        r_movementVector.x = Input.GetAxis("LeftJoystickX_P1");
+        r_movementVector.z = Input.GetAxis("LeftJoystickY_P1");
 
         r_movementVector = r_movementVector.normalized * Speed * Time.deltaTime;
 
@@ -59,11 +67,19 @@ public class Rat : MonoBehaviour {
 
     }
 
+    // Attack
+    private void attack()
+    {
+        scratch.SetActive(true);
+        EventManager.instance.TriggerEvent("ScratchAttack");
+    }
+
 
     private void Awake()
     {
         ratMoveEvent = new UnityAction(ratMovement);
         ratJumpEvent = new UnityAction(ratJump);
+        ratScratch = new UnityAction(attack);
     }
 
     // Getters and setters

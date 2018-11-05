@@ -47,8 +47,8 @@ public class Spider : MonoBehaviour {
 
     private void spiderMovement()
     {
-        sp_movementVector.x = Input.GetAxis("Horizontal");
-        sp_movementVector.z = Input.GetAxis("Vertical");
+        sp_movementVector.x = Input.GetAxis("LeftJoystickX_P2");
+        sp_movementVector.z = Input.GetAxis("LeftJoystickY_P2");
 
         sp_movementVector = sp_movementVector.normalized * Speed * Time.deltaTime;
 
