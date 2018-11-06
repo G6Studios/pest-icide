@@ -4,42 +4,44 @@ using UnityEngine;
 
 public class ResourceDeposit : MonoBehaviour {
 
+    private IEnumerator coroutine;
 	
     void OnTriggerEnter(Collider coll)
     {
-        StartCoroutine(DrainResource(coll.gameObject));
+        coroutine = DrainResource(coll.gameObject);
+        StartCoroutine(coroutine);
 
     }
 
     void OnTriggerExit(Collider coll)
     {
-        StopAllCoroutines();
+        StopCoroutine(coroutine);
     }
 
     IEnumerator DrainResource(GameObject player)
     {
         while (true)
         {
-            float food1 = GameManager.publicInstance.Player1Food;
-            float food2 = GameManager.publicInstance.Player2Food;
-            float food3 = GameManager.publicInstance.Player3Food;
-            float food4 = GameManager.publicInstance.Player4Food;
+            float food1 = GameManager.instance.Player1Food;
+            float food2 = GameManager.instance.Player2Food;
+            float food3 = GameManager.instance.Player3Food;
+            float food4 = GameManager.instance.Player4Food;
 
             if(player.tag == "Player1" && food1 > 0)
             {
-                GameManager.publicInstance.Player1Food--;
+                GameManager.instance.Player1Food--;
             }
             else if(player.tag == "Player2" && food2 > 0)
             {
-                GameManager.publicInstance.Player2Food--;
+                GameManager.instance.Player2Food--;
             }
             else if(player.tag == "Player3" && food3 > 0)
             {
-                GameManager.publicInstance.Player3Food--;
+                GameManager.instance.Player3Food--;
             }
             else if(player.tag == "Player4" && food4 > 0)
             {
-                GameManager.publicInstance.Player4Food--;
+                GameManager.instance.Player4Food--;
             }
 
             yield return new WaitForSeconds(0.5f);
