@@ -272,6 +272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8495633970e61d4194bb3b851238444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scratch: {fileID: 1135702644}
+  attackPosition: {fileID: 501282792}
 --- !u!1 &338034769
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +582,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 501282791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.31, z: 1.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0.875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 506987527}
@@ -621,7 +623,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4649557600844004, guid: cc5294bc52da7004c8a3ae05a28cf80c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 13.41
+      value: 23.97
       objectReference: {fileID: 0}
     - target: {fileID: 4649557600844004, guid: cc5294bc52da7004c8a3ae05a28cf80c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1502,6 +1504,10 @@ Prefab:
       propertyPath: jump
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4690598175980704, guid: 604bbd1f221b0334cb89e73537e893ec, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604bbd1f221b0334cb89e73537e893ec, type: 2}
   m_IsPrefabAsset: 0
@@ -1552,6 +1558,11 @@ Prefab:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6599c8e0c325ab54397f31d56dd80d1a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1135702644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1374544228348314, guid: cc5294bc52da7004c8a3ae05a28cf80c,
+    type: 2}
+  m_PrefabInternal: {fileID: 531155583}
 --- !u!1001 &1160593207
 Prefab:
   m_ObjectHideFlags: 0

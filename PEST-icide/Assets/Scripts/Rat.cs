@@ -13,7 +13,11 @@ public class Rat : MonoBehaviour {
     Rigidbody r_rigidBody;
 
     // Attacks
+    [SerializeField]
     GameObject scratch;
+
+    [SerializeField]
+    Transform attackPosition;
 
     // For events
     private UnityAction ratMoveEvent;
@@ -38,7 +42,7 @@ public class Rat : MonoBehaviour {
         EventManager.instance.StartListening("ratScratch", ratScratch);
 
         // Attacks
-        scratch = GameObject.Find("scratchAttack");
+        //scratch = GameObject.Find("scratchAttack");
     }
 
     // Cleans up after we disable its gameobject
@@ -70,8 +74,11 @@ public class Rat : MonoBehaviour {
     // Attack
     private void attack()
     {
-        scratch.SetActive(true);
-        EventManager.instance.TriggerEvent("ScratchAttack");
+        Debug.Log("Attack registered");
+        GameObject tempAttack = Instantiate(scratch, attackPosition.transform);
+        Destroy(tempAttack, 0.20f);
+        
+
     }
 
 
