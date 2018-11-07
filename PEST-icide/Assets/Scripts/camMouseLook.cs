@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Change to merge
+// Change to merge //////
+
 public class camMouseLook : MonoBehaviour {
 
     Vector2 mouseLook;
