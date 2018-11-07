@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Change to merge //////
+
 public class camMouseLook : MonoBehaviour {
 
     Vector2 mouseLook;
@@ -40,16 +41,16 @@ public class camMouseLook : MonoBehaviour {
         joyLook += joySmooth;
 
         // This ensures that the player cannot flip the camera upside-down by looking too far forward or back
-        mouseLook.y = Mathf.Clamp(mouseLook.y, -90f, 90f);
-        joyLook.y = Mathf.Clamp(joyLook.y, -45f, 45f);
+        mouseLook.y = Mathf.Clamp(mouseLook.y, -5f, 0f);
+        joyLook.y = Mathf.Clamp(joyLook.y, -5f, 0f);
 
 
-        if (Input.GetJoystickNames().Length <= 0)
+        if (Input.GetJoystickNames().Length <= 0 && joystickNumber == 1) //no controllers connected & player 1
         {
             transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
             character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
         }
-        else
+        else // controllers connected
         {
             transform.localRotation = Quaternion.AngleAxis(-joyLook.y, Vector3.right);
             character.transform.localRotation = Quaternion.AngleAxis(joyLook.x, character.transform.up);
