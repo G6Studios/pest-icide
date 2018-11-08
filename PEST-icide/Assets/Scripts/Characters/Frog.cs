@@ -12,9 +12,20 @@ public class Frog : MonoBehaviour {
     private float f_distToGround;
     Rigidbody f_rigidBody;
 
+    [SerializeField]
+    Transform attackPosition;
+
+    [SerializeField]
+    GameObject scratch;
+
+    [SerializeField]
+    GameObject bite;
+
     // For events
     private UnityAction frogMoveEvent;
     private UnityAction frogJumpEvent;
+    private UnityAction frogScratch;
+    private UnityAction frogBite;
 
 	// Use this for initialization
 	void Start () {
@@ -29,8 +40,18 @@ public class Frog : MonoBehaviour {
         // Enables the listeners for frog-related events
         EventManager.instance.StartListening("frogMoveEvent", frogMoveEvent);
         EventManager.instance.StartListening("frogJumpEvent", frogJumpEvent);
+        EventManager.instance.StartListening("frogScratch", frogScratch);
+        EventManager.instance.StartListening("frogBite", frogBite);
 
 	}
+
+    public void OnDisable()
+    {
+        EventManager.instance.StopListening("frogMoveEvent", frogMoveEvent);
+        EventManager.instance.StopListening("frogJumpEvent", frogJumpEvent);
+        EventManager.instance.StopListening("frogScratch", frogScratch);
+        EventManager.instance.StopListening("frogBite", frogBite);
+    }
 
     // Movement for the frog
     private void frogMovement()
@@ -50,6 +71,19 @@ public class Frog : MonoBehaviour {
         f_rigidBody.AddForce(0.0f, f_jumpHeight, 0.0f, ForceMode.Impulse);
     }
 
+    private void scratchAttack()
+    {
+        GameObject tempAttack = Instantiate(scratch, attackPosition.position, attackPosition.rotation);
+        Destroy(tempAttack, 0.20f);
+
+    }
+
+    private void biteAttack()
+    {
+        GameObject tempAttack = Instantiate(bite, attackPosition.position, attackPosition.rotation);
+        Destroy(tempAttack, 0.30f);
+    }
+
     private bool IsGrounded()
     {
         return Physics.Raycast(transform.position, -Vector3.up, f_distToGround + 0.1f);
@@ -59,7 +93,11 @@ public class Frog : MonoBehaviour {
     {
         frogMoveEvent = new UnityAction(frogMovement);
         frogJumpEvent = new UnityAction(frogJump);
+        frogScratch = new UnityAction(scratchAttack);
+        frogBite = new UnityAction(biteAttack);
     }
+
+
 
     // Setters and getters
     public float Resources

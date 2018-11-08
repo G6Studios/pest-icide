@@ -3,10 +3,10 @@ using UnityEngine.Events;
 
 public class ScratchAttack : MonoBehaviour {
 
-    private float attackFrames;
-
-    // For event
-    private UnityAction scratchAttack;
+    private void Start()
+    {
+        gameObject.GetComponent<ParticleSystem>().Play();
+    }
 
     private void OnTriggerEnter(Collider hit)
     {

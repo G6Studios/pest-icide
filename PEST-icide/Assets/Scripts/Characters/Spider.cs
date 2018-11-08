@@ -17,11 +17,16 @@ public class Spider : MonoBehaviour {
     Transform attackPosition;
 
     [SerializeField]
-    GameObject spiderBite;
+    GameObject scratch;
+
+    [SerializeField]
+    GameObject bite;
 
     // For events
     private UnityAction spiderMoveEvent;
     private UnityAction spiderJumpEvent;
+    private UnityAction spiderScratch;
+    private UnityAction spiderBite;
 
 
 	// Use this for initialization
@@ -41,18 +46,23 @@ public class Spider : MonoBehaviour {
         // Enables the listeners for spider-related events
         EventManager.instance.StartListening("spiderMoveEvent", spiderMoveEvent);
         EventManager.instance.StartListening("spiderJumpEvent", spiderJumpEvent);
+        EventManager.instance.StartListening("spiderScratch", spiderScratch);
+        EventManager.instance.StartListening("spiderBite", spiderBite);
 	}
 
     public void OnDisable()
     {
         EventManager.instance.StopListening("spiderMoveEvent", spiderMoveEvent);
         EventManager.instance.StopListening("spiderJumpEvent", spiderJumpEvent);
+        EventManager.instance.StopListening("spiderScratch", spiderScratch);
     }
 
     private void Awake()
     {
         spiderMoveEvent = new UnityAction(spiderMovement);
         spiderJumpEvent = new UnityAction(spiderJump);
+        spiderScratch = new UnityAction(scratchAttack);
+        spiderBite = new UnityAction(biteAttack);
     }
 
     private bool IsGrounded()
@@ -74,6 +84,20 @@ public class Spider : MonoBehaviour {
     {
         if(IsGrounded())
         sp_rigidBody.AddForce(0.0f, sp_jumpHeight, 0.0f, ForceMode.Impulse);
+    }
+
+    private void scratchAttack()
+    {
+        GameObject tempAttack = Instantiate(scratch, attackPosition.position, attackPosition.rotation);
+        Destroy(tempAttack, 0.20f);
+
+
+    }
+
+    private void biteAttack()
+    {
+        GameObject tempAttack = Instantiate(bite, attackPosition.position, attackPosition.rotation);
+        Destroy(tempAttack, 0.30f);
     }
 
     // Getters and setters
