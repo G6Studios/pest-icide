@@ -79,52 +79,7 @@ public class InputManager : MonoBehaviour
         }
 
         // Attacks
-        
-
-
-
-        //if (Input.GetButtonDown("A_P1"))
-        //{
-        //    EventManager.instance.TriggerEvent("ratScratch");
-        //}
-        //
-        //if(Input.GetButton("Y_P1"))
-        //{
-        //    EventManager.instance.TriggerEvent("ratBite");
-        //}
-
-        if ((Input.GetKey("d") || Input.GetKey("a") || Input.GetKey("w") || Input.GetKey("s")))
-        {
-            EventManager.instance.TriggerEvent("ratMoveEvent");
-            //m_movementVector.x = Input.GetAxis("Horizontal");// * speed;
-            //m_movementVector.z = Input.GetAxis("Vertical");// * speed;
-
-            //m_movementVector = m_movementVector.normalized * speed * Time.deltaTime;
-
-            //movementVector.x *= Time.deltaTime;
-            //movementVector.z *= Time.deltaTime;
-
-            //playerRigidbody.MovePosition(transform.position + movementVector);
-
-            //transform.Translate(m_movementVector.x, 0, m_movementVector.z);
-
-        }
-        else
-        {
-            EventManager.instance.TriggerEvent("spiderMoveEvent");
-            //m_movementVector.x = Input.GetAxis("LeftJoystickX_P" + joystickString) * speed; // gets axis depending on which controller is using the input
-            //m_movementVector.z = Input.GetAxis("LeftJoystickY_P" + joystickString) * speed;
-
-            //m_movementVector = m_movementVector.normalized * speed * Time.deltaTime;
-
-
-            //playerRigidbody.MovePosition(transform.position + movementVector);
-
-            //transform.Translate(m_movementVector.x, 0, m_movementVector.z);
-
-
-
-        }
+       
     }
 
 }

@@ -28,12 +28,15 @@ public class Spider : MonoBehaviour {
 	void Start ()
     {
         Resources = 0.0f;
-        Speed = 10.0f;
-        JumpHeight = 1.5f;
+        Speed = 7.0f;
+        JumpHeight = 3.0f;
         JumpLength = 1.5f;
 
         // Components
         sp_rigidBody = gameObject.GetComponent<Rigidbody>();
+        sp_collider = gameObject.GetComponent<Collider>();
+
+        sp_distToGround = sp_collider.bounds.extents.y;
 
         // Enables the listeners for spider-related events
         EventManager.instance.StartListening("spiderMoveEvent", spiderMoveEvent);
