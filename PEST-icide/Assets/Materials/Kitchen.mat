@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Couch
+  m_Name: Kitchen
   m_Shader: {fileID: 4800000, guid: 78467606333438545a608571d1add42c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -39,7 +39,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: dc8ce3c3c393de949919d1f045b57abf, type: 3}
+        m_Texture: {fileID: 2800000, guid: fa4b39463e5860747828e35ba8de3a47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
