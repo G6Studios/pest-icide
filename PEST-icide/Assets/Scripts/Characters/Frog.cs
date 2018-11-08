@@ -35,8 +35,8 @@ public class Frog : MonoBehaviour {
     // Movement for the frog
     private void frogMovement()
     {
-        f_movementVector.x = Input.GetAxis("Horizontal");
-        f_movementVector.z = Input.GetAxis("Vertical");
+        f_movementVector.x = Input.GetAxis("LeftJoystickX_P3");
+        f_movementVector.z = Input.GetAxis("LeftJoystickY_P3");
 
         f_movementVector = f_movementVector.normalized * Speed * Time.deltaTime;
 
@@ -46,9 +46,14 @@ public class Frog : MonoBehaviour {
     // Jumping for the frog
     private void frogJump()
     {
+        if(IsGrounded())
         f_rigidBody.AddForce(0.0f, f_jumpHeight, 0.0f, ForceMode.Impulse);
     }
 
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, f_distToGround + 0.1f);
+    }
 
     private void Awake()
     {

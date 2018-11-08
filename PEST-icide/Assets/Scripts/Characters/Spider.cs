@@ -12,6 +12,13 @@ public class Spider : MonoBehaviour {
     private float sp_distToGround;
     Rigidbody sp_rigidBody;
 
+    // Attacks
+    [SerializeField]
+    Transform attackPosition;
+
+    [SerializeField]
+    GameObject spiderBite;
+
     // For events
     private UnityAction spiderMoveEvent;
     private UnityAction spiderJumpEvent;
@@ -21,12 +28,15 @@ public class Spider : MonoBehaviour {
 	void Start ()
     {
         Resources = 0.0f;
-        Speed = 10.0f;
-        JumpHeight = 1.5f;
+        Speed = 7.0f;
+        JumpHeight = 3.0f;
         JumpLength = 1.5f;
 
         // Components
         sp_rigidBody = gameObject.GetComponent<Rigidbody>();
+        sp_collider = gameObject.GetComponent<Collider>();
+
+        sp_distToGround = sp_collider.bounds.extents.y;
 
         // Enables the listeners for spider-related events
         EventManager.instance.StartListening("spiderMoveEvent", spiderMoveEvent);
@@ -45,6 +55,11 @@ public class Spider : MonoBehaviour {
         spiderJumpEvent = new UnityAction(spiderJump);
     }
 
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, sp_distToGround + 0.1f);
+    }
+
     private void spiderMovement()
     {
         sp_movementVector.x = Input.GetAxis("LeftJoystickX_P2");
@@ -57,6 +72,7 @@ public class Spider : MonoBehaviour {
 
     private void spiderJump()
     {
+        if(IsGrounded())
         sp_rigidBody.AddForce(0.0f, sp_jumpHeight, 0.0f, ForceMode.Impulse);
     }
 
