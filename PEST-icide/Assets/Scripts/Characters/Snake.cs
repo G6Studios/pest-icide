@@ -26,6 +26,12 @@ public class Snake : MonoBehaviour {
 
         // Components
         sn_rigidBody = gameObject.GetComponent<Rigidbody>();
+        sn_collider = gameObject.GetComponent<Collider>();
+
+        sn_distToGround = sn_collider.bounds.extents.y;
+
+        
+        
 
         // Enables the listeners for snake-related events
         EventManager.instance.StartListening("snakeMoveEvent", snakeMoveEvent);
@@ -36,8 +42,8 @@ public class Snake : MonoBehaviour {
     // Movement for the snake
     private void snakeMovement()
     {
-        sn_movementVector.x = Input.GetAxis("Horizontal");
-        sn_movementVector.z = Input.GetAxis("Vertical");
+        sn_movementVector.x = Input.GetAxis("LeftJoystickX_P4");
+        sn_movementVector.z = Input.GetAxis("LeftJoystickY_P4");
 
         sn_movementVector = sn_movementVector.normalized * Speed * Time.deltaTime;
 
@@ -47,9 +53,21 @@ public class Snake : MonoBehaviour {
     // Jumping for the snake
     private void snakeJump()
     {
+        if(IsGrounded())
         sn_rigidBody.AddForce(0.0f, sn_jumpHeight, 0.0f, ForceMode.Impulse);
     }
-	
+
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, sn_distToGround + 0.1f);
+    }
+
+    private void Awake()
+    {
+        snakeMoveEvent = new UnityAction(snakeMovement);
+        snakeJumpEvent = new UnityAction(snakeJump);
+    }
+
     // Setters and getters
     public float Resources
     {

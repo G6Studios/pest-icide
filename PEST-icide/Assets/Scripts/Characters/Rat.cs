@@ -19,10 +19,14 @@ public class Rat : MonoBehaviour {
     [SerializeField]
     Transform attackPosition;
 
+    [SerializeField]
+    GameObject bite;
+
     // For events
     private UnityAction ratMoveEvent;
     private UnityAction ratJumpEvent;
     private UnityAction ratScratch;
+    private UnityAction ratBite;
 
     // Use this for initialization
     void Start ()
@@ -30,19 +34,21 @@ public class Rat : MonoBehaviour {
         // Individual statistics
         Resources = 0.0f;
         Speed = 7.0f;
-        JumpHeight = 0.5f;
+        JumpHeight = 5.0f;
         JumpLength = 1.0f;
 
         // Components
         r_rigidBody = gameObject.GetComponent<Rigidbody>();
+        r_collider = gameObject.GetComponent<Collider>();
+
+        r_distToGround = r_collider.bounds.extents.y;
 
         // Enables the listeners for rat-related events
         EventManager.instance.StartListening("ratMoveEvent", ratMoveEvent);
         EventManager.instance.StartListening("ratJumpEvent", ratJumpEvent);
         EventManager.instance.StartListening("ratScratch", ratScratch);
+        EventManager.instance.StartListening("ratBite", ratBite);
 
-        // Attacks
-        //scratch = GameObject.Find("scratchAttack");
     }
 
     // Cleans up after we disable its gameobject
@@ -51,6 +57,7 @@ public class Rat : MonoBehaviour {
         EventManager.instance.StopListening("ratMoveEvent", ratMoveEvent);
         EventManager.instance.StopListening("ratJumpEvent", ratJumpEvent);
         EventManager.instance.StopListening("ratScratch", ratScratch);
+        EventManager.instance.StopListening("ratBite", ratBite);
     }
 
     // Movement for the rat
@@ -67,18 +74,23 @@ public class Rat : MonoBehaviour {
     // Jumping for the rat
     private void ratJump()
     {
+        if(IsGrounded())
         r_rigidBody.AddForce(0.0f, r_jumpHeight, 0.0f, ForceMode.Impulse);
-
     }
 
-    // Attack
-    private void attack()
+    // Scratch attack
+    private void scratchAttack()
     {
-        Debug.Log("Attack registered");
-        GameObject tempAttack = Instantiate(scratch, attackPosition.transform);
+        GameObject tempAttack = Instantiate(scratch, attackPosition.position, attackPosition.rotation);
         Destroy(tempAttack, 0.20f);
         
 
+    }
+
+    private void biteAttack()
+    {
+        GameObject tempAttack = Instantiate(bite, attackPosition.position, attackPosition.rotation);
+        Destroy(tempAttack, 0.30f);
     }
 
 
@@ -86,7 +98,13 @@ public class Rat : MonoBehaviour {
     {
         ratMoveEvent = new UnityAction(ratMovement);
         ratJumpEvent = new UnityAction(ratJump);
-        ratScratch = new UnityAction(attack);
+        ratScratch = new UnityAction(scratchAttack);
+        ratBite = new UnityAction(biteAttack);
+    }
+
+    private bool IsGrounded() 
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, r_distToGround + 0.1f);
     }
 
     // Getters and setters
