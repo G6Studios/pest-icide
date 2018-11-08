@@ -79,7 +79,47 @@ public class InputManager : MonoBehaviour
         }
 
         // Attacks
-       
+
+        if(Input.GetButtonDown("X_P1"))
+        {
+            EventManager.instance.TriggerEvent("ratScratch");
+        }
+
+        if(Input.GetButton("Y_P1"))
+        {
+            EventManager.instance.TriggerEvent("ratBite");
+        }
+
+        if (Input.GetButtonDown("X_P2"))
+        {
+            EventManager.instance.TriggerEvent("spiderScratch");
+        }
+
+        if (Input.GetButton("Y_P2"))
+        {
+            EventManager.instance.TriggerEvent("spiderBite");
+        }
+
+        if (Input.GetButtonDown("X_P3"))
+        {
+            EventManager.instance.TriggerEvent("frogScratch");
+        }
+
+        if (Input.GetButton("Y_P3"))
+        {
+            EventManager.instance.TriggerEvent("frogBite");
+        }
+
+        if (Input.GetButtonDown("X_P4"))
+        {
+            EventManager.instance.TriggerEvent("snakeScratch");
+        }
+
+        if (Input.GetButton("Y_P4"))
+        {
+            EventManager.instance.TriggerEvent("snakeBite");
+        }
+
     }
 
 }

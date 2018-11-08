@@ -14,10 +14,10 @@ public class Rat : MonoBehaviour {
 
     // Attacks
     [SerializeField]
-    GameObject scratch;
+    Transform attackPosition;
 
     [SerializeField]
-    Transform attackPosition;
+    GameObject scratch;
 
     [SerializeField]
     GameObject bite;

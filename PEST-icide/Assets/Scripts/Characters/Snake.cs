@@ -12,9 +12,20 @@ public class Snake : MonoBehaviour {
     private float sn_distToGround;
     Rigidbody sn_rigidBody;
 
+    [SerializeField]
+    Transform attackPosition;
+
+    [SerializeField]
+    GameObject scratch;
+
+    [SerializeField]
+    GameObject bite;
+
     // For events
     private UnityAction snakeMoveEvent;
     private UnityAction snakeJumpEvent;
+    private UnityAction snakeScratch;
+    private UnityAction snakeBite;
 
 	// Use this for initialization
 	void Start ()
@@ -30,12 +41,12 @@ public class Snake : MonoBehaviour {
 
         sn_distToGround = sn_collider.bounds.extents.y;
 
-        
-        
 
         // Enables the listeners for snake-related events
         EventManager.instance.StartListening("snakeMoveEvent", snakeMoveEvent);
         EventManager.instance.StartListening("snakeJumpEvent", snakeJumpEvent);
+        EventManager.instance.StartListening("snakeScratch", snakeScratch);
+        EventManager.instance.StartListening("snakeBite", snakeBite);
 
 	}
 
@@ -50,11 +61,33 @@ public class Snake : MonoBehaviour {
         transform.Translate(sn_movementVector.x, 0, sn_movementVector.z);
     }
 
+    public void OnDisable()
+    {
+        EventManager.instance.StopListening("snakeMoveEvent", snakeMoveEvent);
+        EventManager.instance.StopListening("snakeJumpEvent", snakeJumpEvent);
+        EventManager.instance.StopListening("snakeScratch", snakeScratch);
+        EventManager.instance.StopListening("snakeBite", snakeBite);
+    }
+
     // Jumping for the snake
     private void snakeJump()
     {
         if(IsGrounded())
         sn_rigidBody.AddForce(0.0f, sn_jumpHeight, 0.0f, ForceMode.Impulse);
+    }
+
+    private void scratchAttack()
+    {
+        GameObject tempAttack = Instantiate(scratch, attackPosition.position, attackPosition.rotation);
+        Destroy(tempAttack, 0.20f);
+
+
+    }
+
+    private void biteAttack()
+    {
+        GameObject tempAttack = Instantiate(bite, attackPosition.position, attackPosition.rotation);
+        Destroy(tempAttack, 0.30f);
     }
 
     private bool IsGrounded()
@@ -66,6 +99,8 @@ public class Snake : MonoBehaviour {
     {
         snakeMoveEvent = new UnityAction(snakeMovement);
         snakeJumpEvent = new UnityAction(snakeJump);
+        snakeScratch = new UnityAction(scratchAttack);
+        snakeBite = new UnityAction(biteAttack);
     }
 
     // Setters and getters

@@ -3,6 +3,11 @@ using UnityEngine.Events;
 
 public class BiteAttack : MonoBehaviour {
 
+    private void Start()
+    {
+        gameObject.GetComponent<ParticleSystem>().Play();
+    }
+
     private void OnTriggerEnter(Collider hit)
     {
         if (hit.gameObject.tag == "Player2")
