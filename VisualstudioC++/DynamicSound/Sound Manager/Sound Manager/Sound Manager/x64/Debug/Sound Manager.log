@@ -1,0 +1,7 @@
+﻿  Main.cpp
+c:\users\100615969\documents\visual studio 2017\projects\sound manager\sound manager\main.cpp(17): warning C4091: '': ignored on left of 'FrogAttack' when no variable is declared
+  SoundObs.cpp
+  SoundSub.cpp
+c:\users\100615969\documents\visual studio 2017\projects\sound manager\sound manager\soundsub.cpp(21): error C2660: 'remove': function does not take 3 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h(364): note: see declaration of 'remove'
+  Generating Code...
