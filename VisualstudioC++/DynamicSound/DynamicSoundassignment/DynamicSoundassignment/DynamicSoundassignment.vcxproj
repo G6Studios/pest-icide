@@ -18,6 +18,22 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Audiomanager.h" />
+    <ClInclude Include="FrogAttacks.h" />
+    <ClInclude Include="LibSettings.h" />
+    <ClInclude Include="Sound Manager.h" />
+    <ClInclude Include="SoundObs.h" />
+    <ClInclude Include="SoundSub.h" />
+    <ClInclude Include="Wrapper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Sound Manager.cpp" />
+    <ClCompile Include="SoundObs.cpp" />
+    <ClCompile Include="SoundSub.cpp" />
+    <ClCompile Include="Wrapper.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{536AC82F-C521-4B13-A9F0-8E0E469CA3AF}</ProjectGuid>
@@ -114,14 +130,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Wrapper.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="LibSettings.h" />
-    <ClInclude Include="Wrapper.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
