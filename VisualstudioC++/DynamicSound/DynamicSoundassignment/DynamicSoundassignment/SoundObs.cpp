@@ -11,10 +11,3 @@ SoundSubject * ObserverSounds::getSoundSub()
 	return _SoundSub;
 }
 
-void SoundSubject::notify()
-{
-	for (int i = 0; i < List.size(); i++)
-	{
-		List[i]->Update();
-	}
-}

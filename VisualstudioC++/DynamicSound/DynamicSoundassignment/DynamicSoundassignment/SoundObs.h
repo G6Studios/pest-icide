@@ -5,6 +5,7 @@ class LIB_API ObserverSounds
 {
 	
 public:
+	const char* soundLoaded;
 	SoundSubject *_SoundSub;
 	ObserverSounds(SoundSubject *soundsub);
 	virtual void Update() = 0;
@@ -13,8 +14,8 @@ protected:
 
 
 };
-const char* soundLoaded;
-class  FrogAttack :public ObserverSounds
+
+class LIB_API  FrogAttack :public ObserverSounds
 {
 public:
 
@@ -23,7 +24,7 @@ public:
 		_SoundSub = sound;
 		_SoundSub->attach(this);
 	}
-	void update()
+	void Update()
 	{
 		int pos = getSoundSub()->getPosition();
 		if (pos < 0)

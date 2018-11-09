@@ -1,5 +1,5 @@
 #include "SoundSub.h"
-
+#include "SoundObs.h"
 int SoundSubject::getPosition()
 {
 	return position;
@@ -18,9 +18,20 @@ void SoundSubject::attach(ObserverSounds * obs)
 
 void SoundSubject::detach(ObserverSounds * obs)
 {
-	List.erase(std::remove(List.begin(), List.end(), obs), List.end());
+	for (int i = 0; i < List.size(); i++)
+	{
+		if (List[i] == obs)
+		{
+			List.erase(List.begin() + i);
+			break;
+		}
+	}
 }
 
 void SoundSubject::notify()
 {
+	for (int i = 0; i < List.size(); i++)
+	{
+		List[i]->Update();
+	}
 }
