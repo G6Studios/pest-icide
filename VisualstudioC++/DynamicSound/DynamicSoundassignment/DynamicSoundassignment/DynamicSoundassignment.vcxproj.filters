@@ -27,13 +27,10 @@
     <ClInclude Include="Sound Manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SoundObs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundSub.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Wrapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundStorage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,13 +41,10 @@
     <ClCompile Include="Sound Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SoundObs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundSub.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Wrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundStorage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

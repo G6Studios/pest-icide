@@ -23,15 +23,13 @@
     <ClInclude Include="FrogAttacks.h" />
     <ClInclude Include="LibSettings.h" />
     <ClInclude Include="Sound Manager.h" />
-    <ClInclude Include="SoundObs.h" />
-    <ClInclude Include="SoundSub.h" />
+    <ClInclude Include="SoundStorage.h" />
     <ClInclude Include="Wrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Sound Manager.cpp" />
-    <ClCompile Include="SoundObs.cpp" />
-    <ClCompile Include="SoundSub.cpp" />
+    <ClCompile Include="SoundStorage.cpp" />
     <ClCompile Include="Wrapper.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

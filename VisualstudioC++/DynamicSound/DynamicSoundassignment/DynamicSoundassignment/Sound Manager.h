@@ -23,7 +23,8 @@ public:
 	FMOD::System *system;
 	unsigned int version;
 	void *extradriverdata = 0;
+	FMOD_RESULT result;
 private:
 	bool init;
-	FMOD_RESULT result;
+	
 };
