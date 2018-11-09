@@ -1,12 +1,12 @@
 #include "Wrapper.h"
 #include <vector>
 SoundManager soundmanager;
-SoundSubject soundsubject;
-static std::vector<> vector;
+SoundLoader soundloader;
 
 bool Init()
 {
 	soundmanager.Init();
+	return true; 
 }
 
 void CleanUp()
@@ -14,28 +14,19 @@ void CleanUp()
 	soundmanager.CleanUp();
 }
 
-int getPosition()
+void initializeSound()
 {
-	soundsubject.getPosition();
-}
-void setPosition(int newPos)
-{
-	soundsubject.setPosition(newPos);
+	soundloader.initializeSound();
 }
 
-void attach()
+void loadSound(int key)
 {
-	soundsubject.attach();
+	soundloader.loadSound(key);
 }
 
-void detach()
+void playSound()
 {
-	soundsubject.detach();
-}
-
-void notify()
-{
-	soundsubject.notify();
+	soundloader.playSound();
 }
 
 

@@ -2,8 +2,6 @@
 #include <unordered_map>
 #include <iostream>
 #include "Sound Manager.h"
-#include "SoundObs.h"
-#include "SoundSub.h"
 using namespace std;
 class LIB_API SoundLoader
 {

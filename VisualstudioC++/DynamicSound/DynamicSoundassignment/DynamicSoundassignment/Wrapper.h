@@ -1,8 +1,8 @@
 #pragma once
 #include "LibSettings.h"
 #include "Sound Manager.h"
-#include "SoundObs.h"
-#include "SoundSub.h"
+#include "SoundStorage.h"
+
 
 
 
@@ -13,11 +13,10 @@ extern "C"
 
 	LIB_API bool Init();
 	LIB_API void CleanUp();
-	LIB_API int getPosition();
-	LIB_API void setPosition(int newPos);
-	LIB_API void attach();
-	LIB_API void detach();
-	LIB_API void notify();
+	LIB_API void initializeSound();
+	LIB_API void loadSound(int key);
+	LIB_API void playSound();
+
 }
 #ifdef  _cplusplus
 
