@@ -1,0 +1,5 @@
+﻿  Wrapper.cpp
+c:\users\100584717\documents\github\pest-icide\visualstudioc++\dynamicsound\dynamicsoundassignment\dynamicsoundassignment\wrapper.cpp(28): error C2660: 'SoundSubject::attach': function does not take 0 arguments
+  c:\users\100584717\documents\github\pest-icide\visualstudioc++\dynamicsound\dynamicsoundassignment\dynamicsoundassignment\soundsub.h(13): note: see declaration of 'SoundSubject::attach'
+c:\users\100584717\documents\github\pest-icide\visualstudioc++\dynamicsound\dynamicsoundassignment\dynamicsoundassignment\wrapper.cpp(33): error C2660: 'SoundSubject::detach': function does not take 0 arguments
+  c:\users\100584717\documents\github\pest-icide\visualstudioc++\dynamicsound\dynamicsoundassignment\dynamicsoundassignment\soundsub.h(14): note: see declaration of 'SoundSubject::detach'
