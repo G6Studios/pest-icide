@@ -4,7 +4,19 @@ using UnityEngine;
 
 
 public class ResourceSpawner : MonoBehaviour {
-    public GameObject foodPrefab;
+
+    public GameObject plane;
+
+
+    private void Start()
+    {
+      
+        for (int i = 0; i < 15; i++)
+        {
+            SpawnResources();
+        }
+
+    }
 
     void OnTriggerEnter(Collider coll)
     {
@@ -17,11 +29,23 @@ public class ResourceSpawner : MonoBehaviour {
 
     void SpawnResources()
     {
-        for(int i = 0; i < 4; i++)
-        {
-            Vector3 randomized = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
-            Instantiate(foodPrefab, gameObject.transform.position + randomized, gameObject.transform.rotation);
-        }
+        GameObject obj = ObjectPooler.current.GetPooledObject();
+
+        if (obj == null)
+            return;
+
+        float minX = plane.GetComponent<MeshRenderer>().bounds.min.x;
+        float maxX = plane.GetComponent<MeshRenderer>().bounds.max.x;
+
+        float minZ = plane.GetComponent<MeshRenderer>().bounds.min.z;
+        float maxZ = plane.GetComponent<MeshRenderer>().bounds.max.z;
+
+        Vector3 randomized = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
+        obj.transform.position = randomized;
+        obj.transform.rotation = transform.rotation;
+        obj.SetActive(true);
+        Debug.Log("spawned resource");
+        // Instantiate(foodPrefab, gameObject.transform.position + randomized, gameObject.transform.rotation);
 
     }
 
