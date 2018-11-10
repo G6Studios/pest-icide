@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour {
 
     public static ObjectPooler current;
-    public GameObject pooledObject;
+    public GameObject pooledObject; //gameobject we want pooled
     public int poolSize = 25;
     public bool growPool = true;  //if we want to grow our pool or not if it ends up full
 
@@ -42,9 +42,13 @@ public class ObjectPooler : MonoBehaviour {
         }
         if (growPool) //if we are growing our pool
         {
+            for (int i = 0; i < poolSize / 2; i++)
+            {
             GameObject ourObject = Instantiate(pooledObject);
-            objectPool.Add(ourObject);
-            return ourObject;
+                ourObject.SetActive(false);
+             objectPool.Add(ourObject);
+            }
+            return objectPool[objectPool.Count - 1];
         }
         Debug.Log("No objects in pool available");
         return null;
