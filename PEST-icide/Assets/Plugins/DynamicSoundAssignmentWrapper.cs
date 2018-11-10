@@ -2,9 +2,9 @@
 using UnityEngine;
 using System.Runtime.InteropServices;
 
-public class DynamicSoundAssignmentWrapper : MonoBehaviour {
+public class DynamicSoundassignmentWrapper : MonoBehaviour {
 
-    const string DLL_NAME = "DynamicSoundAssignment";
+    const string DLL_NAME = "DynamicSoundassignment";
 
     [DllImport(DLL_NAME)]
     private static extern bool Init();
@@ -19,12 +19,21 @@ public class DynamicSoundAssignmentWrapper : MonoBehaviour {
     [DllImport(DLL_NAME)]
     private static extern void playSound();
 
-
-    // Update is called once per frame
-    void Update () {
-
+    // Use this for initialization 
+    void Start()
+    {
         initializeSound();
         loadSound(13);
+        print("playingsound");
+        playSound();
+        print("playedsound");
+
+    }
+
+
+        // Update is called once per frame
+    void Update () {
+       // print("playingsound");
         playSound();
     }
 }
