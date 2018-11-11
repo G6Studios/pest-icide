@@ -1,1 +1,43 @@
-﻿  DynamicSoundassignment.vcxproj -> C:\Users\100584717\Documents\GitHub\pest-icide\VisualstudioC++\DynamicSound\DynamicSoundassignment\DynamicSoundassignment\x64\Debug\DynamicSoundassignment.dll
+﻿  Main.cpp
+c:\users\100584717\documents\github\pest-icide\visualstudioc++\dynamicsound\dynamicsoundassignment\dynamicsoundassignment\soundstorage.h(20): warning C4251: 'SoundLoader::soundMap': class 'std::unordered_map<int,const char *,std::hash<int>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' needs to have dll-interface to be used by clients of class 'SoundLoader'
+          with
+          [
+              _Kty=int,
+              _Ty=const char *
+          ]
+  c:\users\100584717\documents\github\pest-icide\visualstudioc++\dynamicsound\dynamicsoundassignment\dynamicsoundassignment\soundstorage.h(20): note: see declaration of 'std::unordered_map<int,const char *,std::hash<int>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>'
+          with
+          [
+              _Kty=int,
+              _Ty=const char *
+          ]
+  Sound Manager.cpp
+  SoundStorage.cpp
+c:\users\100584717\documents\github\pest-icide\visualstudioc++\dynamicsound\dynamicsoundassignment\dynamicsoundassignment\soundstorage.h(20): warning C4251: 'SoundLoader::soundMap': class 'std::unordered_map<int,const char *,std::hash<int>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' needs to have dll-interface to be used by clients of class 'SoundLoader'
+          with
+          [
+              _Kty=int,
+              _Ty=const char *
+          ]
+  c:\users\100584717\documents\github\pest-icide\visualstudioc++\dynamicsound\dynamicsoundassignment\dynamicsoundassignment\soundstorage.h(20): note: see declaration of 'std::unordered_map<int,const char *,std::hash<int>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>'
+          with
+          [
+              _Kty=int,
+              _Ty=const char *
+          ]
+  Wrapper.cpp
+c:\users\100584717\documents\github\pest-icide\visualstudioc++\dynamicsound\dynamicsoundassignment\dynamicsoundassignment\soundstorage.h(20): warning C4251: 'SoundLoader::soundMap': class 'std::unordered_map<int,const char *,std::hash<int>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' needs to have dll-interface to be used by clients of class 'SoundLoader'
+          with
+          [
+              _Kty=int,
+              _Ty=const char *
+          ]
+  c:\users\100584717\documents\github\pest-icide\visualstudioc++\dynamicsound\dynamicsoundassignment\dynamicsoundassignment\soundstorage.h(20): note: see declaration of 'std::unordered_map<int,const char *,std::hash<int>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>'
+          with
+          [
+              _Kty=int,
+              _Ty=const char *
+          ]
+  Generating Code...
+     Creating library C:\Users\100584717\Documents\GitHub\pest-icide\VisualstudioC++\DynamicSound\DynamicSoundassignment\DynamicSoundassignment\x64\Debug\DynamicSoundassignment.lib and object C:\Users\100584717\Documents\GitHub\pest-icide\VisualstudioC++\DynamicSound\DynamicSoundassignment\DynamicSoundassignment\x64\Debug\DynamicSoundassignment.exp
+  DynamicSoundassignment.vcxproj -> C:\Users\100584717\Documents\GitHub\pest-icide\VisualstudioC++\DynamicSound\DynamicSoundassignment\DynamicSoundassignment\x64\Debug\DynamicSoundassignment.dll

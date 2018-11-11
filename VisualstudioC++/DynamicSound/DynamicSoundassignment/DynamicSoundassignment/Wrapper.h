@@ -16,9 +16,7 @@ extern "C"
 	LIB_API void initializeSound();
 	LIB_API void loadSound(int key);
 	LIB_API void playSound();
-
-}
-#ifdef  _cplusplus
-
+#ifdef  __cplusplus
+};
 
 #endif

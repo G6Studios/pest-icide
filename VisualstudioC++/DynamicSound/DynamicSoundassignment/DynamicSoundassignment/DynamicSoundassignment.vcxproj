@@ -37,6 +37,7 @@
     <ProjectGuid>{536AC82F-C521-4B13-A9F0-8E0E469CA3AF}</ProjectGuid>
     <RootNamespace>DynamicSoundassignment</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <TargetFrameworkVersion>2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -101,6 +102,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>DYNAMICSOUNDASSIGNMENT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>lib/fmod_vc.lib;lib/fmod64_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
