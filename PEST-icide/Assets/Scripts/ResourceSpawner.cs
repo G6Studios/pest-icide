@@ -6,6 +6,7 @@ using UnityEngine;
 public class ResourceSpawner : MonoBehaviour {
 
     public GameObject plane;
+    public ObjectPooler ResourcePool;
 
 
     private void Start()
@@ -29,7 +30,7 @@ public class ResourceSpawner : MonoBehaviour {
 
     void SpawnResources()
     {
-        GameObject obj = ObjectPooler.current.GetPooledObject();
+        GameObject obj = ResourcePool.GetPooledObject();
 
         if (obj == null)
             return;

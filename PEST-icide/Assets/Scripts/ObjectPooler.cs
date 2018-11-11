@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour {
 
-    public static ObjectPooler current;
+    //public static ObjectPooler current;
     public GameObject pooledObject; //gameobject we want pooled
     public int poolSize = 25;
     public bool growPool = true;  //if we want to grow our pool or not if it ends up full
@@ -13,7 +13,7 @@ public class ObjectPooler : MonoBehaviour {
 
     private void Awake()
     {
-        current = this;
+        //current = this;
     }
 
     // Use this for initialization
