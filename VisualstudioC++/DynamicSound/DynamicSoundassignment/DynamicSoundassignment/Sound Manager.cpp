@@ -44,6 +44,6 @@ void FmodErrorCheck(FMOD_RESULT result)
 	if (result != FMOD_OK)
 	{
 		cout << "Fmod error: " << FMOD_ErrorString(result) << endl;
-		system("pause");
+		//system("pause"); // for C++ use only
 	}
 }

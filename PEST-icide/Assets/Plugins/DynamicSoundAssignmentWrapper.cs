@@ -22,11 +22,12 @@ public class DynamicSoundassignmentWrapper : MonoBehaviour {
     // Use this for initialization 
     void Start()
     {
+        Init();
         initializeSound();
-        loadSound(13);
-        print("playingsound");
-        playSound();
-        print("playedsound");
+        loadSound(11);
+       // print("playingsound");
+       //playSound();
+       // print("playedsound");
 
     }
 

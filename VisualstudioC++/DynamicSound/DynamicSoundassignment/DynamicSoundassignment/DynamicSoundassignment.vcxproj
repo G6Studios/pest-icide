@@ -22,6 +22,7 @@
     <ClInclude Include="Audiomanager.h" />
     <ClInclude Include="FrogAttacks.h" />
     <ClInclude Include="LibSettings.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="Sound Manager.h" />
     <ClInclude Include="SoundStorage.h" />
     <ClInclude Include="Wrapper.h" />
@@ -37,7 +38,8 @@
     <ProjectGuid>{536AC82F-C521-4B13-A9F0-8E0E469CA3AF}</ProjectGuid>
     <RootNamespace>DynamicSoundassignment</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
-    <TargetFrameworkVersion>2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>
+    </TargetFrameworkVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

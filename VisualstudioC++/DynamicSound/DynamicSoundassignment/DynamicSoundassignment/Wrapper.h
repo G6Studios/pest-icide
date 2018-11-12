@@ -2,6 +2,7 @@
 #include "LibSettings.h"
 #include "Sound Manager.h"
 #include "SoundStorage.h"
+#include <unordered_map>
 
 
 
@@ -16,6 +17,7 @@ extern "C"
 	LIB_API void initializeSound();
 	LIB_API void loadSound(int key);
 	LIB_API void playSound();
+
 #ifdef  __cplusplus
 };
 

@@ -3,6 +3,7 @@
 SoundManager soundmanager;
 SoundLoader soundloader;
 
+
 bool Init()
 {
 	soundmanager.Init();

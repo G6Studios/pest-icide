@@ -11,21 +11,21 @@ void SoundLoader::initializeSound()
 	soundMap[2] = "media/Idle sounds/ribbit.mp3";
 	soundMap[3] = "media/movement/Frog hop.mp3";
 	soundMap[4] = "media/Taunts/ Frog Taunt.mp3";
-	
-	//Mouse sounds
+				   
+	//Mouse sounds 
 	soundMap[11] = "media/Attacks/Mouse_Attack.mp3";
 	soundMap[12] = "media/Attacks/Mouse_2nd Attack.mp3";
 	soundMap[13] = "media/Idle sounds/Squeak.mp3";
 	soundMap[14] = "media/movement/Mouse run.mp3";
 	soundMap[15] = "media/Taunts/Mouse taunt.mp3";
-
+				  
 	// Spider Sounds
 	soundMap[21] = "media/Attacks/Spider thwip.mp3";
 	soundMap[22] = "media/Idle sounds/ Spider click.mp3";
 	soundMap[23] = "media/movement/Spider Walk.mp3";
 	soundMap[24] = "media/Taunts/Spider Taunt.mp3";
-
-	//Snake sounds
+				   
+	//Snake sounds 
 	soundMap[31] = "media/Attacks/ Snake bite.mp3";
 	soundMap[32] = "media/movement/Snake movement.mp3";
 	soundMap[33] = "media/Taunts/Snake Taunt.mp3";
@@ -54,7 +54,7 @@ void SoundLoader::playSound()
 	FmodErrorCheck(result);
 	result = channel->setPaused(false);
 	FmodErrorCheck(result);
-	system("pause");
+	//system("pause"); //only use in C++ LEAVE COMENTED OUT FOR UNITY!!!
 
 	//clean up
 	result = sound->release();

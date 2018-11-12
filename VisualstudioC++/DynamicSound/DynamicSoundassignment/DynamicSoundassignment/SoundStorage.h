@@ -16,8 +16,8 @@ public:
 	FMOD_VECTOR vel;
 	//sound Channel
 	FMOD::Channel *channel = 0;
-
-	unordered_map<int, const char*> soundMap;// creates the map 
+	const char  *soundMap[34];
+	//unordered_map<int, const char*> soundMap;// creates the map 
 	void initializeSound();
 	void loadSound(int key);
 	void playSound();
