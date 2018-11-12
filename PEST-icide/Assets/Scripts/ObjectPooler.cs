@@ -11,13 +11,9 @@ public class ObjectPooler : MonoBehaviour {
 
     List<GameObject> objectPool;
 
-    private void Awake()
-    {
-        //current = this;
-    }
 
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
         objectPool = new List<GameObject>();
         for (int i = 0; i < poolSize; i++)
