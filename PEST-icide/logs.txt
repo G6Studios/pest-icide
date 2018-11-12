@@ -1,0 +1,409 @@
+18:03:07.000 INFO: Playsound Called (000000002D138808) @ 0,0,0 vel: 0,0,0
+18:03:07.016 INFO: Playsound Called (000000002D138B48) @ 0,0,0 vel: 0,0,0
+18:03:07.031 INFO: Playsound Called (000000002D139848) @ 0,0,0 vel: 0,0,0
+18:03:07.047 INFO: Playsound Called (000000002D137B08) @ 0,0,0 vel: 0,0,0
+18:03:07.047 INFO: Playsound Called (000000004089DF88) @ 0,0,0 vel: 0,0,0
+18:03:07.094 INFO: Playsound Called (000000004089E2C8) @ 0,0,0 vel: 0,0,0
+18:03:07.094 INFO: Playsound Called (000000004089E468) @ 0,0,0 vel: 0,0,0
+18:03:07.109 INFO: Playsound Called (000000004089EC88) @ 0,0,0 vel: 0,0,0
+18:03:07.109 INFO: Playsound Called (000000004089EE28) @ 0,0,0 vel: 0,0,0
+18:03:07.125 INFO: Playsound Called (000000004089DC48) @ 0,0,0 vel: 0,0,0
+18:03:07.141 INFO: Playsound Called (000000004089E7A8) @ 0,0,0 vel: 0,0,0
+18:03:07.141 INFO: Playsound Called (000000004089F308) @ 0,0,0 vel: 0,0,0
+18:03:07.156 INFO: Playsound Called (000000004089E128) @ 0,0,0 vel: 0,0,0
+18:03:07.156 INFO: Playsound Called (000000004089EFC8) @ 0,0,0 vel: 0,0,0
+18:03:07.187 INFO: Playsound Called (000000004089E608) @ 0,0,0 vel: 0,0,0
+18:03:08.203 INFO: Playsound Called (000000004089DDE8) @ 0,0,0 vel: 0,0,0
+18:03:08.219 INFO: Playsound Called (000000004089E948) @ 0,0,0 vel: 0,0,0
+18:03:08.109 INFO: Playsound Called (000000004089F168) @ 0,0,0 vel: 0,0,0
+18:03:08.141 INFO: Playsound Called (000000004089EAE8) @ 0,0,0 vel: 0,0,0
+18:03:08.156 INFO: Playsound Called (000000004089F4A8) @ 0,0,0 vel: 0,0,0
+18:03:08.172 INFO: Playsound Called (000000004089D768) @ 0,0,0 vel: 0,0,0
+18:03:08.172 INFO: Playsound Called (000000004089D908) @ 0,0,0 vel: 0,0,0
+18:03:08.187 INFO: Playsound Called (000000004089DAA8) @ 0,0,0 vel: 0,0,0
+18:03:08.203 INFO: Playsound Called (0000000050A88E48) @ 0,0,0 vel: 0,0,0
+18:03:09.891 INFO: Playsound Called (0000000050A88FE8) @ 0,0,0 vel: 0,0,0
+18:03:09.922 INFO: Playsound Called (0000000050A89188) @ 0,0,0 vel: 0,0,0
+18:03:09.953 INFO: Playsound Called (0000000050A8A1C8) @ 0,0,0 vel: 0,0,0
+18:03:09.969 INFO: Playsound Called (0000000050A89668) @ 0,0,0 vel: 0,0,0
+18:03:09.141 INFO: Playsound Called (0000000050A89E88) @ 0,0,0 vel: 0,0,0
+18:03:09.156 INFO: Playsound Called (0000000050A89328) @ 0,0,0 vel: 0,0,0
+18:03:09.172 INFO: Playsound Called (0000000050A8A9E8) @ 0,0,0 vel: 0,0,0
+18:03:10.203 INFO: Playsound Called (0000000050A89B48) @ 0,0,0 vel: 0,0,0
+18:03:10.219 INFO: Playsound Called (0000000050A8A6A8) @ 0,0,0 vel: 0,0,0
+18:03:10.234 INFO: Playsound Called (0000000050A8A508) @ 0,0,0 vel: 0,0,0
+18:03:10.250 INFO: Playsound Called (0000000050A8A368) @ 0,0,0 vel: 0,0,0
+18:03:10.281 INFO: Playsound Called (0000000050A88CA8) @ 0,0,0 vel: 0,0,0
+18:03:10.312 INFO: Playsound Called (0000000050A8A848) @ 0,0,0 vel: 0,0,0
+18:03:10.328 INFO: Playsound Called (0000000050A894C8) @ 0,0,0 vel: 0,0,0
+18:03:10.344 INFO: Playsound Called (0000000050A8A028) @ 0,0,0 vel: 0,0,0
+18:03:10.359 INFO: Playsound Called (0000000050A89808) @ 0,0,0 vel: 0,0,0
+18:03:10.375 INFO: Playsound Called (0000000050A899A8) @ 0,0,0 vel: 0,0,0
+18:03:10.406 INFO: Playsound Called (0000000050A89CE8) @ 0,0,0 vel: 0,0,0
+18:03:10.422 INFO: Playsound Called (0000000050A7A5B8) @ 0,0,0 vel: 0,0,0
+18:03:10.437 INFO: Playsound Called (0000000050A7B2B8) @ 0,0,0 vel: 0,0,0
+18:03:10.453 INFO: Playsound Called (0000000050A7AC38) @ 0,0,0 vel: 0,0,0
+18:03:10.469 INFO: Playsound Called (0000000050A7A418) @ 0,0,0 vel: 0,0,0
+18:03:10.500 INFO: Playsound Called (0000000050A79F38) @ 0,0,0 vel: 0,0,0
+18:03:10.516 INFO: Playsound Called (0000000050A7A0D8) @ 0,0,0 vel: 0,0,0
+18:03:10.531 INFO: Playsound Called (0000000050A7B458) @ 0,0,0 vel: 0,0,0
+18:03:10.547 INFO: Playsound Called (0000000050A7AA98) @ 0,0,0 vel: 0,0,0
+18:03:10.578 INFO: Playsound Called (0000000050A79718) @ 0,0,0 vel: 0,0,0
+18:03:10.609 INFO: Playsound Called (0000000050A7AF78) @ 0,0,0 vel: 0,0,0
+18:03:10.625 INFO: Playsound Called (0000000050A7A758) @ 0,0,0 vel: 0,0,0
+18:03:10.641 INFO: Playsound Called (0000000050A7ADD8) @ 0,0,0 vel: 0,0,0
+18:03:10.656 INFO: Playsound Called (0000000050A79BF8) @ 0,0,0 vel: 0,0,0
+18:03:10.687 INFO: Playsound Called (0000000050A7A8F8) @ 0,0,0 vel: 0,0,0
+18:03:10.703 INFO: Playsound Called (0000000050A7B118) @ 0,0,0 vel: 0,0,0
+18:03:10.719 INFO: Playsound Called (0000000050A7A278) @ 0,0,0 vel: 0,0,0
+18:03:10.734 INFO: Playsound Called (0000000050A798B8) @ 0,0,0 vel: 0,0,0
+18:03:10.750 INFO: Playsound Called (0000000050A79A58) @ 0,0,0 vel: 0,0,0
+18:03:10.781 INFO: Playsound Called (0000000050A79D98) @ 0,0,0 vel: 0,0,0
+18:03:10.797 INFO: Playsound Called (00000000408619B8) @ 0,0,0 vel: 0,0,0
+18:03:10.828 INFO: Playsound Called (0000000040863078) @ 0,0,0 vel: 0,0,0
+18:03:10.844 INFO: Playsound Called (0000000040862518) @ 0,0,0 vel: 0,0,0
+18:03:10.859 INFO: Playsound Called (00000000408621D8) @ 0,0,0 vel: 0,0,0
+18:03:10.891 INFO: Playsound Called (00000000408629F8) @ 0,0,0 vel: 0,0,0
+18:03:10.906 INFO: Playsound Called (0000000040862858) @ 0,0,0 vel: 0,0,0
+18:03:10.922 INFO: Playsound Called (0000000040863218) @ 0,0,0 vel: 0,0,0
+18:03:10.937 INFO: Playsound Called (00000000408633B8) @ 0,0,0 vel: 0,0,0
+18:03:10.953 INFO: Playsound Called (0000000040863558) @ 0,0,0 vel: 0,0,0
+18:03:10.984 INFO: Playsound Called (00000000408636F8) @ 0,0,0 vel: 0,0,0
+18:03:10.000 INFO: Playsound Called (0000000040862B98) @ 0,0,0 vel: 0,0,0
+18:03:10.016 INFO: Playsound Called (0000000040862ED8) @ 0,0,0 vel: 0,0,0
+18:03:10.031 INFO: Playsound Called (00000000408626B8) @ 0,0,0 vel: 0,0,0
+18:03:10.047 INFO: Playsound Called (0000000040862D38) @ 0,0,0 vel: 0,0,0
+18:03:10.078 INFO: Playsound Called (0000000040861B58) @ 0,0,0 vel: 0,0,0
+18:03:10.109 INFO: Playsound Called (0000000040861CF8) @ 0,0,0 vel: 0,0,0
+18:03:10.125 INFO: Playsound Called (0000000040861E98) @ 0,0,0 vel: 0,0,0
+18:03:10.141 INFO: Playsound Called (0000000040862038) @ 0,0,0 vel: 0,0,0
+18:03:10.156 INFO: Playsound Called (0000000040862378) @ 0,0,0 vel: 0,0,0
+18:03:10.187 INFO: Playsound Called (0000000050C4D4C8) @ 0,0,0 vel: 0,0,0
+18:03:11.203 INFO: Playsound Called (0000000050C4D668) @ 0,0,0 vel: 0,0,0
+18:03:11.219 INFO: Playsound Called (0000000050C4F208) @ 0,0,0 vel: 0,0,0
+18:03:11.234 INFO: Playsound Called (0000000050C4E508) @ 0,0,0 vel: 0,0,0
+18:03:11.250 INFO: Playsound Called (0000000050C4D808) @ 0,0,0 vel: 0,0,0
+18:03:11.281 INFO: Playsound Called (0000000050C4F068) @ 0,0,0 vel: 0,0,0
+18:03:11.297 INFO: Playsound Called (0000000050C4E9E8) @ 0,0,0 vel: 0,0,0
+18:03:11.312 INFO: Playsound Called (0000000050C4D9A8) @ 0,0,0 vel: 0,0,0
+18:03:11.328 INFO: Playsound Called (0000000050C4EB88) @ 0,0,0 vel: 0,0,0
+18:03:11.359 INFO: Playsound Called (0000000050C4DE88) @ 0,0,0 vel: 0,0,0
+18:03:11.391 INFO: Playsound Called (0000000050C4ED28) @ 0,0,0 vel: 0,0,0
+18:03:11.406 INFO: Playsound Called (0000000050C4DB48) @ 0,0,0 vel: 0,0,0
+18:03:11.422 INFO: Playsound Called (0000000050C4EEC8) @ 0,0,0 vel: 0,0,0
+18:03:11.437 INFO: Playsound Called (0000000050C4DCE8) @ 0,0,0 vel: 0,0,0
+18:03:11.469 INFO: Playsound Called (0000000050C4E1C8) @ 0,0,0 vel: 0,0,0
+18:03:11.484 INFO: Playsound Called (0000000050C4E368) @ 0,0,0 vel: 0,0,0
+18:03:11.500 INFO: Playsound Called (0000000050C4E028) @ 0,0,0 vel: 0,0,0
+18:03:11.516 INFO: Playsound Called (0000000050C4E6A8) @ 0,0,0 vel: 0,0,0
+18:03:11.531 INFO: Playsound Called (0000000050C4E848) @ 0,0,0 vel: 0,0,0
+18:03:11.562 INFO: Playsound Called (00000000511A7ED8) @ 0,0,0 vel: 0,0,0
+18:03:11.578 INFO: Playsound Called (00000000511A83B8) @ 0,0,0 vel: 0,0,0
+18:03:11.594 INFO: Playsound Called (00000000511A7038) @ 0,0,0 vel: 0,0,0
+18:03:11.609 INFO: Playsound Called (00000000511A8558) @ 0,0,0 vel: 0,0,0
+18:03:11.641 INFO: Playsound Called (00000000511A8078) @ 0,0,0 vel: 0,0,0
+18:03:11.672 INFO: Playsound Called (00000000511A8218) @ 0,0,0 vel: 0,0,0
+18:03:11.687 INFO: Playsound Called (00000000511A86F8) @ 0,0,0 vel: 0,0,0
+18:03:11.703 INFO: Playsound Called (00000000511A8898) @ 0,0,0 vel: 0,0,0
+18:03:11.719 INFO: Playsound Called (00000000511A8A38) @ 0,0,0 vel: 0,0,0
+18:03:11.734 INFO: Playsound Called (00000000511A7378) @ 0,0,0 vel: 0,0,0
+18:03:11.766 INFO: Playsound Called (00000000511A71D8) @ 0,0,0 vel: 0,0,0
+18:03:11.781 INFO: Playsound Called (00000000511A8BD8) @ 0,0,0 vel: 0,0,0
+18:03:11.797 INFO: Playsound Called (00000000511A6E98) @ 0,0,0 vel: 0,0,0
+18:03:11.812 INFO: Playsound Called (00000000511A7D38) @ 0,0,0 vel: 0,0,0
+18:03:11.844 INFO: Playsound Called (00000000511A7518) @ 0,0,0 vel: 0,0,0
+18:03:11.859 INFO: Playsound Called (00000000511A76B8) @ 0,0,0 vel: 0,0,0
+18:03:11.875 INFO: Playsound Called (00000000511A7858) @ 0,0,0 vel: 0,0,0
+18:03:11.891 INFO: Playsound Called (00000000511A79F8) @ 0,0,0 vel: 0,0,0
+18:03:11.906 INFO: Playsound Called (00000000511A7B98) @ 0,0,0 vel: 0,0,0
+18:03:11.953 INFO: Playsound Called (0000000051348B18) @ 0,0,0 vel: 0,0,0
+18:03:11.969 INFO: Playsound Called (000000005134A1D8) @ 0,0,0 vel: 0,0,0
+18:03:11.984 INFO: Playsound Called (0000000051348CB8) @ 0,0,0 vel: 0,0,0
+18:03:11.000 INFO: Playsound Called (0000000051348E58) @ 0,0,0 vel: 0,0,0
+18:03:11.016 INFO: Playsound Called (00000000513482F8) @ 0,0,0 vel: 0,0,0
+18:03:11.047 INFO: Playsound Called (000000005134A378) @ 0,0,0 vel: 0,0,0
+18:03:11.062 INFO: Playsound Called (00000000513487D8) @ 0,0,0 vel: 0,0,0
+18:03:11.078 INFO: Playsound Called (000000005134A518) @ 0,0,0 vel: 0,0,0
+18:03:11.094 INFO: Playsound Called (0000000051348FF8) @ 0,0,0 vel: 0,0,0
+18:03:11.109 INFO: Playsound Called (0000000051349198) @ 0,0,0 vel: 0,0,0
+18:03:11.141 INFO: Playsound Called (0000000051349338) @ 0,0,0 vel: 0,0,0
+18:03:11.156 INFO: Playsound Called (0000000051347938) @ 0,0,0 vel: 0,0,0
+18:03:11.172 INFO: Playsound Called (0000000051347798) @ 0,0,0 vel: 0,0,0
+18:03:12.391 INFO: Playsound Called (0000000051346A98) @ 0,0,0 vel: 0,0,0
+18:03:12.422 INFO: Playsound Called (0000000051346758) @ 0,0,0 vel: 0,0,0
+18:03:12.437 INFO: Playsound Called (0000000051346F78) @ 0,0,0 vel: 0,0,0
+18:03:12.453 INFO: Playsound Called (00000000513494D8) @ 0,0,0 vel: 0,0,0
+18:03:12.469 INFO: Playsound Called (0000000051348498) @ 0,0,0 vel: 0,0,0
+18:03:12.500 INFO: Playsound Called (0000000051349678) @ 0,0,0 vel: 0,0,0
+18:03:12.641 INFO: Playsound Called (0000000051348638) @ 0,0,0 vel: 0,0,0
+18:03:12.656 INFO: Playsound Called (0000000051349818) @ 0,0,0 vel: 0,0,0
+18:03:12.672 INFO: Playsound Called (0000000051346C38) @ 0,0,0 vel: 0,0,0
+18:03:12.687 INFO: Playsound Called (00000000513499B8) @ 0,0,0 vel: 0,0,0
+18:03:12.719 INFO: Playsound Called (0000000051347118) @ 0,0,0 vel: 0,0,0
+18:03:12.734 INFO: Playsound Called (0000000051349B58) @ 0,0,0 vel: 0,0,0
+18:03:12.766 INFO: Playsound Called (0000000051349CF8) @ 0,0,0 vel: 0,0,0
+18:03:12.781 INFO: Playsound Called (0000000051347458) @ 0,0,0 vel: 0,0,0
+18:03:12.109 INFO: Playsound Called (0000000051349E98) @ 0,0,0 vel: 0,0,0
+18:03:12.125 INFO: Playsound Called (0000000051348978) @ 0,0,0 vel: 0,0,0
+18:03:12.141 INFO: Playsound Called (000000005134A038) @ 0,0,0 vel: 0,0,0
+18:03:12.156 INFO: Playsound Called (00000000513472B8) @ 0,0,0 vel: 0,0,0
+18:03:12.172 INFO: Playsound Called (00000000513475F8) @ 0,0,0 vel: 0,0,0
+18:03:13.203 INFO: Playsound Called (0000000051347AD8) @ 0,0,0 vel: 0,0,0
+18:03:13.219 INFO: Playsound Called (00000000513468F8) @ 0,0,0 vel: 0,0,0
+18:03:13.234 INFO: Playsound Called (0000000051346DD8) @ 0,0,0 vel: 0,0,0
+18:03:13.250 INFO: Playsound Called (0000000051348158) @ 0,0,0 vel: 0,0,0
+18:03:13.266 INFO: Playsound Called (0000000051347C78) @ 0,0,0 vel: 0,0,0
+18:03:13.312 INFO: Playsound Called (0000000051347E18) @ 0,0,0 vel: 0,0,0
+18:03:13.328 INFO: Playsound Called (0000000051347FB8) @ 0,0,0 vel: 0,0,0
+18:03:13.344 INFO: Playsound Called (00000000516BA1E8) @ 0,0,0 vel: 0,0,0
+18:03:13.359 INFO: Playsound Called (00000000516BC268) @ 0,0,0 vel: 0,0,0
+18:03:13.375 INFO: Playsound Called (00000000516BAEE8) @ 0,0,0 vel: 0,0,0
+18:03:13.406 INFO: Playsound Called (00000000516BB708) @ 0,0,0 vel: 0,0,0
+18:03:13.422 INFO: Playsound Called (00000000516BC408) @ 0,0,0 vel: 0,0,0
+18:03:13.437 INFO: Playsound Called (00000000516BABA8) @ 0,0,0 vel: 0,0,0
+18:03:13.453 INFO: Playsound Called (00000000516BBD88) @ 0,0,0 vel: 0,0,0
+18:03:13.484 INFO: Playsound Called (00000000516BC5A8) @ 0,0,0 vel: 0,0,0
+18:03:13.500 INFO: Playsound Called (00000000516B94E8) @ 0,0,0 vel: 0,0,0
+18:03:13.516 INFO: Playsound Called (00000000516BA6C8) @ 0,0,0 vel: 0,0,0
+18:03:13.531 INFO: Playsound Called (00000000516BBF28) @ 0,0,0 vel: 0,0,0
+18:03:13.641 INFO: Playsound Called (00000000516BBBE8) @ 0,0,0 vel: 0,0,0
+18:03:13.641 INFO: Playsound Called (00000000516BC0C8) @ 0,0,0 vel: 0,0,0
+18:03:13.641 INFO: Playsound Called (00000000516BB3C8) @ 0,0,0 vel: 0,0,0
+18:03:13.641 INFO: Playsound Called (00000000516BA388) @ 0,0,0 vel: 0,0,0
+18:03:13.641 INFO: Playsound Called (00000000516B9008) @ 0,0,0 vel: 0,0,0
+18:03:13.641 INFO: Playsound Called (00000000516BB088) @ 0,0,0 vel: 0,0,0
+18:03:13.641 INFO: Playsound Called (00000000516BC748) @ 0,0,0 vel: 0,0,0
+18:03:13.641 INFO: Playsound Called (00000000516BC8E8) @ 0,0,0 vel: 0,0,0
+18:03:13.641 INFO: Playsound Called (00000000516BA528) @ 0,0,0 vel: 0,0,0
+18:03:13.641 INFO: Playsound Called (00000000516B9B68) @ 0,0,0 vel: 0,0,0
+18:03:13.656 INFO: Playsound Called (00000000516BAD48) @ 0,0,0 vel: 0,0,0
+18:03:13.000 INFO: FMOD failure: File not found.
+18:03:13.000 INFO: FMOD failure: An invalid object handle was used.
+18:03:13.000 INFO: FMOD failure: An invalid object handle was used.
+18:03:13.000 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:13.000 INFO: FMOD failure: An invalid object handle was used.
+18:03:13.000 INFO: FMOD failure: An invalid object handle was used.
+18:03:13.000 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:13.000 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.437 INFO: FMOD failure: File not found.
+18:03:14.437 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.437 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.437 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:14.437 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.437 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.437 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:14.437 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.016 INFO: FMOD failure: File not found.
+18:03:14.016 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.016 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.016 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:14.016 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.016 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.016 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:14.016 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.094 INFO: FMOD failure: File not found.
+18:03:14.094 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.094 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.094 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:14.094 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.094 INFO: FMOD failure: An invalid object handle was used.
+18:03:14.094 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:14.094 INFO: FMOD failure: An invalid object handle was used.
+18:03:15.312 INFO: FMOD failure: File not found.
+18:03:15.312 INFO: FMOD failure: An invalid object handle was used.
+18:03:15.312 INFO: FMOD failure: An invalid object handle was used.
+18:03:15.312 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:15.312 INFO: FMOD failure: An invalid object handle was used.
+18:03:15.312 INFO: FMOD failure: An invalid object handle was used.
+18:03:15.312 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:15.312 INFO: FMOD failure: An invalid object handle was used.
+18:03:15.766 INFO: FMOD failure: File not found.
+18:03:15.766 INFO: FMOD failure: An invalid object handle was used.
+18:03:15.766 INFO: FMOD failure: An invalid object handle was used.
+18:03:15.766 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:15.766 INFO: FMOD failure: An invalid object handle was used.
+18:03:15.766 INFO: FMOD failure: An invalid object handle was used.
+18:03:15.766 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:15.766 INFO: FMOD failure: An invalid object handle was used.
+18:03:16.422 INFO: Playsound Called (00000000516BCA88) @ 0,0,0 vel: 0,0,0
+18:03:16.437 INFO: Playsound Called (00000000516BB568) @ 0,0,0 vel: 0,0,0
+18:03:16.453 INFO: Playsound Called (00000000516BCC28) @ 0,0,0 vel: 0,0,0
+18:03:16.453 INFO: Playsound Called (00000000516BB228) @ 0,0,0 vel: 0,0,0
+18:03:16.469 INFO: Playsound Called (00000000516BA048) @ 0,0,0 vel: 0,0,0
+18:03:16.469 INFO: Playsound Called (00000000516BCDC8) @ 0,0,0 vel: 0,0,0
+18:03:16.500 INFO: Playsound Called (00000000516B9348) @ 0,0,0 vel: 0,0,0
+18:03:16.516 INFO: Playsound Called (00000000516B9688) @ 0,0,0 vel: 0,0,0
+18:03:16.531 INFO: Playsound Called (00000000516BB8A8) @ 0,0,0 vel: 0,0,0
+18:03:16.547 INFO: Playsound Called (00000000516BA868) @ 0,0,0 vel: 0,0,0
+18:03:16.562 INFO: Playsound Called (00000000516B91A8) @ 0,0,0 vel: 0,0,0
+18:03:16.578 INFO: Playsound Called (00000000516B9828) @ 0,0,0 vel: 0,0,0
+18:03:16.609 INFO: Playsound Called (00000000516BBA48) @ 0,0,0 vel: 0,0,0
+18:03:16.625 INFO: Playsound Called (00000000516B99C8) @ 0,0,0 vel: 0,0,0
+18:03:16.641 INFO: Playsound Called (00000000516B9D08) @ 0,0,0 vel: 0,0,0
+18:03:16.656 INFO: Playsound Called (00000000516B9EA8) @ 0,0,0 vel: 0,0,0
+18:03:16.672 INFO: Playsound Called (00000000516BAA08) @ 0,0,0 vel: 0,0,0
+18:03:16.703 INFO: Playsound Called (000000003EA1EA78) @ 0,0,0 vel: 0,0,0
+18:03:16.719 INFO: Playsound Called (000000003EA1DA38) @ 0,0,0 vel: 0,0,0
+18:03:16.734 INFO: Playsound Called (000000003EA1D6F8) @ 0,0,0 vel: 0,0,0
+18:03:16.750 INFO: Playsound Called (000000003EA1D898) @ 0,0,0 vel: 0,0,0
+18:03:16.766 INFO: Playsound Called (000000003EA1F5D8) @ 0,0,0 vel: 0,0,0
+18:03:16.812 INFO: Playsound Called (000000003EA1E738) @ 0,0,0 vel: 0,0,0
+18:03:16.828 INFO: Playsound Called (000000003EA1F778) @ 0,0,0 vel: 0,0,0
+18:03:16.844 INFO: Playsound Called (000000003EA1FF98) @ 0,0,0 vel: 0,0,0
+18:03:17.016 INFO: Playsound Called (000000003EA1FDF8) @ 0,0,0 vel: 0,0,0
+18:03:17.016 INFO: Playsound Called (000000003EA1F298) @ 0,0,0 vel: 0,0,0
+18:03:17.016 INFO: Playsound Called (000000003EA21178) @ 0,0,0 vel: 0,0,0
+18:03:17.016 INFO: Playsound Called (000000003EA20138) @ 0,0,0 vel: 0,0,0
+18:03:17.016 INFO: Playsound Called (000000003EA1F0F8) @ 0,0,0 vel: 0,0,0
+18:03:18.141 INFO: FMOD failure: File not found.
+18:03:18.141 INFO: FMOD failure: An invalid object handle was used.
+18:03:18.141 INFO: FMOD failure: An invalid object handle was used.
+18:03:18.141 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:18.141 INFO: FMOD failure: An invalid object handle was used.
+18:03:18.141 INFO: FMOD failure: An invalid object handle was used.
+18:03:18.141 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:18.141 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.359 INFO: FMOD failure: File not found.
+18:03:19.359 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.359 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.359 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:19.359 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.359 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.359 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:19.359 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.531 INFO: FMOD failure: File not found.
+18:03:19.531 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.531 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.531 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:19.531 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.531 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.531 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:19.531 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.750 INFO: FMOD failure: File not found.
+18:03:19.750 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.750 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.750 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:19.750 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.750 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.750 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:19.750 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.969 INFO: FMOD failure: File not found.
+18:03:19.969 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.969 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.969 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:19.969 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.969 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.969 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:19.969 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.187 INFO: FMOD failure: File not found.
+18:03:19.187 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.187 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.187 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:19.187 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.187 INFO: FMOD failure: An invalid object handle was used.
+18:03:19.187 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:19.187 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.422 INFO: FMOD failure: File not found.
+18:03:20.422 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.422 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.422 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:20.422 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.422 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.422 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:20.422 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.625 INFO: FMOD failure: File not found.
+18:03:20.625 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.625 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.625 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:20.625 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.625 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.625 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:20.625 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.828 INFO: FMOD failure: File not found.
+18:03:20.828 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.828 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.828 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:20.828 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.828 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.828 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:20.828 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.062 INFO: FMOD failure: File not found.
+18:03:20.062 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.062 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.062 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:20.062 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.062 INFO: FMOD failure: An invalid object handle was used.
+18:03:20.062 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:20.062 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.281 INFO: FMOD failure: File not found.
+18:03:21.281 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.281 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.281 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:21.281 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.281 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.281 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:21.281 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.500 INFO: FMOD failure: File not found.
+18:03:21.500 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.500 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.500 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:21.500 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.500 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.500 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:21.500 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.703 INFO: FMOD failure: File not found.
+18:03:21.703 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.703 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.703 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:21.703 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.703 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.703 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:21.703 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.922 INFO: FMOD failure: File not found.
+18:03:21.922 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.922 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.922 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:21.922 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.922 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.922 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:21.922 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.156 INFO: FMOD failure: File not found.
+18:03:21.156 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.156 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.156 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:21.156 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.156 INFO: FMOD failure: An invalid object handle was used.
+18:03:21.156 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:21.156 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.375 INFO: FMOD failure: File not found.
+18:03:22.375 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.375 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.375 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:22.375 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.375 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.375 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:22.375 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.578 INFO: FMOD failure: File not found.
+18:03:22.578 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.578 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.594 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:22.594 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.594 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.594 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:22.594 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.781 INFO: FMOD failure: File not found.
+18:03:22.781 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.781 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.781 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:22.781 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.781 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.781 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:22.781 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.984 INFO: FMOD failure: File not found.
+18:03:22.984 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.984 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.984 INFO: FMOD failure: An invalid parameter was passed to this function.
+18:03:22.984 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.984 INFO: FMOD failure: An invalid object handle was used.
+18:03:22.984 INFO: Playsound Called (0000000000000000) @ 0,0,0 vel: 0,0,0
+18:03:22.984 INFO: FMOD failure: An invalid object handle was used.
