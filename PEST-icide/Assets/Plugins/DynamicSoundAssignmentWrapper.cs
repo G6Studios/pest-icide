@@ -14,13 +14,13 @@ public class DynamicSoundassignmentWrapper : MonoBehaviour {
     [DllImport(DLL_NAME)]
     private static extern void initializeSound();
     [DllImport(DLL_NAME)]
-    private static extern void loadSound(int key);
+    public static extern void loadSound(int key);
 
     [DllImport(DLL_NAME)]
-    private static extern void playSound();
+    public static extern void playSound();
 
     [DllImport(DLL_NAME)]
-    private static extern void destroySound();
+    public static extern void destroySound();
 
     // Use this for initialization 
     void Start()
