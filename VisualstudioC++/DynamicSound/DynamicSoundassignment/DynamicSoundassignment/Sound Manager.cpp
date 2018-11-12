@@ -1,4 +1,5 @@
 #include "Sound Manager.h"
+#include "Logger.h"
 
 SoundManager::SoundManager()
 {
@@ -44,6 +45,7 @@ void FmodErrorCheck(FMOD_RESULT result)
 	if (result != FMOD_OK)
 	{
 		cout << "Fmod error: " << FMOD_ErrorString(result) << endl;
+		FILE_LOG(logINFO) << "FMOD failure: " << FMOD_ErrorString(result);
 		//system("pause"); // for C++ use only
 	}
 }

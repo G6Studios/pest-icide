@@ -1,7 +1,10 @@
 #include "SoundStorage.h"
+#include "Logger.h"
 
 void SoundLoader::initializeSound()
 {
+	Output2FILE::Stream() = _fsopen("logs.txt", "w", SH_DENYNO);
+
 	manage.Init();
 
 	 
@@ -54,9 +57,16 @@ void SoundLoader::playSound()
 	FmodErrorCheck(result);
 	result = channel->setPaused(false);
 	FmodErrorCheck(result);
+	FILE_LOG(logINFO) << "Playsound Called (" << sound << ") @ " << 
+		pos.x << "," << pos.y << "," << pos.z << " vel: " <<
+		vel.x << "," << vel.y << "," << vel.z;;
 	//system("pause"); //only use in C++ LEAVE COMENTED OUT FOR UNITY!!!
 
 	//clean up
-	result = sound->release();
 	FmodErrorCheck(result);
+}
+
+void SoundLoader::destroySound()
+{
+	result = sound->release();
 }

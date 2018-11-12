@@ -21,5 +21,6 @@ public:
 	void initializeSound();
 	void loadSound(int key);
 	void playSound();
+	void destroySound();
 
 };

@@ -19,15 +19,19 @@ public class DynamicSoundassignmentWrapper : MonoBehaviour {
     [DllImport(DLL_NAME)]
     private static extern void playSound();
 
+    [DllImport(DLL_NAME)]
+    private static extern void destroySound();
+
     // Use this for initialization 
     void Start()
     {
         Init();
         initializeSound();
         loadSound(11);
-       // print("playingsound");
-       //playSound();
-       // print("playedsound");
+        // print("playingsound");
+        playSound();
+        // print("playedsound");
+        destroySound();
 
     }
 
@@ -35,6 +39,6 @@ public class DynamicSoundassignmentWrapper : MonoBehaviour {
         // Update is called once per frame
     void Update () {
        // print("playingsound");
-        playSound();
+       // playSound();
     }
 }

@@ -30,5 +30,9 @@ void playSound()
 	soundloader.playSound();
 }
 
+void destroySound()
+{
+	soundloader.destroySound();
+}
 
 
