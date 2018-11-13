@@ -1,0 +1,50 @@
+TimeRemaining
+Time Remaining:
+-19
+230
+0
+0
+0
+0
+255
+24
+Player1Food
+Rat Food:
+-382
+229
+0
+255
+0
+0
+255
+24
+Player2Food
+Spider Food:
+-382
+196
+0
+0
+0
+255
+255
+24
+Player3Food
+Frog Food:
+-382
+164
+0
+0
+255
+0
+255
+24
+Player4Food
+Snake Food:
+-382
+132
+0
+255
+255
+0
+255
+24
