@@ -1,6 +1,7 @@
-﻿  Main.cpp
+﻿  Sound Manager.cpp
   SoundStorage.cpp
   Wrapper.cpp
   Generating Code...
+  LINK : C:\Users\100584717\Documents\GitHub\pest-icide\VisualstudioC++\DynamicSound\DynamicSoundassignment\DynamicSoundassignment\x64\Debug\DynamicSoundassignment.dll not found or not built by the last incremental link; performing full link
      Creating library C:\Users\100584717\Documents\GitHub\pest-icide\VisualstudioC++\DynamicSound\DynamicSoundassignment\DynamicSoundassignment\x64\Debug\DynamicSoundassignment.lib and object C:\Users\100584717\Documents\GitHub\pest-icide\VisualstudioC++\DynamicSound\DynamicSoundassignment\DynamicSoundassignment\x64\Debug\DynamicSoundassignment.exp
   DynamicSoundassignment.vcxproj -> C:\Users\100584717\Documents\GitHub\pest-icide\VisualstudioC++\DynamicSound\DynamicSoundassignment\DynamicSoundassignment\x64\Debug\DynamicSoundassignment.dll
