@@ -5,11 +5,16 @@ public class BiteAttack : MonoBehaviour {
 
     private void Start()
     {
+    
         gameObject.GetComponent<ParticleSystem>().Play();
     }
 
     private void OnTriggerEnter(Collider hit)
     {
+        DynamicSoundAssignmentWrapper.loadSound(11);
+        DynamicSoundAssignmentWrapper.playSound();
+        Invoke("soundDestroy", 4);
+
         if (hit.gameObject.tag == "Player2")
         {
             Debug.Log("Player2 hit!");
@@ -23,5 +28,13 @@ public class BiteAttack : MonoBehaviour {
             Debug.Log("Player4 hit!");
         }
 
+      
+        //DynamicSoundAssignmentWrapper.destroySound();
+    }
+
+    private void soundDestroy()
+    {
+
+        DynamicSoundAssignmentWrapper.destroySound();
     }
 }

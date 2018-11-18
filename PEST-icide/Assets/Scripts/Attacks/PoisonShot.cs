@@ -13,7 +13,10 @@ public class PoisonShot : MonoBehaviour {
 	void Update () {
 		if(Input.GetButtonDown("B_P1"))
         {
+            DynamicSoundAssignmentWrapper.loadSound(31);
             FirePoison();
+            DynamicSoundAssignmentWrapper.playSound();
+            Invoke("soundDestroy", 4);
         }
 	}
 
@@ -22,6 +25,11 @@ public class PoisonShot : MonoBehaviour {
         var poisonInstance = Instantiate(prefab, firePoint.position, firePoint.rotation);
 
         poisonInstance.AddForce(firePoint.forward * 700.0f);
+    }
+
+    private void soundDestroy()
+    {
+        DynamicSoundAssignmentWrapper.destroySound();
     }
 
 }

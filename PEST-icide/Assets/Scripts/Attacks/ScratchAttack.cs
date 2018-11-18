@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using System.Runtime.InteropServices;
 
 public class ScratchAttack : MonoBehaviour {
+
 
     private void Start()
     {
@@ -10,6 +12,8 @@ public class ScratchAttack : MonoBehaviour {
 
     private void OnTriggerEnter(Collider hit)
     {
+        DynamicSoundAssignmentWrapper.loadSound(12);
+        DynamicSoundAssignmentWrapper.playSound();
         if(hit.gameObject.tag == "Player2")
         {
             Debug.Log("Player2 hit!");
@@ -22,6 +26,7 @@ public class ScratchAttack : MonoBehaviour {
         {
             Debug.Log("Player4 hit!");
         }
+        DynamicSoundAssignmentWrapper.destroySound();
 
     }
 
