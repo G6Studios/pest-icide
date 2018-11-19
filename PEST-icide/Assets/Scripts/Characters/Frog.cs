@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class Frog : MonoBehaviour {
     // Data members
@@ -7,10 +6,13 @@ public class Frog : MonoBehaviour {
     private float f_speed;
     private float f_jumpHeight;
     private float f_jumpLength;
+    private float f_invuln;
     private Vector3 f_movementVector;
     Collider f_collider;
     private float f_distToGround;
     Rigidbody f_rigidBody;
+
+    public static Frog instance;
 
     [SerializeField]
     Transform attackPosition;
@@ -20,12 +22,6 @@ public class Frog : MonoBehaviour {
 
     [SerializeField]
     GameObject bite;
-
-    // For events
-    private UnityAction frogMoveEvent;
-    private UnityAction frogJumpEvent;
-    private UnityAction frogScratch;
-    private UnityAction frogBite;
 
 	// Use this for initialization
 	void Start () {
@@ -37,21 +33,7 @@ public class Frog : MonoBehaviour {
         // Components
         f_rigidBody = gameObject.GetComponent<Rigidbody>();
 
-        // Enables the listeners for frog-related events
-        EventManager.instance.StartListening("frogMoveEvent", frogMoveEvent);
-        EventManager.instance.StartListening("frogJumpEvent", frogJumpEvent);
-        EventManager.instance.StartListening("frogScratch", frogScratch);
-        EventManager.instance.StartListening("frogBite", frogBite);
-
 	}
-
-    public void OnDisable()
-    {
-        EventManager.instance.StopListening("frogMoveEvent", frogMoveEvent);
-        EventManager.instance.StopListening("frogJumpEvent", frogJumpEvent);
-        EventManager.instance.StopListening("frogScratch", frogScratch);
-        EventManager.instance.StopListening("frogBite", frogBite);
-    }
 
     // Movement for the frog
     private void frogMovement()
@@ -84,17 +66,46 @@ public class Frog : MonoBehaviour {
         Destroy(tempAttack, 0.30f);
     }
 
+    private void takeDamage(float dmg)
+    {
+        if(Invulnerable <= 0.0f)
+        {
+            Resources -= dmg;
+            Invulnerable += 3.0f;
+        }
+    }
+
+    private void Update()
+    {
+        if(Invulnerable > 0.0f)
+        {
+            Invulnerable -= Time.deltaTime;
+        }
+    }
+
     private bool IsGrounded()
     {
         return Physics.Raycast(transform.position, -Vector3.up, f_distToGround + 0.1f);
     }
 
+    // Awake() runs before any Start() calls
+    // Enforces the singleton pattern
     private void Awake()
     {
-        frogMoveEvent = new UnityAction(frogMovement);
-        frogJumpEvent = new UnityAction(frogJump);
-        frogScratch = new UnityAction(scratchAttack);
-        frogBite = new UnityAction(biteAttack);
+        // Check if instance exists
+        if (instance == null)
+        {
+            // If not, set the game manager to this
+            instance = this;
+        }
+
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        // Ensures that this persists between scenes
+        DontDestroyOnLoad(gameObject);
     }
 
 
@@ -122,6 +133,12 @@ public class Frog : MonoBehaviour {
     {
         get { return f_jumpLength; }
         set { f_jumpLength = value; }
+    }
+
+    public float Invulnerable
+    {
+        get { return f_invuln; }
+        set { f_invuln = value; }
     }
 	
 

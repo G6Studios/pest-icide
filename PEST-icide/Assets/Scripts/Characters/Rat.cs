@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class Rat : MonoBehaviour {
     // Data members
@@ -7,10 +6,13 @@ public class Rat : MonoBehaviour {
     private float r_speed;
     private float r_jumpHeight;
     private float r_jumpLength;
+    private float r_invuln;
     private Vector3 r_movementVector;
     Collider r_collider;
     private float r_distToGround;
     Rigidbody r_rigidBody;
+
+    public static Rat instance;
 
     // Attacks
     [SerializeField]
@@ -22,12 +24,6 @@ public class Rat : MonoBehaviour {
     [SerializeField]
     GameObject bite;
 
-    // For events
-    private UnityAction ratMoveEvent;
-    private UnityAction ratJumpEvent;
-    private UnityAction ratScratch;
-    private UnityAction ratBite;
-
     // Use this for initialization
     void Start ()
     {
@@ -36,6 +32,7 @@ public class Rat : MonoBehaviour {
         Speed = 7.0f;
         JumpHeight = 5.0f;
         JumpLength = 1.0f;
+        Invulnerable = 0.0f;
 
         // Components
         r_rigidBody = gameObject.GetComponent<Rigidbody>();
@@ -43,22 +40,8 @@ public class Rat : MonoBehaviour {
 
         r_distToGround = r_collider.bounds.extents.y;
 
-        // Enables the listeners for rat-related events
-        EventManager.instance.StartListening("ratMoveEvent", ratMoveEvent);
-        EventManager.instance.StartListening("ratJumpEvent", ratJumpEvent);
-        EventManager.instance.StartListening("ratScratch", ratScratch);
-        EventManager.instance.StartListening("ratBite", ratBite);
-
     }
 
-    // Cleans up after we disable its gameobject
-    public void OnDisable()
-    {
-        EventManager.instance.StopListening("ratMoveEvent", ratMoveEvent);
-        EventManager.instance.StopListening("ratJumpEvent", ratJumpEvent);
-        EventManager.instance.StopListening("ratScratch", ratScratch);
-        EventManager.instance.StopListening("ratBite", ratBite);
-    }
 
     // Movement for the rat
     private void ratMovement()
@@ -93,13 +76,43 @@ public class Rat : MonoBehaviour {
         Destroy(tempAttack, 0.30f);
     }
 
+    private void takeDamage(float dmg)
+    {
+        if(Invulnerable <= 0.0f)
+        {
+            Resources -= dmg;
+            Invulnerable += 3.0f;
+        }
+    }
 
+    private void Update()
+    {
+        if(Invulnerable > 0.0f)
+        {
+            Invulnerable -= Time.deltaTime;
+        }
+
+
+    }
+
+    // Awake() runs before any Start() calls
+    // Enforces the singleton pattern
     private void Awake()
     {
-        ratMoveEvent = new UnityAction(ratMovement);
-        ratJumpEvent = new UnityAction(ratJump);
-        ratScratch = new UnityAction(scratchAttack);
-        ratBite = new UnityAction(biteAttack);
+        // Check if instance exists
+        if (instance == null)
+        {
+            // If not, set the game manager to this
+            instance = this;
+        }
+
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        // Ensures that this persists between scenes
+        DontDestroyOnLoad(gameObject);
     }
 
     private bool IsGrounded() 
@@ -130,6 +143,12 @@ public class Rat : MonoBehaviour {
     {
         get { return r_jumpLength; }
         set { r_jumpLength = value; }
+    }
+
+    public float Invulnerable
+    {
+        get { return r_invuln; }
+        set { r_invuln = value; }
     }
 
     

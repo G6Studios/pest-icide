@@ -74,5 +74,10 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         TimeRemaining -= Time.deltaTime;
+        Player1Food = Rat.instance.Resources;
+        Player2Food = Spider.instance.Resources;
+        Player3Food = Frog.instance.Resources;
+        Player4Food = Snake.instance.Resources;
+
 	}
 }

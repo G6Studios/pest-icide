@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour
 { 
 
     public static InputManager instance = null;
+
 
     // Awake() runs before any Start() calls
     // Enforces the singleton pattern
@@ -51,43 +51,43 @@ public class InputManager : MonoBehaviour
     void characterMovement()
     {
         // Movement blocks
-        EventManager.instance.TriggerEvent("ratMoveEvent");
-        EventManager.instance.TriggerEvent("spiderMoveEvent");
-        EventManager.instance.TriggerEvent("frogMoveEvent");
-        EventManager.instance.TriggerEvent("snakeMoveEvent");
+        Rat.instance.SendMessage("ratMovement");
+        Spider.instance.SendMessage("spiderMovement");
+        Frog.instance.SendMessage("frogMovement");
+        Snake.instance.SendMessage("snakeMovement");
 
 
         // Jumping blocks
         if(Input.GetButtonDown("A_P1"))
         {
-            EventManager.instance.TriggerEvent("ratJumpEvent");
+            Rat.instance.SendMessage("ratJump");
         }
 
         if (Input.GetButtonDown("A_P2"))
         {
-            EventManager.instance.TriggerEvent("spiderJumpEvent");
+            Spider.instance.SendMessage("spiderJump");
         }
 
         if (Input.GetButtonDown("A_P3"))
         {
-            EventManager.instance.TriggerEvent("frogJumpEvent");
+            Frog.instance.SendMessage("frogJump");
         }
 
         if (Input.GetButtonDown("A_P4"))
         {
-            EventManager.instance.TriggerEvent("snakeJumpEvent");
+            Snake.instance.SendMessage("snakeJump");
         }
 
         // Attacks
 
         if(Input.GetButtonDown("X_P1"))
         {
-            EventManager.instance.TriggerEvent("ratScratch");
+            Rat.instance.SendMessage("scratchAttack");
         }
 
-        if(Input.GetButton("Y_P1"))
+        if(Input.GetButtonDown("Y_P1"))
         {
-            EventManager.instance.TriggerEvent("ratBite");
+            Rat.instance.SendMessage("biteAttack");
         }
 
         if (Input.GetButtonDown("X_P2"))
@@ -95,7 +95,7 @@ public class InputManager : MonoBehaviour
             EventManager.instance.TriggerEvent("spiderScratch");
         }
 
-        if (Input.GetButton("Y_P2"))
+        if (Input.GetButtonDown("Y_P2"))
         {
             EventManager.instance.TriggerEvent("spiderBite");
         }
@@ -105,7 +105,7 @@ public class InputManager : MonoBehaviour
             EventManager.instance.TriggerEvent("frogScratch");
         }
 
-        if (Input.GetButton("Y_P3"))
+        if (Input.GetButtonDown("Y_P3"))
         {
             EventManager.instance.TriggerEvent("frogBite");
         }
@@ -115,7 +115,7 @@ public class InputManager : MonoBehaviour
             EventManager.instance.TriggerEvent("snakeScratch");
         }
 
-        if (Input.GetButton("Y_P4"))
+        if (Input.GetButtonDown("Y_P4"))
         {
             EventManager.instance.TriggerEvent("snakeBite");
         }
