@@ -4,7 +4,7 @@ public class InputManager : MonoBehaviour
 { 
 
     public static InputManager instance = null;
-
+    GameObject trap;
 
     // Awake() runs before any Start() calls
     // Enforces the singleton pattern
@@ -30,6 +30,7 @@ public class InputManager : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        trap = GameObject.FindGameObjectWithTag("Trap");
     }
 
     void FixedUpdate()
@@ -44,6 +45,11 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+
+        if(Input.GetKeyDown("up"))
+        {
+            trap.GetComponent<GasTrap>().IsActive = true;
         }
 
     }
