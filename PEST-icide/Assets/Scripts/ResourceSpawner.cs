@@ -79,6 +79,7 @@ public class ResourceSpawner : MonoBehaviour {
         obj.transform.position = new Vector3(GetX(ourVectorInPool), GetY(ourVectorInPool), GetZ(ourVectorInPool));
         obj.transform.rotation = transform.rotation;
         obj.SetActive(true); //set this position to used, so it can be overwritten
+        obj.GetComponent<ObjectTimer>().ResetDeactiveTime();
         SetUsed(ourVectorInPool);
         Debug.Log("spawned resource");
         // Instantiate(foodPrefab, gameObject.transform.position + randomized, gameObject.transform.rotation);

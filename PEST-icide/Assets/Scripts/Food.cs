@@ -14,6 +14,7 @@ public class Food : MonoBehaviour {
             GameManager.instance.Player1Food++;
             GameObject.FindGameObjectWithTag("Player1").GetComponent<AudioSource>().PlayOneShot(crunch);
             gameObject.SetActive(false);
+            gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
             //Destroy(this.gameObject);
 
         }
