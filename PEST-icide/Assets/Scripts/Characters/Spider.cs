@@ -58,8 +58,11 @@ public class Spider : MonoBehaviour {
 
     private void spiderJump()
     {
-        if(IsGrounded())
-        sp_rigidBody.AddForce(0.0f, sp_jumpHeight, 0.0f, ForceMode.Impulse);
+        if (Input.GetButtonDown("A_P2"))
+        {
+            if (IsGrounded())
+                sp_rigidBody.AddForce(0.0f, sp_jumpHeight, 0.0f, ForceMode.Impulse);
+        }
     }
 
     private void scratchAttack()

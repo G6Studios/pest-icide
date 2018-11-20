@@ -64,15 +64,9 @@ public class InputManager : MonoBehaviour
 
 
         // Jumping blocks
-        if(Input.GetButtonDown("A_P1"))
-        {
-            Rat.instance.SendMessage("ratJump");
-        }
-
-        if (Input.GetButtonDown("A_P2"))
-        {
-            Spider.instance.SendMessage("spiderJump");
-        }
+        
+        Rat.instance.SendMessage("ratJump");
+        Spider.instance.SendMessage("spiderJump");
 
         if (Input.GetButtonDown("A_P3"))
         {

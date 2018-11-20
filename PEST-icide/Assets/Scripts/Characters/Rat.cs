@@ -57,8 +57,11 @@ public class Rat : MonoBehaviour {
     // Jumping for the rat
     private void ratJump()
     {
-        if(IsGrounded())
-        r_rigidBody.AddForce(0.0f, r_jumpHeight, 0.0f, ForceMode.Impulse);
+        if (Input.GetButtonDown("A_P1"))
+        {
+            if (IsGrounded())
+                r_rigidBody.AddForce(0.0f, r_jumpHeight, 0.0f, ForceMode.Impulse);
+        }
     }
 
     // Scratch attack
