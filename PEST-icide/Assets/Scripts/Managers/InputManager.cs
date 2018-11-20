@@ -61,21 +61,25 @@ public class InputManager : MonoBehaviour
         if(Input.GetButtonDown("A_P1"))
         {
             EventManager.instance.TriggerEvent("ratJumpEvent");
+            Debug.Log("Rat Jump");
         }
 
         if (Input.GetButtonDown("A_P2"))
         {
             EventManager.instance.TriggerEvent("spiderJumpEvent");
+            Debug.Log("Spider Jump");
         }
 
         if (Input.GetButtonDown("A_P3"))
         {
             EventManager.instance.TriggerEvent("frogJumpEvent");
+            Debug.Log("Frog Jump");
         }
 
         if (Input.GetButtonDown("A_P4"))
         {
             EventManager.instance.TriggerEvent("snakeJumpEvent");
+            Debug.Log("Snake Jump");
         }
 
         // Attacks
