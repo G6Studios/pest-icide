@@ -65,7 +65,7 @@ public class Rat : MonoBehaviour {
     }
 
     // Scratch attack
-    private void scratchAttack()
+    private void RatScratch()
     {
         GameObject tempAttack = Instantiate(scratch, attackPosition.position, attackPosition.rotation);
         Destroy(tempAttack, 0.20f);
@@ -73,7 +73,7 @@ public class Rat : MonoBehaviour {
 
     }
 
-    private void biteAttack()
+    private void RatBite()
     {
         GameObject tempAttack = Instantiate(bite, attackPosition.position, attackPosition.rotation);
         Destroy(tempAttack, 0.30f);

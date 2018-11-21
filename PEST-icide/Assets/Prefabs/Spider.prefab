@@ -317,8 +317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPosition: {fileID: 4308036388098336}
-  scratch: {fileID: 0}
-  bite: {fileID: 0}
+  web: {fileID: 1635246773253890, guid: 5b29ce8c31c4e144a88ae7071dee4f34, type: 2}
+  bite: {fileID: 1507455494937290, guid: c53e443b81ebe454b875aa03889dd576, type: 2}
 --- !u!114 &114744126565132326
 MonoBehaviour:
   m_ObjectHideFlags: 1

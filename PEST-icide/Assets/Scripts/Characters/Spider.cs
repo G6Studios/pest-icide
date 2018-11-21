@@ -19,7 +19,7 @@ public class Spider : MonoBehaviour {
     Transform attackPosition;
 
     [SerializeField]
-    GameObject scratch;
+    GameObject web;
 
     [SerializeField]
     GameObject bite;
@@ -65,15 +65,15 @@ public class Spider : MonoBehaviour {
         }
     }
 
-    private void scratchAttack()
+    private void WebShot()
     {
-        GameObject tempAttack = Instantiate(scratch, attackPosition.position, attackPosition.rotation);
+        GameObject tempAttack = Instantiate(web, attackPosition.position, attackPosition.rotation);
         Destroy(tempAttack, 0.20f);
 
 
     }
 
-    private void biteAttack()
+    private void SpiderBite()
     {
         GameObject tempAttack = Instantiate(bite, attackPosition.position, attackPosition.rotation);
         Destroy(tempAttack, 0.30f);
