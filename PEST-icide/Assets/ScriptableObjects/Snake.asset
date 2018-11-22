@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6aaf9f71e802f4890e23736792a9d0, type: 3}
+  m_Name: Snake
+  m_EditorClassIdentifier: 
+  characterName: Snake
+  speed: 5
+  jumpHeight: 2
+  jumpLength: 5
+  mesh: {fileID: 4300000, guid: 92a4a77cf38e3934b9ef7c2bb173d00c, type: 3}
+  collider: {fileID: 65166352267305522, guid: 8c1f2b88f5f992348b3b01d893113030, type: 2}
+  rigidbody: {fileID: 54362616199622568, guid: 8c1f2b88f5f992348b3b01d893113030, type: 2}
+  material: {fileID: 2100000, guid: bff2f50599c862e44b34f072a0f9ed73, type: 3}
