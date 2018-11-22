@@ -82,12 +82,12 @@ public class InputManager : MonoBehaviour
 
         if(Input.GetButtonDown("X_P1"))
         {
-            Rat.instance.SendMessage("scratchAttack");
+            Rat.instance.SendMessage("RatScratch");
         }
 
         if(Input.GetButtonDown("Y_P1"))
         {
-            Rat.instance.SendMessage("biteAttack");
+            Rat.instance.SendMessage("RatBite");
         }
 
         if (Input.GetButtonDown("X_P2"))

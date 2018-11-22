@@ -9,20 +9,20 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1374544228348314}
+  m_RootGameObject: {fileID: 1972690085576612}
   m_IsPrefabAsset: 1
---- !u!1 &1357538547608548
+--- !u!1 &1708657651012032
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4851174843600228}
-  - component: {fileID: 65661923843280052}
-  - component: {fileID: 114429427811042936}
-  - component: {fileID: 198952729307208746}
-  - component: {fileID: 199739366757608154}
+  - component: {fileID: 4548700414146520}
+  - component: {fileID: 65138558160327800}
+  - component: {fileID: 114796239600277828}
+  - component: {fileID: 198197551120009130}
+  - component: {fileID: 199681605092258706}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -30,77 +30,77 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1374544228348314
+--- !u!1 &1972690085576612
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4649557600844004}
+  - component: {fileID: 4408664780458758}
   m_Layer: 0
-  m_Name: scratchAttack
+  m_Name: RatScratch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4649557600844004
+--- !u!4 &4408664780458758
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1374544228348314}
+  m_GameObject: {fileID: 1972690085576612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.8947372, y: 0.59818304, z: -0.3478546}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4851174843600228}
+  - {fileID: 4548700414146520}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4851174843600228
+--- !u!4 &4548700414146520
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1357538547608548}
+  m_GameObject: {fileID: 1708657651012032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4649557600844004}
+  m_Father: {fileID: 4408664780458758}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65661923843280052
+--- !u!65 &65138558160327800
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1357538547608548}
+  m_GameObject: {fileID: 1708657651012032}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114429427811042936
+--- !u!114 &114796239600277828
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1357538547608548}
+  m_GameObject: {fileID: 1708657651012032}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a677de4028d9894382282471b52fa1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!198 &198952729307208746
+--- !u!198 &198197551120009130
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1357538547608548}
+  m_GameObject: {fileID: 1708657651012032}
   serializedVersion: 5
   lengthInSec: 0.3
   simulationSpeed: 1
@@ -4685,13 +4685,13 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &199739366757608154
+--- !u!199 &199681605092258706
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1357538547608548}
+  m_GameObject: {fileID: 1708657651012032}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
