@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7d9fae75fce39034bb4dcf5ad3ef156c
+guid: 5cd13d0c3c494ac468c7e4cd044a5df3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -66,8 +66,8 @@ ModelImporter:
     100120: joint7
     100122: joint8
     100124: joint9
-    100126: Ratmodel8:Body_head
-    100128: //RootNode
+    100126: //RootNode
+    100128: Ratmodel8:Body_head
     400000: joint10
     400002: joint11
     400004: joint12
@@ -131,8 +131,8 @@ ModelImporter:
     400120: joint7
     400122: joint8
     400124: joint9
-    400126: Ratmodel8:Body_head
-    400128: //RootNode
+    400126: //RootNode
+    400128: Ratmodel8:Body_head
     2100000: Ratmodel8_Default1
     4300000: Ratmodel8:Body_head
     7400000: Take 001
