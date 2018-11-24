@@ -13,5 +13,7 @@ public class Character : ScriptableObject {
     public Collider collider; // The collider for the character
     public Rigidbody rigidbody; // The rigidbody for the character
     public Material material; // The material/texture for the character
+    public Vector3 colliderOffset;
+    public Vector3 colliderSize;
 
 }

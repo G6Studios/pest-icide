@@ -19,3 +19,5 @@ MonoBehaviour:
   collider: {fileID: 65166352267305522, guid: 8c1f2b88f5f992348b3b01d893113030, type: 2}
   rigidbody: {fileID: 54362616199622568, guid: 8c1f2b88f5f992348b3b01d893113030, type: 2}
   material: {fileID: 2100000, guid: bff2f50599c862e44b34f072a0f9ed73, type: 3}
+  colliderOffset: {x: 0, y: 0, z: -0.85}
+  colliderSize: {x: 1, y: 1, z: 6.3}
