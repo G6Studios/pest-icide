@@ -56,6 +56,8 @@ public class ResourceSpawner : MonoBehaviour {
             SpawnResources();
         }
 
+        InvokeRepeating("SpawnResources", 5.0f, 5.0f);
+
     }
 
     void OnTriggerEnter(Collider coll)
@@ -88,10 +90,23 @@ public class ResourceSpawner : MonoBehaviour {
 
     void RandomizeVectorPool(float minX, float maxX, float minZ, float maxZ)
     {
-
-        //Vector3 randomized = new Vector3(UnityEngine.Random.Range(minX, maxX), 1, UnityEngine.Random.Range(minZ, maxZ));
-        AddToPool(UnityEngine.Random.Range(minX, maxX), 1, UnityEngine.Random.Range(minZ, maxZ));
         
+        float RandomX = UnityEngine.Random.Range(minX, maxX);
+        float RandomZ = UnityEngine.Random.Range(minZ, maxZ);
+        Vector3 RandomLocation = new Vector3(RandomX, 2, RandomZ);
+        while (Physics.CheckSphere(RandomLocation, 0.5f)) // This line will break the spawning if it ends up coliding with the floor (Make sure radius will not collide with the floor).
+            {
+            RandomX = UnityEngine.Random.Range(minX, maxX);
+            RandomZ = UnityEngine.Random.Range(minZ, maxZ);
+            RandomLocation.x = RandomX;
+            RandomLocation.z = RandomZ;
+        }
+        //Vector3 randomized = new Vector3(UnityEngine.Random.Range(minX, maxX), 1, UnityEngine.Random.Range(minZ, maxZ));
+        
+        //AddToPool(UnityEngine.Random.Range(minX, maxX), 1, UnityEngine.Random.Range(minZ, maxZ));
+        AddToPool(RandomLocation.x, 1, RandomLocation.z);
+
+
     }
 
 }
