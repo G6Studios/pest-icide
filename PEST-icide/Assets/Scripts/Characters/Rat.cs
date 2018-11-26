@@ -1,47 +1,51 @@
 ﻿using UnityEngine;
 
 public class Rat : MonoBehaviour {
-    // Data members
-    private float r_resources;
-    private float r_speed;
-    private float r_jumpHeight;
-    private float r_jumpLength;
-    private float r_invuln;
-    private Vector3 r_movementVector;
-    Collider r_collider;
-    private float r_distToGround;
-    Rigidbody r_rigidBody;
+	// Data members
+	private float r_resources;
+	private float r_speed;
+	private float r_jumpHeight;
+	private float r_jumpLength;
+	private float r_invuln;
+	private Vector3 r_movementVector;
+	Collider r_collider;
+	private float r_distToGround;
+	Rigidbody r_rigidBody;
 
-    public static Rat instance;
+	public static Rat instance;
+	public AudioClip ScratchAttack;
+	public AudioClip Movement;
 
-    // Attacks
-    [SerializeField]
-    Transform attackPosition;
+	[SerializeField]
+	 AudioSource RatSounds;
 
-    [SerializeField]
-    GameObject scratch;
+	// Attacks
+	[SerializeField]
+	Transform attackPosition;
 
-    [SerializeField]
-    GameObject bite;
+	[SerializeField]
+	GameObject scratch;
 
-    // Use this for initialization
-    void Start ()
-    {
-        // Individual statistics
-        Resources = 0.0f;
-        Speed = 7.0f;
-        JumpHeight = 5.0f;
-        JumpLength = 1.0f;
-        Invulnerable = 0.0f;
+	[SerializeField]
+	GameObject bite;
 
-        // Components
-        r_rigidBody = gameObject.GetComponent<Rigidbody>();
-        r_collider = gameObject.GetComponent<Collider>();
+	// Use this for initialization
+	void Start()
+	{
+		// Individual statistics
+		Resources = 0.0f;
+		Speed = 7.0f;
+		JumpHeight = 5.0f;
+		JumpLength = 1.0f;
+		Invulnerable = 0.0f;
 
-        r_distToGround = r_collider.bounds.extents.y;
+		// Components
+		r_rigidBody = gameObject.GetComponent<Rigidbody>();
+		r_collider = gameObject.GetComponent<Collider>();
 
-    }
+		r_distToGround = r_collider.bounds.extents.y;
 
+	}
 
     // Movement for the rat
     private void ratMovement()
@@ -52,6 +56,15 @@ public class Rat : MonoBehaviour {
         r_movementVector = r_movementVector.normalized * Speed * Time.deltaTime;
 
         transform.Translate(r_movementVector.x, 0, r_movementVector.z);
+
+		if( r_movementVector.x > 0.0f || r_movementVector.z >0.0f)
+		{
+			if(IsGrounded())
+			{
+				RatSounds.PlayOneShot(Movement);
+			}
+		}
+		
     }
 
     // Jumping for the rat
@@ -69,7 +82,7 @@ public class Rat : MonoBehaviour {
     {
         GameObject tempAttack = Instantiate(scratch, attackPosition.position, attackPosition.rotation);
         Destroy(tempAttack, 0.20f);
-        
+		RatSounds.PlayOneShot(ScratchAttack);
 
     }
 
@@ -114,8 +127,11 @@ public class Rat : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        // Ensures that this persists between scenes
-        DontDestroyOnLoad(gameObject);
+		//gets the rat specific sound effects
+		RatSounds = GetComponent<AudioSource>();
+
+		// Ensures that this persists between scenes
+		DontDestroyOnLoad(gameObject);
     }
 
     private bool IsGrounded() 

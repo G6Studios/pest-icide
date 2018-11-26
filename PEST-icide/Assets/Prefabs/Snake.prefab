@@ -342,6 +342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9274a97aab22e814db198687ab81a8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SnakeBite: {fileID: 8300000, guid: 9a5e1282706e22e4ebacb2bece84ae5c, type: 3}
+  Slither: {fileID: 8300000, guid: 25798dbae9d00b945bbfeefd6d5d7a66, type: 3}
+  SnakeSounds: {fileID: 0}
   attackPosition: {fileID: 0}
   scratch: {fileID: 0}
   bite: {fileID: 0}

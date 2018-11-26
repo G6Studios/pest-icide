@@ -13,6 +13,11 @@ public class Snake : MonoBehaviour {
     Rigidbody sn_rigidBody;
 
     public static Snake instance;
+	public AudioClip SnakeBite;
+	public AudioClip Slither;
+
+	[SerializeField]
+	AudioSource SnakeSounds;
 
     [SerializeField]
     Transform attackPosition;
@@ -49,6 +54,14 @@ public class Snake : MonoBehaviour {
         sn_movementVector = sn_movementVector.normalized * Speed * Time.deltaTime;
 
         transform.Translate(sn_movementVector.x, 0, sn_movementVector.z);
+
+		if (sn_movementVector.x > 0.0f || sn_movementVector.z >0.0f)
+		{
+			if(IsGrounded())
+			{
+				SnakeSounds.PlayOneShot(Slither);
+			}
+		}
     }
 
     // Jumping for the snake
@@ -70,6 +83,8 @@ public class Snake : MonoBehaviour {
     {
         GameObject tempAttack = Instantiate(bite, attackPosition.position, attackPosition.rotation);
         Destroy(tempAttack, 0.30f);
+
+		SnakeSounds.PlayOneShot(SnakeBite);
     }
 
     private void takeDamage(float dmg)
@@ -110,6 +125,9 @@ public class Snake : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+
+		//grabs the snake appropriate sounds
+		SnakeSounds = GetComponent<AudioSource>();
 
         // Ensures that this persists between scenes
         DontDestroyOnLoad(gameObject);
