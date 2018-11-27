@@ -14,6 +14,9 @@ public class ResourceSpawner : MonoBehaviour {
 
     public ObjectPooler ResourcePool;
 
+    public List<Vector3> VectorList;
+    private int VectorListItr = 0;
+
     struct ObjectArea
     {
         public float minX, minZ, maxX, maxZ;
@@ -27,7 +30,7 @@ public class ResourceSpawner : MonoBehaviour {
 
         }
     }
-
+    /*
     [DllImport("MemoryManagementPlugin")]
     public static extern void CreatePool(uint size); //create our pool with our size
 
@@ -51,7 +54,7 @@ public class ResourceSpawner : MonoBehaviour {
 
     [DllImport("MemoryManagementPlugin")]
     public static extern void DeletePool(); //deletes everything in our pool, call this when we are done with our pool.
-
+    */
 
     private void Start()
     {
@@ -75,10 +78,11 @@ public class ResourceSpawner : MonoBehaviour {
 
         ObjectArea ExclusionPlane1 = new ObjectArea(Ex1MinX, Ex1MinZ, Ex1MaxX, Ex1MaxZ);
         ObjectArea ExclusionPlane2 = new ObjectArea(Ex2MinX, Ex2MinZ, Ex2MaxX, Ex2MaxZ);
+        VectorList = new List<Vector3>();
 
 
 
-        CreatePool(100); // this is our pool for our vectors
+        //CreatePool(100); // this is our pool for our vectors
 
         for (int i = 0; i < 100; i++)
         {
@@ -110,13 +114,21 @@ public class ResourceSpawner : MonoBehaviour {
         if (obj == null)
             return;
 
-        IntPtr ourVectorInPool = GetFromPool(); //pointer to a vector in our pool which we can use
+        //IntPtr ourVectorInPool = GetFromPool(); //pointer to a vector in our pool which we can use
         //obj.transform.position.Set(GetX(ourVectorInPool), GetY(ourVectorInPool), GetZ(ourVectorInPool));
-        obj.transform.position = new Vector3(GetX(ourVectorInPool), GetY(ourVectorInPool), GetZ(ourVectorInPool));
+        //obj.transform.position = new Vector3(GetX(ourVectorInPool), GetY(ourVectorInPool), GetZ(ourVectorInPool));
+        obj.transform.position = VectorList[VectorListItr];
         obj.transform.rotation = transform.rotation;
-        obj.SetActive(true); //set this position to used, so it can be overwritten
+        obj.SetActive(true);
         obj.GetComponent<ObjectTimer>().ResetDeactiveTime();
-        SetUsed(ourVectorInPool);
+        VectorListItr++;
+
+        if (VectorListItr == VectorList.Count - 1)
+        {
+            VectorListItr = 0;
+        }
+
+        //SetUsed(ourVectorInPool);
         Debug.Log("spawned resource");
         // Instantiate(foodPrefab, gameObject.transform.position + randomized, gameObject.transform.rotation);
 
@@ -139,7 +151,9 @@ public class ResourceSpawner : MonoBehaviour {
         //Vector3 randomized = new Vector3(UnityEngine.Random.Range(minX, maxX), 1, UnityEngine.Random.Range(minZ, maxZ));
         
         //AddToPool(UnityEngine.Random.Range(minX, maxX), 1, UnityEngine.Random.Range(minZ, maxZ));
-        AddToPool(RandomLocation.x, 1.5f, RandomLocation.z);
+        //AddToPool(RandomLocation.x, 1.5f, RandomLocation.z);
+        RandomLocation.y = 1.5f;
+        VectorList.Add(RandomLocation);
 
 
     }
