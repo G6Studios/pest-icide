@@ -28,10 +28,15 @@ public class GameManager : MonoBehaviour {
 
     // For internal use
     private float timeRemaining;
-    private float player1Food;
-    private float player2Food;
-    private float player3Food;
-    private float player4Food;
+    private uint player1Food;
+    private uint player2Food;
+    private uint player3Food;
+    private uint player4Food;
+
+    public GameObject Player1;
+    public GameObject Player2;
+    public GameObject Player3;
+    public GameObject Player4;
 
     // Quick way to do get and set functions for variables
     public float TimeRemaining
@@ -40,25 +45,25 @@ public class GameManager : MonoBehaviour {
         set { timeRemaining = value; }
     }
 
-    public float Player1Food
+    public uint Player1Food
     {
         get { return player1Food; }
         set { player1Food = value; }
     }
 
-    public float Player2Food
+    public uint Player2Food
     {
         get { return player2Food; }
         set { player2Food = value; }
     }
 
-    public float Player3Food
+    public uint Player3Food
     {
         get { return player3Food; }
         set { player3Food = value; }
     }
 
-    public float Player4Food
+    public uint Player4Food
     {
         get { return player4Food; }
         set { player4Food = value; }
@@ -69,15 +74,29 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         TimeRemaining = startTime;
-	}
+        Player1 = GameObject.FindGameObjectWithTag("Player1");
+        Player2 = GameObject.FindGameObjectWithTag("Player2");
+        Player3 = GameObject.FindGameObjectWithTag("Player3");
+        Player4 = GameObject.FindGameObjectWithTag("Player4");
+    }
 	
 	// Update is called once per frame
 	void Update () {
         TimeRemaining -= Time.deltaTime;
-        Player1Food = Rat.instance.Resources;
-        Player2Food = Spider.instance.Resources;
-        Player3Food = Frog.instance.Resources;
-        Player4Food = Snake.instance.Resources;
+        Player1Food = Player1.GetComponent<Player>().Resources;
+        Player2Food = Player2.GetComponent<Player>().Resources;
+        Player3Food = Player3.GetComponent<Player>().Resources;
+        Player4Food = Player4.GetComponent<Player>().Resources;
 
-	}
+        if(TimeRemaining <= 0.0f)
+        {
+            GameOver();
+        }
+    }
+
+    // Function that will switch game scenes once the time has run out
+    void GameOver()
+    {
+
+    }
 }

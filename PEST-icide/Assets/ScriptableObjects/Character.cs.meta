@@ -3,7 +3,13 @@ guid: 2a6aaf9f71e802f4890e23736792a9d0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - mesh: {instanceID: 0}
+  - collider: {instanceID: 0}
+  - rigidbody: {instanceID: 0}
+  - material: {instanceID: 0}
+  - attack1: {instanceID: 0}
+  - attack2: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b661e4f4c203add41a18af8d440aaa72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPosition: {fileID: 0}
+  attackPosition: {fileID: 4886999756525706}
   scratch: {fileID: 0}
   bite: {fileID: 0}
 --- !u!114 &114613812969232216

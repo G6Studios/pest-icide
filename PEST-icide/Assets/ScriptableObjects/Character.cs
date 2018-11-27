@@ -16,4 +16,7 @@ public class Character : ScriptableObject {
     public Vector3 colliderOffset;
     public Vector3 colliderSize;
 
+    public Attack attack1;
+    public Attack attack2;
+
 }

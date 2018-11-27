@@ -35,7 +35,10 @@ public class GasTrap : MonoBehaviour {
 
     private void OnTriggerExit(Collider coll)
     {
-        StopCoroutine(gas);
+        if(isActive)
+        {
+            StopCoroutine(gas);
+        }
     }
 
     IEnumerator GasHurt(GameObject player)

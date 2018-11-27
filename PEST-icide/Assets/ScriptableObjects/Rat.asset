@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Rat
   speed: 7
-  jumpHeight: 3
+  jumpHeight: 4
   jumpLength: 1.5
   mesh: {fileID: 4300000, guid: af470500f15d7fd4892418762e70a76d, type: 3}
   collider: {fileID: 135396691952232934, guid: f9600210940d61b43b0d1e2f07053346, type: 2}
@@ -21,3 +21,5 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 5fa669f7543d799498260014c4b3b896, type: 3}
   colliderOffset: {x: 0, y: 0, z: 0}
   colliderSize: {x: 1, y: 1, z: 1}
+  attack1: {fileID: 11400000, guid: 2188c5aaca6e2f940a0a8c374b25f5a4, type: 2}
+  attack2: {fileID: 11400000, guid: 2d79c5dedc173c54086652fa5eb8c7e3, type: 2}
