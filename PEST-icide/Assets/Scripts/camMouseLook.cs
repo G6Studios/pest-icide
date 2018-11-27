@@ -19,6 +19,7 @@ public class camMouseLook : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         character = this.transform.parent.gameObject;
+        joystickNumber = gameObject.GetComponentInParent<Player>().playerNumber;
 	}
 	
 	// Update is called once per frame

@@ -15,7 +15,6 @@ public class Food : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Player1").GetComponent<AudioSource>().PlayOneShot(crunch);
             gameObject.SetActive(false);
             gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
-            //Destroy(this.gameObject);
 
         }
         else if (coll.gameObject.tag == "Player2")
@@ -23,21 +22,21 @@ public class Food : MonoBehaviour {
             GameManager.instance.Player2Food++;
             GameObject.FindGameObjectWithTag("Player2").GetComponent<AudioSource>().PlayOneShot(crunch);
             gameObject.SetActive(false);
-           // Destroy(this.gameObject);
+            gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
         }
         else if (coll.gameObject.tag == "Player3")
         {
             GameManager.instance.Player3Food++;
             GameObject.FindGameObjectWithTag("Player3").GetComponent<AudioSource>().PlayOneShot(crunch);
             gameObject.SetActive(false);
-            //Destroy(this.gameObject);
+            gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
         }
         else if(coll.gameObject.tag == "Player4")
         {
             GameManager.instance.Player4Food++;
             GameObject.FindGameObjectWithTag("Player4").GetComponent<AudioSource>().PlayOneShot(crunch);
             gameObject.SetActive(false);
-            //Destroy(this.gameObject);
+            gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
         }
 
     }
