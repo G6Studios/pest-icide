@@ -8,4 +8,8 @@ public class Attack : ScriptableObject {
     public GameObject prefab;
     public string attackName;
     public float damage;
+
+
+
+
 }

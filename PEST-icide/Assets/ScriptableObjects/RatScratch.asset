@@ -14,3 +14,5 @@ MonoBehaviour:
   prefab: {fileID: 1972690085576612, guid: bf7aed8eff6565c46b78fbdc19f19eac, type: 2}
   attackName: Rat Scratch
   damage: 4
+  attacksound: {fileID: 0}
+  AttackSFX: {fileID: 8300000, guid: 943f585f0aecc584eb31b9ffa45726ba, type: 3}

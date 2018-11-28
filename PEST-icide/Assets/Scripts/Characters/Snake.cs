@@ -13,12 +13,21 @@ public class Snake : MonoBehaviour {
     Rigidbody sn_rigidBody;
 
     public static Snake instance;
-	public AudioClip SnakeBite;
 	public AudioClip Slither;
 
-	[SerializeField]
-	AudioSource SnakeSounds;
+	bool Move_Toggle = false;
 
+	// Sounds
+	[SerializeField]
+	AudioSource SnakeMove;
+
+	[SerializeField]
+	AudioSource snakeBite;
+
+	[SerializeField]
+	AudioSource PoisonSpit;
+
+	// Attack
     [SerializeField]
     Transform attackPosition;
 
@@ -57,10 +66,23 @@ public class Snake : MonoBehaviour {
 
 		if (sn_movementVector.x > 0.0f || sn_movementVector.z >0.0f)
 		{
-			if(IsGrounded())
+			if (Move_Toggle == false)
 			{
-				SnakeSounds.PlayOneShot(Slither);
+				Move_Toggle = true;
+				if (IsGrounded())
+				{
+					SnakeMove.clip = Slither;
+					SnakeMove.loop = true;
+					SnakeMove.Play();
+				}
+
 			}
+
+		}
+		else
+		{
+			Move_Toggle = false;
+			SnakeMove.Stop();
 		}
     }
 
@@ -84,7 +106,7 @@ public class Snake : MonoBehaviour {
         GameObject tempAttack = Instantiate(bite, attackPosition.position, attackPosition.rotation);
         Destroy(tempAttack, 0.30f);
 
-		SnakeSounds.PlayOneShot(SnakeBite);
+		snakeBite.Play();
     }
 
     private void takeDamage(float dmg)
@@ -127,7 +149,7 @@ public class Snake : MonoBehaviour {
         }
 
 		//grabs the snake appropriate sounds
-		SnakeSounds = GetComponent<AudioSource>();
+		SnakeMove = GetComponent<AudioSource>();
 
         // Ensures that this persists between scenes
         DontDestroyOnLoad(gameObject);

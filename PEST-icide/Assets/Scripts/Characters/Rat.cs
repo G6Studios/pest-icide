@@ -13,11 +13,19 @@ public class Rat : MonoBehaviour {
 	Rigidbody r_rigidBody;
 
 	public static Rat instance;
-	public AudioClip ScratchAttack;
 	public AudioClip Movement;
 
+	bool Movement_Toggle = false;
+
+	// Sounds
 	[SerializeField]
-	 AudioSource RatSounds;
+	 AudioSource Ratmove;
+
+	[SerializeField]
+	AudioSource RatAttack_2nd;
+
+	[SerializeField]
+	AudioSource RatAttack;
 
 	// Attacks
 	[SerializeField]
@@ -50,6 +58,7 @@ public class Rat : MonoBehaviour {
     // Movement for the rat
     private void ratMovement()
     {
+		
         r_movementVector.x = Input.GetAxis("LeftJoystickX_P1");
         r_movementVector.z = Input.GetAxis("LeftJoystickY_P1");
 
@@ -57,15 +66,36 @@ public class Rat : MonoBehaviour {
 
         transform.Translate(r_movementVector.x, 0, r_movementVector.z);
 
-		if( r_movementVector.x > 0.0f || r_movementVector.z >0.0f)
+		if (r_movementVector.x != 0.0f|| r_movementVector.z != 0.0f)
 		{
-			if(IsGrounded())
+			if(Movement_Toggle == false)
 			{
-				RatSounds.PlayOneShot(Movement);
+				Movement_Toggle = true;
+
+				if (IsGrounded())
+				{
+
+					
+					Ratmove.clip = Movement;
+					Ratmove.loop = true;
+					Ratmove.Play();
+
+					
+
+
+
+				}
 			}
+
+		}
+		else
+		{
+			Movement_Toggle = false;
+			Ratmove.Stop();
 		}
 		
-    }
+
+	}
 
     // Jumping for the rat
     private void ratJump()
@@ -82,7 +112,7 @@ public class Rat : MonoBehaviour {
     {
         GameObject tempAttack = Instantiate(scratch, attackPosition.position, attackPosition.rotation);
         Destroy(tempAttack, 0.20f);
-		RatSounds.PlayOneShot(ScratchAttack);
+		RatAttack_2nd.Play();
 
     }
 
@@ -90,6 +120,7 @@ public class Rat : MonoBehaviour {
     {
         GameObject tempAttack = Instantiate(bite, attackPosition.position, attackPosition.rotation);
         Destroy(tempAttack, 0.30f);
+		RatAttack.Play();
     }
 
     private void takeDamage(float dmg)
@@ -128,7 +159,8 @@ public class Rat : MonoBehaviour {
         }
 
 		//gets the rat specific sound effects
-		RatSounds = GetComponent<AudioSource>();
+		
+		Ratmove = GetComponent<AudioSource>();
 
 		// Ensures that this persists between scenes
 		DontDestroyOnLoad(gameObject);
