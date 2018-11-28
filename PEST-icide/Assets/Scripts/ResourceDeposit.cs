@@ -22,26 +22,22 @@ public class ResourceDeposit : MonoBehaviour {
     {
         while (true)
         {
-            float food1 = GameManager.instance.Player1Food;
-            float food2 = GameManager.instance.Player2Food;
-            float food3 = GameManager.instance.Player3Food;
-            float food4 = GameManager.instance.Player4Food;
 
-            if(player.tag == "Player1" && food1 > 0)
+            if(player.tag == "Player1" && player.GetComponent<Player>().resources > 0)
             {
-                GameManager.instance.Player1Food--;
+                player.GetComponent<Player>().resources--;
             }
-            else if(player.tag == "Player2" && food2 > 0)
+            else if(player.tag == "Player2" && player.GetComponent<Player>().resources > 0)
             {
-                GameManager.instance.Player2Food--;
+                player.GetComponent<Player>().resources--;
             }
-            else if(player.tag == "Player3" && food3 > 0)
+            else if(player.tag == "Player3" && player.GetComponent<Player>().resources > 0)
             {
-                GameManager.instance.Player3Food--;
+                player.GetComponent<Player>().resources--;
             }
-            else if(player.tag == "Player4" && food4 > 0)
+            else if(player.tag == "Player4" && player.GetComponent<Player>().resources > 0)
             {
-                GameManager.instance.Player4Food--;
+                player.GetComponent<Player>().resources--;
             }
 
             yield return new WaitForSeconds(0.5f);
