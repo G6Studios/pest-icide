@@ -8,4 +8,9 @@ public class Attack : ScriptableObject {
     public GameObject prefab;
     public string attackName;
     public float damage;
+
+	public AudioSource attacksound;
+	public AudioClip AttackSFX;
+
+
 }

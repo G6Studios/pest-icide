@@ -7,8 +7,14 @@ public class Player : MonoBehaviour {
     [SerializeField]
     public Character character; // The character scriptedobject
 
+	[SerializeField]
+	private Attack attack; // the attack scriptedobject
+
     [SerializeField]
     public int playerNumber; // The controller number that will be passed to the charactercontroller
+
+	
+	
 
     // Variables handled by ScriptedObject
     private string playerName;
@@ -22,6 +28,11 @@ public class Player : MonoBehaviour {
     private Vector3 colliderOffset;
     private Vector3 colliderSize;
 
+	private AudioSource player_move;
+	private AudioSource player_attack;
+	private AudioClip PrimAttack;
+	private AudioClip Move;
+
     // Internal variables
     private uint resources;
     private float invuln;
@@ -29,10 +40,12 @@ public class Player : MonoBehaviour {
     private Vector3 movementVector;
     private float distToGround;
     private Transform attackPosition;
+	private bool Move_Toggle = false;
 
 	// Use this for initialization
 	void Start () {
         loadCharacter();
+		player_move = GetComponent<AudioSource>();
 
 	}
 
@@ -49,6 +62,9 @@ public class Player : MonoBehaviour {
         playerMaterial = character.material;
         colliderOffset = character.colliderOffset;
         colliderSize = character.colliderSize;
+		Move = character.MovementSFX;
+
+		
 
         // Assigning values to gameobject components where necessary
         gameObject.GetComponent<MeshFilter>().mesh = playerMesh;
@@ -126,8 +142,29 @@ public class Player : MonoBehaviour {
 
             // Translating the attached gameobject by the above movementvector
             transform.Translate(movementVector.x, 0, movementVector.z);
-        }
-    }
+			if(movementVector.x != 0.0f || movementVector.z != 0.0f)
+			{
+				if(Move_Toggle == false)
+				{
+					Move_Toggle = true;
+				
+					if(IsGrounded())
+					{
+						player_move.clip = Move;
+						player_move.loop = true;
+						player_move.Play();
+					}
+				}
+
+			}
+			else
+			{
+				Move_Toggle = false;
+				player_move.Stop();
+			}
+		}
+
+	}
     
     // Jumping
     public void Jump()
@@ -150,6 +187,8 @@ public class Player : MonoBehaviour {
         {
             GameObject tempAttack = Instantiate(character.attack1.prefab, attackPosition.position, attackPosition.rotation);
             Destroy(tempAttack, 0.30f);
+			player_attack.Play();
+			
         }
     }
 
@@ -160,6 +199,7 @@ public class Player : MonoBehaviour {
         {
             GameObject tempAttack = Instantiate(character.attack2.prefab, attackPosition.position, attackPosition.rotation);
             Destroy(tempAttack, 0.20f);
+			player_attack.Play();
         }
     }
 

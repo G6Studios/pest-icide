@@ -21,3 +21,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: bff2f50599c862e44b34f072a0f9ed73, type: 3}
   colliderOffset: {x: 0, y: 0, z: -0.85}
   colliderSize: {x: 1, y: 1, z: 6.3}
+  attack1: {fileID: 0}
+  attack2: {fileID: 0}
+  Attack1SFX: {fileID: 8300000, guid: 9a5e1282706e22e4ebacb2bece84ae5c, type: 3}
+  Attack2SFX: {fileID: 8300000, guid: 102f404dc4829e446832bd63b86cde14, type: 3}
+  MovementSFX: {fileID: 8300000, guid: 25798dbae9d00b945bbfeefd6d5d7a66, type: 3}

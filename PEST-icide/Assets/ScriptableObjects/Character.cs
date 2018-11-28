@@ -19,4 +19,9 @@ public class Character : ScriptableObject {
     public Attack attack1;
     public Attack attack2;
 
+
+	public AudioClip MovementSFX;
+
+
+
 }

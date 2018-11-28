@@ -23,3 +23,6 @@ MonoBehaviour:
   colliderSize: {x: 1, y: 1, z: 1}
   attack1: {fileID: 11400000, guid: 2188c5aaca6e2f940a0a8c374b25f5a4, type: 2}
   attack2: {fileID: 11400000, guid: 2d79c5dedc173c54086652fa5eb8c7e3, type: 2}
+  Attack1SFX: {fileID: 8300000, guid: 2582fa37608b0b14f9f3ea6d99ca10c8, type: 3}
+  Attack2SFX: {fileID: 8300000, guid: 943f585f0aecc584eb31b9ffa45726ba, type: 3}
+  MovementSFX: {fileID: 8300000, guid: 1935f56f6ca9bab458c6be312489cfc2, type: 3}
