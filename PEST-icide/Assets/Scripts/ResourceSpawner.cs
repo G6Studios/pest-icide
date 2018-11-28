@@ -13,8 +13,9 @@ public class ResourceSpawner : MonoBehaviour {
     public GameObject ExcludePlane2;
 
     public ObjectPooler ResourcePool;
+    public float SpawnTimer;
 
-    public List<Vector3> VectorList;
+    private List<Vector3> VectorList;
     private int VectorListItr = 0;
 
     struct ObjectArea
@@ -94,7 +95,7 @@ public class ResourceSpawner : MonoBehaviour {
             SpawnResources();
         }
 
-        InvokeRepeating("SpawnResources", 5.0f, 5.0f);
+        InvokeRepeating("SpawnResources", SpawnTimer, SpawnTimer);
 
     }
 
