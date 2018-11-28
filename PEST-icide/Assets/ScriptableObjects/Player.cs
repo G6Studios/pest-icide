@@ -152,7 +152,7 @@ public class Player : MonoBehaviour {
     {
         if (stun <= 0.0f) // Stun check
         {
-            GameObject tempAttack = Instantiate(attack1, attackPosition.position, attackPosition.rotation, attackPosition);
+            GameObject tempAttack = Instantiate(attack1, attackPosition.position, attackPosition.rotation, attackPosition); // Setting the attack position as the parent of the 
             Destroy(tempAttack, 0.30f);
         }
     }
