@@ -628,6 +628,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b661e4f4c203add41a18af8d440aaa72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPosition: {fileID: 0}
+  scratch: {fileID: 0}
+  bite: {fileID: 0}
 --- !u!1 &471521148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,6 +1195,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 198952729307208746, guid: cc5294bc52da7004c8a3ae05a28cf80c,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc5294bc52da7004c8a3ae05a28cf80c, type: 2}
   m_IsPrefabAsset: 0
@@ -1435,6 +1443,7 @@ GameObject:
   - component: {fileID: 853599655}
   - component: {fileID: 853599653}
   - component: {fileID: 853599652}
+  - component: {fileID: 853599654}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player1
@@ -1453,8 +1462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8495633970e61d4194bb3b851238444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scratch: {fileID: 1374544228348314, guid: cc5294bc52da7004c8a3ae05a28cf80c, type: 2}
   attackPosition: {fileID: 278941914}
+  scratch: {fileID: 1374544228348314, guid: cc5294bc52da7004c8a3ae05a28cf80c, type: 2}
   bite: {fileID: 1341245256321798, guid: 6757991112289ec448b03a3d25d8edce, type: 2}
 --- !u!82 &853599653
 AudioSource:
@@ -1552,6 +1561,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &853599654
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853599651}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f745fdeb922d48f4ba4086884b00936b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!54 &853599655
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1639,7 +1666,7 @@ Transform:
   - {fileID: 240338260}
   - {fileID: 278941914}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &869041052
 Prefab:
@@ -2124,6 +2151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9274a97aab22e814db198687ab81a8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPosition: {fileID: 0}
+  scratch: {fileID: 0}
+  bite: {fileID: 0}
 --- !u!1 &1257057320
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,6 +2194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27365d3a7d72032409b7798266a3e378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
+  Player3: {fileID: 0}
+  Player4: {fileID: 0}
 --- !u!1001 &1278941138
 Prefab:
   m_ObjectHideFlags: 0
@@ -2521,7 +2555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4bf09f12b6838a489bbf7c5bf895af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodPrefab: {fileID: 1861588042057804, guid: 6599c8e0c325ab54397f31d56dd80d1a, type: 2}
+  plane: {fileID: 0}
+  ResourcePool: {fileID: 0}
 --- !u!136 &1485339595
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2928,7 +2963,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPosition: {fileID: 1437766766}
-  spiderBite: {fileID: 1341245256321798, guid: 6757991112289ec448b03a3d25d8edce, type: 2}
+  web: {fileID: 0}
+  bite: {fileID: 0}
 --- !u!1001 &1824909013
 Prefab:
   m_ObjectHideFlags: 0
@@ -3047,11 +3083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342bae927b4331f43ac9661b154d2cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeText: {fileID: 1486847189}
-  foodText1: {fileID: 1326006753}
-  foodText2: {fileID: 471521150}
-  foodText3: {fileID: 814972997}
-  foodText4: {fileID: 2091703051}
+  textPrefab: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!114 &1868294311
 MonoBehaviour:
   m_ObjectHideFlags: 0
