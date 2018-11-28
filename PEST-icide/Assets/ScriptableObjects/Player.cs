@@ -25,12 +25,15 @@ public class Player : MonoBehaviour {
     private GameObject attack2;
 
     // Internal variables
-    private uint resources;
+    public uint resources;
     private float invuln;
     private float stun;
     private Vector3 movementVector;
     private float distToGround;
     private Transform attackPosition;
+
+    [SerializeField]
+    public GameObject resource;
 
 	// Use this for initialization
 	void Start () {
@@ -181,12 +184,14 @@ public class Player : MonoBehaviour {
         }
     }
 
+    // Function to handle taking damage
     public void TakeDamage(uint dmg)
     {
         if (invuln <= 0.0f)
         {
-            if(resources > 0.0f)
+            if(resources > 0)
             {
+                DropResources(dmg);
                 resources -= dmg;
                 invuln += 3.0f;
             }
@@ -197,6 +202,18 @@ public class Player : MonoBehaviour {
                 stun += 1.0f;
             }
             
+        }
+    }
+
+    // Function to handle dropping of resources
+    public void DropResources(uint resources)
+    {
+        for(int i = 0; i < resources; i++)
+        {
+            Vector3 rand;
+            rand = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+            GameObject temp;
+            temp = Instantiate(resource, gameObject.transform.position + rand, gameObject.transform.rotation);
         }
     }
 

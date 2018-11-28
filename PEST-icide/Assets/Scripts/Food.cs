@@ -11,7 +11,7 @@ public class Food : MonoBehaviour {
     {
         if(coll.gameObject.tag == "Player1")
         {
-            GameManager.instance.Player1Food++;
+            coll.gameObject.GetComponent<Player>().resources++;
             GameObject.FindGameObjectWithTag("Player1").GetComponent<AudioSource>().PlayOneShot(crunch);
             gameObject.SetActive(false);
             gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
@@ -19,21 +19,21 @@ public class Food : MonoBehaviour {
         }
         else if (coll.gameObject.tag == "Player2")
         {
-            GameManager.instance.Player2Food++;
+            coll.gameObject.GetComponent<Player>().resources++;
             GameObject.FindGameObjectWithTag("Player2").GetComponent<AudioSource>().PlayOneShot(crunch);
             gameObject.SetActive(false);
             gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
         }
         else if (coll.gameObject.tag == "Player3")
         {
-            GameManager.instance.Player3Food++;
+            coll.gameObject.GetComponent<Player>().resources++;
             GameObject.FindGameObjectWithTag("Player3").GetComponent<AudioSource>().PlayOneShot(crunch);
             gameObject.SetActive(false);
             gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
         }
         else if(coll.gameObject.tag == "Player4")
         {
-            GameManager.instance.Player4Food++;
+            coll.gameObject.GetComponent<Player>().resources++;
             GameObject.FindGameObjectWithTag("Player4").GetComponent<AudioSource>().PlayOneShot(crunch);
             gameObject.SetActive(false);
             gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
