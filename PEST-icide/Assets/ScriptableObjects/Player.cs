@@ -21,6 +21,8 @@ public class Player : MonoBehaviour {
     private Material playerMaterial;
     private Vector3 colliderOffset;
     private Vector3 colliderSize;
+    private GameObject attack1;
+    private GameObject attack2;
 
     // Internal variables
     private uint resources;
@@ -49,6 +51,8 @@ public class Player : MonoBehaviour {
         playerMaterial = character.material;
         colliderOffset = character.colliderOffset;
         colliderSize = character.colliderSize;
+        attack1 = character.attack1.prefab;
+        attack2 = character.attack2.prefab;
 
         // Assigning values to gameobject components where necessary
         gameObject.GetComponent<MeshFilter>().mesh = playerMesh;
@@ -148,7 +152,7 @@ public class Player : MonoBehaviour {
     {
         if (stun <= 0.0f) // Stun check
         {
-            GameObject tempAttack = Instantiate(character.attack1.prefab, attackPosition.position, attackPosition.rotation);
+            GameObject tempAttack = Instantiate(attack1, attackPosition.position, attackPosition.rotation, attackPosition); // Setting the attack position as the parent of the 
             Destroy(tempAttack, 0.30f);
         }
     }
@@ -158,7 +162,7 @@ public class Player : MonoBehaviour {
     {
         if (stun <= 0.0f) // Stun check
         {
-            GameObject tempAttack = Instantiate(character.attack2.prefab, attackPosition.position, attackPosition.rotation);
+            GameObject tempAttack = Instantiate(attack2, attackPosition.position, attackPosition.rotation, attackPosition);
             Destroy(tempAttack, 0.20f);
         }
     }

@@ -9,12 +9,11 @@ public class MouseTrap : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         animator = gameObject.GetComponent<Animator>();
-        animator.StartPlayback();
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 
     }
 }
