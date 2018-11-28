@@ -7,8 +7,6 @@ public class Player : MonoBehaviour {
     [SerializeField]
     public Character character; // The character scriptedobject
 
-	[SerializeField]
-	private Attack attack; // the attack scriptedobject
 
     [SerializeField]
     public int playerNumber; // The controller number that will be passed to the charactercontroller
@@ -29,8 +27,6 @@ public class Player : MonoBehaviour {
     private Vector3 colliderSize;
 
 	private AudioSource player_move;
-	private AudioSource player_attack;
-	private AudioClip PrimAttack;
 	private AudioClip Move;
 
     // Internal variables
@@ -187,7 +183,7 @@ public class Player : MonoBehaviour {
         {
             GameObject tempAttack = Instantiate(character.attack1.prefab, attackPosition.position, attackPosition.rotation);
             Destroy(tempAttack, 0.30f);
-			player_attack.Play();
+			
 			
         }
     }
@@ -199,7 +195,7 @@ public class Player : MonoBehaviour {
         {
             GameObject tempAttack = Instantiate(character.attack2.prefab, attackPosition.position, attackPosition.rotation);
             Destroy(tempAttack, 0.20f);
-			player_attack.Play();
+			
         }
     }
 

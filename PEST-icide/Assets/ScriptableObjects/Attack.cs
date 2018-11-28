@@ -9,8 +9,7 @@ public class Attack : ScriptableObject {
     public string attackName;
     public float damage;
 
-	public AudioSource attacksound;
-	public AudioClip AttackSFX;
+
 
 
 }
