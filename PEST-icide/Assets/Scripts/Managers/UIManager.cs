@@ -115,10 +115,10 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         timeCount.text = formatText(GameManager.instance.TimeRemaining);
-        foodCount1.text = GameManager.instance.Player1Food.ToString();
-        foodCount2.text = GameManager.instance.Player2Food.ToString();
-        foodCount3.text = GameManager.instance.Player3Food.ToString();
-        foodCount4.text = GameManager.instance.Player4Food.ToString();
+        foodCount1.text = GameManager.instance.Player1DepositedRes.ToString();
+        foodCount2.text = GameManager.instance.Player2DepositedRes.ToString();
+        foodCount3.text = GameManager.instance.Player3DepositedRes.ToString();
+        foodCount4.text = GameManager.instance.Player4DepositedRes.ToString();
     }
 
     private string formatText(float time)

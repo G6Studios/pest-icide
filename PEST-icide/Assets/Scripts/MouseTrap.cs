@@ -27,11 +27,11 @@ public class MouseTrap : MonoBehaviour {
 
     }
 
-    private void OnCollisionStay(Collision coll)
+    private void OnTriggerStay(Collider other)
     {
-        if(isActive)
+        if (isActive)
         {
-            coll.gameObject.GetComponent<Player>().TakeDamage(4);
+            other.gameObject.GetComponent<Player>().TakeDamage(4);
         }
     }
 
