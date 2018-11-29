@@ -1,0 +1,312 @@
+fileFormatVersion: 2
+guid: a585dac1e21196540a0edeba99b0fd33
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Back Ramp
+    100002: Couch
+    100004: Counter 1
+    100006: Counter 2
+    100008: Counter 3
+    100010: Counter 4
+    100012: Counter 5
+    100014: Cupboard 1
+    100016: Cupboard 2
+    100018: Cupboard 3
+    100020: Cupboard 4
+    100022: Cylinder
+    100024: Cylinder.001
+    100026: Far Ramp 1
+    100028: Far Ramp 2
+    100030: Far Ramp 3
+    100032: Far Table
+    100034: Fridge
+    100036: Left Ramp
+    100038: Middle Table
+    100040: Middle Wall 1
+    100042: Middle Wall 2
+    100044: Plane
+    100046: Range Hood
+    100048: Right Ramp
+    100050: Stove+Sink
+    100052: //RootNode
+    100054: Tiny Ramp
+    100056: TV+Stand
+    100058: Upright Counter
+    100060: Wall 1
+    100062: Wall 10
+    100064: Wall 2
+    100066: Wall 3
+    100068: Wall 4
+    100070: Wall 5
+    100072: Wall 6
+    100074: Wall 7
+    100076: Wall 8
+    100078: Wall 9
+    400000: Back Ramp
+    400002: Couch
+    400004: Counter 1
+    400006: Counter 2
+    400008: Counter 3
+    400010: Counter 4
+    400012: Counter 5
+    400014: Cupboard 1
+    400016: Cupboard 2
+    400018: Cupboard 3
+    400020: Cupboard 4
+    400022: Cylinder
+    400024: Cylinder.001
+    400026: Far Ramp 1
+    400028: Far Ramp 2
+    400030: Far Ramp 3
+    400032: Far Table
+    400034: Fridge
+    400036: Left Ramp
+    400038: Middle Table
+    400040: Middle Wall 1
+    400042: Middle Wall 2
+    400044: Plane
+    400046: Range Hood
+    400048: Right Ramp
+    400050: Stove+Sink
+    400052: //RootNode
+    400054: Tiny Ramp
+    400056: TV+Stand
+    400058: Upright Counter
+    400060: Wall 1
+    400062: Wall 10
+    400064: Wall 2
+    400066: Wall 3
+    400068: Wall 4
+    400070: Wall 5
+    400072: Wall 6
+    400074: Wall 7
+    400076: Wall 8
+    400078: Wall 9
+    2100000: Material.001
+    2100002: Material.002
+    2100004: Material.006
+    2100006: Material.012
+    2100008: Material.021
+    2100010: Material.018
+    2100012: Material.013
+    2100014: Material.017
+    2100016: Material.014
+    2100018: Material.011
+    2100020: Material.007
+    2100022: Material.005
+    2100024: Material.010
+    2100026: Material.009
+    2100028: Material.008
+    2100030: Material.016
+    2100032: Material.015
+    2100034: Material.003
+    2100036: Material.004
+    2100038: Material.020
+    2100040: Material.031
+    2100042: Material.030
+    2100044: Material.032
+    2100046: Material.033
+    2100048: No Name
+    2100050: Material.034
+    2100052: Material.025
+    2300000: Back Ramp
+    2300002: Couch
+    2300004: Counter 1
+    2300006: Counter 2
+    2300008: Counter 3
+    2300010: Counter 4
+    2300012: Counter 5
+    2300014: Cupboard 1
+    2300016: Cupboard 2
+    2300018: Cupboard 3
+    2300020: Cupboard 4
+    2300022: Cylinder
+    2300024: Cylinder.001
+    2300026: Far Ramp 1
+    2300028: Far Ramp 2
+    2300030: Far Ramp 3
+    2300032: Far Table
+    2300034: Fridge
+    2300036: Left Ramp
+    2300038: Middle Table
+    2300040: Middle Wall 1
+    2300042: Middle Wall 2
+    2300044: Plane
+    2300046: Range Hood
+    2300048: Right Ramp
+    2300050: Stove+Sink
+    2300052: Tiny Ramp
+    2300054: TV+Stand
+    2300056: Upright Counter
+    2300058: Wall 1
+    2300060: Wall 10
+    2300062: Wall 2
+    2300064: Wall 3
+    2300066: Wall 4
+    2300068: Wall 5
+    2300070: Wall 6
+    2300072: Wall 7
+    2300074: Wall 8
+    2300076: Wall 9
+    3300000: Back Ramp
+    3300002: Couch
+    3300004: Counter 1
+    3300006: Counter 2
+    3300008: Counter 3
+    3300010: Counter 4
+    3300012: Counter 5
+    3300014: Cupboard 1
+    3300016: Cupboard 2
+    3300018: Cupboard 3
+    3300020: Cupboard 4
+    3300022: Cylinder
+    3300024: Cylinder.001
+    3300026: Far Ramp 1
+    3300028: Far Ramp 2
+    3300030: Far Ramp 3
+    3300032: Far Table
+    3300034: Fridge
+    3300036: Left Ramp
+    3300038: Middle Table
+    3300040: Middle Wall 1
+    3300042: Middle Wall 2
+    3300044: Plane
+    3300046: Range Hood
+    3300048: Right Ramp
+    3300050: Stove+Sink
+    3300052: Tiny Ramp
+    3300054: TV+Stand
+    3300056: Upright Counter
+    3300058: Wall 1
+    3300060: Wall 10
+    3300062: Wall 2
+    3300064: Wall 3
+    3300066: Wall 4
+    3300068: Wall 5
+    3300070: Wall 6
+    3300072: Wall 7
+    3300074: Wall 8
+    3300076: Wall 9
+    4300000: Middle Wall 2
+    4300002: Wall 1
+    4300004: Wall 2
+    4300006: Wall 3
+    4300008: Wall 4
+    4300010: Wall 5
+    4300012: Counter 1
+    4300014: Counter 4
+    4300016: Upright Counter
+    4300018: Counter 5
+    4300020: Middle Table
+    4300022: Tiny Ramp
+    4300024: Right Ramp
+    4300026: Counter 3
+    4300028: Counter 2
+    4300030: Cupboard 1
+    4300032: Cupboard 2
+    4300034: Cupboard 3
+    4300036: Cupboard 4
+    4300038: Back Ramp
+    4300040: Left Ramp
+    4300042: Middle Wall 1
+    4300044: Wall 6
+    4300046: Wall 7
+    4300048: Wall 8
+    4300050: Far Table
+    4300052: Wall 9
+    4300054: Wall 10
+    4300056: Plane
+    4300058: Range Hood
+    4300060: Stove+Sink
+    4300062: TV+Stand
+    4300064: Couch
+    4300066: Cylinder
+    4300068: Far Ramp 1
+    4300070: Far Ramp 2
+    4300072: Far Ramp 3
+    4300074: Cylinder.001
+    4300076: Fridge
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

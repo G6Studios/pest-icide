@@ -1,0 +1,50 @@
+TimeRemaining
+Time Remaining:
+20
+500
+0
+0
+0
+0
+255
+24
+Player1Food
+Player 1 Resources:
+-800
+500
+0
+255
+0
+0
+255
+24
+Player2Food
+Player 2 Resources:
+830
+500
+0
+0
+0
+255
+255
+24
+Player3Food
+Player 3 Resources:
+-800
+-500
+0
+0
+255
+0
+255
+24
+Player4Food
+Player 4 Resources:
+830
+-500
+0
+255
+0
+100
+255
+24

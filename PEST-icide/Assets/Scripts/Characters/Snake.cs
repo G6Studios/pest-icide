@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class Snake : MonoBehaviour {
     // Data members
@@ -7,14 +6,36 @@ public class Snake : MonoBehaviour {
     private float sn_speed;
     private float sn_jumpHeight;
     private float sn_jumpLength;
+    private float sn_invuln;
     private Vector3 sn_movementVector;
     Collider sn_collider;
     private float sn_distToGround;
     Rigidbody sn_rigidBody;
 
-    // For events
-    private UnityAction snakeMoveEvent;
-    private UnityAction snakeJumpEvent;
+    public static Snake instance;
+	public AudioClip Slither;
+
+	bool Move_Toggle = false;
+
+	// Sounds
+	[SerializeField]
+	AudioSource SnakeMove;
+
+	[SerializeField]
+	AudioSource snakeBite;
+
+	[SerializeField]
+	AudioSource PoisonSpit;
+
+	// Attack
+    [SerializeField]
+    Transform attackPosition;
+
+    [SerializeField]
+    GameObject scratch;
+
+    [SerializeField]
+    GameObject bite;
 
 	// Use this for initialization
 	void Start ()
@@ -23,19 +44,13 @@ public class Snake : MonoBehaviour {
         Speed = 3.0f;
         JumpHeight = 2.0f;
         JumpLength = 5.0f;
+        Invulnerable = 0.0f;
 
         // Components
         sn_rigidBody = gameObject.GetComponent<Rigidbody>();
         sn_collider = gameObject.GetComponent<Collider>();
 
         sn_distToGround = sn_collider.bounds.extents.y;
-
-        
-        
-
-        // Enables the listeners for snake-related events
-        EventManager.instance.StartListening("snakeMoveEvent", snakeMoveEvent);
-        EventManager.instance.StartListening("snakeJumpEvent", snakeJumpEvent);
 
 	}
 
@@ -48,6 +63,27 @@ public class Snake : MonoBehaviour {
         sn_movementVector = sn_movementVector.normalized * Speed * Time.deltaTime;
 
         transform.Translate(sn_movementVector.x, 0, sn_movementVector.z);
+
+		if (sn_movementVector.x > 0.0f || sn_movementVector.z >0.0f)
+		{
+			if (Move_Toggle == false)
+			{
+				Move_Toggle = true;
+				if (IsGrounded())
+				{
+					SnakeMove.clip = Slither;
+					SnakeMove.loop = true;
+					SnakeMove.Play();
+				}
+
+			}
+
+		}
+		else
+		{
+			Move_Toggle = false;
+			SnakeMove.Stop();
+		}
     }
 
     // Jumping for the snake
@@ -57,15 +93,66 @@ public class Snake : MonoBehaviour {
         sn_rigidBody.AddForce(0.0f, sn_jumpHeight, 0.0f, ForceMode.Impulse);
     }
 
+    private void scratchAttack()
+    {
+        GameObject tempAttack = Instantiate(scratch, attackPosition.position, attackPosition.rotation);
+        Destroy(tempAttack, 0.20f);
+
+
+    }
+
+    private void biteAttack()
+    {
+        GameObject tempAttack = Instantiate(bite, attackPosition.position, attackPosition.rotation);
+        Destroy(tempAttack, 0.30f);
+
+		snakeBite.Play();
+    }
+
+    private void takeDamage(float dmg)
+    {
+        if(Invulnerable <= 0.0f)
+        {
+            Resources -= dmg;
+            Invulnerable += 3.0f;
+        }
+    }
+
+    private void Update()
+    {
+        if(Invulnerable > 0.0f)
+        {
+            Invulnerable -= Time.deltaTime;
+        }
+    }
+
+
     private bool IsGrounded()
     {
         return Physics.Raycast(transform.position, -Vector3.up, sn_distToGround + 0.1f);
     }
 
+    // Awake() runs before any Start() calls
+    // Enforces the singleton pattern
     private void Awake()
     {
-        snakeMoveEvent = new UnityAction(snakeMovement);
-        snakeJumpEvent = new UnityAction(snakeJump);
+        // Check if instance exists
+        if (instance == null)
+        {
+            // If not, set the game manager to this
+            instance = this;
+        }
+
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+		//grabs the snake appropriate sounds
+		SnakeMove = GetComponent<AudioSource>();
+
+        // Ensures that this persists between scenes
+        DontDestroyOnLoad(gameObject);
     }
 
     // Setters and getters
@@ -91,5 +178,11 @@ public class Snake : MonoBehaviour {
     {
         get { return sn_jumpLength; }
         set { sn_jumpLength = value; }
+    }
+
+    public float Invulnerable
+    {
+        get { return sn_invuln; }
+        set { sn_invuln = value; }
     }
 }

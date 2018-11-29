@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class Spider : MonoBehaviour {
     // Data members
@@ -7,21 +6,23 @@ public class Spider : MonoBehaviour {
     private float sp_speed;
     private float sp_jumpHeight;
     private float sp_jumpLength;
+    private float sp_invuln;
     private Vector3 sp_movementVector;
     Collider sp_collider;
     private float sp_distToGround;
     Rigidbody sp_rigidBody;
+
+    public static Spider instance;
 
     // Attacks
     [SerializeField]
     Transform attackPosition;
 
     [SerializeField]
-    GameObject spiderBite;
+    GameObject web;
 
-    // For events
-    private UnityAction spiderMoveEvent;
-    private UnityAction spiderJumpEvent;
+    [SerializeField]
+    GameObject bite;
 
 
 	// Use this for initialization
@@ -38,22 +39,7 @@ public class Spider : MonoBehaviour {
 
         sp_distToGround = sp_collider.bounds.extents.y;
 
-        // Enables the listeners for spider-related events
-        EventManager.instance.StartListening("spiderMoveEvent", spiderMoveEvent);
-        EventManager.instance.StartListening("spiderJumpEvent", spiderJumpEvent);
 	}
-
-    public void OnDisable()
-    {
-        EventManager.instance.StopListening("spiderMoveEvent", spiderMoveEvent);
-        EventManager.instance.StopListening("spiderJumpEvent", spiderJumpEvent);
-    }
-
-    private void Awake()
-    {
-        spiderMoveEvent = new UnityAction(spiderMovement);
-        spiderJumpEvent = new UnityAction(spiderJump);
-    }
 
     private bool IsGrounded()
     {
@@ -72,8 +58,62 @@ public class Spider : MonoBehaviour {
 
     private void spiderJump()
     {
-        if(IsGrounded())
-        sp_rigidBody.AddForce(0.0f, sp_jumpHeight, 0.0f, ForceMode.Impulse);
+        if (Input.GetButtonDown("A_P2"))
+        {
+            if (IsGrounded())
+                sp_rigidBody.AddForce(0.0f, sp_jumpHeight, 0.0f, ForceMode.Impulse);
+        }
+    }
+
+    private void WebShot()
+    {
+        GameObject tempAttack = Instantiate(web, attackPosition.position, attackPosition.rotation);
+        Destroy(tempAttack, 0.20f);
+
+
+    }
+
+    private void SpiderBite()
+    {
+        GameObject tempAttack = Instantiate(bite, attackPosition.position, attackPosition.rotation);
+        Destroy(tempAttack, 0.30f);
+    }
+
+    private void takeDamage(float dmg)
+    {
+        if(Invulnerable <= 0.0f)
+        {
+            Resources -= dmg;
+            Invulnerable += 3.0f;
+        }
+    }
+
+    private void Update()
+    {
+        if(Invulnerable > 0.0f)
+        {
+            Invulnerable -= Time.deltaTime;
+        }
+    }
+
+    // Awake() runs before any Start() calls
+    // Enforces the singleton pattern
+    private void Awake()
+    {
+        // Check if instance exists
+        if (instance == null)
+        {
+            // If not, set the game manager to this
+            instance = this;
+        }
+
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        // Ensures that this persists between scenes
+        DontDestroyOnLoad(gameObject);
     }
 
     // Getters and setters
@@ -99,6 +139,12 @@ public class Spider : MonoBehaviour {
     {
         get { return sp_jumpLength; }
         set { sp_jumpLength = value; }
+    }
+
+    public float Invulnerable
+    {
+        get { return sp_invuln; }
+        set { sp_invuln = value; }
     }
 	
 }

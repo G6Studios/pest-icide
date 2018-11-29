@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6efbe654554963b4abdf130f9de79a07, type: 3}
+  m_Name: RatBite
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1975206782699322, guid: 2cd624684f595fd42a6123b1074e4ecf, type: 2}
+  attackName: Rat Bite
+  damage: 4
+  attacksound: {fileID: 0}
+  AttackSFX: {fileID: 8300000, guid: 2582fa37608b0b14f9f3ea6d99ca10c8, type: 3}

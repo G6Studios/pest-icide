@@ -27,7 +27,7 @@ Shader "Outline/Uniform"
 	Properties
 	{
 		_Color ("Main Color", color) = (0.5,0.5,0.5,1)
-		_OutlineColor ("Outline Color", color) = (0,0,0,1)
+		_OutlineColor ("Outline Color", color) = (1,0,0,1)
 		_OutlineWidth ("Outline Width", Range (0,0.6)) = 0.1
 		_MainTex ("Texture", 2D) = "white" {}
 	}

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour
 { 
 
     public static InputManager instance = null;
+    GameObject GasTrap;
+    GameObject MouseTrap;
 
     // Awake() runs before any Start() calls
     // Enforces the singleton pattern
@@ -30,11 +31,8 @@ public class InputManager : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    void FixedUpdate()
-    {
-        characterMovement(); // gets input and moves character
+        GasTrap = GameObject.FindGameObjectWithTag("Poison");
+        MouseTrap = GameObject.FindGameObjectWithTag("Trap");
     }
 
     // Update is called once per frame
@@ -46,40 +44,17 @@ public class InputManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
 
+        if (Input.GetKeyDown("up"))
+        {
+            GasTrap.GetComponent<GasTrap>().IsActive = !GasTrap.GetComponent<GasTrap>().IsActive;
+        }
+
+        if (Input.GetKeyDown("right"))
+        {
+            MouseTrap.GetComponent<MouseTrap>().IsActive = !MouseTrap.GetComponent<MouseTrap>().IsActive;
+        }
+
     }
 
-    void characterMovement()
-    {
-        // Movement blocks
-        EventManager.instance.TriggerEvent("ratMoveEvent");
-        EventManager.instance.TriggerEvent("spiderMoveEvent");
-        EventManager.instance.TriggerEvent("frogMoveEvent");
-        EventManager.instance.TriggerEvent("snakeMoveEvent");
-
-
-        // Jumping blocks
-        if(Input.GetButtonDown("A_P1"))
-        {
-            EventManager.instance.TriggerEvent("ratJumpEvent");
-        }
-
-        if (Input.GetButtonDown("A_P2"))
-        {
-            EventManager.instance.TriggerEvent("spiderJumpEvent");
-        }
-
-        if (Input.GetButtonDown("A_P3"))
-        {
-            EventManager.instance.TriggerEvent("frogJumpEvent");
-        }
-
-        if (Input.GetButtonDown("A_P4"))
-        {
-            EventManager.instance.TriggerEvent("snakeJumpEvent");
-        }
-
-        // Attacks
-       
-    }
 
 }

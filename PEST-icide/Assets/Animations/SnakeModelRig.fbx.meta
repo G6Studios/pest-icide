@@ -1,0 +1,233 @@
+fileFormatVersion: 2
+guid: 8a9d3cee137605449814193bd7ce004c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: joint1
+    100002: joint10
+    100004: joint11
+    100006: joint12
+    100008: joint13
+    100010: joint14
+    100012: joint15
+    100014: joint16
+    100016: joint17
+    100018: joint18
+    100020: joint2
+    100022: joint3
+    100024: joint4
+    100026: joint5
+    100028: joint6
+    100030: joint7
+    100032: joint8
+    100034: joint9
+    100036: SnakeModel8:RetopoGroup1
+    100038: //RootNode
+    400000: joint1
+    400002: joint10
+    400004: joint11
+    400006: joint12
+    400008: joint13
+    400010: joint14
+    400012: joint15
+    400014: joint16
+    400016: joint17
+    400018: joint18
+    400020: joint2
+    400022: joint3
+    400024: joint4
+    400026: joint5
+    400028: joint6
+    400030: joint7
+    400032: joint8
+    400034: joint9
+    400036: SnakeModel8:RetopoGroup1
+    400038: //RootNode
+    2100000: SnakeModel8_Default1
+    4300000: SnakeModel8:RetopoGroup1
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: SnakeModel8:RetopoGroup1
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 1
+    weldVertices: 1
+    preserveHierarchy: 1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 0
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton:
+    - name: SnakeModelRig(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SnakeModel8:RetopoGroup1
+      parentName: SnakeModelRig(Clone)
+      position: {x: -0, y: 0.031794164, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.17602246, y: 0.17602246, z: 0.17602246}
+    - name: joint1
+      parentName: SnakeModelRig(Clone)
+      position: {x: 0.025587179, y: 0.03352837, z: -0.0028638998}
+      rotation: {x: 0.00025579025, y: 0.01880307, z: 0.013599982, w: 0.9997307}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint2
+      parentName: joint1
+      position: {x: -0.55609643, y: -0.000020822987, z: -0.020342711}
+      rotation: {x: -0.00025579025, y: -0.01880307, z: -0.013599982, w: 0.9997307}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint3
+      parentName: joint1
+      position: {x: 0.47857508, y: -0.11236274, z: 0.02137841}
+      rotation: {x: 0.013601112, y: 0.99981385, z: -0.00018613192, w: 0.013682504}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint4
+      parentName: joint3
+      position: {x: -0.45264563, y: 0.050492972, z: -0.000537735}
+      rotation: {x: 0, y: -0.0070713507, z: -0, w: 0.999975}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint5
+      parentName: joint4
+      position: {x: -0.58462894, y: 0.0059777326, z: -2.839535e-15}
+      rotation: {x: 0, y: 0.0039780685, z: -0, w: 0.99999213}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint6
+      parentName: joint5
+      position: {x: -0.55862844, y: -0.09753946, z: 2.5544757e-14}
+      rotation: {x: 0, y: -0.0034448067, z: -0, w: 0.9999941}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint7
+      parentName: joint6
+      position: {x: -0.608007, y: 0.07419857, z: -0.00054383214}
+      rotation: {x: 0, y: -0.0020081757, z: -0, w: 0.999998}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint8
+      parentName: joint7
+      position: {x: -0.49631438, y: 0.062274665, z: -1.3712917e-14}
+      rotation: {x: 0, y: 0.0047722915, z: -0, w: 0.9999886}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint9
+      parentName: joint8
+      position: {x: -0.4203858, y: 0.046772283, z: -1.2521766e-14}
+      rotation: {x: 0, y: -0.0013477053, z: -0, w: 0.9999991}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint10
+      parentName: joint9
+      position: {x: -0.35806316, y: 0.010098594, z: -1.7205681e-15}
+      rotation: {x: 0, y: 0.0031745555, z: -0, w: 0.999995}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint11
+      parentName: joint10
+      position: {x: -0.35693726, y: 0.03574526, z: -5.427234e-15}
+      rotation: {x: 0, y: -0.0031745555, z: -0, w: 0.999995}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint12
+      parentName: joint11
+      position: {x: -0.35466376, y: -8.670842e-16, z: 8.5316483e-16}
+      rotation: {x: 0, y: 0.0019011304, z: -0, w: 0.9999982}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint13
+      parentName: joint12
+      position: {x: -0.2980104, y: -4.2739273e-16, z: 6.5236703e-15}
+      rotation: {x: 0, y: -0.008942801, z: -0, w: 0.99996}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint14
+      parentName: joint13
+      position: {x: -0.24137662, y: -0.018108558, z: 3.819342e-15}
+      rotation: {x: 0, y: 0.0070417295, z: -0, w: 0.9999752}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint15
+      parentName: joint14
+      position: {x: -0.1416389, y: -0.004938698, z: 1.2049752e-15}
+      rotation: {x: 0, y: -0.009998501, z: -0, w: 0.99995005}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint16
+      parentName: joint15
+      position: {x: -0.113333784, y: -0.0131698605, z: 3.4816175e-15}
+      rotation: {x: 0, y: 0.015048433, z: -0, w: 0.9998868}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint17
+      parentName: joint16
+      position: {x: -0.13259071, y: -0.011523628, z: -0.00020613104}
+      rotation: {x: 0, y: 0.0018936635, z: -0, w: 0.9999982}
+      scale: {x: 0.176, y: 0.176, z: 0.176}
+    - name: joint18
+      parentName: joint17
+      position: {x: -0.16318376, y: -0.006673596, z: 7.0797182e-15}
+      rotation: {x: 0.009071242, y: 0.9999348, z: 0.0000629917, w: 0.006943657}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: joint1
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
