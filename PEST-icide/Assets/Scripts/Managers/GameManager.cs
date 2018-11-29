@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour {
     public GameObject Player3;
     public GameObject Player4;
 
+    public GameObject GasTrap;
+    public GameObject MouseTrap;
+
     // Quick way to do get and set functions for variables
     public float TimeRemaining
     {
@@ -78,6 +81,7 @@ public class GameManager : MonoBehaviour {
         Player2 = GameObject.FindGameObjectWithTag("Player2");
         Player3 = GameObject.FindGameObjectWithTag("Player3");
         Player4 = GameObject.FindGameObjectWithTag("Player4");
+        
     }
 	
 	// Update is called once per frame
@@ -92,6 +96,9 @@ public class GameManager : MonoBehaviour {
         {
             GameOver();
         }
+
+        
+
     }
 
     // Function that will switch game scenes once the time has run out

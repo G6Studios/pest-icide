@@ -4,7 +4,8 @@ public class InputManager : MonoBehaviour
 { 
 
     public static InputManager instance = null;
-    GameObject trap;
+    GameObject GasTrap;
+    GameObject MouseTrap;
 
     // Awake() runs before any Start() calls
     // Enforces the singleton pattern
@@ -30,7 +31,8 @@ public class InputManager : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        trap = GameObject.FindGameObjectWithTag("Trap");
+        GasTrap = GameObject.FindGameObjectWithTag("Poison");
+        MouseTrap = GameObject.FindGameObjectWithTag("Trap");
     }
 
     // Update is called once per frame
@@ -42,9 +44,14 @@ public class InputManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
 
-        if(Input.GetKeyDown("up"))
+        if (Input.GetKeyDown("up"))
         {
-            trap.GetComponent<GasTrap>().IsActive = true;
+            GasTrap.GetComponent<GasTrap>().IsActive = !GasTrap.GetComponent<GasTrap>().IsActive;
+        }
+
+        if (Input.GetKeyDown("right"))
+        {
+            MouseTrap.GetComponent<MouseTrap>().IsActive = !MouseTrap.GetComponent<MouseTrap>().IsActive;
         }
 
     }
