@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
 
     // Internal variables
     public uint resources;
+    public uint depositedResources;
     private float invuln;
     private float stun;
     private Vector3 movementVector;
