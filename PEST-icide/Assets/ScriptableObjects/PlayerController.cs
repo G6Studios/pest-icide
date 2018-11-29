@@ -21,7 +21,10 @@ public class PlayerController : MonoBehaviour {
     void getCharacterMovement(int controller)
     {
         // Movement processing
-        gameObject.GetComponent<Player>().Movement(controller);
+        if (Input.GetAxis("LeftJoystickX_P" + controller) > 0 || Input.GetAxis("LeftJoystickY_P" + controller) > 0)
+        {
+            gameObject.GetComponent<Player>().Movement(controller);
+        }
 
         // Jump processing
         if(Input.GetButtonDown("A_P" + controller))

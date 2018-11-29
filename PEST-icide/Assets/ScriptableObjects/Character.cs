@@ -9,7 +9,7 @@ public class Character : ScriptableObject {
     public float speed; // Movement speed of character
     public float jumpHeight; // Jump height of character
     public float jumpLength; // Jump length of character
-    public Mesh mesh; // Character mesh
+    public GameObject animatedCharacter;
     public Collider collider; // The collider for the character
     public Rigidbody rigidbody; // The rigidbody for the character
     public Material material; // The material/texture for the character

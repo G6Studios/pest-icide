@@ -15,14 +15,13 @@ MonoBehaviour:
   speed: 7
   jumpHeight: 4
   jumpLength: 1.5
-  mesh: {fileID: 4300000, guid: af470500f15d7fd4892418762e70a76d, type: 3}
+  animatedCharacter: {fileID: 1375672110037624, guid: c20a722de24b8a74798f70876cd508f8,
+    type: 2}
   collider: {fileID: 135396691952232934, guid: f9600210940d61b43b0d1e2f07053346, type: 2}
   rigidbody: {fileID: 54577229212420634, guid: f9600210940d61b43b0d1e2f07053346, type: 2}
   material: {fileID: 2100000, guid: 5fa669f7543d799498260014c4b3b896, type: 3}
-  colliderOffset: {x: 0, y: 0, z: 0}
+  colliderOffset: {x: 0, y: 0.3, z: 0}
   colliderSize: {x: 1, y: 1, z: 1}
   attack1: {fileID: 11400000, guid: 2188c5aaca6e2f940a0a8c374b25f5a4, type: 2}
   attack2: {fileID: 11400000, guid: 2d79c5dedc173c54086652fa5eb8c7e3, type: 2}
-  Attack1SFX: {fileID: 8300000, guid: 2582fa37608b0b14f9f3ea6d99ca10c8, type: 3}
-  Attack2SFX: {fileID: 8300000, guid: 943f585f0aecc584eb31b9ffa45726ba, type: 3}
   MovementSFX: {fileID: 8300000, guid: 1935f56f6ca9bab458c6be312489cfc2, type: 3}

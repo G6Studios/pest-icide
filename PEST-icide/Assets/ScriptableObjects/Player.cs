@@ -10,8 +10,6 @@ public class Player : MonoBehaviour {
 
     [SerializeField]
     public int playerNumber; // The controller number that will be passed to the charactercontroller
-
-	
 	
 
     // Variables handled by ScriptedObject
@@ -19,9 +17,9 @@ public class Player : MonoBehaviour {
     private float speed;
     private float jumpHeight;
     private float jumpLength;
+    private GameObject animated;
     private Collider playerCollider;
     private Rigidbody playerRigidbody;
-    private Mesh playerMesh;
     private Material playerMaterial;
     private Vector3 colliderOffset;
     private Vector3 colliderSize;
@@ -31,6 +29,8 @@ public class Player : MonoBehaviour {
 	private AudioSource player_move;
 	private AudioClip Move;
 
+    private Animator animController;
+
     // Internal variables
     public uint resources;
     private float invuln;
@@ -39,6 +39,8 @@ public class Player : MonoBehaviour {
     private float distToGround;
     private Transform attackPosition;
 	private bool Move_Toggle = false;
+
+    private TextMesh text;
 
     [SerializeField]
     public GameObject resource;
@@ -59,24 +61,28 @@ public class Player : MonoBehaviour {
         jumpLength = character.jumpLength;
         playerCollider = character.collider;
         playerRigidbody = gameObject.GetComponent<Rigidbody>();
-        playerMesh = character.mesh;
         playerMaterial = character.material;
         colliderOffset = character.colliderOffset;
         colliderSize = character.colliderSize;
         attack1 = character.attack1.prefab;
         attack2 = character.attack2.prefab;
 		Move = character.MovementSFX;
+        animated = character.animatedCharacter;
+        Instantiate(animated, gameObject.transform.position, animated.transform.rotation, gameObject.transform);
 
-		
+        animController = gameObject.GetComponentInChildren<Animator>();
+
+
 
         // Assigning values to gameobject components where necessary
-        gameObject.GetComponent<MeshFilter>().mesh = playerMesh;
         gameObject.GetComponent<MeshRenderer>().material = playerMaterial;
         gameObject.AddComponent<BoxCollider>();
         gameObject.GetComponent<BoxCollider>().center = colliderOffset;
         gameObject.GetComponent<BoxCollider>().size = colliderSize;
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
         attackPosition = gameObject.transform.GetChild(1).gameObject.transform;
+
+        text = gameObject.GetComponentInChildren<TextMesh>();
 
         // Setting up the camera viewspace
         setCamera();
@@ -136,6 +142,8 @@ public class Player : MonoBehaviour {
     {
         if (stun <= 0.0f) // Checking to see if the player is stunned
         {
+            animController.Play("Walk");
+
             // Getting the input of the Xbox controller left joystick on the X and Y axes
             movementVector.x = Input.GetAxis("LeftJoystickX_P" + playerNumber);
             movementVector.z = Input.GetAxis("LeftJoystickY_P" + playerNumber);
@@ -165,15 +173,17 @@ public class Player : MonoBehaviour {
 				Move_Toggle = false;
 				player_move.Stop();
 			}
-		}
+        }
+        
 
-	}
+    }
     
     // Jumping
     public void Jump()
     {
         if (stun <= 0.0f) // Checking to see if the player is stunned
         {
+            animController.Play("Jump");
             // Making sure the player is grounded so they can't jump on thin air
             if (IsGrounded())
             {
@@ -188,10 +198,10 @@ public class Player : MonoBehaviour {
     {
         if (stun <= 0.0f) // Stun check
         {
+            animController.Play("Bite");
             GameObject tempAttack = Instantiate(attack1, attackPosition.position, attackPosition.rotation, attackPosition); // Setting the attack position as the parent of the 
             Destroy(tempAttack, 0.30f);
-			
-			
+
         }
     }
 
@@ -200,9 +210,10 @@ public class Player : MonoBehaviour {
     {
         if (stun <= 0.0f) // Stun check
         {
+            animController.Play("Scratch");
             GameObject tempAttack = Instantiate(attack2, attackPosition.position, attackPosition.rotation, attackPosition);
             Destroy(tempAttack, 0.20f);
-			
+
         }
     }
 
@@ -218,6 +229,8 @@ public class Player : MonoBehaviour {
         {
             stun -= Time.deltaTime;
         }
+
+        text.text = resources.ToString();
     }
 
     // Function to handle taking damage

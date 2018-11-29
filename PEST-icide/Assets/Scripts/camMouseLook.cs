@@ -15,10 +15,12 @@ public class camMouseLook : MonoBehaviour {
     public int joystickNumber;
 
     GameObject character;
+    GameObject animatedCharacter;
 
 	// Use this for initialization
 	void Start () {
         character = this.transform.parent.gameObject;
+        //animatedCharacter
         joystickNumber = gameObject.GetComponentInParent<Player>().playerNumber;
 	}
 	

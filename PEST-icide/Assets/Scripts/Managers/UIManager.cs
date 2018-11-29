@@ -145,20 +145,25 @@ public class UIManager : MonoBehaviour
     {
         timeCount = Instantiate(textPrefab, startingPosition, textPrefab.transform.rotation) as Text;
         timeCount.transform.SetParent(canvas.transform, false);
+        timeCount.fontSize = 24;
         foodCount1 = Instantiate(textPrefab, startingPosition, textPrefab.transform.rotation) as Text;
         foodCount1.transform.SetParent(canvas.transform, false);
+        foodCount1.fontSize = 24;
         foodCount2 = Instantiate(textPrefab, startingPosition, textPrefab.transform.rotation) as Text;
         foodCount2.transform.SetParent(canvas.transform, false);
+        foodCount2.fontSize = 24;
         foodCount3 = Instantiate(textPrefab, startingPosition, textPrefab.transform.rotation) as Text;
         foodCount3.transform.SetParent(canvas.transform, false);
+        foodCount3.fontSize = 24;
         foodCount4 = Instantiate(textPrefab, startingPosition, textPrefab.transform.rotation) as Text;
         foodCount4.transform.SetParent(canvas.transform, false);
+        foodCount4.fontSize = 24;
 
-        timeCount.rectTransform.localPosition = new Vector3(49, 226, 0);
-        foodCount1.rectTransform.localPosition = new Vector3(-267, 223, 0);
-        foodCount2.rectTransform.localPosition = new Vector3(-233, 191, 0);
-        foodCount3.rectTransform.localPosition = new Vector3(-249, 156, 0);
-        foodCount4.rectTransform.localPosition = new Vector3(-234, 124, 0);
+        timeCount.rectTransform.localPosition = new Vector3(220, 500, 0);
+        foodCount1.rectTransform.localPosition = new Vector3(-571, 500, 0);
+        foodCount2.rectTransform.localPosition = new Vector3(1050, 500, 0);
+        foodCount3.rectTransform.localPosition = new Vector3(-571, -500, 0);
+        foodCount4.rectTransform.localPosition = new Vector3(1062, -502, 0);
     }
 
     void PackData(int index)
