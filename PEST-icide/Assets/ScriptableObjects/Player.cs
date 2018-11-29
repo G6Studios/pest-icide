@@ -40,6 +40,8 @@ public class Player : MonoBehaviour {
     private Transform attackPosition;
 	private bool Move_Toggle = false;
 
+    private TextMesh text;
+
     [SerializeField]
     public GameObject resource;
 
@@ -79,6 +81,8 @@ public class Player : MonoBehaviour {
         gameObject.GetComponent<BoxCollider>().size = colliderSize;
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
         attackPosition = gameObject.transform.GetChild(1).gameObject.transform;
+
+        text = gameObject.GetComponentInChildren<TextMesh>();
 
         // Setting up the camera viewspace
         setCamera();
@@ -225,6 +229,8 @@ public class Player : MonoBehaviour {
         {
             stun -= Time.deltaTime;
         }
+
+        text.text = resources.ToString();
     }
 
     // Function to handle taking damage

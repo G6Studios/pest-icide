@@ -27,6 +27,14 @@ public class MouseTrap : MonoBehaviour {
 
     }
 
+    private void OnCollisionStay(Collision coll)
+    {
+        if(isActive)
+        {
+            coll.gameObject.GetComponent<Player>().TakeDamage(4);
+        }
+    }
+
     public bool IsActive
     {
         set { isActive = value; }

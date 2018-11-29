@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         TimeRemaining -= Time.deltaTime;
         Player1Food = Player1.GetComponent<Player>().Resources;
         Player2Food = Player2.GetComponent<Player>().Resources;
