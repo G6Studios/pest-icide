@@ -45,23 +45,23 @@ public class GasTrap : MonoBehaviour {
     {
         if(player.tag == "Player1")
         {
-            player.gameObject.GetComponent<Player>().TakeDamage(5);
+            player.gameObject.GetComponent<Player>().TakeDamage(1);
 
         }
 
         if (player.tag == "Player2")
         {
-            player.gameObject.GetComponent<Player>().TakeDamage(5);
+            player.gameObject.GetComponent<Player>().TakeDamage(1);
         }
 
         if (player.tag == "Player3")
         {
-            player.gameObject.GetComponent<Player>().TakeDamage(5);
+            player.gameObject.GetComponent<Player>().TakeDamage(1);
         }
 
         if (player.tag == "Player4")
         {
-            player.gameObject.GetComponent<Player>().TakeDamage(5);
+            player.gameObject.GetComponent<Player>().TakeDamage(1);
         }
 
         yield return new WaitForSeconds(0.3f);

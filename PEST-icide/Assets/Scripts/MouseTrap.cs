@@ -31,7 +31,7 @@ public class MouseTrap : MonoBehaviour {
     {
         if (isActive)
         {
-            other.gameObject.GetComponent<Player>().TakeDamage(4);
+            other.gameObject.GetComponent<Player>().TakeDamage(1);
         }
     }
 
