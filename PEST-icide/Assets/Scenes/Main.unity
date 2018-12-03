@@ -2821,6 +2821,7 @@ MonoBehaviour:
   Player4: {fileID: 0}
   GasTrap: {fileID: 0}
   MouseTrap: {fileID: 0}
+  winner: 
 --- !u!1 &1266009800 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100040, guid: e6939b7715e208d4a88326670e4ab364,
@@ -3434,7 +3435,7 @@ MonoBehaviour:
   ExcludePlane1: {fileID: 42007317}
   ExcludePlane2: {fileID: 1038046076}
   ResourcePool: {fileID: 1547716436}
-  SpawnTimer: 5
+  SpawnTimer: 2
 --- !u!136 &1485339595
 CapsuleCollider:
   m_ObjectHideFlags: 0

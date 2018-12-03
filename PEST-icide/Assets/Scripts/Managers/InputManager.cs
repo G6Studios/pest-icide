@@ -3,10 +3,10 @@
 public class InputManager : MonoBehaviour
 { 
 
-    public static InputManager instance = null;
     GameObject GasTrap;
     GameObject MouseTrap;
 
+    public static InputManager instance = null;
     // Awake() runs before any Start() calls
     // Enforces the singleton pattern
     private void Awake()
