@@ -86,51 +86,52 @@ public class Player : MonoBehaviour {
         text = gameObject.GetComponentInChildren<TextMesh>();
 
         // Setting up the camera viewspace
-        setCamera();
+        //setCamera();
 
     }
 
     // This sets up the part of the split-screen that this players camera will occupy
-    void setCamera()
-    {
-        // Top left
-        if(playerNumber == 1)
-        {
-            Rect temp = Rect.zero;
-            temp.Set(0.0f, 0.5f, 0.5f, 0.5f);
-            gameObject.GetComponentInChildren<Camera>().rect = temp;
-        }
-
-        // Top right
-        else if (playerNumber == 2)
-        {
-            Rect temp = Rect.zero;
-            temp.Set(0.5f, 0.5f, 0.5f, 0.5f);
-            gameObject.GetComponentInChildren<Camera>().rect = temp;
-        }
-
-        // Bottom left
-        else if (playerNumber == 3)
-        {
-            Rect temp = Rect.zero;
-            temp.Set(0.0f, 0.0f, 0.5f, 0.5f);
-            gameObject.GetComponentInChildren<Camera>().rect = temp;
-        }
-
-        // Bottom right
-        else if (playerNumber == 4)
-        {
-            Rect temp = Rect.zero;
-            temp.Set(0.5f, 0.0f, 0.5f, 0.5f);
-            gameObject.GetComponentInChildren<Camera>().rect = temp;
-        }
-
-        // In case something goes wrong
-        else
-        {
-            Debug.Log("Error dividing screen");
-        }
-    }
+    // This function was only used in the local multiplayer version of the game, it is now defunct
+    //void setCamera()
+    //{
+    //    // Top left
+    //    if(playerNumber == 1)
+    //    {
+    //        Rect temp = Rect.zero;
+    //        temp.Set(0.0f, 0.5f, 0.5f, 0.5f);
+    //        gameObject.GetComponentInChildren<Camera>().rect = temp;
+    //    }
+    //
+    //    // Top right
+    //    else if (playerNumber == 2)
+    //    {
+    //        Rect temp = Rect.zero;
+    //        temp.Set(0.5f, 0.5f, 0.5f, 0.5f);
+    //        gameObject.GetComponentInChildren<Camera>().rect = temp;
+    //    }
+    //
+    //    // Bottom left
+    //    else if (playerNumber == 3)
+    //    {
+    //        Rect temp = Rect.zero;
+    //        temp.Set(0.0f, 0.0f, 0.5f, 0.5f);
+    //        gameObject.GetComponentInChildren<Camera>().rect = temp;
+    //    }
+    //
+    //    // Bottom right
+    //    else if (playerNumber == 4)
+    //    {
+    //        Rect temp = Rect.zero;
+    //        temp.Set(0.5f, 0.0f, 0.5f, 0.5f);
+    //        gameObject.GetComponentInChildren<Camera>().rect = temp;
+    //    }
+    //
+    //    // In case something goes wrong
+    //    else
+    //    {
+    //        Debug.Log("Error dividing screen");
+    //    }
+    //}
 
     // Checking if the player is grounded
     bool IsGrounded()
