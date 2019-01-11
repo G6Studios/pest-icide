@@ -63,7 +63,12 @@ ModelImporter:
     7400016: Mousetrap|MetalAction.002
     9500000: //RootNode
     13700000: Metal
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 455de74891093ee499d6613f24972e28, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
