@@ -121,14 +121,8 @@ public class GameManager : MonoBehaviour {
         {
             TimeRemaining -= Time.deltaTime;
             Player1Food = Player1.GetComponent<Player>().Resources;
-            Player2Food = Player2.GetComponent<Player>().Resources;
-            Player3Food = Player3.GetComponent<Player>().Resources;
-            Player4Food = Player4.GetComponent<Player>().Resources;
 
             player1DepositedRes = Player1.GetComponent<Player>().depositedResources;
-            player2DepositedRes = Player2.GetComponent<Player>().depositedResources;
-            player3DepositedRes = Player3.GetComponent<Player>().depositedResources;
-            player4DepositedRes = Player4.GetComponent<Player>().depositedResources;
 
             if (TimeRemaining <= 0.0f)
             {
