@@ -237,16 +237,20 @@ public class Player : MonoBehaviour
 
         text.text = resources.ToString();
 
-        // Jump related
-        if (playerRigidbody.velocity.y < 0)
+        if(playerNumber != 0)
         {
-            // fallMultiplier is subtracted by 1 as Unity adds 1 by default
-            playerRigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            // Jump related
+            if (playerRigidbody.velocity.y < 0)
+            {
+                // fallMultiplier is subtracted by 1 as Unity adds 1 by default
+                playerRigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            }
+            else if (playerRigidbody.velocity.y > 0 && !Input.GetButton("A_P" + playerNumber))
+            {
+                playerRigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
         }
-        else if (playerRigidbody.velocity.y > 0 && !Input.GetButton("A_P" + playerNumber))
-        {
-            playerRigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
+        
 
     }
 

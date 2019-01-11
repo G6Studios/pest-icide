@@ -26,37 +26,40 @@ public class camMouseLook : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        string joystickString = joystickNumber.ToString();
-
-        var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        var jd = new Vector2(Input.GetAxis("RightJoystickX_P" + joystickString), Input.GetAxis("RightJoystickY_P" + joystickString)); //right joystick direction for each controller
-
-        md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
-        jd = Vector2.Scale(jd, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
-
-        smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
-        smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
-        joySmooth.x = Mathf.Lerp(joySmooth.x, jd.x, 1f / smoothing);
-        joySmooth.y = Mathf.Lerp(joySmooth.y, jd.y, 1f / smoothing);
-
-        // Updating the mouselook vector
-        mouseLook += smoothV;
-        joyLook += joySmooth;
-
-        // This ensures that the player cannot flip the camera upside-down by looking too far forward or back
-        mouseLook.y = Mathf.Clamp(mouseLook.y, -5f, 0f);
-        joyLook.y = Mathf.Clamp(joyLook.y, -5f, 0f);
-
-
-        if (Input.GetJoystickNames().Length <= 0 && joystickNumber == 1) //no controllers connected & player 1
+        if (joystickNumber != 0)
         {
-            transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
-            character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-        }
-        else // controllers connected
-        {
-            transform.localRotation = Quaternion.AngleAxis(-joyLook.y, Vector3.right);
-            character.transform.localRotation = Quaternion.AngleAxis(joyLook.x, character.transform.up);
+            string joystickString = joystickNumber.ToString();
+
+            var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+            var jd = new Vector2(Input.GetAxis("RightJoystickX_P" + joystickString), Input.GetAxis("RightJoystickY_P" + joystickString)); //right joystick direction for each controller
+
+            md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
+            jd = Vector2.Scale(jd, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
+
+            smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
+            smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
+            joySmooth.x = Mathf.Lerp(joySmooth.x, jd.x, 1f / smoothing);
+            joySmooth.y = Mathf.Lerp(joySmooth.y, jd.y, 1f / smoothing);
+
+            // Updating the mouselook vector
+            mouseLook += smoothV;
+            joyLook += joySmooth;
+
+            // This ensures that the player cannot flip the camera upside-down by looking too far forward or back
+            mouseLook.y = Mathf.Clamp(mouseLook.y, -5f, 0f);
+            joyLook.y = Mathf.Clamp(joyLook.y, -5f, 0f);
+
+
+            if (Input.GetJoystickNames().Length <= 0 && joystickNumber == 1) //no controllers connected & player 1
+            {
+                transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+                character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
+            }
+            else // controllers connected
+            {
+                transform.localRotation = Quaternion.AngleAxis(-joyLook.y, Vector3.right);
+                character.transform.localRotation = Quaternion.AngleAxis(joyLook.x, character.transform.up);
+            }
         }
 
         
