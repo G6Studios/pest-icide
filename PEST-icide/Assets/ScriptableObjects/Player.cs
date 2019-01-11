@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
     [SerializeField]
     public Character character; // The character scriptedobject
@@ -10,7 +12,10 @@ public class Player : MonoBehaviour {
 
     [SerializeField]
     public int playerNumber; // The controller number that will be passed to the charactercontroller
-	
+
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 3.0f;
+
 
     // Variables handled by ScriptedObject
     private string playerName;
@@ -25,9 +30,10 @@ public class Player : MonoBehaviour {
     private Vector3 colliderSize;
     private GameObject attack1;
     private GameObject attack2;
+    private int hp;
 
-	private AudioSource player_move;
-	private AudioClip Move;
+    private AudioSource player_move;
+    private AudioClip Move;
 
     private Animator animController;
 
@@ -39,19 +45,20 @@ public class Player : MonoBehaviour {
     private Vector3 movementVector;
     private float distToGround;
     private Transform attackPosition;
-	private bool Move_Toggle = false;
+    private bool Move_Toggle = false;
 
     private TextMesh text;
 
     [SerializeField]
     public GameObject resource;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         loadCharacter();
-		player_move = GetComponent<AudioSource>();
+        player_move = GetComponent<AudioSource>();
 
-	}
+    }
 
     void loadCharacter()
     {
@@ -67,7 +74,7 @@ public class Player : MonoBehaviour {
         colliderSize = character.colliderSize;
         attack1 = character.attack1.prefab;
         attack2 = character.attack2.prefab;
-		Move = character.MovementSFX;
+        Move = character.MovementSFX;
         animated = character.animatedCharacter;
         Instantiate(animated, gameObject.transform.position, animated.transform.rotation, gameObject.transform);
 
@@ -134,9 +141,9 @@ public class Player : MonoBehaviour {
     //}
 
     // Checking if the player is grounded
-    bool IsGrounded()
+    public bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround - 0.2f);
     }
 
     // Movement processing and updating
@@ -151,47 +158,43 @@ public class Player : MonoBehaviour {
             movementVector.z = Input.GetAxis("LeftJoystickY_P" + playerNumber);
 
             // Updating the movement vector by multiplying the normalized vector by its speed vector and delta time
-            movementVector = movementVector.normalized * speed * Time.deltaTime;
+            movementVector = movementVector * speed * Time.deltaTime;
 
             // Translating the attached gameobject by the above movementvector
             transform.Translate(movementVector.x, 0, movementVector.z);
-			if(movementVector.x != 0.0f || movementVector.z != 0.0f)
-			{
-				if(Move_Toggle == false)
-				{
-					Move_Toggle = true;
-				
-					if(IsGrounded())
-					{
-						player_move.clip = Move;
-						player_move.loop = true;
-						player_move.Play();
-					}
-				}
+            if (movementVector.x != 0.0f || movementVector.z != 0.0f)
+            {
+                if (Move_Toggle == false)
+                {
+                    Move_Toggle = true;
 
-			}
-			else
-			{
-				Move_Toggle = false;
-				player_move.Stop();
-			}
+                    if (IsGrounded())
+                    {
+                        player_move.clip = Move;
+                        player_move.loop = true;
+                        player_move.Play();
+                    }
+                }
+
+            }
+            else
+            {
+                Move_Toggle = false;
+                player_move.Stop();
+            }
         }
-        
+
 
     }
-    
+
     // Jumping
     public void Jump()
     {
-        if (stun <= 0.0f) // Checking to see if the player is stunned
+        // Making sure the player is grounded so they can't jump on thin air
+        if (IsGrounded())
         {
             animController.Play("Jump");
-            // Making sure the player is grounded so they can't jump on thin air
-            if (IsGrounded())
-            {
-                // Jumping is simply applying force on the y-axis to the rigidbody
-                playerRigidbody.AddForce(0.0f, jumpHeight, 0.0f, ForceMode.Impulse);
-            }
+            playerRigidbody.velocity = Vector3.up * jumpHeight;
         }
     }
 
@@ -222,17 +225,29 @@ public class Player : MonoBehaviour {
     // Invincibility
     private void Update()
     {
-        if(invuln > 0.0f)
+        if (invuln > 0.0f)
         {
             invuln -= Time.deltaTime;
         }
 
-        if(stun > 0.0f)
+        if (stun > 0.0f)
         {
             stun -= Time.deltaTime;
         }
 
         text.text = resources.ToString();
+
+        // Jump related
+        if (playerRigidbody.velocity.y < 0)
+        {
+            // fallMultiplier is subtracted by 1 as Unity adds 1 by default
+            playerRigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (playerRigidbody.velocity.y > 0 && !Input.GetButton("A_P" + playerNumber))
+        {
+            playerRigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+
     }
 
     // Function to handle taking damage
@@ -240,7 +255,7 @@ public class Player : MonoBehaviour {
     {
         if (invuln <= 0.0f)
         {
-            if(resources > 0)
+            if (resources > 0)
             {
                 DropResources(dmg);
                 resources -= dmg;
@@ -252,14 +267,14 @@ public class Player : MonoBehaviour {
                 invuln += 3.0f;
                 stun += 1.0f;
             }
-            
+
         }
     }
 
     // Function to handle dropping of resources
     public void DropResources(uint resources)
     {
-        for(int i = 0; i < resources; i++)
+        for (int i = 0; i < resources; i++)
         {
             Vector3 rand;
             rand = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));

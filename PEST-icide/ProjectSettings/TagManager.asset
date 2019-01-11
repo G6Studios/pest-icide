@@ -22,14 +22,14 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player1
+  - Player1Attacks
+  - Player2
+  - Player2Attacks
+  - Player3
+  - Player3Attacks
+  - Player4
+  - Player4Attacks
   - 
   - 
   - 

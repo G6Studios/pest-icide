@@ -15,9 +15,11 @@ public class Character : ScriptableObject {
     public Material material; // The material/texture for the character
     public Vector3 colliderOffset;
     public Vector3 colliderSize;
+    public int health;
 
-    public Attack attack1;
-    public Attack attack2;
+
+    public MeleeAttack attack1;
+    public MeleeAttack attack2;
 
 
 	public AudioClip MovementSFX;
