@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2009,6 +2009,11 @@ Prefab:
       propertyPath: status
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114925237334492558, guid: 78b3e9d4ed93eb748bd048670e7dba3c,
+        type: 2}
+      propertyPath: joystickNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78b3e9d4ed93eb748bd048670e7dba3c, type: 2}
   m_IsPrefabAsset: 0
@@ -3540,6 +3545,20 @@ Prefab:
     - target: {fileID: 1626688501259332, guid: 78b3e9d4ed93eb748bd048670e7dba3c, type: 2}
       propertyPath: m_Name
       value: ' Bot'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114925237334492558, guid: 78b3e9d4ed93eb748bd048670e7dba3c,
+        type: 2}
+      propertyPath: joystickNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758061282023652, guid: 78b3e9d4ed93eb748bd048670e7dba3c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114697718749672286, guid: 78b3e9d4ed93eb748bd048670e7dba3c,
+        type: 2}
+      propertyPath: resources
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78b3e9d4ed93eb748bd048670e7dba3c, type: 2}

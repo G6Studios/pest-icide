@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     private GameObject attack1;
     private GameObject attack2;
     private int hp;
+    private bool isDead;
 
     private AudioSource player_move;
     private AudioClip Move;
@@ -40,8 +41,9 @@ public class Player : MonoBehaviour
     // Internal variables
     public uint resources;
     public uint depositedResources;
+    private Vector3 originalPosition;
     private float invuln;
-    private float stun;
+    private float respawnTimer;
     private Vector3 movementVector;
     private float distToGround;
     private Transform attackPosition;
@@ -77,6 +79,8 @@ public class Player : MonoBehaviour
         Move = character.MovementSFX;
         animated = character.animatedCharacter;
         Instantiate(animated, gameObject.transform.position, animated.transform.rotation, gameObject.transform);
+        hp = character.health;
+        isDead = false;
 
         animController = gameObject.GetComponentInChildren<Animator>();
 
@@ -94,6 +98,9 @@ public class Player : MonoBehaviour
 
         // Setting up the camera viewspace
         //setCamera();
+
+        // Recording original position for variable
+        originalPosition = gameObject.transform.position;
 
     }
 
@@ -149,39 +156,36 @@ public class Player : MonoBehaviour
     // Movement processing and updating
     public void Movement(int playerNumber)
     {
-        if (stun <= 0.0f) // Checking to see if the player is stunned
+        animController.Play("Walk");
+
+        // Getting the input of the Xbox controller left joystick on the X and Y axes
+        movementVector.x = Input.GetAxis("LeftJoystickX_P" + playerNumber);
+        movementVector.z = Input.GetAxis("LeftJoystickY_P" + playerNumber);
+
+        // Updating the movement vector by multiplying the normalized vector by its speed vector and delta time
+        movementVector = movementVector * speed * Time.deltaTime;
+
+        // Translating the attached gameobject by the above movementvector
+        transform.Translate(movementVector.x, 0, movementVector.z);
+        if (movementVector.x != 0.0f || movementVector.z != 0.0f)
         {
-            animController.Play("Walk");
-
-            // Getting the input of the Xbox controller left joystick on the X and Y axes
-            movementVector.x = Input.GetAxis("LeftJoystickX_P" + playerNumber);
-            movementVector.z = Input.GetAxis("LeftJoystickY_P" + playerNumber);
-
-            // Updating the movement vector by multiplying the normalized vector by its speed vector and delta time
-            movementVector = movementVector * speed * Time.deltaTime;
-
-            // Translating the attached gameobject by the above movementvector
-            transform.Translate(movementVector.x, 0, movementVector.z);
-            if (movementVector.x != 0.0f || movementVector.z != 0.0f)
+            if (Move_Toggle == false)
             {
-                if (Move_Toggle == false)
+                Move_Toggle = true;
+
+                if (IsGrounded())
                 {
-                    Move_Toggle = true;
-
-                    if (IsGrounded())
-                    {
-                        player_move.clip = Move;
-                        player_move.loop = true;
-                        player_move.Play();
-                    }
+                    player_move.clip = Move;
+                    player_move.loop = true;
+                    player_move.Play();
                 }
+            }
 
-            }
-            else
-            {
-                Move_Toggle = false;
-                player_move.Stop();
-            }
+        }
+        else
+        {
+            Move_Toggle = false;
+            player_move.Stop();
         }
 
 
@@ -201,25 +205,19 @@ public class Player : MonoBehaviour
     // Primary attack function
     public void PrimaryAttack()
     {
-        if (stun <= 0.0f) // Stun check
-        {
-            animController.Play("Bite");
-            GameObject tempAttack = Instantiate(attack1, attackPosition.position, attackPosition.rotation, attackPosition); // Setting the attack position as the parent of the 
-            Destroy(tempAttack, 0.30f);
+        animController.Play("Bite");
+        GameObject tempAttack = Instantiate(attack1, attackPosition.position, attackPosition.rotation, attackPosition); // Setting the attack position as the parent of the 
+        Destroy(tempAttack, 0.30f);
 
-        }
     }
 
     // Secondary attack function
     public void SecondaryAttack()
     {
-        if (stun <= 0.0f) // Stun check
-        {
-            animController.Play("Scratch");
-            GameObject tempAttack = Instantiate(attack2, attackPosition.position, attackPosition.rotation, attackPosition);
-            Destroy(tempAttack, 0.20f);
+        animController.Play("Scratch");
+        GameObject tempAttack = Instantiate(attack2, attackPosition.position, attackPosition.rotation, attackPosition);
+        Destroy(tempAttack, 0.20f);
 
-        }
     }
 
     // Invincibility
@@ -230,14 +228,9 @@ public class Player : MonoBehaviour
             invuln -= Time.deltaTime;
         }
 
-        if (stun > 0.0f)
-        {
-            stun -= Time.deltaTime;
-        }
+        text.text = hp.ToString();
 
-        text.text = resources.ToString();
-
-        if(playerNumber != 0)
+        if (playerNumber != 0)
         {
             // Jump related
             if (playerRigidbody.velocity.y < 0)
@@ -250,35 +243,60 @@ public class Player : MonoBehaviour
                 playerRigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
             }
         }
-        
+
 
     }
 
     // Function to handle taking damage
-    public void TakeDamage(uint dmg)
+    public void TakeDamage(int dmg)
     {
         if (invuln <= 0.0f)
         {
             if (resources > 0)
             {
-                DropResources(dmg);
-                resources -= dmg;
+                hp -= dmg;
                 invuln += 3.0f;
             }
 
             else
             {
                 invuln += 3.0f;
-                stun += 1.0f;
             }
 
         }
+        IsDead();
+    }
+
+    // Function to handle whether the player is alive or not
+    public void IsDead()
+    {
+        if(hp <= 0)
+        {
+            isDead = true;
+            Die();
+            Invoke("Respawn", 5.0f);
+        }
+    }
+
+    // Function to handle what happens to them when they die
+    public void Die()
+    {
+        DropResources(resources); // Drops all the resources the player is carrying
+    }
+
+    // Function to respawn the player 
+    public void Respawn()
+    {
+        hp = character.health; // Set player health back to original value
+        gameObject.transform.position = originalPosition; // Return player to their original spawn point
+
+
     }
 
     // Function to handle dropping of resources
-    public void DropResources(uint resources)
+    public void DropResources(uint r)
     {
-        for (int i = 0; i < resources; i++)
+        for (int i = 0; i < r; i++)
         {
             Vector3 rand;
             rand = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
