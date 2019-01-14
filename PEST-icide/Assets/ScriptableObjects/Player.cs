@@ -31,7 +31,8 @@ public class Player : MonoBehaviour
     private GameObject attack1;
     private GameObject attack2;
     private int hp;
-    private bool isDead;
+    private Sprite crosshair;
+    private bool isAlive;
 
     private AudioSource player_move;
     private AudioClip Move;
@@ -80,7 +81,8 @@ public class Player : MonoBehaviour
         animated = character.animatedCharacter;
         Instantiate(animated, gameObject.transform.position, animated.transform.rotation, gameObject.transform);
         hp = character.health;
-        isDead = false;
+        crosshair = character.reticle;
+        isAlive = true;
 
         animController = gameObject.GetComponentInChildren<Animator>();
 
@@ -98,6 +100,9 @@ public class Player : MonoBehaviour
 
         // Setting up the camera viewspace
         //setCamera();
+
+        // Setting player reticle
+        gameObject.GetComponentInChildren<SpriteRenderer>().sprite = crosshair;
 
         // Recording original position for variable
         originalPosition = gameObject.transform.position;
@@ -245,6 +250,7 @@ public class Player : MonoBehaviour
         }
 
 
+
     }
 
     // Function to handle taking damage
@@ -264,24 +270,27 @@ public class Player : MonoBehaviour
             }
 
         }
-        IsDead();
+        IsAlive();
     }
 
     // Function to handle whether the player is alive or not
-    public void IsDead()
+    public bool IsAlive()
     {
         if(hp <= 0)
         {
-            isDead = true;
+            isAlive = false;
             Die();
             Invoke("Respawn", 5.0f);
         }
+
+        return isAlive;
     }
 
     // Function to handle what happens to them when they die
     public void Die()
     {
         DropResources(resources); // Drops all the resources the player is carrying
+        resources = 0;
     }
 
     // Function to respawn the player 
@@ -289,6 +298,7 @@ public class Player : MonoBehaviour
     {
         hp = character.health; // Set player health back to original value
         gameObject.transform.position = originalPosition; // Return player to their original spawn point
+        isAlive = true;
 
 
     }
@@ -298,10 +308,8 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < r; i++)
         {
-            Vector3 rand;
-            rand = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
             GameObject temp;
-            temp = Instantiate(resource, gameObject.transform.position + rand, gameObject.transform.rotation);
+            temp = Instantiate(resource, gameObject.transform.position, gameObject.transform.rotation);
         }
     }
 
