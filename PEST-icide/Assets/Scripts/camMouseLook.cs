@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class camMouseLook : MonoBehaviour {
 
+    public Transform target;
     Vector2 mouseLook;
     Vector2 joyLook; //joystick camera look
     Vector2 joySmooth; //smoothing for joystick
@@ -13,6 +14,8 @@ public class camMouseLook : MonoBehaviour {
     public float sensitivity = 3.0f; // Variable to control sensitivity
     public float smoothing = 5.0f; // Variable to control degree of mouse smoothing
     public int joystickNumber;
+
+    public float distance = 5.0f;
 
     GameObject character;
     GameObject animatedCharacter;
@@ -60,9 +63,24 @@ public class camMouseLook : MonoBehaviour {
                 transform.localRotation = Quaternion.AngleAxis(-joyLook.y, Vector3.right);
                 character.transform.localRotation = Quaternion.AngleAxis(joyLook.x, character.transform.up);
             }
+
+            RaycastHit hit;
+            if (Physics.Linecast(target.position, transform.position, out hit))
+            {
+                distance -= hit.distance;
+            }
+
+            Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
+            Vector3 position = transform.localRotation * negDistance + target.position;
+
+            transform.position = position;
+
+
+
         }
 
-        
+
+
         
 
     }
