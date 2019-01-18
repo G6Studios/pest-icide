@@ -1,0 +1,250 @@
+fileFormatVersion: 2
+guid: aa3fd869f3814d648b0632afd03484f5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: joint10
+    100002: joint11
+    100004: joint12
+    100006: joint13
+    100008: joint14
+    100010: joint15
+    100012: joint16
+    100014: joint17
+    100016: joint18
+    100018: joint19
+    100020: joint20
+    100022: joint21
+    100024: joint22
+    100026: joint23
+    100028: joint24
+    100030: joint25
+    100032: joint26
+    100034: joint27
+    100036: joint28
+    100038: joint29
+    100040: joint30
+    100042: joint31
+    100044: joint32
+    100046: joint33
+    100048: joint34
+    100050: joint35
+    100052: joint36
+    100054: joint37
+    100056: joint38
+    100058: joint39
+    100060: joint4
+    100062: joint40
+    100064: joint41
+    100066: joint42
+    100068: joint43
+    100070: joint44
+    100072: joint45
+    100074: joint46
+    100076: joint47
+    100078: joint48
+    100080: joint49
+    100082: joint5
+    100084: joint50
+    100086: joint51
+    100088: joint52
+    100090: joint53
+    100092: joint54
+    100094: joint55
+    100096: joint56
+    100098: joint57
+    100100: joint58
+    100102: joint59
+    100104: joint6
+    100106: joint60
+    100108: joint61
+    100110: joint62
+    100112: joint63
+    100114: joint64
+    100116: joint65
+    100118: joint66
+    100120: joint7
+    100122: joint8
+    100124: joint9
+    100126: Ratmodel8:Body_head
+    100128: //RootNode
+    400000: joint10
+    400002: joint11
+    400004: joint12
+    400006: joint13
+    400008: joint14
+    400010: joint15
+    400012: joint16
+    400014: joint17
+    400016: joint18
+    400018: joint19
+    400020: joint20
+    400022: joint21
+    400024: joint22
+    400026: joint23
+    400028: joint24
+    400030: joint25
+    400032: joint26
+    400034: joint27
+    400036: joint28
+    400038: joint29
+    400040: joint30
+    400042: joint31
+    400044: joint32
+    400046: joint33
+    400048: joint34
+    400050: joint35
+    400052: joint36
+    400054: joint37
+    400056: joint38
+    400058: joint39
+    400060: joint4
+    400062: joint40
+    400064: joint41
+    400066: joint42
+    400068: joint43
+    400070: joint44
+    400072: joint45
+    400074: joint46
+    400076: joint47
+    400078: joint48
+    400080: joint49
+    400082: joint5
+    400084: joint50
+    400086: joint51
+    400088: joint52
+    400090: joint53
+    400092: joint54
+    400094: joint55
+    400096: joint56
+    400098: joint57
+    400100: joint58
+    400102: joint59
+    400104: joint6
+    400106: joint60
+    400108: joint61
+    400110: joint62
+    400112: joint63
+    400114: joint64
+    400116: joint65
+    400118: joint66
+    400120: joint7
+    400122: joint8
+    400124: joint9
+    400126: Ratmodel8:Body_head
+    400128: //RootNode
+    2100000: Ratmodel8_Default1
+    4300000: Ratmodel8:Body_head
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Ratmodel8:Body_head
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
