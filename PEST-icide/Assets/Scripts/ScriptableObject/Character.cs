@@ -15,7 +15,11 @@ public class Character : ScriptableObject {
     public Material material; // The material/texture for the character
     public Vector3 colliderOffset;
     public Vector3 colliderSize;
-    public int health;
+    public int health; // Max HP
+
+
+    // UI Elements
+    public Sprite reticle; // Crosshair
 
 
     public MeleeAttack attack1;

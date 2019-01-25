@@ -4,30 +4,23 @@ using UnityEngine;
 
 public class CameraHelper : MonoBehaviour {
 
-    public GameObject camera;
-
-    public float maxDistance = 5.0f; // Max camera distance
-    public float minDistance = 2.0f; // Min camera distance
-
-
-
+    public Transform camera;
+    public float oldDistance = 5.0f;
     RaycastHit hit;
 
-    // Update is called once per frame
-    void Update () {
-        this.transform.LookAt(camera.transform);
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        transform.LookAt(camera);
 
-
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), maxDistance))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))
         {
-            camera.GetComponent<camMouseLook>().distance = hit.distance;
+            oldDistance = hit.distance;
         }
 
-        if (camera.GetComponent<camMouseLook>().distance > 2.0f)
-        {
-            camera.GetComponent<camMouseLook>().distance = 2.0f;
-
-        }
-
-    }
+	}
 }
