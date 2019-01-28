@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class MouseOrbitImproved : MonoBehaviour
+public class BetterCamera : MonoBehaviour
 {
 
     public Transform target;
