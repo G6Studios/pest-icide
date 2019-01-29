@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -871,7 +871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &918241173
 RectTransform:
   m_ObjectHideFlags: 0
@@ -879,7 +879,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918241172}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -888,7 +888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -298, y: 39}
+  m_AnchoredPosition: {x: -297.99997, y: 38.999977}
   m_SizeDelta: {x: 177.8, y: 258.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &918241174
@@ -903,6 +903,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af190aab4df72ff43b723f37536c2e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerNum: 1
+  character1: {fileID: 11400000, guid: 527fe6974a9e8764b93b2666199e2d23, type: 2}
+  character2: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
+  character3: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
+  character4: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
 --- !u!114 &918241175
 MonoBehaviour:
   m_ObjectHideFlags: 0

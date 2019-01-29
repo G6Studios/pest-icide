@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BirdCard
   m_EditorClassIdentifier: 
   CharacterName: Birdman
-  art: {fileID: 0}
+  art: {fileID: 21300000, guid: 47d4947ad616af84cac5b96db33718f4, type: 3}

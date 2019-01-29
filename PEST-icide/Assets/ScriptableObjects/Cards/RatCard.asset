@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RatCard
   m_EditorClassIdentifier: 
   CharacterName: Rat
-  art: {fileID: 0}
+  art: {fileID: 21300000, guid: 86ef3ad3f23ae0c4fb868d3749821972, type: 3}
