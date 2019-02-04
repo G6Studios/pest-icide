@@ -225,6 +225,15 @@ public class Player : MonoBehaviour
 
     }
 
+    // Passive ability function
+    public void PassiveAbility()
+    {
+        if(character.name == "Rat")
+        {
+
+        }
+    }
+
     // Invincibility
     private void Update()
     {
