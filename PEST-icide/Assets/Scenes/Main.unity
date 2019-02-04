@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4401,6 +4401,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100052, guid: a585dac1e21196540a0edeba99b0fd33, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100024, guid: a585dac1e21196540a0edeba99b0fd33, type: 3}
       propertyPath: m_Name
       value: Lamp
@@ -4485,6 +4489,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5441e57802a2a6646aa43f61be10faa5, type: 2}
+    - target: {fileID: 2300042, guid: a585dac1e21196540a0edeba99b0fd33, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0050033182462254d99a1b88e357b84d, type: 2}
+    - target: {fileID: 2300070, guid: a585dac1e21196540a0edeba99b0fd33, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0050033182462254d99a1b88e357b84d, type: 2}
+    - target: {fileID: 2300074, guid: a585dac1e21196540a0edeba99b0fd33, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0050033182462254d99a1b88e357b84d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a585dac1e21196540a0edeba99b0fd33, type: 3}
 --- !u!1 &2067455419
