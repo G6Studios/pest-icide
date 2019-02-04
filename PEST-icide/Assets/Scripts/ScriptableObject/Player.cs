@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Player : MonoBehaviour
@@ -49,17 +50,20 @@ public class Player : MonoBehaviour
     private float distToGround;
     private Transform attackPosition;
     private bool Move_Toggle = false;
+    private float startingHP;
 
     private TextMesh text;
 
     [SerializeField]
     public GameObject resource;
+    public Image HealthBar;
 
     // Use this for initialization
     void Start()
     {
         loadCharacter();
         player_move = GetComponent<AudioSource>();
+        startingHP = hp;
 
     }
 
@@ -261,6 +265,8 @@ public class Player : MonoBehaviour
             if (resources > 0)
             {
                 hp -= dmg;
+                //set our health bar to the amount of hp remaining
+                HealthBar.fillAmount = hp / startingHP; // hp / starting hp to normalize hp
                 invuln += 3.0f;
             }
 
