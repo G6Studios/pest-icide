@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     // Variables handled by ScriptedObject
     private string playerName;
-    private float speed;
+    public float speed;
     private float jumpHeight;
     private float jumpLength;
     private GameObject animated;
