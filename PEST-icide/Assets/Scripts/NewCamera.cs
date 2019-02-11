@@ -27,9 +27,14 @@ public class NewCamera : MonoBehaviour
         // Value flipped for later in the process
         xj = angles.y;
 
-        //joystickNumber = player.GetComponent<Player>().playerNumber; // Getting the joystick number
+        //if(transform.parent.gameObject.GetComponent("BirdController") as BirdController != null)
+        //{
+        //    joystickNumber = character.GetComponent<BirdController>().playerNumber; // Getting the joystick number
+        //}
+        joystickNumber = 1;
         string joystickString = joystickNumber.ToString(); // Converting to string when getting axis input
 
+        
     }
 
     // Update is called once per frame
@@ -37,11 +42,10 @@ public class NewCamera : MonoBehaviour
     {
         if (joystickNumber != 0) // Making sure the joystick number is not 0, and therefore not a bot
         {
-            string joystickString = joystickNumber.ToString();
             if (target) // Making sure the camera has something to look at
             {
                 // Update x and y for the mouse
-                xj += Input.GetAxis("RightJoystickX_P" + joystickString) * xSensitivity;
+                xj += Input.GetAxis("RightJoystickX_P" + joystickNumber) * xSensitivity;
 
                 // Updating the rotation quaternion
                 Quaternion currentRotation = Quaternion.Euler(22, xj, 0); // Due to Unity calculating the rotation values in order of Z, X, Y, we need to trick it a bit

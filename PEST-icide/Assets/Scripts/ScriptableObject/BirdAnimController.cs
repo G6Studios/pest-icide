@@ -10,8 +10,11 @@ public class BirdAnimController : MonoBehaviour {
 
     private float speed = 10;
 
-	// Use this for initialization
-	void Start () {
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 3.0f;
+
+    // Use this for initialization
+    void Start () {
         birdAnimator = GetComponent<Animator>();
 	}
 	
@@ -21,14 +24,12 @@ public class BirdAnimController : MonoBehaviour {
         float xVel = Input.GetAxis("LeftJoystickX_P1") * 5;
         float yVel = Input.GetAxis("LeftJoystickY_P1") * 5;
 
-        birdAnimator.Play(1);
-
         birdAnimator.SetFloat("Horizontal_V", xVel);
         birdAnimator.SetFloat("Vertical_V", yVel);
 
         if(Input.GetButtonDown("X_P1"))
         {
-            birdAnimator.SetTrigger("Punch");
+            birdAnimator.SetTrigger("Attack");
         }
 
         movementVector.x = Input.GetAxis("LeftJoystickX_P1");

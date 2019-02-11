@@ -9,10 +9,11 @@ public class CameraHelper : MonoBehaviour {
     float maxDistance;
     RaycastHit hit;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         maxDistance = camera.GetComponent<NewCamera>().maxDistance;
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
