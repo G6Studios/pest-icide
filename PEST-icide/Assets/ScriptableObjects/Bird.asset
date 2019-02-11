@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6aaf9f71e802f4890e23736792a9d0, type: 3}
+  m_Name: Bird
+  m_EditorClassIdentifier: 
+  characterName: Bird
+  speed: 8
+  jumpHeight: 8
+  jumpLength: 1.5
+  animatedCharacter: {fileID: 0}
+  collider: {fileID: 0}
+  rigidbody: {fileID: 0}
+  material: {fileID: 0}
+  colliderOffset: {x: 0, y: 0, z: 0}
+  colliderSize: {x: 0, y: 0, z: 0}
+  health: 20
+  reticle: {fileID: 0}
+  attack1: {fileID: 0}
+  attack2: {fileID: 0}
+  MovementSFX: {fileID: 0}
