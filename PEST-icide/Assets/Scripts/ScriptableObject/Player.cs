@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     private Vector3 colliderSize;
     private GameObject attack1;
     private GameObject attack2;
-    private int hp;
+    public int hp;
     private Sprite crosshair;
     private bool isAlive;
 
