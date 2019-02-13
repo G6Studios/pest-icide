@@ -11,7 +11,7 @@ public class CharDisplay : MonoBehaviour
     public CharacterCard character3;
     public CharacterCard character4;
 
-    bool selected = false;
+    public bool selected = false;
     bool isAxisInUse = false;
 
 
@@ -98,6 +98,8 @@ public class CharDisplay : MonoBehaviour
                     isAxisInUse = true;
                 }
             }
+            // Using getaxis to check if the player number is zero makes no sense and causes Unity to throw errors
+            // Better idea to just check if the player number is zero
             if (Input.GetAxis("DPadX_P" + PlayerNum) == 0)
             {
                 isAxisInUse = false;
@@ -120,6 +122,7 @@ public class CharDisplay : MonoBehaviour
 
 
     }
+
 
     void UpdatePlayerCard()
     {

@@ -14,6 +14,9 @@ public class BirdController : MonoBehaviour
     private float xVel;
     private float yVel;
 
+    // Movement animation
+    private Animator birdAnimator;
+
     // Jumping
     private float fallMultiplier;
     private float lowJumpMultiplier;
@@ -34,6 +37,11 @@ public class BirdController : MonoBehaviour
         // Movement related
         moveSpeed = 10f;
 
+        // Movement animation related
+        birdAnimator = gameObject.GetComponent<Animator>();
+
+
+
         // Jump related
         fallMultiplier = 1.5f;
         lowJumpMultiplier = 2.0f;
@@ -53,8 +61,14 @@ public class BirdController : MonoBehaviour
         // Updating movement
         Movement();
 
+        // Updating movement animation
+        MovementAnim();
+
         // Updating jumping
         Jumping();
+
+        // Updating attacks
+        Attacks();
     }
 
     // Movement function
@@ -69,6 +83,16 @@ public class BirdController : MonoBehaviour
 
         // Applying the translation from the movement vector
         transform.Translate(movementVector.x, 0, movementVector.z);
+    }
+
+    // Movement animation function
+    void MovementAnim()
+    {
+        float xVel = Input.GetAxis("LeftJoystickX_P" + playerNumber) * 5;
+        float yVel = Input.GetAxis("LeftJoystickY_P" + playerNumber) * 5;
+
+        birdAnimator.SetFloat("Movement_X", xVel);
+        birdAnimator.SetFloat("Movement_Y", yVel);
     }
 
 
@@ -121,7 +145,7 @@ public class BirdController : MonoBehaviour
     {
         if(Input.GetButtonDown("X_P" + playerNumber))
         {
-            attacks.Attack();
+            birdAnimator.SetTrigger("Punch");
         }
     }
 
