@@ -27,18 +27,13 @@ public class NewCamera : MonoBehaviour
         // Value flipped for later in the process
         xj = angles.y;
 
-        //if(transform.parent.gameObject.GetComponent("BirdController") as BirdController != null)
-        //{
-        //    joystickNumber = character.GetComponent<BirdController>().playerNumber; // Getting the joystick number
-        //}
-        joystickNumber = 1;
-        string joystickString = joystickNumber.ToString(); // Converting to string when getting axis input
+        joystickNumber = character.GetComponent<Player>().playerNum;
 
         
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (joystickNumber != 0) // Making sure the joystick number is not 0, and therefore not a bot
         {

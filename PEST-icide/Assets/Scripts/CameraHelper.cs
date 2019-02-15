@@ -16,7 +16,7 @@ public class CameraHelper : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         transform.LookAt(camera);
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))

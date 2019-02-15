@@ -7,6 +7,7 @@ using TMPro;
 
 public class CheckReady : MonoBehaviour
 {
+    string[] controllers;
 
     public CharDisplay player1;
     public CharDisplay player2;
@@ -18,7 +19,8 @@ public class CheckReady : MonoBehaviour
     public GameObject player3Ready;
     public GameObject player4Ready;
 
-    public TextMeshProUGUI timerText;
+    public GameObject timerObject;
+    TextMeshProUGUI timerText;
 
     private float timer;
     private bool timerActive;
@@ -29,8 +31,14 @@ public class CheckReady : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timerText = timerObject.GetComponent<TextMeshProUGUI>();
         allReady = false;
         timer = 5.0f;
+        controllers = Input.GetJoystickNames();
+       for(int i = 0; i < controllers.Length; i++)
+        {
+            Debug.Log(controllers[i]);
+        }
     }
 
     // Update is called once per frame
@@ -39,14 +47,16 @@ public class CheckReady : MonoBehaviour
         // Checking if each player is ready
         ReadyStatus();
         ReadyTimer();
-        if(player1.selected)
+        if(player1.selected && player2.selected && player3.selected && player4.selected)
         {
+            timerObject.SetActive(true);
             timerActive = true;
         }
         else
         {
             timer = 5.0f;
             timerText.text = timer.ToString("F");
+            timerObject.SetActive(false);
         }
     }
 

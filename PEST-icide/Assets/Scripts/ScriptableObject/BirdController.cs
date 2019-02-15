@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class BirdController : MonoBehaviour
 {
-    // Statistics
-    int resources;
-    int health;
 
     // Movement
     private float moveSpeed;
@@ -26,10 +23,10 @@ public class BirdController : MonoBehaviour
     private bool doubleJump;
 
     // Attacking
-    private BirdAttacks attacks;
+    private AttackController attacks;
 
     // Setup
-    public int playerNumber;
+    private int playerNumber;
 
     // Initialization
     void Start()
@@ -40,8 +37,6 @@ public class BirdController : MonoBehaviour
         // Movement animation related
         birdAnimator = gameObject.GetComponent<Animator>();
 
-
-
         // Jump related
         fallMultiplier = 1.5f;
         lowJumpMultiplier = 2.0f;
@@ -50,13 +45,14 @@ public class BirdController : MonoBehaviour
         doubleJump = true;
 
         // Attack related
-        attacks = gameObject.GetComponentInChildren<BirdAttacks>();
+        attacks = gameObject.GetComponentInChildren<AttackController>();
 
-        playerNumber = 1;
+        // Setup
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
+        playerNumber = gameObject.GetComponent<Player>().playerNum;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Updating movement
         Movement();
@@ -147,6 +143,12 @@ public class BirdController : MonoBehaviour
         {
             birdAnimator.SetTrigger("Punch");
         }
+    }
+
+    // Attack hitbox toggling function
+    void ToggleActive()
+    {
+        attacks.attackActive = !attacks.attackActive;
     }
 
 }

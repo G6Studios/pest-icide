@@ -41,10 +41,18 @@ public class GameManager : MonoBehaviour {
     private uint player3DepositedRes;
     private uint player4DepositedRes;
 
+    // Bird prefab
+    public GameObject birdPrefab;
+
+    // List of players connected
+    public GameObject[] playerList;
+
     public GameObject Player1;
     public GameObject Player2;
     public GameObject Player3;
     public GameObject Player4;
+
+    Scene currentScene;
 
     public GameObject GasTrap;
     public GameObject MouseTrap;
@@ -106,52 +114,57 @@ public class GameManager : MonoBehaviour {
     private float startTime = 120; // Sixty seconds times five
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        playerList = GameObject.FindGameObjectsWithTag("Player");
+
+        InitializePlayers();
+        SetCameras();
+
         TimeRemaining = startTime;
-        Player1 = GameObject.FindGameObjectWithTag("Player1");
-        Player2 = GameObject.FindGameObjectWithTag("Player2");
-        Player3 = GameObject.FindGameObjectWithTag("Player3");
-        Player4 = GameObject.FindGameObjectWithTag("Player4");
+
+
+        currentScene = SceneManager.GetActiveScene();
         
     }
 
     // Update is called once per frame
     void Update() {
-        if (Player1 != null) //if the game is actually running and players exist
-        {
-            TimeRemaining -= Time.deltaTime;
-            Player1Food = Player1.GetComponent<Player>().Resources;
-
-            player1DepositedRes = Player1.GetComponent<Player>().depositedResources;
-
-            if (TimeRemaining <= 0.0f)
-            {
-                GameOver();
-            }
-
-        
-
-        }
+        //if (Player1 != null) //if the game is actually running and players exist
+        //{
+        //    TimeRemaining -= Time.deltaTime;
+        //    Player1Food = Player1.GetComponent<Player>().Resources;
+        //
+        //    player1DepositedRes = Player1.GetComponent<Player>().depositedResources;
+        //
+        //    if (TimeRemaining <= 0.0f)
+        //    {
+        //        GameOver();
+        //    }
+        //
+        //
+        //
+        //}
     }
 
     // Function that will switch game scenes once the time has run out
     void GameOver()
     {
-        if (CheckWinner() != null)
-        {
-            Debug.Log("Player " + CheckWinner().GetComponent<Player>().playerNumber + "is the winner!");
-            winner = CheckWinner().GetComponent<Player>().playerNumber.ToString();
-            SceneManager.LoadScene("Victory");
-      
-            //end our scene 
-            //in the next scene we read the data from the game manager and then we display it
-            //When we are done displaying the data, we reset it back to default values when they hit play again or we destory everything if they go back to main menu
-        }
-        else
-        {
-            Debug.Log("No winner");
-            //end our scene
-        }
+        //if (CheckWinner() != null)
+        //{
+        //    Debug.Log("Player " + CheckWinner().GetComponent<Player>().playerNumber + "is the winner!");
+        //    winner = CheckWinner().GetComponent<Player>().playerNumber.ToString();
+        //    SceneManager.LoadScene("Victory");
+        //
+        //    //end our scene 
+        //    //in the next scene we read the data from the game manager and then we display it
+        //    //When we are done displaying the data, we reset it back to default values when they hit play again or we destory everything if they go back to main menu
+        //}
+        //else
+        //{
+        //    Debug.Log("No winner");
+        //    //end our scene
+        //}
 
     }
 
@@ -167,5 +180,69 @@ public class GameManager : MonoBehaviour {
             return Player4;
         else
             return null;
+    }
+
+    // Dividing up the screen
+    void SetCameras()
+    {
+        // Temporary rect transform
+        Rect temp = Rect.zero;
+
+        // Top left
+        temp.Set(0.0f, 0.5f, 0.5f, 0.5f);
+        Player1.GetComponentInChildren<Camera>().rect = temp;
+
+        // Top right
+        temp.Set(0.5f, 0.5f, 0.5f, 0.5f);
+        Player2.GetComponentInChildren<Camera>().rect = temp;
+
+        // Bottom left
+        temp.Set(0.0f, 0.0f, 0.5f, 0.5f);
+        Player3.GetComponentInChildren<Camera>().rect = temp;
+
+        // Bottom right
+        temp.Set(0.5f, 0.0f, 0.5f, 0.5f);
+        Player4.GetComponentInChildren<Camera>().rect = temp;
+
+        // Resetting temp back to zero
+        temp = Rect.zero;
+
+    }
+
+    void SpawnPlayers()
+    {
+        for(int i = 0; i < playerList.Length; i++)
+        {
+            Player1 = Instantiate(birdPrefab);
+            Player1.GetComponent<Player>().spawnPoint = new Vector3(0, 0, 0);
+        }
+    }
+
+    void InitializePlayers()
+    {
+
+        for(int i = 0; i < playerList.Length; i++)
+        {
+            if(playerList[i].GetComponent<Player>().playerNum == 1)
+            {
+                Player1 = playerList[i];
+            }
+            else if(playerList[i].GetComponent<Player>().playerNum == 2)
+            {
+                Player2 = playerList[i];
+            }
+            else if(playerList[i].GetComponent<Player>().playerNum == 3)
+            {
+                Player3 = playerList[i];
+            }
+            else if(playerList[i].GetComponent<Player>().playerNum == 4)
+            {
+                Player4 = playerList[i];
+            }
+            else
+            {
+                Debug.LogError("Something broke when initializing players");
+            }
+        }
     }
 }
