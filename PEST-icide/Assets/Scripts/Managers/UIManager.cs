@@ -202,16 +202,16 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         // Player health values
-        player1Health = player1.GetComponent<Player>().health / player1.GetComponent<Player>().maxHealth;
-        player2Health = player2.GetComponent<Player>().health / player2.GetComponent<Player>().maxHealth;
-        player3Health = player3.GetComponent<Player>().health / player3.GetComponent<Player>().maxHealth;
-        player4Health = player4.GetComponent<Player>().health / player4.GetComponent<Player>().maxHealth;
+        //player1Health = player1.GetComponent<Player>().health / player1.GetComponent<Player>().maxHealth;
+        //player2Health = player2.GetComponent<Player>().health / player2.GetComponent<Player>().maxHealth;
+        //player3Health = player3.GetComponent<Player>().health / player3.GetComponent<Player>().maxHealth;
+        //player4Health = player4.GetComponent<Player>().health / player4.GetComponent<Player>().maxHealth;
 
         // Updating UI elements
-        player1HealthImage.fillAmount = player1Health;
-        player2HealthImage.fillAmount = player2Health;
-        player3HealthImage.fillAmount = player3Health;
-        player4HealthImage.fillAmount = player4Health;
+        player1HealthImage.fillAmount = player1.GetComponent<Player>().health / player1.GetComponent<Player>().maxHealth;
+        player2HealthImage.fillAmount = player2.GetComponent<Player>().health / player2.GetComponent<Player>().maxHealth;
+        player3HealthImage.fillAmount = player3.GetComponent<Player>().health / player3.GetComponent<Player>().maxHealth;
+        player4HealthImage.fillAmount = player4.GetComponent<Player>().health / player4.GetComponent<Player>().maxHealth;
 
     }
 

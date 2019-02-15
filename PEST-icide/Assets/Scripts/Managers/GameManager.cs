@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour {
     public GameObject MouseTrap;
     public string winner;
 
+    public bool gameSceneInitialized;
 
     // Quick way to do get and set functions for variables
     public float TimeRemaining
@@ -116,16 +117,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        playerList = GameObject.FindGameObjectsWithTag("Player");
-
-        InitializePlayers();
-        SetCameras();
-
-        TimeRemaining = startTime;
-
-
-        currentScene = SceneManager.GetActiveScene();
-        
+        gameSceneInitialized = false;
     }
 
     // Update is called once per frame
@@ -145,6 +137,20 @@ public class GameManager : MonoBehaviour {
         //
         //
         //}
+
+        currentScene = SceneManager.GetActiveScene();
+
+        if (currentScene.name == "Main Quinn Version" && gameSceneInitialized == false)
+        {
+            playerList = GameObject.FindGameObjectsWithTag("Player");
+
+            InitializePlayers();
+            SetCameras();
+
+            TimeRemaining = startTime;
+            gameSceneInitialized = true;
+        }
+
     }
 
     // Function that will switch game scenes once the time has run out

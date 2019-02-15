@@ -10,6 +10,15 @@ public class Food : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
+        if(coll.gameObject.CompareTag("Player"))
+        {
+            if(coll.gameObject.GetComponent<Player>().died == false)
+            {
+                coll.gameObject.GetComponent<Player>().resources++;
+                gameObject.SetActive(false);
+                gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
+            }
+        }
         //if (coll.gameObject.CompareTag("Player1"))
         //{
         //    if (coll.gameObject.GetComponent<Player>().IsAlive())

@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     // Internal variables
-    private int resources;
+    public int resources;
     public float health;
     public float maxHealth;
     public int playerNum;
-    private bool died;
+    public bool died;
     public Vector3 spawnPoint;
 
     void Start()
