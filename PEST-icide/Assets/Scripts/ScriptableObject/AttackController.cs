@@ -37,6 +37,11 @@ public class AttackController : MonoBehaviour
                     Debug.Log("Hit:" + target);
                     break;
 
+                case "Player":
+                    Debug.Log("Hit:" + hit.name);
+                    hit.GetComponent<Player>().TakeDamage(4.0f);
+                    break;
+
                 default:
                     Debug.Log("What the hell did I hit?");
                     break;

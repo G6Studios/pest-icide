@@ -27,7 +27,7 @@ public class NewCamera : MonoBehaviour
         // Value flipped for later in the process
         xj = angles.y;
 
-        joystickNumber = character.GetComponent<Player>().playerNum;
+        joystickNumber = character.GetComponentInParent<Player>().playerNum;
 
         
     }

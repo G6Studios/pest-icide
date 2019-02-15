@@ -39,6 +39,7 @@ public class CheckReady : MonoBehaviour
         {
             Debug.Log(controllers[i]);
         }
+
     }
 
     // Update is called once per frame
