@@ -34,11 +34,6 @@ public class CheckReady : MonoBehaviour
         timerText = timerObject.GetComponent<TextMeshProUGUI>();
         allReady = false;
         timer = 5.0f;
-        controllers = Input.GetJoystickNames();
-       for(int i = 0; i < controllers.Length; i++)
-        {
-            Debug.Log(controllers[i]);
-        }
 
     }
 
@@ -48,7 +43,7 @@ public class CheckReady : MonoBehaviour
         // Checking if each player is ready
         ReadyStatus();
         ReadyTimer();
-        if(player1.selected && player2.selected && player3.selected && player4.selected)
+        if(player1.selected)
         {
             timerObject.SetActive(true);
             timerActive = true;
@@ -77,6 +72,10 @@ public class CheckReady : MonoBehaviour
             triggerOnce = true;
             timerText.text = "0.00";
             timer = 0.0f;
+            GameManager.instance.charSelections[0] = player1.characterNum;
+            GameManager.instance.charSelections[1] = player2.characterNum;
+            GameManager.instance.charSelections[2] = player3.characterNum;
+            GameManager.instance.charSelections[3] = player4.characterNum;
             SceneManager.LoadScene("Main Quinn Version");
         }
     }

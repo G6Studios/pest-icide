@@ -21,6 +21,14 @@ public class UIManager : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
+    private void Start()
+    {
+        player1 = GameManager.instance.Player1;
+        player2 = GameManager.instance.Player2;
+        player3 = GameManager.instance.Player3;
+        player4 = GameManager.instance.Player4;
+    }
+
     //public static UIManager instance = null;
     //
     //// Awake() runs before any Start() calls

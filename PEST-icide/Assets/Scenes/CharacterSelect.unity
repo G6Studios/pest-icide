@@ -242,6 +242,7 @@ MonoBehaviour:
   character2: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
   character3: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
   character4: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
+  characterNum: 0
   selected: 0
 --- !u!114 &139860365
 MonoBehaviour:
@@ -1079,6 +1080,7 @@ MonoBehaviour:
   character2: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
   character3: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
   character4: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
+  characterNum: 0
   selected: 0
 --- !u!114 &880839127
 MonoBehaviour:
@@ -1247,6 +1249,7 @@ MonoBehaviour:
   character2: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
   character3: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
   character4: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
+  characterNum: 0
   selected: 0
 --- !u!114 &918241175
 MonoBehaviour:
@@ -4069,6 +4072,7 @@ MonoBehaviour:
   character2: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
   character3: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
   character4: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
+  characterNum: 0
   selected: 0
 --- !u!114 &1856099417
 MonoBehaviour:
@@ -4360,15 +4364,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27365d3a7d72032409b7798266a3e378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdPrefab: {fileID: 0}
+  birdPrefab: {fileID: 2551491542903663625, guid: 16f9b1051b52abd4abcb3fcb2ae3d8d0,
+    type: 3}
+  ratPrefab: {fileID: 7019785654839309187, guid: 812b8d9a991e036459fba3f2f7beba7d,
+    type: 3}
   playerList: []
+  controllers: []
   Player1: {fileID: 0}
   Player2: {fileID: 0}
   Player3: {fileID: 0}
   Player4: {fileID: 0}
+  charSelections: 
   GasTrap: {fileID: 0}
   MouseTrap: {fileID: 0}
   winner: 
+  gameSceneInitialized: 0
 --- !u!4 &2083963483
 Transform:
   m_ObjectHideFlags: 0

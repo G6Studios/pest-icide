@@ -28,24 +28,15 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    // For internal use
-    private float timeRemaining;
-    private uint player1Food;
-    private uint player2Food;
-    private uint player3Food;
-    private uint player4Food;
-
-    //The sources the players depositied
-    private uint player1DepositedRes;
-    private uint player2DepositedRes;
-    private uint player3DepositedRes;
-    private uint player4DepositedRes;
-
-    // Bird prefab
+    // Player character prefabs
     public GameObject birdPrefab;
+    public GameObject ratPrefab;
 
     // List of players connected
-    public GameObject[] playerList;
+    public List<GameObject> playerList;
+
+    // List of controllers connected
+    public string[] controllers;
 
     public GameObject Player1;
     public GameObject Player2;
@@ -54,63 +45,13 @@ public class GameManager : MonoBehaviour {
 
     Scene currentScene;
 
+    public int[] charSelections;
+
     public GameObject GasTrap;
     public GameObject MouseTrap;
     public string winner;
 
     public bool gameSceneInitialized;
-
-    // Quick way to do get and set functions for variables
-    public float TimeRemaining
-    {
-        get { return timeRemaining; }
-        set { timeRemaining = value; }
-    }
-
-    public uint Player1Food
-    {
-        get { return player1Food; }
-        set { player1Food = value; }
-    }
-
-    public uint Player2Food
-    {
-        get { return player2Food; }
-        set { player2Food = value; }
-    }
-
-    public uint Player3Food
-    {
-        get { return player3Food; }
-        set { player3Food = value; }
-    }
-
-    public uint Player4Food
-    {
-        get { return player4Food; }
-        set { player4Food = value; }
-    }
-
-    public uint Player1DepositedRes
-    {
-        get { return player1DepositedRes;}
-     
-    }
-    public uint Player2DepositedRes
-    {
-        get { return player2DepositedRes; }
-
-    }
-    public uint Player3DepositedRes
-    {
-        get { return player3DepositedRes; }
-
-    }
-    public uint Player4DepositedRes
-    {
-        get { return player4DepositedRes; }
-
-    }
 
     private float startTime = 120; // Sixty seconds times five
 
@@ -118,37 +59,31 @@ public class GameManager : MonoBehaviour {
 	void Start ()
     {
         gameSceneInitialized = false;
+        charSelections = new int[4];
+
+
     }
 
     // Update is called once per frame
     void Update() {
-        //if (Player1 != null) //if the game is actually running and players exist
-        //{
-        //    TimeRemaining -= Time.deltaTime;
-        //    Player1Food = Player1.GetComponent<Player>().Resources;
-        //
-        //    player1DepositedRes = Player1.GetComponent<Player>().depositedResources;
-        //
-        //    if (TimeRemaining <= 0.0f)
-        //    {
-        //        GameOver();
-        //    }
-        //
-        //
-        //
-        //}
+
+        // Debugging controllers
+        DebugControllers();
 
         currentScene = SceneManager.GetActiveScene();
 
-        if (currentScene.name == "Main Quinn Version" && gameSceneInitialized == false)
+        if (currentScene.name == "Main Quinn Version")
         {
-            playerList = GameObject.FindGameObjectsWithTag("Player");
+            if(gameSceneInitialized == false)
+            {
+                SpawnPlayers();
+                InitializePlayers();
+                SetCameras();
 
-            InitializePlayers();
-            SetCameras();
-
-            TimeRemaining = startTime;
-            gameSceneInitialized = true;
+                gameSceneInitialized = true;
+            }
+            
+            //TimeRemaining = startTime;
         }
 
     }
@@ -176,15 +111,15 @@ public class GameManager : MonoBehaviour {
 
     public GameObject CheckWinner()
     {
-        if (player1DepositedRes > player2DepositedRes && player1DepositedRes > player3DepositedRes && player1DepositedRes > player4DepositedRes)
-            return Player1;
-        else if (player2DepositedRes > player1DepositedRes && player2DepositedRes > player3DepositedRes && player2DepositedRes > player4DepositedRes)
-            return Player2;
-        else if (player3DepositedRes > player1DepositedRes && player3DepositedRes > player2DepositedRes && player3DepositedRes > player4DepositedRes)
-            return Player3;
-        else if (player4DepositedRes > player1DepositedRes && player4DepositedRes > player2DepositedRes && player4DepositedRes > player3DepositedRes)
-            return Player4;
-        else
+        //if (player1DepositedRes > player2DepositedRes && player1DepositedRes > player3DepositedRes && player1DepositedRes > player4DepositedRes)
+        //    return Player1;
+        //else if (player2DepositedRes > player1DepositedRes && player2DepositedRes > player3DepositedRes && player2DepositedRes > player4DepositedRes)
+        //    return Player2;
+        //else if (player3DepositedRes > player1DepositedRes && player3DepositedRes > player2DepositedRes && player3DepositedRes > player4DepositedRes)
+        //    return Player3;
+        //else if (player4DepositedRes > player1DepositedRes && player4DepositedRes > player2DepositedRes && player4DepositedRes > player3DepositedRes)
+        //    return Player4;
+        //else
             return null;
     }
 
@@ -195,20 +130,32 @@ public class GameManager : MonoBehaviour {
         Rect temp = Rect.zero;
 
         // Top left
-        temp.Set(0.0f, 0.5f, 0.5f, 0.5f);
-        Player1.GetComponentInChildren<Camera>().rect = temp;
+        if (Player1 != null)
+        {
+            temp.Set(0.0f, 0.5f, 0.5f, 0.5f);
+            Player1.GetComponentInChildren<Camera>().rect = temp;
+        }
 
         // Top right
-        temp.Set(0.5f, 0.5f, 0.5f, 0.5f);
-        Player2.GetComponentInChildren<Camera>().rect = temp;
+        if (Player2 != null)
+        {
+            temp.Set(0.5f, 0.5f, 0.5f, 0.5f);
+            Player2.GetComponentInChildren<Camera>().rect = temp;
+        }
 
         // Bottom left
-        temp.Set(0.0f, 0.0f, 0.5f, 0.5f);
-        Player3.GetComponentInChildren<Camera>().rect = temp;
+        if (Player3 != null)
+        {
+            temp.Set(0.0f, 0.0f, 0.5f, 0.5f);
+            Player3.GetComponentInChildren<Camera>().rect = temp;
+        }
 
         // Bottom right
-        temp.Set(0.5f, 0.0f, 0.5f, 0.5f);
-        Player4.GetComponentInChildren<Camera>().rect = temp;
+        if (Player4 != null)
+        {
+            temp.Set(0.5f, 0.0f, 0.5f, 0.5f);
+            Player4.GetComponentInChildren<Camera>().rect = temp;
+        }
 
         // Resetting temp back to zero
         temp = Rect.zero;
@@ -217,17 +164,30 @@ public class GameManager : MonoBehaviour {
 
     void SpawnPlayers()
     {
-        for(int i = 0; i < playerList.Length; i++)
+        for(int i = 0; i <= controllers.Length; i++)
         {
-            Player1 = Instantiate(birdPrefab);
-            Player1.GetComponent<Player>().spawnPoint = new Vector3(0, 0, 0);
+            if (charSelections[i].Equals(1))
+            {
+                playerList.Add(Instantiate(ratPrefab));
+                playerList[i].name = "Player " + (i + 1);
+                playerList[i].GetComponent<Player>().spawnPoint = new Vector3(2.5f, 2.5f, -16.0f);
+                playerList[i].GetComponent<Player>().playerNum = i + 1;
+            }
+
+            else if(charSelections[i].Equals(2))
+            {
+                playerList.Add(Instantiate(birdPrefab));
+                playerList[i].name = "Player " + (i + 1);
+                playerList[i].GetComponent<Player>().spawnPoint = new Vector3(2.5f, 2.5f, -16.0f);
+                playerList[i].GetComponent<Player>().playerNum = i + 1;
+            }
         }
     }
 
     void InitializePlayers()
     {
 
-        for(int i = 0; i < playerList.Length; i++)
+        for(int i = 0; i < playerList.Count; i++)
         {
             if(playerList[i].GetComponent<Player>().playerNum == 1)
             {
@@ -248,6 +208,35 @@ public class GameManager : MonoBehaviour {
             else
             {
                 Debug.LogError("Something broke when initializing players");
+            }
+        }
+    }
+
+    // Debug function for checking how many controllers are connected
+    void DebugControllers()
+    {
+        // Checking for connected controllers
+        controllers = Input.GetJoystickNames();
+
+        // If any controllers are, or have been previously, connected
+        if (controllers.Length > 0)
+        {
+            // For each controller entry
+            for (int i = 0; i < controllers.Length; i++)
+            {
+                // Check if string entry is empty or not
+                if (!string.IsNullOrEmpty(controllers[i]))
+                {
+                    // String is not empty, controller is connected
+                    Debug.Log("Controller " + i + " currently connected using: " + controllers[i]);
+                }
+
+                else
+                {
+                    // String is empty, controller is not connected
+                    Debug.Log("Controller " + i + " is not connected.");
+                }
+
             }
         }
     }
