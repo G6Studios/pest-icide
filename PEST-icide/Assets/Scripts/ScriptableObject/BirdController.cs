@@ -24,6 +24,9 @@ public class BirdController : MonoBehaviour
 
     // Attacking
     private AttackController attacks;
+    private float cooldown;
+    private float cooldownTimer;
+    private bool canAttack;
 
     // Setup
     private int playerNumber;
@@ -46,6 +49,9 @@ public class BirdController : MonoBehaviour
 
         // Attack related
         attacks = gameObject.GetComponentInChildren<AttackController>();
+        cooldown = 1.5f;
+        cooldownTimer = 0.0f;
+
 
         // Setup
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
@@ -54,17 +60,24 @@ public class BirdController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Updating movement
-        Movement();
+        // Player shouldn't be able to do any of these things if they are dead
+        if (!GetComponent<Player>().died)
+        {
+            // Updating movement
+            Movement();
 
-        // Updating movement animation
-        MovementAnim();
+            // Updating movement animation
+            MovementAnim();
 
-        // Updating jumping
-        Jumping();
+            // Updating jumping
+            Jumping();
 
-        // Updating attacks
-        Attacks();
+            // Updating attacks
+            Attacks();
+        }
+
+        // Updating cooldowns
+        Cooldowns();
     }
 
     // Movement function
@@ -141,7 +154,17 @@ public class BirdController : MonoBehaviour
     {
         if(Input.GetButtonDown("X_P" + playerNumber))
         {
-            birdAnimator.SetTrigger("Punch");
+            if(canAttack == true)
+            {
+                birdAnimator.SetTrigger("Punch");
+                cooldownTimer = 0.0f;
+            }
+
+            else
+            {
+                Debug.Log("Bird attack on cooldown!");
+            }
+
         }
     }
 
@@ -149,6 +172,25 @@ public class BirdController : MonoBehaviour
     void ToggleActive()
     {
         attacks.attackActive = !attacks.attackActive;
+    }
+
+    // Processing attack cooldowns
+    void Cooldowns()
+    {
+        // Offloading this information to the attackcontroller so it can be easily accessed by the UI manager
+        GetComponentInChildren<AttackController>().cooldownProxy = cooldown;
+        GetComponentInChildren<AttackController>().cooldownTimerProxy = cooldownTimer;
+        if (cooldownTimer < cooldown)
+        {
+            cooldownTimer += Time.deltaTime;
+            canAttack = false;
+        }
+
+        else
+        {
+            canAttack = true;
+        }
+        
     }
 
 }

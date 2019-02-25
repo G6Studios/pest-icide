@@ -9,6 +9,12 @@ public class AttackController : MonoBehaviour
     [HideInInspector]
     public bool attackActive;
 
+    // Values read by the UI manager
+    [HideInInspector]
+    public float cooldownProxy;
+    [HideInInspector]
+    public float cooldownTimerProxy;
+
     // Initialization
     void Start()
     {

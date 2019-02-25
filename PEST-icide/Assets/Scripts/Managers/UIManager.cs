@@ -3,30 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Runtime.InteropServices;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    // Health pool fills
     public Image player1HealthImage;
     public Image player2HealthImage;
     public Image player3HealthImage;
     public Image player4HealthImage;
 
-    private float player1Health;
-    private float player2Health;
-    private float player3Health;
-    private float player4Health;
+    // Health pool numbers
+    public TextMeshProUGUI player1HealthNumber;
+    public TextMeshProUGUI player2HealthNumber;
+    public TextMeshProUGUI player3HealthNumber;
+    public TextMeshProUGUI player4HealthNumber;
 
+    // Attack cooldown indicators
+    public Image player1AttackImage;
+
+    // Character slots for convenience
     public GameObject player1;
     public GameObject player2;
     public GameObject player3;
     public GameObject player4;
 
+    Scene currentScene;
+
+    bool initialized = false;
+
     private void Start()
     {
-        player1 = GameManager.instance.Player1;
-        player2 = GameManager.instance.Player2;
-        player3 = GameManager.instance.Player3;
-        player4 = GameManager.instance.Player4;
+        
+        //player2 = GameManager.instance.playerList[1];
+        //player3 = GameManager.instance.playerList[2];
+        //player4 = GameManager.instance.playerList[3];
     }
 
     //public static UIManager instance = null;
@@ -209,6 +221,33 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        currentScene = SceneManager.GetActiveScene();
+        if(currentScene.name == "Main Quinn Version" && initialized == false)
+        {
+            if(GameManager.instance.playerList[0] != null)
+            {
+                player1 = GameManager.instance.playerList[0];
+            }   
+
+            //if (GameManager.instance.playerList[1] != null)
+            //{
+            //    player2 = GameManager.instance.playerList[1];
+            //}
+            //    
+            //if (GameManager.instance.playerList[2] != null)
+            //{
+            //    player3 = GameManager.instance.playerList[2];
+            //}
+            //    
+            //if (GameManager.instance.playerList[3] != null)
+            //{
+            //    player4 = GameManager.instance.playerList[3];
+            //}
+                
+            
+            initialized = true;
+        }
+
         // Player health values
         //player1Health = player1.GetComponent<Player>().health / player1.GetComponent<Player>().maxHealth;
         //player2Health = player2.GetComponent<Player>().health / player2.GetComponent<Player>().maxHealth;
@@ -217,9 +256,17 @@ public class UIManager : MonoBehaviour
 
         // Updating UI elements
         player1HealthImage.fillAmount = player1.GetComponent<Player>().health / player1.GetComponent<Player>().maxHealth;
-        player2HealthImage.fillAmount = player2.GetComponent<Player>().health / player2.GetComponent<Player>().maxHealth;
-        player3HealthImage.fillAmount = player3.GetComponent<Player>().health / player3.GetComponent<Player>().maxHealth;
-        player4HealthImage.fillAmount = player4.GetComponent<Player>().health / player4.GetComponent<Player>().maxHealth;
+        //player2HealthImage.fillAmount = player2.GetComponent<Player>().health / player2.GetComponent<Player>().maxHealth;
+        //player3HealthImage.fillAmount = player3.GetComponent<Player>().health / player3.GetComponent<Player>().maxHealth;
+        //player4HealthImage.fillAmount = player4.GetComponent<Player>().health / player4.GetComponent<Player>().maxHealth;
+
+        player1AttackImage.fillAmount = player1.GetComponentInChildren<AttackController>().cooldownTimerProxy / player1.GetComponentInChildren<AttackController>().cooldownProxy;
+
+        player1HealthNumber.text = player1.GetComponent<Player>().health.ToString();
+        //player2HealthNumber.text = player2.GetComponent<Player>().health.ToString();
+        //player3HealthNumber.text = player3.GetComponent<Player>().health.ToString();
+        //player4HealthNumber.text = player4.GetComponent<Player>().health.ToString();
+
 
     }
 

@@ -22,6 +22,9 @@ public class RatController : MonoBehaviour
 
     // Attacking
     private AttackController attacks;
+    private float cooldown;
+    private float cooldownTimer;
+    private bool canAttack;
 
     // Setup
     private int playerNumber;
@@ -43,6 +46,8 @@ public class RatController : MonoBehaviour
 
         // Attack related
         attacks = gameObject.GetComponentInChildren<AttackController>();
+        cooldown = 2.0f;
+        cooldownTimer = 0.0f;
 
         // Setup
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
@@ -51,17 +56,24 @@ public class RatController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Updating movement
-        Movement();
+        // Player shouldn't be able to do any of these things if they are dead
+        if (!GetComponent<Player>().died)
+        {
+            // Updating movement
+            Movement();
 
-        // Updating movement animation
-        MovementAnim();
+            // Updating movement animation
+            MovementAnim();
 
-        // Updating jumping
-        Jumping();
+            // Updating jumping
+            Jumping();
 
-        // Updating attacks
-        Attacks();
+            // Updating attacks
+            Attacks();
+        }
+
+        // Updating cooldowns
+        Cooldowns();
     }
 
     // Movement function
@@ -128,7 +140,17 @@ public class RatController : MonoBehaviour
     {
         if (Input.GetButtonDown("X_P" + playerNumber))
         {
-            ratAnimator.SetTrigger("Punch");
+            if(canAttack == true)
+            {
+                ratAnimator.SetTrigger("Punch");
+                cooldownTimer = 0.0f;
+            }
+
+            else
+            {
+                Debug.Log("Rat attack on cooldown!");
+            }
+
         }
     }
 
@@ -136,5 +158,20 @@ public class RatController : MonoBehaviour
     void ToggleActive()
     {
         attacks.attackActive = !attacks.attackActive;
+    }
+
+    // Processing attack cooldowns
+    void Cooldowns()
+    {
+        if(cooldownTimer < cooldown)
+        {
+            cooldownTimer += Time.deltaTime;
+            canAttack = false;
+        }
+
+        else
+        {
+            canAttack = true;
+        }
     }
 }

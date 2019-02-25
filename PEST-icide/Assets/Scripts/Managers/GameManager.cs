@@ -171,6 +171,8 @@ public class GameManager : MonoBehaviour {
                 playerList.Add(Instantiate(ratPrefab));
                 playerList[i].name = "Player " + (i + 1);
                 playerList[i].GetComponent<Player>().spawnPoint = new Vector3(2.5f, 2.5f, -16.0f);
+                playerList[i].GetComponent<Player>().maxHealth = 25f;
+                playerList[i].GetComponent<Player>().health = 25f;
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
             }
 
@@ -179,6 +181,8 @@ public class GameManager : MonoBehaviour {
                 playerList.Add(Instantiate(birdPrefab));
                 playerList[i].name = "Player " + (i + 1);
                 playerList[i].GetComponent<Player>().spawnPoint = new Vector3(2.5f, 2.5f, -16.0f);
+                playerList[i].GetComponent<Player>().maxHealth = 40f;
+                playerList[i].GetComponent<Player>().health = 40f;
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
             }
         }

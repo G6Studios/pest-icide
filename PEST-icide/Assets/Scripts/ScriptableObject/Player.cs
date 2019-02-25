@@ -24,14 +24,24 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (health < 0.0f && died == false)
+        if (health <= 0.0f && died == false)
         {
             Death();
             died = true;
         }
 
+        HurtSelf();
+
     }
 
+    // Debugging command
+    void HurtSelf()
+    {
+        if(Input.GetButtonDown("Y_P" + playerNum))
+        {
+            TakeDamage(1);
+        }
+    }
     
     public void TakeDamage(float dmg)
     {
@@ -41,10 +51,12 @@ public class Player : MonoBehaviour
     public void Death()
     {
         Invoke("Respawn", 5.0f);
+        GetComponentInParent<Animator>().SetBool("Dead", true);
     }
 
     public void Respawn()
     {
+        GetComponentInParent<Animator>().SetBool("Dead", false);
         health = maxHealth;
         gameObject.transform.position = spawnPoint;
         died = false;

@@ -51,8 +51,8 @@ public class CharDisplay : MonoBehaviour
         }
         else if (PlayerNum == 2)
         {
-            gameObject.GetComponent<Image>().sprite = character2.art;
-            card = new PlayerCard(character2);
+            gameObject.GetComponent<Image>().sprite = character3.art;
+            card = new PlayerCard(character3);
             UpdatePlayerCard();
         }
         else if (PlayerNum == 3)
