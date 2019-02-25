@@ -22,6 +22,9 @@ public class UIManager : MonoBehaviour
 
     // Attack cooldown indicators
     public Image player1AttackImage;
+    public Image player2AttackImage;
+    public Image player3AttackImage;
+    public Image player4AttackImage;
 
     // Character slots for convenience
     public GameObject player1;
@@ -229,20 +232,20 @@ public class UIManager : MonoBehaviour
                 player1 = GameManager.instance.playerList[0];
             }   
 
-            //if (GameManager.instance.playerList[1] != null)
-            //{
-            //    player2 = GameManager.instance.playerList[1];
-            //}
-            //    
-            //if (GameManager.instance.playerList[2] != null)
-            //{
-            //    player3 = GameManager.instance.playerList[2];
-            //}
-            //    
-            //if (GameManager.instance.playerList[3] != null)
-            //{
-            //    player4 = GameManager.instance.playerList[3];
-            //}
+            if (GameManager.instance.playerList[1] != null)
+            {
+                player2 = GameManager.instance.playerList[1];
+            }
+                
+            if (GameManager.instance.playerList[2] != null)
+            {
+                player3 = GameManager.instance.playerList[2];
+            }
+                
+            if (GameManager.instance.playerList[3] != null)
+            {
+                player4 = GameManager.instance.playerList[3];
+            }
                 
             
             initialized = true;
@@ -254,18 +257,22 @@ public class UIManager : MonoBehaviour
         //player3Health = player3.GetComponent<Player>().health / player3.GetComponent<Player>().maxHealth;
         //player4Health = player4.GetComponent<Player>().health / player4.GetComponent<Player>().maxHealth;
 
-        // Updating UI elements
+        // Updating health fill and health numbers
         player1HealthImage.fillAmount = player1.GetComponent<Player>().health / player1.GetComponent<Player>().maxHealth;
-        //player2HealthImage.fillAmount = player2.GetComponent<Player>().health / player2.GetComponent<Player>().maxHealth;
-        //player3HealthImage.fillAmount = player3.GetComponent<Player>().health / player3.GetComponent<Player>().maxHealth;
-        //player4HealthImage.fillAmount = player4.GetComponent<Player>().health / player4.GetComponent<Player>().maxHealth;
-
-        player1AttackImage.fillAmount = player1.GetComponentInChildren<AttackController>().cooldownTimerProxy / player1.GetComponentInChildren<AttackController>().cooldownProxy;
+        player2HealthImage.fillAmount = player2.GetComponent<Player>().health / player2.GetComponent<Player>().maxHealth;
+        player3HealthImage.fillAmount = player3.GetComponent<Player>().health / player3.GetComponent<Player>().maxHealth;
+        player4HealthImage.fillAmount = player4.GetComponent<Player>().health / player4.GetComponent<Player>().maxHealth;
 
         player1HealthNumber.text = player1.GetComponent<Player>().health.ToString();
-        //player2HealthNumber.text = player2.GetComponent<Player>().health.ToString();
-        //player3HealthNumber.text = player3.GetComponent<Player>().health.ToString();
-        //player4HealthNumber.text = player4.GetComponent<Player>().health.ToString();
+        player2HealthNumber.text = player2.GetComponent<Player>().health.ToString();
+        player3HealthNumber.text = player3.GetComponent<Player>().health.ToString();
+        player4HealthNumber.text = player4.GetComponent<Player>().health.ToString();
+
+        // Updating attack cooldown UI elements
+        player1AttackImage.fillAmount = player1.GetComponentInChildren<AttackController>().cooldownTimerProxy / player1.GetComponentInChildren<AttackController>().cooldownProxy;
+        player2AttackImage.fillAmount = player2.GetComponentInChildren<AttackController>().cooldownTimerProxy / player2.GetComponentInChildren<AttackController>().cooldownProxy;
+        player3AttackImage.fillAmount = player3.GetComponentInChildren<AttackController>().cooldownTimerProxy / player3.GetComponentInChildren<AttackController>().cooldownProxy;
+        player4AttackImage.fillAmount = player4.GetComponentInChildren<AttackController>().cooldownTimerProxy / player4.GetComponentInChildren<AttackController>().cooldownProxy;
 
 
     }
