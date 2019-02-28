@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     // Internal variables
+    [SerializeField]
+    public float speed;
     public int resources;
     public float health;
     public float maxHealth;

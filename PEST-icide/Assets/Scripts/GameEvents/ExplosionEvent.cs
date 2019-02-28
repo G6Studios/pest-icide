@@ -9,7 +9,7 @@ public class ExplosionEvent : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         particles.Play();
-        other.GetComponent<Player>().hp -= 10;
+        other.GetComponent<Player>().health -= 10;
     }
 
 

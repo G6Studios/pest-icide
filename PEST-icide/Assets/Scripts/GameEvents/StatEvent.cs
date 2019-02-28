@@ -14,10 +14,26 @@ public class StatEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player1 = GameObject.FindGameObjectWithTag("Player1") != null ? GameObject.FindGameObjectWithTag("Player1") : null;
-        player2 = GameObject.FindGameObjectWithTag("Player2") != null ? GameObject.FindGameObjectWithTag("Player2") : null;
-        player3 = GameObject.FindGameObjectWithTag("Player3") != null ? GameObject.FindGameObjectWithTag("Player3") : null;
-        player4 = GameObject.FindGameObjectWithTag("Player4") != null ? GameObject.FindGameObjectWithTag("Player4") : null;
+        if(GameManager.instance.player1Active)
+        {
+            player1 = GameManager.instance.Player1;
+        }
+
+        if(GameManager.instance.player2Active)
+        {
+            player2 = GameManager.instance.Player2;
+        }
+        
+        if(GameManager.instance.player3Active)
+        {
+            player3 = GameManager.instance.Player3;
+        }
+        
+        if(GameManager.instance.player4Active)
+        {
+            player4 = GameManager.instance.Player4;
+        }
+        
 
     }
 

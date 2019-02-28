@@ -7,7 +7,7 @@ public class HealthOrb : MonoBehaviour, IPowerUp
     private void OnTriggerEnter(Collider other)
     {
         // If a player collides with the health orb
-        if (other.CompareTag("Player1") || other.CompareTag("Player2") || other.CompareTag("Player3") || other.CompareTag("Player4")) 
+        if (other.CompareTag("Player")) 
         {
             PickUp(other);
         }
@@ -17,7 +17,7 @@ public class HealthOrb : MonoBehaviour, IPowerUp
    public void PickUp(Collider player) 
     {
         // Give the player some HP
-        player.GetComponent<Player>().hp += 25;
+        player.GetComponent<Player>().health += 25;
         // Destroy Health Orb
         Destroy(gameObject);
         // If we have a particle effect on pickup

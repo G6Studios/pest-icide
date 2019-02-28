@@ -35,7 +35,8 @@ public class BirdController : MonoBehaviour
     void Start()
     {
         // Movement related
-        moveSpeed = 10f;
+        moveSpeed = gameObject.GetComponent<Player>().speed;
+
 
         // Movement animation related
         birdAnimator = gameObject.GetComponent<Animator>();

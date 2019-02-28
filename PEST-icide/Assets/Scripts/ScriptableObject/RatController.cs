@@ -33,7 +33,7 @@ public class RatController : MonoBehaviour
     void Start()
     {
         // Movement related
-        moveSpeed = 8f;
+        moveSpeed = gameObject.GetComponent<Player>().speed;
 
         // Movement animation related
         ratAnimator = gameObject.GetComponent<Animator>();
