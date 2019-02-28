@@ -1,0 +1,191 @@
+fileFormatVersion: 2
+guid: 6a53210e6ea7bc24fbe1bcba888ccdc2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: foot.L
+    100002: foot.R
+    100004: forearm.L
+    100006: forearm.R
+    100008: hand.L
+    100010: hand.L_end
+    100012: hand.R
+    100014: hand.R_end
+    100016: heel.02.L
+    100018: heel.02.L_end
+    100020: heel.02.R
+    100022: heel.02.R_end
+    100024: metarig
+    100026: pelvis.L
+    100028: pelvis.L_end
+    100030: pelvis.R
+    100032: pelvis.R_end
+    100034: ratmodel41a:BackTeeth
+    100036: ratmodel41a:Body
+    100038: ratmodel41a:BottomTeethFront
+    100040: ratmodel41a:Eyes
+    100042: ratmodel41a:FrontTeethTop
+    100044: //RootNode
+    100046: shin.L
+    100048: shin.R
+    100050: shoulder.L
+    100052: shoulder.R
+    100054: spine
+    100056: spine.001
+    100058: spine.002
+    100060: spine.003
+    100062: spine.004
+    100064: spine.005
+    100066: spine.006
+    100068: spine.006_end
+    100070: thigh.L
+    100072: thigh.R
+    100074: toe.L
+    100076: toe.L_end
+    100078: toe.R
+    100080: toe.R_end
+    100082: upper_arm.L
+    100084: upper_arm.R
+    400000: foot.L
+    400002: foot.R
+    400004: forearm.L
+    400006: forearm.R
+    400008: hand.L
+    400010: hand.L_end
+    400012: hand.R
+    400014: hand.R_end
+    400016: heel.02.L
+    400018: heel.02.L_end
+    400020: heel.02.R
+    400022: heel.02.R_end
+    400024: metarig
+    400026: pelvis.L
+    400028: pelvis.L_end
+    400030: pelvis.R
+    400032: pelvis.R_end
+    400034: ratmodel41a:BackTeeth
+    400036: ratmodel41a:Body
+    400038: ratmodel41a:BottomTeethFront
+    400040: ratmodel41a:Eyes
+    400042: ratmodel41a:FrontTeethTop
+    400044: //RootNode
+    400046: shin.L
+    400048: shin.R
+    400050: shoulder.L
+    400052: shoulder.R
+    400054: spine
+    400056: spine.001
+    400058: spine.002
+    400060: spine.003
+    400062: spine.004
+    400064: spine.005
+    400066: spine.006
+    400068: spine.006_end
+    400070: thigh.L
+    400072: thigh.R
+    400074: toe.L
+    400076: toe.L_end
+    400078: toe.R
+    400080: toe.R_end
+    400082: upper_arm.L
+    400084: upper_arm.R
+    2100000: ratmodel41a_Default1
+    4300000: ratmodel41a:BottomTeethFront
+    4300002: ratmodel41a:FrontTeethTop
+    4300004: ratmodel41a:BackTeeth
+    4300006: ratmodel41a:Eyes
+    4300008: ratmodel41a:Body
+    7400000: mixamo.com
+    9500000: //RootNode
+    13700000: ratmodel41a:BackTeeth
+    13700002: ratmodel41a:Body
+    13700004: ratmodel41a:BottomTeethFront
+    13700006: ratmodel41a:Eyes
+    13700008: ratmodel41a:FrontTeethTop
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

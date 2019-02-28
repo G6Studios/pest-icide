@@ -11,11 +11,13 @@ public class CharDisplay : MonoBehaviour
     public CharacterCard character3;
     public CharacterCard character4;
 
-    bool selected = false;
+    public int characterNum;
+
+    public bool selected = false;
     bool isAxisInUse = false;
 
 
-    class PlayerCard
+    public class PlayerCard
     {
         public CharacterCard current;
         public CharacterCard next;
@@ -35,7 +37,7 @@ public class CharDisplay : MonoBehaviour
 
     }
 
-    PlayerCard card;
+    public PlayerCard card;
 
 
     // Start is called before the first frame update
@@ -98,6 +100,7 @@ public class CharDisplay : MonoBehaviour
                     isAxisInUse = true;
                 }
             }
+
             if (Input.GetAxis("DPadX_P" + PlayerNum) == 0)
             {
                 isAxisInUse = false;
@@ -121,25 +124,30 @@ public class CharDisplay : MonoBehaviour
 
     }
 
+
     void UpdatePlayerCard()
     {
         if (card.current == character1)
         {
+            characterNum = 1;
             card.next = character2;
             card.previous = character4;
         }
         else if (card.current == character2)
         {
+            characterNum = 2;
             card.next = character3;
             card.previous = character1;
         }
         else if (card.current == character3)
         {
+            characterNum = 3;
             card.next = character4;
             card.previous = character2;
         }
         else if (card.current == character4)
         {
+            characterNum = 4;
             card.next = character1;
             card.previous = character3;
         }

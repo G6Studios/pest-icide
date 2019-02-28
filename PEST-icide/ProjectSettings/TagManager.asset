@@ -12,6 +12,7 @@ TagManager:
   - Poison
   - Dummy
   - Trap
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
