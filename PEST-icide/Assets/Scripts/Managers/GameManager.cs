@@ -38,10 +38,17 @@ public class GameManager : MonoBehaviour {
     // List of controllers connected
     public string[] controllers;
 
+    // Slots to hold instantiated players
     public GameObject Player1;
     public GameObject Player2;
     public GameObject Player3;
     public GameObject Player4;
+
+    // For playing with fewer than 4 players
+    public bool player1Active;
+    public bool player2Active;
+    public bool player3Active;
+    public bool player4Active;
 
     Scene currentScene;
 
@@ -60,6 +67,10 @@ public class GameManager : MonoBehaviour {
     {
         gameSceneInitialized = false;
         charSelections = new int[4];
+        player1Active = false;
+        player2Active = false;
+        player3Active = false;
+        player4Active = false;
 
 
     }
@@ -130,28 +141,28 @@ public class GameManager : MonoBehaviour {
         Rect temp = Rect.zero;
 
         // Top left
-        if (Player1 != null)
+        if (player1Active)
         {
             temp.Set(0.0f, 0.5f, 0.5f, 0.5f);
             Player1.GetComponentInChildren<Camera>().rect = temp;
         }
 
         // Top right
-        if (Player2 != null)
+        if (player2Active)
         {
             temp.Set(0.5f, 0.5f, 0.5f, 0.5f);
             Player2.GetComponentInChildren<Camera>().rect = temp;
         }
 
         // Bottom left
-        if (Player3 != null)
+        if (player3Active)
         {
             temp.Set(0.0f, 0.0f, 0.5f, 0.5f);
             Player3.GetComponentInChildren<Camera>().rect = temp;
         }
 
         // Bottom right
-        if (Player4 != null)
+        if (player4Active)
         {
             temp.Set(0.5f, 0.0f, 0.5f, 0.5f);
             Player4.GetComponentInChildren<Camera>().rect = temp;
@@ -164,7 +175,7 @@ public class GameManager : MonoBehaviour {
 
     void SpawnPlayers()
     {
-        for(int i = 0; i <= controllers.Length; i++)
+        for(int i = 0; i < controllers.Length; i++)
         {
             if (charSelections[i].Equals(1))
             {
@@ -240,6 +251,28 @@ public class GameManager : MonoBehaviour {
                     // String is empty, controller is not connected
                     Debug.Log("Controller " + i + " is not connected.");
                 }
+
+                // Enabling players for number of controllers plugged in
+                if(controllers.Length >= 1 && !string.IsNullOrEmpty(controllers[0]))
+                {
+                    player1Active = true;
+                }
+
+                if(controllers.Length >= 2 && !string.IsNullOrEmpty(controllers[1]))
+                {
+                    player2Active = true;
+                }
+
+                if(controllers.Length >= 3 && !string.IsNullOrEmpty(controllers[2]))
+                {
+                    player3Active = true;
+                }
+
+                if(controllers.Length >= 4 && !string.IsNullOrEmpty(controllers[3]))
+                {
+                    player4Active = true;
+                }
+                
 
             }
         }

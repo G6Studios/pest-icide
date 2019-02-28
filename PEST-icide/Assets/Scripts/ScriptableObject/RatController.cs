@@ -56,6 +56,7 @@ public class RatController : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
         // Player shouldn't be able to do any of these things if they are dead
         if (!GetComponent<Player>().died)
         {
@@ -132,7 +133,7 @@ public class RatController : MonoBehaviour
     // Checking if player is on the ground
     bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround);
+        return Physics.Raycast(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up, 0.9f);
     }
 
     // Attack function
@@ -163,7 +164,10 @@ public class RatController : MonoBehaviour
     // Processing attack cooldowns
     void Cooldowns()
     {
-        if(cooldownTimer < cooldown)
+        // Offloading this information to the attackcontroller so it can be easily accessed by the UI manager
+        GetComponentInChildren<AttackController>().cooldownProxy = cooldown;
+        GetComponentInChildren<AttackController>().cooldownTimerProxy = cooldownTimer;
+        if (cooldownTimer < cooldown)
         {
             cooldownTimer += Time.deltaTime;
             canAttack = false;
