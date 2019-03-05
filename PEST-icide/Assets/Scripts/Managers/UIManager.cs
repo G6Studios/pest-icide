@@ -44,6 +44,8 @@ public class UIManager : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
+    public TextMeshProUGUI timerText;
+
     Scene currentScene;
 
     bool initialized = false;
@@ -85,8 +87,21 @@ public class UIManager : MonoBehaviour
             initialized = true;
         }
 
+        // Updating timer
+        int minutes = Mathf.FloorToInt(GameManager.instance.timer / 60F);
+        int seconds = Mathf.FloorToInt(GameManager.instance.timer - minutes * 60);
+        string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+        timerText.text = niceTime;
+
+        if(GameManager.instance.timer < 0)
+        {
+            timerText.text = string.Format("{0:0}:{1:00}", 0, 0);
+        }
+
+
+
         // Managing elements for player 1
-        if(GameManager.instance.player1Active)
+        if (GameManager.instance.player1Active)
         {
             player1HealthImage.SetActive(true);
             player1HealthNumber.gameObject.SetActive(true);

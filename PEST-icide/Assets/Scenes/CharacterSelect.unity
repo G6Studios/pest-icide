@@ -238,10 +238,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNum: 3
-  character1: {fileID: 11400000, guid: 527fe6974a9e8764b93b2666199e2d23, type: 2}
-  character2: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
-  character3: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
-  character4: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
+  character1: {fileID: 11400000, guid: 3a64c0fdf1e43b14cba7aa3e91382773, type: 2}
+  character2: {fileID: 11400000, guid: 527fe6974a9e8764b93b2666199e2d23, type: 2}
+  character3: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
+  character4: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
+  character5: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
   characterNum: 0
   selected: 0
 --- !u!114 &139860365
@@ -1076,10 +1077,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNum: 4
-  character1: {fileID: 11400000, guid: 527fe6974a9e8764b93b2666199e2d23, type: 2}
-  character2: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
-  character3: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
-  character4: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
+  character1: {fileID: 11400000, guid: 3a64c0fdf1e43b14cba7aa3e91382773, type: 2}
+  character2: {fileID: 11400000, guid: 527fe6974a9e8764b93b2666199e2d23, type: 2}
+  character3: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
+  character4: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
+  character5: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
   characterNum: 0
   selected: 0
 --- !u!114 &880839127
@@ -1245,10 +1247,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNum: 1
-  character1: {fileID: 11400000, guid: 527fe6974a9e8764b93b2666199e2d23, type: 2}
-  character2: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
-  character3: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
-  character4: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
+  character1: {fileID: 11400000, guid: 3a64c0fdf1e43b14cba7aa3e91382773, type: 2}
+  character2: {fileID: 11400000, guid: 527fe6974a9e8764b93b2666199e2d23, type: 2}
+  character3: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
+  character4: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
+  character5: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
   characterNum: 0
   selected: 0
 --- !u!114 &918241175
@@ -4068,10 +4071,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNum: 2
-  character1: {fileID: 11400000, guid: 527fe6974a9e8764b93b2666199e2d23, type: 2}
-  character2: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
-  character3: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
-  character4: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
+  character1: {fileID: 11400000, guid: 3a64c0fdf1e43b14cba7aa3e91382773, type: 2}
+  character2: {fileID: 11400000, guid: 527fe6974a9e8764b93b2666199e2d23, type: 2}
+  character3: {fileID: 11400000, guid: 6d754d3785d17214996536c60f611d09, type: 2}
+  character4: {fileID: 11400000, guid: 7e1306f62a2583d41bb82bf156a7658f, type: 2}
+  character5: {fileID: 11400000, guid: 938afb1e2e3d77b47b3b45bd1993bd38, type: 2}
   characterNum: 0
   selected: 0
 --- !u!114 &1856099417
@@ -4374,11 +4378,21 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Player3: {fileID: 0}
   Player4: {fileID: 0}
+  player1DResource: 0
+  player2DResource: 0
+  player3DResource: 0
+  player4DResource: 0
+  player1Active: 0
+  player2Active: 0
+  player3Active: 0
+  player4Active: 0
   charSelections: 
   GasTrap: {fileID: 0}
   MouseTrap: {fileID: 0}
   winner: 
   gameSceneInitialized: 0
+  startTime: 120
+  timer: 0
 --- !u!4 &2083963483
 Transform:
   m_ObjectHideFlags: 0

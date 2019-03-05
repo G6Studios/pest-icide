@@ -44,6 +44,12 @@ public class GameManager : MonoBehaviour {
     public GameObject Player3;
     public GameObject Player4;
 
+    // Player resources
+    public int player1DResource;
+    public int player2DResource;
+    public int player3DResource;
+    public int player4DResource;
+
     // For playing with fewer than 4 players
     public bool player1Active;
     public bool player2Active;
@@ -60,7 +66,8 @@ public class GameManager : MonoBehaviour {
 
     public bool gameSceneInitialized;
 
-    private float startTime = 120; // Sixty seconds times five
+    public float startTime = 10; // Sixty seconds times five
+    public float timer;
 
 	// Use this for initialization
 	void Start ()
@@ -71,6 +78,7 @@ public class GameManager : MonoBehaviour {
         player2Active = false;
         player3Active = false;
         player4Active = false;
+        timer = startTime;
 
 
     }
@@ -93,8 +101,14 @@ public class GameManager : MonoBehaviour {
 
                 gameSceneInitialized = true;
             }
+
+            timer -= Time.deltaTime;
+
+            if(timer <= 0)
+            {
+                GameOver();
+            }
             
-            //TimeRemaining = startTime;
         }
 
     }
@@ -102,35 +116,35 @@ public class GameManager : MonoBehaviour {
     // Function that will switch game scenes once the time has run out
     void GameOver()
     {
-        //if (CheckWinner() != null)
-        //{
-        //    Debug.Log("Player " + CheckWinner().GetComponent<Player>().playerNumber + "is the winner!");
-        //    winner = CheckWinner().GetComponent<Player>().playerNumber.ToString();
-        //    SceneManager.LoadScene("Victory");
-        //
-        //    //end our scene 
-        //    //in the next scene we read the data from the game manager and then we display it
-        //    //When we are done displaying the data, we reset it back to default values when they hit play again or we destory everything if they go back to main menu
-        //}
-        //else
-        //{
-        //    Debug.Log("No winner");
-        //    //end our scene
-        //}
+        if (CheckWinner() != null)
+        {
+            Debug.Log("Player " + CheckWinner().GetComponent<Player>().playerNum + "is the winner!");
+            winner = CheckWinner().GetComponent<Player>().playerNum.ToString();
+            SceneManager.LoadScene("Victory");
+        
+            //end our scene 
+            //in the next scene we read the data from the game manager and then we display it
+            //When we are done displaying the data, we reset it back to default values when they hit play again or we destory everything if they go back to main menu
+        }
+        else
+        {
+            Debug.Log("No winner");
+            //end our scene
+        }
 
     }
 
     public GameObject CheckWinner()
     {
-        //if (player1DepositedRes > player2DepositedRes && player1DepositedRes > player3DepositedRes && player1DepositedRes > player4DepositedRes)
-        //    return Player1;
-        //else if (player2DepositedRes > player1DepositedRes && player2DepositedRes > player3DepositedRes && player2DepositedRes > player4DepositedRes)
-        //    return Player2;
-        //else if (player3DepositedRes > player1DepositedRes && player3DepositedRes > player2DepositedRes && player3DepositedRes > player4DepositedRes)
-        //    return Player3;
-        //else if (player4DepositedRes > player1DepositedRes && player4DepositedRes > player2DepositedRes && player4DepositedRes > player3DepositedRes)
-        //    return Player4;
-        //else
+        if (player1DResource > player2DResource && player1DResource > player3DResource && player1DResource > player4DResource)
+            return Player1;
+        else if (player2DResource > player1DResource && player2DResource > player3DResource && player2DResource > player4DResource)
+            return Player2;
+        else if (player3DResource > player1DResource && player3DResource > player2DResource && player3DResource > player4DResource)
+            return Player3;
+        else if (player4DResource > player1DResource && player4DResource > player2DResource && player4DResource > player3DResource)
+            return Player4;
+        else
             return null;
     }
 
@@ -140,30 +154,59 @@ public class GameManager : MonoBehaviour {
         // Temporary rect transform
         Rect temp = Rect.zero;
 
-        // Top left
-        if (player1Active)
+        // 1 player currently active
+        if(player1Active && !player2Active && !player3Active && !player4Active)
         {
-            temp.Set(0.0f, 0.5f, 0.5f, 0.5f);
+            // Player 1
+            temp.Set(0.0f, 0.0f, 1.0f, 1.0f);
             Player1.GetComponentInChildren<Camera>().rect = temp;
         }
 
-        // Top right
-        if (player2Active)
+        // 2 players currently active
+        else if(player1Active && player2Active && !player3Active && !player4Active)
         {
-            temp.Set(0.5f, 0.5f, 0.5f, 0.5f);
+            // Player 1
+            temp.Set(0.0f, 0.0f, 0.5f, 1.0f);
+            Player1.GetComponentInChildren<Camera>().rect = temp;
+
+            // Player 2
+            temp.Set(0.5f, 0.0f, 0.5f, 1.0f);
             Player2.GetComponentInChildren<Camera>().rect = temp;
+
         }
 
-        // Bottom left
-        if (player3Active)
+        // 3 players currently active
+        else if(player1Active && player2Active && player3Active && !player4Active)
         {
+            // Player 1
             temp.Set(0.0f, 0.0f, 0.5f, 0.5f);
+            Player1.GetComponentInChildren<Camera>().rect = temp;
+
+            // Player 2
+            temp.Set(0.5f, 0.0f, 0.5f, 0.5f);
+            Player2.GetComponentInChildren<Camera>().rect = temp;
+
+            // Player 3
+            temp.Set(0.0f, 0.0f, 1.0f, 0.5f);
             Player3.GetComponentInChildren<Camera>().rect = temp;
         }
 
-        // Bottom right
-        if (player4Active)
+        // 4 players currently active
+        else if(player1Active && player2Active && player3Active && player4Active)
         {
+            // Player 1
+            temp.Set(0.0f, 0.5f, 0.5f, 0.5f);
+            Player1.GetComponentInChildren<Camera>().rect = temp;
+
+            // Player 2
+            temp.Set(0.5f, 0.5f, 0.5f, 0.5f);
+            Player2.GetComponentInChildren<Camera>().rect = temp;
+
+            // Player 3
+            temp.Set(0.0f, 0.0f, 0.5f, 0.5f);
+            Player3.GetComponentInChildren<Camera>().rect = temp;
+
+            // Player 4
             temp.Set(0.5f, 0.0f, 0.5f, 0.5f);
             Player4.GetComponentInChildren<Camera>().rect = temp;
         }
@@ -179,6 +222,33 @@ public class GameManager : MonoBehaviour {
         {
             if (charSelections[i].Equals(1))
             {
+                int tempRand;
+                tempRand = Random.Range(2,4);
+                print(tempRand);
+
+                if(tempRand == 2)
+                {
+                    playerList.Add(Instantiate(ratPrefab));
+                    playerList[i].name = "Player " + (i + 1);
+                    playerList[i].GetComponent<Player>().spawnPoint = new Vector3(2.5f, 2.5f, -16.0f);
+                    playerList[i].GetComponent<Player>().maxHealth = 25f;
+                    playerList[i].GetComponent<Player>().health = 25f;
+                    playerList[i].GetComponent<Player>().playerNum = i + 1;
+                }
+                else if(tempRand == 3)
+                {
+                    playerList.Add(Instantiate(birdPrefab));
+                    playerList[i].name = "Player " + (i + 1);
+                    playerList[i].GetComponent<Player>().spawnPoint = new Vector3(2.5f, 2.5f, -16.0f);
+                    playerList[i].GetComponent<Player>().maxHealth = 40f;
+                    playerList[i].GetComponent<Player>().health = 40f;
+                    playerList[i].GetComponent<Player>().playerNum = i + 1;
+                }
+                
+            }
+
+            else if(charSelections[i].Equals(2))
+            {
                 playerList.Add(Instantiate(ratPrefab));
                 playerList[i].name = "Player " + (i + 1);
                 playerList[i].GetComponent<Player>().spawnPoint = new Vector3(2.5f, 2.5f, -16.0f);
@@ -187,7 +257,7 @@ public class GameManager : MonoBehaviour {
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
             }
 
-            else if(charSelections[i].Equals(2))
+            else if(charSelections[i].Equals(3))
             {
                 playerList.Add(Instantiate(birdPrefab));
                 playerList[i].name = "Player " + (i + 1);
