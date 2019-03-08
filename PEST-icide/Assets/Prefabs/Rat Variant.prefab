@@ -302,6 +302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackActive: 0
+  attackSprite: {fileID: 5508596458434509439, guid: 9d1515b065fd40e41ad90a1df40ca775,
+    type: 3}
   cooldownProxy: 0
   cooldownTimerProxy: 0
 --- !u!54 &121646237

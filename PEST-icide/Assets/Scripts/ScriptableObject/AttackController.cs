@@ -9,6 +9,9 @@ public class AttackController : MonoBehaviour
     [HideInInspector]
     public bool attackActive;
 
+    // Attack sprite
+    public GameObject attackSprite;
+
     // Values read by the UI manager
     [HideInInspector]
     public float cooldownProxy;
@@ -46,6 +49,9 @@ public class AttackController : MonoBehaviour
                 case "Player":
                     Debug.Log("Hit:" + hit.name);
                     hit.GetComponent<Player>().TakeDamage(4.0f);
+                    GameObject instance = Instantiate(attackSprite, hit.transform.position, Quaternion.identity);
+                    attackSprite.GetComponent<ParticleSystem>().Play();
+                    Destroy(instance, 1.0f);
                     break;
 
                 default:
