@@ -8,19 +8,22 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Menu.unity
     guid: d465ca3c15ba9b745855499e859dee31
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 62c325c22ff0f3c4e9b0984c0b646992
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Victory.unity
     guid: 1aa5befa961ef964292d227d56b31782
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CharacterSelect.unity
     guid: 99bb1b67c4e89e948a720d152bd57c4d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Quinn Version.unity
     guid: da8dad0cec0de984fb06b52b38f0ff91
+  - enabled: 1
+    path: Assets/Scenes/RazasHappyPlace.unity
+    guid: 48e3c32d34dc3974db4ac86a71b6fe45
   m_configObjects: {}
