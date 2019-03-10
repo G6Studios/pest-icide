@@ -67,10 +67,17 @@ public class RatController : MonoBehaviour
             MovementAnim();
 
             // Updating jumping
-            Jumping();
+            // Waiting for jump button press
+            if (Input.GetButtonDown("A_P" + playerNumber))
+            {
+                Jumping();
+            }
 
             // Updating attacks
-            Attacks();
+            if (Input.GetButtonDown("X_P" + playerNumber))
+            {
+                Attacks();
+            }
         }
 
         // Updating cooldowns
@@ -105,18 +112,17 @@ public class RatController : MonoBehaviour
     // Jump function
     void Jumping()
     {
-        // Waiting for jump button press
-        if (Input.GetButtonDown("A_P" + playerNumber))
+        // Applying upward velocity if player is grounded
+        if (IsGrounded())
         {
-            // Applying upward velocity if player is grounded
-            if (IsGrounded())
-            {
-                _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
-                _rigidbody.velocity = Vector3.up * jumpHeight;
-            }
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+            _rigidbody.velocity = Vector3.up * jumpHeight;
         }
 
+    }
 
+    void JumpProcessing()
+    {
         if (_rigidbody.velocity.y < 0)
         {
             // Causes the player's jump to be higher and more floaty if they hold the button down
@@ -127,7 +133,6 @@ public class RatController : MonoBehaviour
             // Causes the player to fall faster and not jump as high if they tap the button
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
-
     }
 
     // Checking if player is on the ground
@@ -139,20 +144,18 @@ public class RatController : MonoBehaviour
     // Attack function
     void Attacks()
     {
-        if (Input.GetButtonDown("X_P" + playerNumber))
+
+        if (canAttack == true)
         {
-            if(canAttack == true)
-            {
-                ratAnimator.SetTrigger("Punch");
-                cooldownTimer = 0.0f;
-            }
-
-            else
-            {
-                Debug.Log("Rat attack on cooldown!");
-            }
-
+            ratAnimator.SetTrigger("Punch");
+            cooldownTimer = 0.0f;
         }
+
+        else
+        {
+            Debug.Log("Rat attack on cooldown!");
+        }
+
     }
 
     // Attack hitbox toggling function

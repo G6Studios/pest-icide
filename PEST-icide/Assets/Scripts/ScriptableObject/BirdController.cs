@@ -72,10 +72,20 @@ public class BirdController : MonoBehaviour
             MovementAnim();
 
             // Updating jumping
-            Jumping();
+            // Waiting for jump button press
+            if (Input.GetButtonDown("A_P" + playerNumber))
+            {
+                Jumping();
+            }
+
+            // Dynamic jump processing
+            JumpProcessing();
 
             // Updating attacks
-            Attacks();
+            if (Input.GetButtonDown("X_P" + playerNumber))
+            {
+                Attacks();
+            }
         }
 
         // Updating cooldowns
@@ -110,39 +120,38 @@ public class BirdController : MonoBehaviour
     // Jump function
     void Jumping()
     {
-        // Waiting for jump button press
-        if(Input.GetButtonDown("A_P" + playerNumber))
+
+        // Applying upward velocity if player is grounded
+        if (IsGrounded())
         {
-            // Applying upward velocity if player is grounded
-            if (IsGrounded())
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+            _rigidbody.velocity = Vector3.up * jumpHeight;
+            doubleJump = true;
+        }
+        else
+        {
+            if (doubleJump)
             {
+                doubleJump = false;
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
                 _rigidbody.velocity = Vector3.up * jumpHeight;
-                doubleJump = true;
-            }
-            else
-            {
-                if(doubleJump)
-                {
-                    doubleJump = false;
-                    _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
-                    _rigidbody.velocity = Vector3.up * jumpHeight;
-                }
             }
         }
-        
 
-        if(_rigidbody.velocity.y < 0)
+    }
+
+    void JumpProcessing()
+    {
+        if (_rigidbody.velocity.y < 0)
         {
             // Causes the player's jump to be higher and more floaty if they hold the button down
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-        else if(_rigidbody.velocity.y > 0 && !Input.GetButton("A_P" + playerNumber))
+        else if (_rigidbody.velocity.y > 0 && !Input.GetButton("A_P" + playerNumber))
         {
             // Causes the player to fall faster and not jump as high if they tap the button
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
-
     }
 
     // Checking if player is on the ground
@@ -154,20 +163,18 @@ public class BirdController : MonoBehaviour
     // Attack function
     void Attacks()
     {
-        if(Input.GetButtonDown("X_P" + playerNumber))
+
+        if (canAttack == true)
         {
-            if(canAttack == true)
-            {
-                birdAnimator.SetTrigger("Punch");
-                cooldownTimer = 0.0f;
-            }
-
-            else
-            {
-                Debug.Log("Bird attack on cooldown!");
-            }
-
+            birdAnimator.SetTrigger("Punch");
+            cooldownTimer = 0.0f;
         }
+
+        else
+        {
+            Debug.Log("Bird attack on cooldown!");
+        }
+
     }
 
     // Attack hitbox toggling function
@@ -192,7 +199,7 @@ public class BirdController : MonoBehaviour
         {
             canAttack = true;
         }
-        
+
     }
 
 }
