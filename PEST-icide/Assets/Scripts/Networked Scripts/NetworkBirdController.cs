@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class BirdController : MonoBehaviour
+public class NetworkBirdController : NetworkBehaviour
 {
 
     // Movement
@@ -61,7 +62,8 @@ public class BirdController : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        if (!isLocalPlayer)
+            return;
         //Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
         // Player shouldn't be able to do any of these things if they are dead
         if (!GetComponent<Player>().died)
@@ -112,7 +114,7 @@ public class BirdController : MonoBehaviour
     void Jumping()
     {
         // Waiting for jump button press
-        if(Input.GetButtonDown("A_P" + playerNumber))
+        if (Input.GetButtonDown("A_P" + playerNumber))
         {
             // Applying upward velocity if player is grounded
             if (IsGrounded())
@@ -123,7 +125,7 @@ public class BirdController : MonoBehaviour
             }
             else
             {
-                if(doubleJump)
+                if (doubleJump)
                 {
                     doubleJump = false;
                     _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
@@ -131,14 +133,14 @@ public class BirdController : MonoBehaviour
                 }
             }
         }
-        
 
-        if(_rigidbody.velocity.y < 0)
+
+        if (_rigidbody.velocity.y < 0)
         {
             // Causes the player's jump to be higher and more floaty if they hold the button down
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-        else if(_rigidbody.velocity.y > 0 && !Input.GetButton("A_P" + playerNumber))
+        else if (_rigidbody.velocity.y > 0 && !Input.GetButton("A_P" + playerNumber))
         {
             // Causes the player to fall faster and not jump as high if they tap the button
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
@@ -155,9 +157,9 @@ public class BirdController : MonoBehaviour
     // Attack function
     void Attacks()
     {
-        if(Input.GetButtonDown("X_P" + playerNumber))
+        if (Input.GetButtonDown("X_P" + playerNumber))
         {
-            if(canAttack == true)
+            if (canAttack == true)
             {
                 birdAnimator.SetTrigger("Punch");
                 cooldownTimer = 0.0f;
@@ -193,7 +195,7 @@ public class BirdController : MonoBehaviour
         {
             canAttack = true;
         }
-        
+
     }
 
 }
