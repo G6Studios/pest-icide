@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    public GameObject spawnObject;
-    public GameObject SpawnLoc;
-    public float spawnDelay; // Time between each spawn
-    private List<GameObject> spawnLocations;
+    public int initialSpawnAmount; // Initial amount to spawn
+    public GameObject spawnObject; // Object to spawn
+    public GameObject SpawnLoc; // Parent game object containing all spawn locations as children
+    public float spawnRate; // In seconds
+    private List<GameObject> spawnLocations; // list of all our spawn location gameobjects
+    private float objectHeight;
 
     private void Awake()
     {
+        objectHeight = spawnObject.GetComponent<Collider>().bounds.size.y;
         spawnLocations = new List<GameObject>(); // Initialize our list
         foreach (Transform child in SpawnLoc.transform)
         {
@@ -20,9 +23,12 @@ public class ObjectSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 25; i++)
-            Spawn();
-        InvokeRepeating("Spawn", spawnDelay, spawnDelay);
+        if (initialSpawnAmount != 0)
+        {
+            for (int i = 0; i < initialSpawnAmount; i++)
+                Spawn();
+        }
+        InvokeRepeating("Spawn", spawnRate, spawnRate);
     }
 
     GameObject GetRandomSpawnLocation()
@@ -39,7 +45,7 @@ public class ObjectSpawner : MonoBehaviour
         minZ = spawnLocation.GetComponent<MeshRenderer>().bounds.min.z;
         maxX = spawnLocation.GetComponent<MeshRenderer>().bounds.max.x;
         maxZ = spawnLocation.GetComponent<MeshRenderer>().bounds.max.z;
-        y = spawnLocation.transform.position.y;
+        y = spawnLocation.transform.position.y + (objectHeight/2);
 
         Vector3 spawnPos = new Vector3(Random.Range(minX, maxX), y, Random.Range(minZ, maxZ));
 
