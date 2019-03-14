@@ -18,7 +18,6 @@ public class NetworkCamera : NetworkBehaviour
     public NetCameraHelper helper;
     public GameObject character;
 
-
     // Use this for initialization
     void Start()
     {
@@ -35,6 +34,7 @@ public class NetworkCamera : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+    
 
         if (joystickNumber != 0)
         {

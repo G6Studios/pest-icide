@@ -31,6 +31,8 @@ public class NetworkBirdController : NetworkBehaviour
 
     // Setup
     private int playerNumber;
+    public Camera cam;
+
 
     // Initialization
     void Start()
@@ -58,6 +60,10 @@ public class NetworkBirdController : NetworkBehaviour
         // Setup
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
         playerNumber = gameObject.GetComponent<Player>().playerNum;
+
+        if (isLocalPlayer)
+            return;
+        cam.enabled = false;
     }
 
     void FixedUpdate()
