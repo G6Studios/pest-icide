@@ -73,6 +73,12 @@ public class RatController : MonoBehaviour
                 Jumping();
             }
 
+            // Updating jump animation
+            JumpAnim();
+
+            // Dynamic jump processing
+            JumpProcessing();
+
             // Updating attacks
             if (Input.GetButtonDown("X_P" + playerNumber))
             {
@@ -119,6 +125,20 @@ public class RatController : MonoBehaviour
             _rigidbody.velocity = Vector3.up * jumpHeight;
         }
 
+    }
+
+    // Jump animation
+    void JumpAnim()
+    {
+        if (IsGrounded())
+        {
+            ratAnimator.SetBool("isGrounded", true);
+        }
+
+        else
+        {
+            ratAnimator.SetBool("isGrounded", false);
+        }
     }
 
     void JumpProcessing()

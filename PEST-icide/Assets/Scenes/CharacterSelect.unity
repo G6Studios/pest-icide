@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4372,12 +4372,17 @@ MonoBehaviour:
     type: 3}
   ratPrefab: {fileID: 7019785654839309187, guid: 812b8d9a991e036459fba3f2f7beba7d,
     type: 3}
+  snakePrefab: {fileID: 998724031342368907, guid: 56c7a0e13c47c9043903b14dccfb7b57,
+    type: 3}
+  wombatPrefab: {fileID: 8145499043827744710, guid: f986b9d164afade4abda72a7c3609552,
+    type: 3}
   playerList: []
   controllers: []
   Player1: {fileID: 0}
   Player2: {fileID: 0}
   Player3: {fileID: 0}
   Player4: {fileID: 0}
+  spawnPoints: []
   player1DResource: 0
   player2DResource: 0
   player3DResource: 0

@@ -78,6 +78,9 @@ public class BirdController : MonoBehaviour
                 Jumping();
             }
 
+            // Updating jump animation
+            JumpAnim();
+
             // Dynamic jump processing
             JumpProcessing();
 
@@ -138,6 +141,25 @@ public class BirdController : MonoBehaviour
             }
         }
 
+    }
+
+    // Jump animation
+    void JumpAnim()
+    {
+        //if (Input.GetButtonDown("A_P" + playerNumber))
+        //{
+        //    birdAnimator.SetTrigger("Jump");
+        //}
+
+        if (IsGrounded())
+        {
+            birdAnimator.SetBool("isGrounded", true);
+        }
+
+        else
+        {
+            birdAnimator.SetBool("isGrounded", false);
+        }
     }
 
     void JumpProcessing()

@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour {
     // Player character prefabs
     public GameObject birdPrefab;
     public GameObject ratPrefab;
+    public GameObject snakePrefab;
+    public GameObject wombatPrefab;
 
     // List of players connected
     public List<GameObject> playerList;
@@ -228,14 +230,14 @@ public class GameManager : MonoBehaviour {
             if (charSelections[i].Equals(1))
             {
                 int tempRand;
-                tempRand = Random.Range(2,4);
+                tempRand = Random.Range(2,6);
                 print(tempRand);
 
                 if(tempRand == 2)
                 {
                     playerList.Add(Instantiate(ratPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                     playerList[i].name = "Player " + (i + 1);
-                    playerList[i].GetComponent<Player>().spawnPoint = new Vector3(-1.3f, 5.0f, 52.0f);
+                    playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
                     playerList[i].GetComponent<Player>().maxHealth = 25f;
                     playerList[i].GetComponent<Player>().health = 25f;
                     playerList[i].GetComponent<Player>().playerNum = i + 1;
@@ -244,9 +246,27 @@ public class GameManager : MonoBehaviour {
                 {
                     playerList.Add(Instantiate(birdPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                     playerList[i].name = "Player " + (i + 1);
-                    playerList[i].GetComponent<Player>().spawnPoint = new Vector3(-1.3f, 5.0f, 52.0f);
+                    playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
                     playerList[i].GetComponent<Player>().maxHealth = 40f;
                     playerList[i].GetComponent<Player>().health = 40f;
+                    playerList[i].GetComponent<Player>().playerNum = i + 1;
+                }
+                else if(tempRand == 4)
+                {
+                    playerList.Add(Instantiate(snakePrefab, spawnPoints[i].transform.position, Quaternion.identity));
+                    playerList[i].name = "Player " + (i + 1);
+                    playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
+                    playerList[i].GetComponent<Player>().maxHealth = 50f;
+                    playerList[i].GetComponent<Player>().health = 50f;
+                    playerList[i].GetComponent<Player>().playerNum = i + 1;
+                }
+                else if(tempRand == 5)
+                {
+                    playerList.Add(Instantiate(wombatPrefab, spawnPoints[i].transform.position, Quaternion.identity));
+                    playerList[i].name = "Player " + (i + 1);
+                    playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
+                    playerList[i].GetComponent<Player>().maxHealth = 70f;
+                    playerList[i].GetComponent<Player>().health = 70f;
                     playerList[i].GetComponent<Player>().playerNum = i + 1;
                 }
                 
@@ -256,7 +276,7 @@ public class GameManager : MonoBehaviour {
             {
                 playerList.Add(Instantiate(ratPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                 playerList[i].name = "Player " + (i + 1);
-                playerList[i].GetComponent<Player>().spawnPoint = new Vector3(-1.3f, 5.0f, 52.0f);
+                playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
                 playerList[i].GetComponent<Player>().maxHealth = 25f;
                 playerList[i].GetComponent<Player>().health = 25f;
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
@@ -266,9 +286,29 @@ public class GameManager : MonoBehaviour {
             {
                 playerList.Add(Instantiate(birdPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                 playerList[i].name = "Player " + (i + 1);
-                playerList[i].GetComponent<Player>().spawnPoint = new Vector3(-1.3f, 4.0f, 52.0f);
+                playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
                 playerList[i].GetComponent<Player>().maxHealth = 40f;
                 playerList[i].GetComponent<Player>().health = 40f;
+                playerList[i].GetComponent<Player>().playerNum = i + 1;
+            }
+
+            else if(charSelections[i].Equals(4))
+            {
+                playerList.Add(Instantiate(snakePrefab, spawnPoints[i].transform.position, Quaternion.identity));
+                playerList[i].name = "Player " + (i + 1);
+                playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
+                playerList[i].GetComponent<Player>().maxHealth = 50f;
+                playerList[i].GetComponent<Player>().health = 50f;
+                playerList[i].GetComponent<Player>().playerNum = i + 1;
+            }
+
+            else if (charSelections[i].Equals(5))
+            {
+                playerList.Add(Instantiate(wombatPrefab, spawnPoints[i].transform.position, Quaternion.identity));
+                playerList[i].name = "Player " + (i + 1);
+                playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
+                playerList[i].GetComponent<Player>().maxHealth = 70f;
+                playerList[i].GetComponent<Player>().health = 70f;
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
             }
         }
