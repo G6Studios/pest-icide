@@ -14,6 +14,11 @@ public class Player : MonoBehaviour
     public int playerNum;
     public bool died;
     public Vector3 spawnPoint;
+    public GameObject playerIndicator;
+    public Material p1Indicator;
+    public Material p2Indicator;
+    public Material p3Indicator;
+    public Material p4Indicator;
 
     void Start()
     {
@@ -21,6 +26,8 @@ public class Player : MonoBehaviour
         resources = 0;
         spawnPoint = gameObject.transform.position;
         died = false;
+
+        SetIndicator();
         
     }
 
@@ -54,6 +61,27 @@ public class Player : MonoBehaviour
         if(Input.GetButtonDown("B_P" + playerNum))
         {
             resources += 5;
+        }
+    }
+
+    // Setting player indicator
+    void SetIndicator()
+    {
+        if(playerNum == 1)
+        {
+            playerIndicator.GetComponent<Renderer>().material = p1Indicator;
+        }
+        else if (playerNum == 2)
+        {
+            playerIndicator.GetComponent<Renderer>().material = p2Indicator;
+        }
+        else if (playerNum == 3)
+        {
+            playerIndicator.GetComponent<Renderer>().material = p3Indicator;
+        }
+        else if (playerNum == 4)
+        {
+            playerIndicator.GetComponent<Renderer>().material = p4Indicator;
         }
     }
     

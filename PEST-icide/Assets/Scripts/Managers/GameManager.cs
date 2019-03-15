@@ -67,11 +67,11 @@ public class GameManager : MonoBehaviour {
 
     public GameObject GasTrap;
     public GameObject MouseTrap;
-    public GameObject winner;
+    public string winner;
 
     public bool gameSceneInitialized;
 
-    public float startTime = 10; // Sixty seconds times five
+    public float startTime; // Sixty seconds times five
     public float timer;
 
 	// Use this for initialization
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour {
         if (CheckWinner() != null)
         {
             Debug.Log("Player " + CheckWinner().GetComponent<Player>().playerNum + "is the winner!");
-            winner = CheckWinner();
+            winner = CheckWinner().GetComponent<Player>().playerNum.ToString();
             SceneManager.LoadScene("Victory");
         
             //end our scene 
