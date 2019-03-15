@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
 
         HurtSelf();
 
+        GiveBarrels();
+
     }
 
     // Debugging command
@@ -43,6 +45,15 @@ public class Player : MonoBehaviour
         if(Input.GetButtonDown("Y_P" + playerNum))
         {
             TakeDamage(1);
+        }
+    }
+
+    // Debugging command
+    void GiveBarrels()
+    {
+        if(Input.GetButtonDown("B_P" + playerNum))
+        {
+            resources += 5;
         }
     }
     

@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour {
 
     public GameObject GasTrap;
     public GameObject MouseTrap;
-    public string winner;
+    public GameObject winner;
 
     public bool gameSceneInitialized;
 
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour {
         if (CheckWinner() != null)
         {
             Debug.Log("Player " + CheckWinner().GetComponent<Player>().playerNum + "is the winner!");
-            winner = CheckWinner().GetComponent<Player>().playerNum.ToString();
+            winner = CheckWinner();
             SceneManager.LoadScene("Victory");
         
             //end our scene 

@@ -39,7 +39,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -100
     wrapU: 1
     wrapV: 1
@@ -94,9 +94,9 @@ TextureImporter:
       name: Wing Slash PNGs_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 0
         y: 0
-        width: 120.71429
+        width: 123.42857
         height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -105,7 +105,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee1fb6c11c968ea49ac938f0eb082367
+      spriteID: b973bf1f6fb55da4fa3fe2c30cf8f01d
       vertices: []
       indices: 
       edges: []
@@ -114,9 +114,9 @@ TextureImporter:
       name: Wing Slash PNGs_1
       rect:
         serializedVersion: 2
-        x: 139
+        x: 123
         y: 0
-        width: 120.71429
+        width: 123.42857
         height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -125,7 +125,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c15a0fd3605233844977cfe0b7e36dfa
+      spriteID: e7e9b46ef694b514795061e1e572be68
       vertices: []
       indices: 
       edges: []
@@ -134,9 +134,9 @@ TextureImporter:
       name: Wing Slash PNGs_2
       rect:
         serializedVersion: 2
-        x: 259
+        x: 246
         y: 0
-        width: 120.71429
+        width: 123.42857
         height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -145,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1abb7bc127808894e9e6727f82168433
+      spriteID: a5033f199e2e0b240b0bb38b89b10fd7
       vertices: []
       indices: 
       edges: []
@@ -154,9 +154,9 @@ TextureImporter:
       name: Wing Slash PNGs_3
       rect:
         serializedVersion: 2
-        x: 379
+        x: 369
         y: 0
-        width: 120.71429
+        width: 123.42857
         height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -165,7 +165,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46c3b9911eb69c34982c19f1c500c9a4
+      spriteID: ef8aa44360aaa794594c238f4d720402
       vertices: []
       indices: 
       edges: []
@@ -174,9 +174,9 @@ TextureImporter:
       name: Wing Slash PNGs_4
       rect:
         serializedVersion: 2
-        x: 499
+        x: 492
         y: 0
-        width: 120.71429
+        width: 123.42857
         height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -185,7 +185,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee975dd59ca136c4889ef2a1b0f8a05e
+      spriteID: b785904fa0b10524999c3bc9c24c03d6
       vertices: []
       indices: 
       edges: []
@@ -194,9 +194,9 @@ TextureImporter:
       name: Wing Slash PNGs_5
       rect:
         serializedVersion: 2
-        x: 619
+        x: 615
         y: 0
-        width: 120.71429
+        width: 123.42857
         height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -205,7 +205,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f8516483334ced4ebc09dba18e398f5
+      spriteID: d2cca6bb80a6a7149827985f07b5f142
       vertices: []
       indices: 
       edges: []
@@ -214,9 +214,9 @@ TextureImporter:
       name: Wing Slash PNGs_6
       rect:
         serializedVersion: 2
-        x: 739
+        x: 738
         y: 0
-        width: 120.71429
+        width: 123.42857
         height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -225,7 +225,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48e9ed1d5fcece44299dd74e6ee51959
+      spriteID: 743d97da7d64cef4aab5fb9068faf623
       vertices: []
       indices: 
       edges: []
@@ -233,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 195cf9313632aec4aac21112d6f14e20
+    spriteID: adb10997cc25b1649bcbdf7b519186d3
     vertices: []
     indices: 
     edges: []
