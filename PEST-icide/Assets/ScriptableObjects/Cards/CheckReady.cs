@@ -70,13 +70,17 @@ public class CheckReady : MonoBehaviour
         {
             timerActive = false;
             triggerOnce = true;
-            timerText.text = "0.00";
             timer = 0.0f;
             GameManager.instance.charSelections[0] = player1.characterNum;
             GameManager.instance.charSelections[1] = player2.characterNum;
             GameManager.instance.charSelections[2] = player3.characterNum;
             GameManager.instance.charSelections[3] = player4.characterNum;
             SceneManager.LoadScene("Main Quinn Version");
+        }
+
+        if(timer <= 0.0f)
+        {
+            timerText.text = "0.00";
         }
     }
 

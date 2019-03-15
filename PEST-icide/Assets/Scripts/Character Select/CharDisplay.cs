@@ -10,6 +10,7 @@ public class CharDisplay : MonoBehaviour
     public CharacterCard character2;
     public CharacterCard character3;
     public CharacterCard character4;
+    public CharacterCard character5;
 
     public int characterNum;
 
@@ -51,20 +52,20 @@ public class CharDisplay : MonoBehaviour
         }
         else if (PlayerNum == 2)
         {
-            gameObject.GetComponent<Image>().sprite = character2.art;
-            card = new PlayerCard(character2);
+            gameObject.GetComponent<Image>().sprite = character1.art;
+            card = new PlayerCard(character1);
             UpdatePlayerCard();
         }
         else if (PlayerNum == 3)
         {
-            gameObject.GetComponent<Image>().sprite = character3.art;
-            card = new PlayerCard(character3);
+            gameObject.GetComponent<Image>().sprite = character1.art;
+            card = new PlayerCard(character1);
             UpdatePlayerCard();
         }
         else if (PlayerNum == 4)
         {
-            gameObject.GetComponent<Image>().sprite = character4.art;
-            card = new PlayerCard(character4);
+            gameObject.GetComponent<Image>().sprite = character1.art;
+            card = new PlayerCard(character1);
             UpdatePlayerCard();
         }
     }
@@ -131,7 +132,7 @@ public class CharDisplay : MonoBehaviour
         {
             characterNum = 1;
             card.next = character2;
-            card.previous = character4;
+            card.previous = character5;
         }
         else if (card.current == character2)
         {
@@ -148,8 +149,15 @@ public class CharDisplay : MonoBehaviour
         else if (card.current == character4)
         {
             characterNum = 4;
-            card.next = character1;
+            card.next = character5;
             card.previous = character3;
+        }
+        else if(card.current == character5)
+        {
+            characterNum = 5;
+            card.next = character1;
+            card.previous = character4;
+            
         }
 
     }

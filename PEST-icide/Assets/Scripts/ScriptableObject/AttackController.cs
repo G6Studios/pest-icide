@@ -9,11 +9,16 @@ public class AttackController : MonoBehaviour
     [HideInInspector]
     public bool attackActive;
 
+    // Attack sprite
+    public GameObject attackSprite;
+
     // Values read by the UI manager
     [HideInInspector]
     public float cooldownProxy;
     [HideInInspector]
     public float cooldownTimerProxy;
+
+    Vector3 offset;
 
     // Initialization
     void Start()
@@ -23,6 +28,9 @@ public class AttackController : MonoBehaviour
 
         // Setting the hitbox to start inactive
         attackActive = false;
+
+        // Setting attack sprite offset
+        offset = new Vector3(0f, 1.0f, 0f);
     }
 
     private void Update()
@@ -46,6 +54,9 @@ public class AttackController : MonoBehaviour
                 case "Player":
                     Debug.Log("Hit:" + hit.name);
                     hit.GetComponent<Player>().TakeDamage(4.0f);
+                    GameObject instance = Instantiate(attackSprite, hit.transform.position + offset, Quaternion.identity);
+                    attackSprite.GetComponent<ParticleSystem>().Play();
+                    Destroy(instance, 1.0f);
                     break;
 
                 default:

@@ -142,7 +142,7 @@ public class ResourceSpawner : MonoBehaviour {
         float RandomX = UnityEngine.Random.Range(minX, maxX);
         float RandomZ = UnityEngine.Random.Range(minZ, maxZ);
         Vector3 RandomLocation = new Vector3(RandomX, 2, RandomZ);
-        while (Physics.CheckSphere(RandomLocation, 0.5f) || isInExclusionZone(RandomLocation,ExclusionPlane1) || isInExclusionZone(RandomLocation,ExclusionPlane2)) // This line will break the spawning if it ends up coliding with the floor (Make sure radius will not collide with the floor).
+        while (Physics.CheckSphere(RandomLocation, 0.5f)) // This line will break the spawning if it ends up coliding with the floor (Make sure radius will not collide with the floor).
         {
             RandomX = UnityEngine.Random.Range(minX, maxX);
             RandomZ = UnityEngine.Random.Range(minZ, maxZ);
