@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class BirdController : MonoBehaviour
+public class NetworkBirdController : NetworkBehaviour
 {
 
     // Movement
@@ -30,6 +31,8 @@ public class BirdController : MonoBehaviour
 
     // Setup
     private int playerNumber;
+    public Camera cam;
+
 
     // Initialization
     void Start()
@@ -57,11 +60,16 @@ public class BirdController : MonoBehaviour
         // Setup
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
         playerNumber = gameObject.GetComponent<Player>().playerNum;
+
+        if (isLocalPlayer)
+            return;
+        cam.enabled = false;
     }
 
     void FixedUpdate()
     {
-
+        if (!isLocalPlayer)
+            return;
         //Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
         // Player shouldn't be able to do any of these things if they are dead
         if (!GetComponent<Player>().died)
@@ -73,23 +81,10 @@ public class BirdController : MonoBehaviour
             MovementAnim();
 
             // Updating jumping
-            // Waiting for jump button press
-            if (Input.GetButtonDown("A_P" + playerNumber))
-            {
-                Jumping();
-            }
-
-            // Updating jump animation
-            JumpAnim();
-
-            // Dynamic jump processing
-            JumpProcessing();
+            Jumping();
 
             // Updating attacks
-            if (Input.GetButtonDown("X_P" + playerNumber))
-            {
-                Attacks();
-            }
+            Attacks();
         }
 
         // Updating cooldowns
@@ -124,47 +119,28 @@ public class BirdController : MonoBehaviour
     // Jump function
     void Jumping()
     {
-
-        // Applying upward velocity if player is grounded
-        if (IsGrounded())
+        // Waiting for jump button press
+        if (Input.GetButtonDown("A_P" + playerNumber))
         {
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
-            _rigidbody.velocity = Vector3.up * jumpHeight;
-            doubleJump = true;
-        }
-        else
-        {
-            if (doubleJump)
+            // Applying upward velocity if player is grounded
+            if (IsGrounded())
             {
-                doubleJump = false;
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
                 _rigidbody.velocity = Vector3.up * jumpHeight;
+                doubleJump = true;
+            }
+            else
+            {
+                if (doubleJump)
+                {
+                    doubleJump = false;
+                    _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+                    _rigidbody.velocity = Vector3.up * jumpHeight;
+                }
             }
         }
 
-    }
 
-    // Jump animation
-    void JumpAnim()
-    {
-        //if (Input.GetButtonDown("A_P" + playerNumber))
-        //{
-        //    birdAnimator.SetTrigger("Jump");
-        //}
-
-        if (IsGrounded())
-        {
-            birdAnimator.SetBool("isGrounded", true);
-        }
-
-        else
-        {
-            birdAnimator.SetBool("isGrounded", false);
-        }
-    }
-
-    void JumpProcessing()
-    {
         if (_rigidbody.velocity.y < 0)
         {
             // Causes the player's jump to be higher and more floaty if they hold the button down
@@ -175,6 +151,7 @@ public class BirdController : MonoBehaviour
             // Causes the player to fall faster and not jump as high if they tap the button
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+
     }
 
     // Checking if player is on the ground
@@ -186,18 +163,20 @@ public class BirdController : MonoBehaviour
     // Attack function
     void Attacks()
     {
-
-        if (canAttack == true)
+        if (Input.GetButtonDown("X_P" + playerNumber))
         {
-            birdAnimator.SetTrigger("Punch");
-            cooldownTimer = 0.0f;
-        }
+            if (canAttack == true)
+            {
+                birdAnimator.SetTrigger("Punch");
+                cooldownTimer = 0.0f;
+            }
 
-        else
-        {
-            Debug.Log("Bird attack on cooldown!");
-        }
+            else
+            {
+                Debug.Log("Bird attack on cooldown!");
+            }
 
+        }
     }
 
     // Attack hitbox toggling function
