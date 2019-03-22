@@ -73,7 +73,7 @@ public class BirdController : MonoBehaviour
 
             // Updating jumping
             // Waiting for jump button press
-            if (Input.GetButtonDown("A_P" + playerNumber))
+            if (Input.GetButton("A_P" + playerNumber))
             {
                 Jumping();
             }
@@ -85,7 +85,7 @@ public class BirdController : MonoBehaviour
             JumpProcessing();
 
             // Updating attacks
-            if (Input.GetButtonDown("X_P" + playerNumber))
+            if (Input.GetButton("X_P" + playerNumber))
             {
                 Attacks();
             }
@@ -133,7 +133,7 @@ public class BirdController : MonoBehaviour
         }
         else
         {
-            if (doubleJump)
+            if (doubleJump && Input.GetButtonDown("A_P" + playerNumber))
             {
                 doubleJump = false;
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);

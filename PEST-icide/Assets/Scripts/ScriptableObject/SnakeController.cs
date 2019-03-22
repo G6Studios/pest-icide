@@ -68,7 +68,7 @@ public class SnakeController : MonoBehaviour
 
             // Updating jumping
             // Waiting for jump button press
-            if (Input.GetButtonDown("A_P" + playerNumber))
+            if (Input.GetButton("A_P" + playerNumber))
             {
                 Jumping();
             }
@@ -80,7 +80,7 @@ public class SnakeController : MonoBehaviour
             JumpProcessing();
 
             // Updating attacks
-            if (Input.GetButtonDown("X_P" + playerNumber))
+            if (Input.GetButton("X_P" + playerNumber))
             {
                 Attacks();
             }
@@ -173,7 +173,7 @@ public class SnakeController : MonoBehaviour
 
         else
         {
-            Debug.Log("Wombat attack on cooldown!");
+            Debug.Log("Snake attack on cooldown!");
         }
 
     }

@@ -51,7 +51,7 @@ public class NewCamera : MonoBehaviour
 
                 transform.rotation = currentRotation;
                 transform.position = currentPosition;
-                character.transform.localRotation = Quaternion.AngleAxis(xj, character.transform.up);
+                character.transform.localRotation = Quaternion.AngleAxis(xj, Vector3.up);
 
                 currentDistance = Mathf.Clamp(helper.oldDistance, minDistance, maxDistance);
 

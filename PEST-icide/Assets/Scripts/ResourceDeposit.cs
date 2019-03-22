@@ -12,7 +12,7 @@ public class ResourceDeposit : MonoBehaviour
         // Starting coroutine for draining players resources
         coroutine = DrainResource(coll.gameObject);
         StartCoroutine(coroutine);
-
+        
     }
 
     void OnTriggerExit(Collider coll)
@@ -24,7 +24,7 @@ public class ResourceDeposit : MonoBehaviour
     IEnumerator DrainResource(GameObject player)
     {
         // If a player is stepping on the pad
-        if(player.CompareTag("Player"))
+        if (player.CompareTag("Player"))
         {
             if (player.GetComponent<Player>().resources > 0)
             {

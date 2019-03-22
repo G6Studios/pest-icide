@@ -18,6 +18,8 @@ public class AttackController : MonoBehaviour
     [HideInInspector]
     public float cooldownTimerProxy;
 
+    public float attackDamage;
+
     Vector3 offset;
 
     // Initialization
@@ -53,7 +55,7 @@ public class AttackController : MonoBehaviour
 
                 case "Player":
                     Debug.Log("Hit:" + hit.name);
-                    hit.GetComponent<Player>().TakeDamage(4.0f);
+                    hit.GetComponent<Player>().TakeDamage(attackDamage);
                     GameObject instance = Instantiate(attackSprite, hit.transform.position + offset, Quaternion.identity);
                     attackSprite.GetComponent<ParticleSystem>().Play();
                     Destroy(instance, 1.0f);

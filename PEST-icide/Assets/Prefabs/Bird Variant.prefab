@@ -203,6 +203,7 @@ MonoBehaviour:
     type: 3}
   cooldownProxy: 0
   cooldownTimerProxy: 0
+  attackDamage: 20
 --- !u!1 &1736245414
 GameObject:
   m_ObjectHideFlags: 0

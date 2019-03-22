@@ -17,6 +17,7 @@ public class Food : MonoBehaviour
                 coll.gameObject.GetComponent<Player>().resources++;
                 gameObject.SetActive(false);
                 gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
+                GetComponent<AudioSource>().Play();
             }
         }
 

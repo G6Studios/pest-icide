@@ -397,6 +397,7 @@ MonoBehaviour:
     type: 3}
   cooldownProxy: 0
   cooldownTimerProxy: 0
+  attackDamage: 20
 --- !u!54 &121646237
 Rigidbody:
   m_ObjectHideFlags: 0
