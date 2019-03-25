@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-
-    public AudioClip crunch;
+    public GameObject crunch;
 
 
     void OnCollisionEnter(Collision coll)
@@ -15,12 +14,13 @@ public class Food : MonoBehaviour
             if(coll.gameObject.GetComponent<Player>().died == false)
             {
                 coll.gameObject.GetComponent<Player>().resources++;
+                Instantiate(crunch);
                 gameObject.SetActive(false);
                 gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
+
             }
         }
 
     }
-
 
 }

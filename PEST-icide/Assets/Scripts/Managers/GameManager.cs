@@ -67,11 +67,11 @@ public class GameManager : MonoBehaviour {
 
     public GameObject GasTrap;
     public GameObject MouseTrap;
-    public GameObject winner;
+    public string winner;
 
     public bool gameSceneInitialized;
 
-    public float startTime = 10; // Sixty seconds times five
+    public float startTime = 120; // Sixty seconds times five
     public float timer;
 
 	// Use this for initialization
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour {
         if (CheckWinner() != null)
         {
             Debug.Log("Player " + CheckWinner().GetComponent<Player>().playerNum + "is the winner!");
-            winner = CheckWinner();
+            winner = CheckWinner().GetComponent<Player>().playerNum.ToString();
             SceneManager.LoadScene("Victory");
         
             //end our scene 
@@ -238,8 +238,8 @@ public class GameManager : MonoBehaviour {
                     playerList.Add(Instantiate(ratPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                     playerList[i].name = "Player " + (i + 1);
                     playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
-                    playerList[i].GetComponent<Player>().maxHealth = 25f;
-                    playerList[i].GetComponent<Player>().health = 25f;
+                    playerList[i].GetComponent<Player>().maxHealth = 50f;
+                    playerList[i].GetComponent<Player>().health = 50f;
                     playerList[i].GetComponent<Player>().playerNum = i + 1;
                 }
                 else if(tempRand == 3)
@@ -256,8 +256,8 @@ public class GameManager : MonoBehaviour {
                     playerList.Add(Instantiate(snakePrefab, spawnPoints[i].transform.position, Quaternion.identity));
                     playerList[i].name = "Player " + (i + 1);
                     playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
-                    playerList[i].GetComponent<Player>().maxHealth = 50f;
-                    playerList[i].GetComponent<Player>().health = 50f;
+                    playerList[i].GetComponent<Player>().maxHealth = 70f;
+                    playerList[i].GetComponent<Player>().health = 70f;
                     playerList[i].GetComponent<Player>().playerNum = i + 1;
                 }
                 else if(tempRand == 5)
@@ -265,8 +265,8 @@ public class GameManager : MonoBehaviour {
                     playerList.Add(Instantiate(wombatPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                     playerList[i].name = "Player " + (i + 1);
                     playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
-                    playerList[i].GetComponent<Player>().maxHealth = 70f;
-                    playerList[i].GetComponent<Player>().health = 70f;
+                    playerList[i].GetComponent<Player>().maxHealth = 100f;
+                    playerList[i].GetComponent<Player>().health = 100f;
                     playerList[i].GetComponent<Player>().playerNum = i + 1;
                 }
                 
@@ -277,8 +277,8 @@ public class GameManager : MonoBehaviour {
                 playerList.Add(Instantiate(ratPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                 playerList[i].name = "Player " + (i + 1);
                 playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
-                playerList[i].GetComponent<Player>().maxHealth = 25f;
-                playerList[i].GetComponent<Player>().health = 25f;
+                playerList[i].GetComponent<Player>().maxHealth = 50f;
+                playerList[i].GetComponent<Player>().health = 50f;
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
             }
 
@@ -287,8 +287,8 @@ public class GameManager : MonoBehaviour {
                 playerList.Add(Instantiate(birdPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                 playerList[i].name = "Player " + (i + 1);
                 playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
-                playerList[i].GetComponent<Player>().maxHealth = 40f;
-                playerList[i].GetComponent<Player>().health = 40f;
+                playerList[i].GetComponent<Player>().maxHealth = 60f;
+                playerList[i].GetComponent<Player>().health = 60f;
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
             }
 
@@ -297,8 +297,8 @@ public class GameManager : MonoBehaviour {
                 playerList.Add(Instantiate(snakePrefab, spawnPoints[i].transform.position, Quaternion.identity));
                 playerList[i].name = "Player " + (i + 1);
                 playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
-                playerList[i].GetComponent<Player>().maxHealth = 50f;
-                playerList[i].GetComponent<Player>().health = 50f;
+                playerList[i].GetComponent<Player>().maxHealth = 70f;
+                playerList[i].GetComponent<Player>().health = 70f;
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
             }
 
@@ -307,8 +307,8 @@ public class GameManager : MonoBehaviour {
                 playerList.Add(Instantiate(wombatPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                 playerList[i].name = "Player " + (i + 1);
                 playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
-                playerList[i].GetComponent<Player>().maxHealth = 70f;
-                playerList[i].GetComponent<Player>().health = 70f;
+                playerList[i].GetComponent<Player>().maxHealth = 100f;
+                playerList[i].GetComponent<Player>().health = 100f;
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
             }
         }

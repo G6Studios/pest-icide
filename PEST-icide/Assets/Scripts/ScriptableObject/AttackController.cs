@@ -18,7 +18,13 @@ public class AttackController : MonoBehaviour
     [HideInInspector]
     public float cooldownTimerProxy;
 
+    public float attackDamage;
+
     Vector3 offset;
+
+    // Attack sounds
+    AudioSource sounds;
+    public AudioClip attackHitSound;
 
     // Initialization
     void Start()
@@ -31,6 +37,9 @@ public class AttackController : MonoBehaviour
 
         // Setting attack sprite offset
         offset = new Vector3(0f, 1.0f, 0f);
+
+        // Setting sound player
+        sounds = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -53,8 +62,9 @@ public class AttackController : MonoBehaviour
 
                 case "Player":
                     Debug.Log("Hit:" + hit.name);
-                    hit.GetComponent<Player>().TakeDamage(4.0f);
+                    hit.GetComponent<Player>().TakeDamage(attackDamage);
                     GameObject instance = Instantiate(attackSprite, hit.transform.position + offset, Quaternion.identity);
+                    sounds.Play();
                     attackSprite.GetComponent<ParticleSystem>().Play();
                     Destroy(instance, 1.0f);
                     break;

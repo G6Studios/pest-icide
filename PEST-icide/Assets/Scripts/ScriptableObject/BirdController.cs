@@ -21,6 +21,8 @@ public class BirdController : MonoBehaviour
     private float jumpHeight;
     private Rigidbody _rigidbody;
     private bool doubleJump;
+    private float airTimer;
+    private float airTimerLimit;
 
     // Attacking
     private AttackController attacks;
@@ -30,6 +32,7 @@ public class BirdController : MonoBehaviour
 
     // Setup
     private int playerNumber;
+    private AudioSource sounds;
 
     // Initialization
     void Start()
@@ -47,6 +50,7 @@ public class BirdController : MonoBehaviour
         jumpHeight = 6.0f;
         _rigidbody = gameObject.GetComponent<Rigidbody>();
         doubleJump = true;
+        airTimerLimit = 0.3f;
 
         // Attack related
         attacks = gameObject.GetComponentInChildren<AttackController>();
@@ -57,6 +61,7 @@ public class BirdController : MonoBehaviour
         // Setup
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
         playerNumber = gameObject.GetComponent<Player>().playerNum;
+        sounds = gameObject.GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -74,7 +79,7 @@ public class BirdController : MonoBehaviour
 
             // Updating jumping
             // Waiting for jump button press
-            if (Input.GetButtonDown("A_P" + playerNumber))
+            if (Input.GetButton("A_P" + playerNumber))
             {
                 Jumping();
             }
@@ -86,7 +91,7 @@ public class BirdController : MonoBehaviour
             JumpProcessing();
 
             // Updating attacks
-            if (Input.GetButtonDown("X_P" + playerNumber))
+            if (Input.GetButton("X_P" + playerNumber))
             {
                 Attacks();
             }
@@ -134,7 +139,7 @@ public class BirdController : MonoBehaviour
         }
         else
         {
-            if (doubleJump)
+            if (doubleJump && Input.GetButtonDown("A_P" + playerNumber))
             {
                 doubleJump = false;
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
@@ -147,19 +152,22 @@ public class BirdController : MonoBehaviour
     // Jump animation
     void JumpAnim()
     {
-        //if (Input.GetButtonDown("A_P" + playerNumber))
-        //{
-        //    birdAnimator.SetTrigger("Jump");
-        //}
 
-        if (IsGrounded())
+        if (!IsGrounded())
         {
-            birdAnimator.SetBool("isGrounded", true);
+            airTimer += Time.deltaTime;
+            if(airTimer > airTimerLimit)
+            {
+                birdAnimator.SetBool("isGrounded", false);
+
+            }
+            
         }
 
         else
         {
-            birdAnimator.SetBool("isGrounded", false);
+            birdAnimator.SetBool("isGrounded", true);
+            airTimer = 0.0f;
         }
     }
 
@@ -181,14 +189,17 @@ public class BirdController : MonoBehaviour
     bool IsGrounded()
     {
         return Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0f), -Vector3.up, 0.9f);
+
     }
 
     // Attack function
     void Attacks()
     {
 
-        if (canAttack == true)
+        if (canAttack == true && IsGrounded())
         {
+            _rigidbody.AddRelativeForce(Vector3.forward * 8f, ForceMode.VelocityChange);
+            sounds.Play();
             birdAnimator.SetTrigger("Punch");
             cooldownTimer = 0.0f;
         }

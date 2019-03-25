@@ -19,6 +19,8 @@ public class SnakeController : MonoBehaviour
     private float distToGround;
     private float jumpHeight;
     private Rigidbody _rigidbody;
+    private float airTimer;
+    private float airTimerLimit;
 
     // Attacking
     private AttackController attacks;
@@ -28,6 +30,7 @@ public class SnakeController : MonoBehaviour
 
     // Setup
     private int playerNumber;
+    private AudioSource sounds;
 
     // Initialization
     void Start()
@@ -43,6 +46,7 @@ public class SnakeController : MonoBehaviour
         lowJumpMultiplier = 2.0f;
         jumpHeight = 5.0f;
         _rigidbody = gameObject.GetComponent<Rigidbody>();
+        airTimer = 0.25f;
 
         // Attack related
         attacks = gameObject.GetComponentInChildren<AttackController>();
@@ -52,11 +56,12 @@ public class SnakeController : MonoBehaviour
         // Setup
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
         playerNumber = gameObject.GetComponent<Player>().playerNum;
+        sounds = gameObject.GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
     {
-        Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
+        //Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
         // Player shouldn't be able to do any of these things if they are dead
         if (!GetComponent<Player>().died)
         {
@@ -68,7 +73,7 @@ public class SnakeController : MonoBehaviour
 
             // Updating jumping
             // Waiting for jump button press
-            if (Input.GetButtonDown("A_P" + playerNumber))
+            if (Input.GetButton("A_P" + playerNumber))
             {
                 Jumping();
             }
@@ -80,7 +85,7 @@ public class SnakeController : MonoBehaviour
             JumpProcessing();
 
             // Updating attacks
-            if (Input.GetButtonDown("X_P" + playerNumber))
+            if (Input.GetButton("X_P" + playerNumber))
             {
                 Attacks();
             }
@@ -130,14 +135,20 @@ public class SnakeController : MonoBehaviour
     // Jump animation
     void JumpAnim()
     {
-        if (IsGrounded())
+        if (!IsGrounded())
         {
-            snakeAnimator.SetBool("isGrounded", true);
+            airTimer += Time.deltaTime;
+            if(airTimer > airTimerLimit)
+            {
+                snakeAnimator.SetBool("isGrounded", false);
+            }
+            
         }
 
         else
         {
-            snakeAnimator.SetBool("isGrounded", false);
+            snakeAnimator.SetBool("isGrounded", true);
+            airTimer = 0.0f;
         }
     }
 
@@ -165,15 +176,16 @@ public class SnakeController : MonoBehaviour
     void Attacks()
     {
 
-        if (canAttack == true)
+        if (canAttack == true && IsGrounded())
         {
+            sounds.Play();
             snakeAnimator.SetTrigger("Punch");
             cooldownTimer = 0.0f;
         }
 
         else
         {
-            Debug.Log("Wombat attack on cooldown!");
+            Debug.Log("Snake attack on cooldown!");
         }
 
     }
