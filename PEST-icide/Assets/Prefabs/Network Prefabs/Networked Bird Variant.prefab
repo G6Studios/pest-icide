@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackActive: 0
+  attackSprite: {fileID: 0}
   cooldownProxy: 0
   cooldownTimerProxy: 0
 --- !u!1 &1546210040517391774
@@ -1563,6 +1564,7 @@ GameObject:
   - component: {fileID: 4747530287601492956}
   - component: {fileID: 5575966945573502565}
   - component: {fileID: 8372533940967379419}
+  - component: {fileID: 1988328381023663539}
   - component: {fileID: 535391989319026967}
   - component: {fileID: 506068009504075486}
   m_Layer: 0
@@ -1603,7 +1605,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: cb44738ff8a580244a594c3ebcb54556, type: 3}
   m_Controller: {fileID: 9100000, guid: b8da06d768ae18a4eadae7c60534b74a, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -1667,12 +1669,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  foodPrefab: {fileID: 1861588042057804, guid: 6599c8e0c325ab54397f31d56dd80d1a, type: 3}
   resources: 0
   health: 100
   maxHealth: 100
   playerNum: 1
   died: 0
   spawnPoint: {x: 0, y: 0, z: 0}
+--- !u!114 &1988328381023663539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238733212966070293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d72f9850c5bfa640be38e0cef17ccad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  foodPrefab: {fileID: 4597803031738717717, guid: 549135e277bad6440968ee7e45a77ebe,
+    type: 3}
+  resources: 0
+  maxHealth: 100
+  playerNum: 1
+  died: 0
+  spawnPoint: {x: 0, y: 0, z: 0}
+  health: 100
 --- !u!114 &535391989319026967
 MonoBehaviour:
   m_ObjectHideFlags: 0

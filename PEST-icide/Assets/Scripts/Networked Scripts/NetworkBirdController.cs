@@ -66,10 +66,10 @@ public class NetworkBirdController : NetworkBehaviour
         cam.enabled = false;
     }
 
+
     void FixedUpdate()
     {
-        if (!isLocalPlayer)
-            return;
+
         //Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
         // Player shouldn't be able to do any of these things if they are dead
         if (!GetComponent<Player>().died)
@@ -81,10 +81,23 @@ public class NetworkBirdController : NetworkBehaviour
             MovementAnim();
 
             // Updating jumping
-            Jumping();
+            // Waiting for jump button press
+            if (Input.GetButtonDown("A_P" + playerNumber))
+            {
+                Jumping();
+            }
+
+            // Updating jump animation
+            JumpAnim();
+
+            // Dynamic jump processing
+            JumpProcessing();
 
             // Updating attacks
-            Attacks();
+            if (Input.GetButtonDown("X_P" + playerNumber))
+            {
+                Attacks();
+            }
         }
 
         // Updating cooldowns
@@ -115,32 +128,50 @@ public class NetworkBirdController : NetworkBehaviour
         birdAnimator.SetFloat("Movement_Y", yVel);
     }
 
-
     // Jump function
     void Jumping()
     {
-        // Waiting for jump button press
-        if (Input.GetButtonDown("A_P" + playerNumber))
+
+        // Applying upward velocity if player is grounded
+        if (IsGrounded())
         {
-            // Applying upward velocity if player is grounded
-            if (IsGrounded())
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+            _rigidbody.velocity = Vector3.up * jumpHeight;
+            doubleJump = true;
+        }
+        else
+        {
+            if (doubleJump)
             {
+                doubleJump = false;
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
                 _rigidbody.velocity = Vector3.up * jumpHeight;
-                doubleJump = true;
-            }
-            else
-            {
-                if (doubleJump)
-                {
-                    doubleJump = false;
-                    _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
-                    _rigidbody.velocity = Vector3.up * jumpHeight;
-                }
             }
         }
 
+    }
 
+    // Jump animation
+    void JumpAnim()
+    {
+        //if (Input.GetButtonDown("A_P" + playerNumber))
+        //{
+        //    birdAnimator.SetTrigger("Jump");
+        //}
+
+        if (IsGrounded())
+        {
+            birdAnimator.SetBool("isGrounded", true);
+        }
+
+        else
+        {
+            birdAnimator.SetBool("isGrounded", false);
+        }
+    }
+
+    void JumpProcessing()
+    {
         if (_rigidbody.velocity.y < 0)
         {
             // Causes the player's jump to be higher and more floaty if they hold the button down
@@ -151,7 +182,6 @@ public class NetworkBirdController : NetworkBehaviour
             // Causes the player to fall faster and not jump as high if they tap the button
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
-
     }
 
     // Checking if player is on the ground
