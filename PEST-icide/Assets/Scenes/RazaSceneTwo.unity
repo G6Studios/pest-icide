@@ -5223,7 +5223,7 @@ MonoBehaviour:
   initialSpawnAmount: 25
   spawnObject: {fileID: 1861588186249554}
   SpawnLoc: {fileID: 2084323346}
-  spawnRate: 4
+  spawnRate: 1
 --- !u!114 &1633175628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6938,7 +6938,7 @@ PrefabInstance:
     - target: {fileID: 4595433698728761151, guid: 549135e277bad6440968ee7e45a77ebe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13
+      value: 55.4
       objectReference: {fileID: 0}
     - target: {fileID: 4595433698728761151, guid: 549135e277bad6440968ee7e45a77ebe,
         type: 3}

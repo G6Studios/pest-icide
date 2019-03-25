@@ -38,7 +38,7 @@ public class NetworkBirdController : NetworkBehaviour
     void Start()
     {
         // Movement related
-        moveSpeed = gameObject.GetComponent<Player>().speed;
+        moveSpeed = gameObject.GetComponent<NetworkPlayer>().speed;
 
 
         // Movement animation related
@@ -59,7 +59,7 @@ public class NetworkBirdController : NetworkBehaviour
 
         // Setup
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
-        playerNumber = gameObject.GetComponent<Player>().playerNum;
+        playerNumber = gameObject.GetComponent<NetworkPlayer>().playerNum;
 
         if (isLocalPlayer)
             return;
@@ -72,7 +72,7 @@ public class NetworkBirdController : NetworkBehaviour
 
         //Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
         // Player shouldn't be able to do any of these things if they are dead
-        if (!GetComponent<Player>().died)
+        if (!GetComponent<NetworkPlayer>().died)
         {
             // Updating movement
             Movement();
