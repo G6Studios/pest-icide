@@ -4524,7 +4524,7 @@ MonoBehaviour:
   MouseTrap: {fileID: 0}
   winner: 
   gameSceneInitialized: 0
-  startTime: 120
+  startTime: 30
   timer: 0
 --- !u!4 &2083963483
 Transform:

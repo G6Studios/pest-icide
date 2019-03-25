@@ -45,11 +45,14 @@ public class ObjectSpawner : MonoBehaviour
         minZ = spawnLocation.GetComponent<MeshRenderer>().bounds.min.z;
         maxX = spawnLocation.GetComponent<MeshRenderer>().bounds.max.x;
         maxZ = spawnLocation.GetComponent<MeshRenderer>().bounds.max.z;
-        y = spawnLocation.transform.position.y + (objectHeight/2);
+        y = spawnLocation.transform.position.y + (objectHeight/2) + 0.25f;
 
         Vector3 spawnPos = new Vector3(Random.Range(minX, maxX), y, Random.Range(minZ, maxZ));
 
-        Instantiate(spawnObject, spawnPos, Quaternion.identity);
+        Quaternion upright = spawnObject.transform.rotation * Quaternion.AngleAxis(-90, Vector3.right);
+
+
+        Instantiate(spawnObject, spawnPos, upright);
     }
 
 }

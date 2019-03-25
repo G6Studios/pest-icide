@@ -11,52 +11,54 @@ public class ResourceDeposit : MonoBehaviour
     {
         // Starting coroutine for draining players resources
         coroutine = DrainResource(coll.gameObject);
-        StartCoroutine(coroutine);
+        Coroutine co = StartCoroutine(coroutine);
         
     }
 
     void OnTriggerExit(Collider coll)
     {
-        StopCoroutine(coroutine);
+        StopAllCoroutines();
     }
 
 
     IEnumerator DrainResource(GameObject player)
     {
-        // If a player is stepping on the pad
-        if (player.CompareTag("Player"))
+        while (true)
         {
-            if (player.GetComponent<Player>().resources > 0)
+            // If a player is stepping on the pad
+            if (player.CompareTag("Player"))
             {
-                // Takes 1 resource per second from personal store
-                player.GetComponent<Player>().resources--;
-                int tempNum = player.GetComponent<Player>().playerNum;
-
-                if (tempNum == 1)
+                if (player.GetComponent<Player>().resources > 0)
                 {
-                    GameManager.instance.player1DResource++;
-                }
+                    // Takes 1 resource per second from personal store
+                    player.GetComponent<Player>().resources--;
+                    int tempNum = player.GetComponent<Player>().playerNum;
 
-                else if (tempNum == 2)
-                {
-                    GameManager.instance.player2DResource++;
-                }
+                    if (tempNum == 1)
+                    {
+                        GameManager.instance.player1DResource++;
+                    }
 
-                else if (tempNum == 3)
-                {
-                    GameManager.instance.player3DResource++;
-                }
+                    else if (tempNum == 2)
+                    {
+                        GameManager.instance.player2DResource++;
+                    }
 
-                else if (tempNum == 4)
-                {
-                    GameManager.instance.player4DResource++;
+                    else if (tempNum == 3)
+                    {
+                        GameManager.instance.player3DResource++;
+                    }
+
+                    else if (tempNum == 4)
+                    {
+                        GameManager.instance.player4DResource++;
+                    }
                 }
             }
+
+            yield return new WaitForSeconds(1.0f);
         }
-
-        yield return new WaitForSeconds(1.0f);
     }
-
 
 
 }

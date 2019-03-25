@@ -4,8 +4,13 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - character: {instanceID: 0}
-  - resource: {fileID: 1861588042057804, guid: 6599c8e0c325ab54397f31d56dd80d1a, type: 2}
+  - foodPrefab: {instanceID: 0}
+  - playerIndicator: {instanceID: 0}
+  - p1Indicator: {instanceID: 0}
+  - p2Indicator: {instanceID: 0}
+  - p3Indicator: {instanceID: 0}
+  - p4Indicator: {instanceID: 0}
+  - pickupSound: {fileID: 8300000, guid: 9f693ead7e29cbe45ab1e80c82ff1c92, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

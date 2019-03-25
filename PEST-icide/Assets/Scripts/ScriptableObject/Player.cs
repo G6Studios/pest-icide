@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public Material p3Indicator;
     public Material p4Indicator;
 
+    Mesh test;
+
     void Start()
     {
         health = maxHealth;
@@ -43,6 +45,8 @@ public class Player : MonoBehaviour
         HurtSelf();
 
         GiveBarrels();
+
+        gameObject.GetComponent<SkinnedMeshRenderer>().BakeMesh(test);
 
     }
 
