@@ -1563,7 +1563,7 @@ GameObject:
   - component: {fileID: 3450187260859895524}
   - component: {fileID: 4747530287601492956}
   - component: {fileID: 5575966945573502565}
-  - component: {fileID: 8372533940967379419}
+  - component: {fileID: 1125044444413536617}
   - component: {fileID: 1988328381023663539}
   - component: {fileID: 535391989319026967}
   - component: {fileID: 506068009504075486}
@@ -1656,7 +1656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2568787849942029466}
---- !u!114 &8372533940967379419
+--- !u!114 &1125044444413536617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1669,7 +1669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  foodPrefab: {fileID: 1861588042057804, guid: 6599c8e0c325ab54397f31d56dd80d1a, type: 3}
+  foodPrefab: {fileID: 4597803031738717717, guid: 549135e277bad6440968ee7e45a77ebe,
+    type: 3}
   resources: 0
   health: 100
   maxHealth: 100
@@ -1692,11 +1693,11 @@ MonoBehaviour:
   foodPrefab: {fileID: 4597803031738717717, guid: 549135e277bad6440968ee7e45a77ebe,
     type: 3}
   resources: 0
+  health: 100
   maxHealth: 100
   playerNum: 1
   died: 0
   spawnPoint: {x: 0, y: 0, z: 0}
-  health: 100
 --- !u!114 &535391989319026967
 MonoBehaviour:
   m_ObjectHideFlags: 0
