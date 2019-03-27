@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1264314377}
-  xSensitivity: 14
+  xSensitivity: 18
   joystickNumber: 2
   currentDistance: 3
   maxDistance: 5
@@ -748,7 +748,7 @@ MonoBehaviour:
   p2Indicator: {fileID: 2100000, guid: 52b56dc53c8bbb94bb0edafb1c899462, type: 2}
   p3Indicator: {fileID: 2100000, guid: 129f2c62e352c8f468b0e84c9ceacee7, type: 2}
   p4Indicator: {fileID: 2100000, guid: 38f83180142548040b1c2ed12cd9dc42, type: 2}
-  pickupSound: {fileID: 0}
+  death: {fileID: 8300000, guid: 826b82af6518844459b5e1a1dba447a1, type: 3}
 --- !u!114 &121646236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd95377d1db9aff4082b758773e953b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: {fileID: 8300000, guid: 1bbd4a36ad9862b44a7a92de16033345, type: 3}
 --- !u!1001 &7019785654839407951
 PrefabInstance:
   m_ObjectHideFlags: 0

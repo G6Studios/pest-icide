@@ -15,12 +15,15 @@ public class Player : MonoBehaviour
     public bool died;
     public Vector3 spawnPoint;
     public GameObject playerIndicator;
+    public Material setIndicator;
     public Material p1Indicator;
     public Material p2Indicator;
     public Material p3Indicator;
     public Material p4Indicator;
-
-    Mesh test;
+    public Material p1LeaderIndicator;
+    public AudioClip death;
+    public bool leader;
+    private AudioSource sounds; 
 
     void Start()
     {
@@ -28,8 +31,11 @@ public class Player : MonoBehaviour
         resources = 0;
         spawnPoint = gameObject.transform.position;
         died = false;
+        leader = false;
 
         SetIndicator();
+
+        sounds = gameObject.GetComponent<AudioSource>();
         
     }
 
@@ -46,7 +52,9 @@ public class Player : MonoBehaviour
 
         GiveBarrels();
 
-        gameObject.GetComponent<SkinnedMeshRenderer>().BakeMesh(test);
+        UpdateIndicator();
+
+        
 
     }
 
@@ -68,24 +76,37 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Setting leader icon
+    void UpdateIndicator()
+    {
+        if(leader == true)
+        {
+            playerIndicator.GetComponent<Renderer>().material = p1LeaderIndicator;
+        }
+        else
+        {
+            playerIndicator.GetComponent<Renderer>().material = setIndicator;
+        }
+    }
+
     // Setting player indicator
     void SetIndicator()
     {
         if(playerNum == 1)
         {
-            playerIndicator.GetComponent<Renderer>().material = p1Indicator;
+            setIndicator = p1Indicator;
         }
         else if (playerNum == 2)
         {
-            playerIndicator.GetComponent<Renderer>().material = p2Indicator;
+            setIndicator = p2Indicator;
         }
         else if (playerNum == 3)
         {
-            playerIndicator.GetComponent<Renderer>().material = p3Indicator;
+            setIndicator = p3Indicator;
         }
         else if (playerNum == 4)
         {
-            playerIndicator.GetComponent<Renderer>().material = p4Indicator;
+            setIndicator = p4Indicator;
         }
     }
     
@@ -96,6 +117,8 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
+        sounds.clip = death;
+        sounds.Play();
         Invoke("Respawn", 5.0f);
         GetComponentInParent<Animator>().SetBool("Dead", true);
 

@@ -39,17 +39,17 @@ public class ResourceDeposit : MonoBehaviour
                         GameManager.instance.player1DResource++;
                     }
 
-                    else if (tempNum == 2)
+                    if (tempNum == 2)
                     {
                         GameManager.instance.player2DResource++;
                     }
 
-                    else if (tempNum == 3)
+                    if (tempNum == 3)
                     {
                         GameManager.instance.player3DResource++;
                     }
 
-                    else if (tempNum == 4)
+                    if (tempNum == 4)
                     {
                         GameManager.instance.player4DResource++;
                     }

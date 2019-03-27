@@ -149,11 +149,14 @@ MonoBehaviour:
   died: 0
   spawnPoint: {x: 0, y: 0, z: 0}
   playerIndicator: {fileID: 4135385785917273130}
+  setIndicator: {fileID: 0}
   p1Indicator: {fileID: 2100000, guid: 519209828919c5f429cb926726d3f1e1, type: 2}
   p2Indicator: {fileID: 2100000, guid: 52b56dc53c8bbb94bb0edafb1c899462, type: 2}
   p3Indicator: {fileID: 2100000, guid: 129f2c62e352c8f468b0e84c9ceacee7, type: 2}
   p4Indicator: {fileID: 2100000, guid: 38f83180142548040b1c2ed12cd9dc42, type: 2}
-  pickupSound: {fileID: 0}
+  p1LeaderIndicator: {fileID: 0}
+  death: {fileID: 8300000, guid: eabf82b5415f07d4aa4e80012c3ec981, type: 3}
+  leader: 0
 --- !u!114 &5259501288017168234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a271f4835da47924c89508a6013fc7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: {fileID: 8300000, guid: 6ca010e073cde714294200974d5af19a, type: 3}
 --- !u!1 &1255709000639832130
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 6453105199355939361}
-  xSensitivity: 14
+  xSensitivity: 18
   joystickNumber: 2
   currentDistance: 3
   maxDistance: 5

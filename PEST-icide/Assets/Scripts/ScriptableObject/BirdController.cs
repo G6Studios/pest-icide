@@ -33,6 +33,7 @@ public class BirdController : MonoBehaviour
     // Setup
     private int playerNumber;
     private AudioSource sounds;
+    public AudioClip attack;
 
     // Initialization
     void Start()
@@ -62,6 +63,7 @@ public class BirdController : MonoBehaviour
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
         playerNumber = gameObject.GetComponent<Player>().playerNum;
         sounds = gameObject.GetComponent<AudioSource>();
+
     }
 
     void FixedUpdate()
@@ -199,6 +201,7 @@ public class BirdController : MonoBehaviour
         if (canAttack == true && IsGrounded())
         {
             _rigidbody.AddRelativeForce(Vector3.forward * 8f, ForceMode.VelocityChange);
+            sounds.clip = attack;
             sounds.Play();
             birdAnimator.SetTrigger("Punch");
             cooldownTimer = 0.0f;

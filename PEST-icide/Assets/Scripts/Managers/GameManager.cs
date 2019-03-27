@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour {
             }
 
             timer -= Time.deltaTime;
+            CheckLeader();
 
             if(timer <= 0)
             {
@@ -139,6 +140,38 @@ public class GameManager : MonoBehaviour {
             //end our scene
         }
 
+    }
+
+    public void CheckLeader()
+    {
+        if (player1DResource > player2DResource && player1DResource > player3DResource && player1DResource > player4DResource && player1DResource > 0)
+        {
+            Player1.GetComponent<Player>().leader = true;
+            Player2.GetComponent<Player>().leader = false;
+            Player3.GetComponent<Player>().leader = false;
+            Player4.GetComponent<Player>().leader = false;
+        }
+        else if (player2DResource > player1DResource && player2DResource > player3DResource && player2DResource > player4DResource && player2DResource > 0)
+        {
+            Player1.GetComponent<Player>().leader = false;
+            Player2.GetComponent<Player>().leader = true;
+            Player3.GetComponent<Player>().leader = false;
+            Player4.GetComponent<Player>().leader = false;
+        }
+        else if (player3DResource > player1DResource && player3DResource > player2DResource && player3DResource > player4DResource && player3DResource > 0)
+        {
+            Player1.GetComponent<Player>().leader = false;
+            Player2.GetComponent<Player>().leader = false;
+            Player3.GetComponent<Player>().leader = true;
+            Player4.GetComponent<Player>().leader = false;
+        }
+        else if (player4DResource > player1DResource && player4DResource > player2DResource && player4DResource > player3DResource && player4DResource > 0)
+        {
+            Player1.GetComponent<Player>().leader = false;
+            Player2.GetComponent<Player>().leader = false;
+            Player3.GetComponent<Player>().leader = false;
+            Player4.GetComponent<Player>().leader = true;
+        }
     }
 
     public GameObject CheckWinner()
