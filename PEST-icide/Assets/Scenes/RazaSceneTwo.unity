@@ -4512,7 +4512,7 @@ MonoBehaviour:
   charSelections: 00000000
   GasTrap: {fileID: 0}
   MouseTrap: {fileID: 0}
-  winner: {fileID: 0}
+  winner: 
   gameSceneInitialized: 0
   startTime: 120
   timer: 0
