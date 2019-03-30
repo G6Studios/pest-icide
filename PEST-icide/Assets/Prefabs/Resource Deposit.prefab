@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5399263651427827841}
   - component: {fileID: 5399263651427827842}
   - component: {fileID: 5399263651427827843}
-  - component: {fileID: 5399263651427827847}
+  - component: {fileID: 8403836716893864254}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -4113,7 +4113,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
---- !u!114 &5399263651427827847
+--- !u!114 &8403836716893864254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4125,6 +4125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c715e2c8c072eaa4c9dbaf31da809839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPlayer: {fileID: 0}
 --- !u!1 &5399263651942651745
 GameObject:
   m_ObjectHideFlags: 0

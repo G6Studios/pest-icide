@@ -9,18 +9,23 @@ public class Player : MonoBehaviour
     public float speed;
     public GameObject foodPrefab;
     public int resources;
+    public int depositedResources;
     public float health;
     public float maxHealth;
     public int playerNum;
     public bool died;
     public Vector3 spawnPoint;
     public GameObject playerIndicator;
-    public Material setIndicator;
+    private Material setIndicator;
+    private Material setLeaderIndicator;
     public Material p1Indicator;
     public Material p2Indicator;
     public Material p3Indicator;
     public Material p4Indicator;
     public Material p1LeaderIndicator;
+    public Material p2LeaderIndicator;
+    public Material p3LeaderIndicator;
+    public Material p4LeaderIndicator;
     public AudioClip death;
     public bool leader;
     private AudioSource sounds; 
@@ -81,7 +86,7 @@ public class Player : MonoBehaviour
     {
         if(leader == true)
         {
-            playerIndicator.GetComponent<Renderer>().material = p1LeaderIndicator;
+            playerIndicator.GetComponent<Renderer>().material = setLeaderIndicator;
         }
         else
         {
@@ -95,18 +100,22 @@ public class Player : MonoBehaviour
         if(playerNum == 1)
         {
             setIndicator = p1Indicator;
+            setLeaderIndicator = p1LeaderIndicator;
         }
         else if (playerNum == 2)
         {
             setIndicator = p2Indicator;
+            setLeaderIndicator = p2LeaderIndicator;
         }
         else if (playerNum == 3)
         {
             setIndicator = p3Indicator;
+            setLeaderIndicator = p3LeaderIndicator;
         }
         else if (playerNum == 4)
         {
             setIndicator = p4Indicator;
+            setLeaderIndicator = p4LeaderIndicator;
         }
     }
     

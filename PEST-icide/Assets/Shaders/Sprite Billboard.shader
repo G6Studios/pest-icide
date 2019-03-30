@@ -1,4 +1,5 @@
-﻿Shader "Custom/Sprite Billboard"
+﻿// Billboard shader, modified to account for transparency from the alpha channel
+Shader "Custom/Sprite Billboard"
 {
 	Properties{
 	   _MainTex("Texture Image", 2D) = "white" {}
@@ -12,8 +13,7 @@
 
 			  #pragma vertex vert  
 			  #pragma fragment frag
-
-			  // User-specified uniforms            
+            
 			  uniform sampler2D _MainTex;
 			  uniform float _ScaleX;
 			  uniform float _ScaleY;

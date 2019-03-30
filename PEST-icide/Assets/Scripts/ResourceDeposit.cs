@@ -4,61 +4,68 @@ using UnityEngine;
 
 public class ResourceDeposit : MonoBehaviour
 {
+    // List to hold players currently in the radius
+    public List<GameObject> playersInRadius;
+
+    // Variables controlling deposit rate
+    private float depositInterval;
+    private float timer;
 
     private IEnumerator coroutine;
 
+
+    private void Start()
+    {
+        timer = 0.0f;
+        depositInterval = 1.0f;
+    }
+
     void OnTriggerEnter(Collider coll)
     {
-        // Starting coroutine for draining players resources
-        coroutine = DrainResource(coll.gameObject);
-        Coroutine co = StartCoroutine(coroutine);
+        if(coll.gameObject.tag.Equals("Player"))
+        {
+            playersInRadius.Add(coll.gameObject);
+        }
         
+    }
+
+    void Update()
+    {
+        // Incrementing timer every frame
+        timer += Time.deltaTime;
+
+        // Deposit interval of 0.5 seconds
+        if (timer > depositInterval)
+        {
+            // If there is at least 1 player in the radius
+            if (playersInRadius.Count > -1)
+            {
+                // For every player that is in the radius
+                for (int i = 0; i < playersInRadius.Count; i++)
+                {
+                    // Making sure they don't end up in debt resources
+                    if (playersInRadius[i].GetComponent<Player>().resources > 0)
+                    {
+                        playersInRadius[i].GetComponent<Player>().resources--; // Taking one resource from their person at a time
+                        playersInRadius[i].GetComponent<Player>().depositedResources++; // Adding it to their deposited resources
+                    }
+                }
+            }
+            timer = 0.0f;
+        }
     }
 
     void OnTriggerExit(Collider coll)
     {
-        StopAllCoroutines();
-    }
-
-
-    IEnumerator DrainResource(GameObject player)
-    {
-        while (true)
+        // Checking that the object exiting is a player (and not a barrel or something else)
+        if (coll.gameObject.tag.Equals("Player"))
         {
-            // If a player is stepping on the pad
-            if (player.CompareTag("Player"))
+            // Remove gameobject from list
+            if (playersInRadius.IndexOf(coll.gameObject) > -1)
             {
-                if (player.GetComponent<Player>().resources > 0)
-                {
-                    // Takes 1 resource per second from personal store
-                    player.GetComponent<Player>().resources--;
-                    int tempNum = player.GetComponent<Player>().playerNum;
-
-                    if (tempNum == 1)
-                    {
-                        GameManager.instance.player1DResource++;
-                    }
-
-                    if (tempNum == 2)
-                    {
-                        GameManager.instance.player2DResource++;
-                    }
-
-                    if (tempNum == 3)
-                    {
-                        GameManager.instance.player3DResource++;
-                    }
-
-                    if (tempNum == 4)
-                    {
-                        GameManager.instance.player4DResource++;
-                    }
-                }
+                playersInRadius.Remove(coll.gameObject);
             }
-
-            yield return new WaitForSeconds(1.0f);
         }
     }
-
 
 }

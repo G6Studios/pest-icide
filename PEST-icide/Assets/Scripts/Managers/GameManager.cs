@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour {
     public GameObject[] spawnPoints;
 
     // Player resources
+    // TODO: Move tracking of deposited resources to player script
     public int player1DResource;
     public int player2DResource;
     public int player3DResource;
@@ -142,8 +143,15 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    // Checking deposited resources to update leader
     public void CheckLeader()
     {
+        // Updating resource count from player scripts
+        player1DResource = Player1.GetComponent<Player>().depositedResources;
+        player2DResource = Player2.GetComponent<Player>().depositedResources;
+        player3DResource = Player3.GetComponent<Player>().depositedResources;
+        player4DResource = Player4.GetComponent<Player>().depositedResources;
+
         if (player1DResource > player2DResource && player1DResource > player3DResource && player1DResource > player4DResource && player1DResource > 0)
         {
             Player1.GetComponent<Player>().leader = true;
