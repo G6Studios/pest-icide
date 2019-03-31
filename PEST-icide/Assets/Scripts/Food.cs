@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    public GameObject crunch;
-
+    public GameObject crunch; // The invisible game object that will play the sound
 
     void OnCollisionEnter(Collision coll)
     {
-        if(coll.gameObject.CompareTag("Player"))
+        if(coll.gameObject.CompareTag("Player")) // Is the colliding object a player?
         {
-            if(coll.gameObject.GetComponent<Player>().died == false)
+            if(coll.gameObject.GetComponent<Player>().died == false) // Dead players should not collect resources
             {
-                coll.gameObject.GetComponent<Player>().resources++;
-                Instantiate(crunch);
-                gameObject.SetActive(false);
-                gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
+                coll.gameObject.GetComponent<Player>().resources++; // Increase the carried resources of that player
+                Instantiate(crunch); // Create the sound object
+                gameObject.SetActive(false); // Deactivate the gameobject
+                gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime(); // Set the gameobject to reactivate after a time
 
             }
         }

@@ -32,13 +32,13 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        health = maxHealth;
-        resources = 0;
-        spawnPoint = gameObject.transform.position;
-        died = false;
-        leader = false;
+        health = maxHealth; // Setting health to full
+        resources = 0; // Making sure everyone starts with 0 resources
+        spawnPoint = gameObject.transform.position; // Setting their initial spawn position as where they will respawn
+        died = false; // Don't want players spawning in dead
+        leader = false; // Everyone starts equal
 
-        SetIndicator();
+        SetIndicator(); // Setting player indicators initially
 
         sounds = gameObject.GetComponent<AudioSource>();
         
@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // Checking if the player's health drops below 0
         if (health <= 0.0f && died == false)
         {
             Death();
@@ -53,11 +54,11 @@ public class Player : MonoBehaviour
             DropResources();
         }
 
-        HurtSelf();
+        //HurtSelf();
 
-        GiveBarrels();
+        //GiveBarrels();
 
-        UpdateIndicator();
+        UpdateIndicator(); // Updating the player's indicator if they become the leader
 
         
 
@@ -119,36 +120,42 @@ public class Player : MonoBehaviour
         }
     }
     
+    // Called when an attack connects with a player
     public void TakeDamage(float dmg)
     {
         health -= dmg;
     }
 
+    // Called when the player's health drops to 0
     public void Death()
     {
         sounds.clip = death;
         sounds.Play();
-        Invoke("Respawn", 5.0f);
-        GetComponentInParent<Animator>().SetBool("Dead", true);
+        gameObject.GetComponent<Rigidbody>().freezeRotation = true; // Stops players from spinning when they die
+        Invoke("Respawn", 5.0f); // Player set to respawn 5 seconds later
+        GetComponentInParent<Animator>().SetBool("Dead", true); // Tells animation controller to play death animation
 
     }
 
+    // Invoked from death after respawn timer
     public void Respawn()
     {
         GetComponentInParent<Animator>().SetBool("Dead", false);
-        health = maxHealth;
-        gameObject.transform.position = spawnPoint;
+        gameObject.GetComponent<Rigidbody>().freezeRotation = false; // Unfreeze rigidbody rotation
+        health = maxHealth; // Refill the player's health
+        gameObject.transform.position = spawnPoint; // Set the player back to their initial spawnpoint
         died = false;
     }
 
     public void DropResources()
     {
+        // With the help of another function, causes player's resources to drop around them randomly, disappearing after 5 seconds
         for(int i = 0; i < resources; i++)
         {
             Vector3 center = transform.position + new Vector3(0f, 3f, 0f);
             Vector3 spawnPos = RandomCircle(center, 3f);
             GameObject temp = Instantiate(foodPrefab, spawnPos, Quaternion.FromToRotation(Vector3.forward, center - spawnPos));
-            Destroy(temp, 3f);
+            Destroy(temp, 5f);
         }
         resources = 0;
     }

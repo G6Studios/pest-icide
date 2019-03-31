@@ -139,6 +139,7 @@ public class BirdController : MonoBehaviour
             _rigidbody.velocity = Vector3.up * jumpHeight;
             doubleJump = true;
         }
+        // Allowing the player to jump once while not touching the ground (exclusive to bird)
         else
         {
             if (doubleJump && Input.GetButtonDown("A_P" + playerNumber))
@@ -190,21 +191,20 @@ public class BirdController : MonoBehaviour
     // Checking if player is on the ground
     bool IsGrounded()
     {
-        return Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0f), -Vector3.up, 0.9f);
+        return Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0f), -Vector3.up, 0.9f); // Casts a ray downwards from the center of the player
 
     }
 
     // Attack function
     void Attacks()
     {
-
-        if (canAttack == true && IsGrounded())
+        if (canAttack == true && IsGrounded()) // Players can only attack while grounded
         {
-            _rigidbody.AddRelativeForce(Vector3.forward * 8f, ForceMode.VelocityChange);
-            sounds.clip = attack;
-            sounds.Play();
-            birdAnimator.SetTrigger("Punch");
-            cooldownTimer = 0.0f;
+            _rigidbody.AddRelativeForce(Vector3.forward * 8f, ForceMode.VelocityChange); // Applying force to make character lunge forward
+            sounds.clip = attack; // Setting sound emitter to attack sound
+            sounds.Play(); // Play attack sound
+            birdAnimator.SetTrigger("Punch"); // Setting trigger in animation controller
+            cooldownTimer = 0.0f; // Putting attack on cooldown
         }
 
         else

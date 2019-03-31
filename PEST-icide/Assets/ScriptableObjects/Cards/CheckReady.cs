@@ -22,6 +22,9 @@ public class CheckReady : MonoBehaviour
     public GameObject timerObject;
     TextMeshProUGUI timerText;
 
+    public GameObject menu;
+    public GameObject progressBar;
+
     private float timer;
     private bool timerActive;
     private bool triggerOnce;
@@ -34,6 +37,8 @@ public class CheckReady : MonoBehaviour
         timerText = timerObject.GetComponent<TextMeshProUGUI>();
         allReady = false;
         timer = 5.0f;
+        menu.SetActive(true);
+        progressBar.SetActive(false);
 
     }
 
@@ -75,13 +80,32 @@ public class CheckReady : MonoBehaviour
             GameManager.instance.charSelections[1] = player2.characterNum;
             GameManager.instance.charSelections[2] = player3.characterNum;
             GameManager.instance.charSelections[3] = player4.characterNum;
-            SceneManager.LoadScene("Main Quinn Version");
+            StartCoroutine(LoadLevel(4)); // Since LoadSceneAsync returns an AsyncOption coroutine, we must use a coroutine to track loading progress
         }
 
         if(timer <= 0.0f)
         {
             timerText.text = "0.00";
         }
+    }
+
+    // Coroutine for LoadSceneAsync
+    IEnumerator LoadLevel(int index) 
+    {
+        AsyncOperation loading = SceneManager.LoadSceneAsync(index);
+
+        menu.SetActive(false);
+        progressBar.SetActive(true);
+
+        while(!loading.isDone)
+        {
+            float progress = Mathf.Clamp01(loading.progress / .9f);
+
+            progressBar.GetComponent<Slider>().value = progress;
+
+            yield return null;
+        }
+
     }
 
     void ReadyStatus()

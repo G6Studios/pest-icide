@@ -11,18 +11,15 @@ public class ResourceDeposit : MonoBehaviour
     private float depositInterval;
     private float timer;
 
-    private IEnumerator coroutine;
-
-
     private void Start()
     {
         timer = 0.0f;
-        depositInterval = 1.0f;
+        depositInterval = 0.5f;
     }
 
     void OnTriggerEnter(Collider coll)
     {
-        if(coll.gameObject.tag.Equals("Player"))
+        if(coll.gameObject.tag.Equals("Player")) // Making sure the object is a player
         {
             playersInRadius.Add(coll.gameObject);
         }

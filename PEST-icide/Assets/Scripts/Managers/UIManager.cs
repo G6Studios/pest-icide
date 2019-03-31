@@ -44,23 +44,21 @@ public class UIManager : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
-    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI timerText; // Game timer element
 
-    Scene currentScene;
+    Scene currentScene; // To store the current scene
 
     bool initialized = false;
 
     private void Start()
     {
         
-        //player2 = GameManager.instance.playerList[1];
-        //player3 = GameManager.instance.playerList[2];
-        //player4 = GameManager.instance.playerList[3];
     }
 
     void Update()
     {
         currentScene = SceneManager.GetActiveScene();
+        // Checking for if players are active
         if(currentScene.name == "Main Quinn Version" && initialized == false)
         {
             if(GameManager.instance.player1Active)
@@ -93,6 +91,7 @@ public class UIManager : MonoBehaviour
         string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
         timerText.text = niceTime;
 
+        // Formatting timer to 00:00
         if(GameManager.instance.timer < 0)
         {
             timerText.text = string.Format("{0:0}:{1:00}", 0, 0);
@@ -103,11 +102,12 @@ public class UIManager : MonoBehaviour
         // Managing elements for player 1
         if (GameManager.instance.player1Active)
         {
-            player1HealthImage.SetActive(true);
-            player1HealthNumber.gameObject.SetActive(true);
-            player1AttackImage.gameObject.SetActive(true);
-            player1Resource.SetActive(true);
+            player1HealthImage.SetActive(true); // Image for displaying health
+            player1HealthNumber.gameObject.SetActive(true); // Number for displaying health
+            player1AttackImage.gameObject.SetActive(true); // Attack cooldown image
+            player1Resource.SetActive(true); // Resource counter image
 
+            // Retrieving quantities for elements from player script
             player1HealthFill.fillAmount = player1.GetComponent<Player>().health / player1.GetComponent<Player>().maxHealth;
             player1HealthNumber.text = player1.GetComponent<Player>().health.ToString();
             player1AttackImage.fillAmount = player1.GetComponentInChildren<AttackController>().cooldownTimerProxy / player1.GetComponentInChildren<AttackController>().cooldownProxy;

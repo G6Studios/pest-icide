@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour {
     public GameObject[] spawnPoints;
 
     // Player resources
-    // TODO: Move tracking of deposited resources to player script
     public int player1DResource;
     public int player2DResource;
     public int player3DResource;
@@ -62,17 +61,17 @@ public class GameManager : MonoBehaviour {
     public bool player3Active;
     public bool player4Active;
 
-    Scene currentScene;
+    Scene currentScene; // For holding the current active scene
 
-    public int[] charSelections;
+    public int[] charSelections; // For interfacing with the character select screen
 
-    public GameObject GasTrap;
-    public GameObject MouseTrap;
-    public string winner;
+    public GameObject GasTrap; // Obsolete
+    public GameObject MouseTrap; // Obsolete
+    public string winner; // Checking which player won
 
-    public bool gameSceneInitialized;
+    public bool gameSceneInitialized; // The scene only needs to be re-initialized each round
 
-    public float startTime = 120; // Sixty seconds times five
+    public float startTime = 120; // Two minutes
     public float timer;
 
 	// Use this for initialization
@@ -93,25 +92,24 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        // Debugging controllers
-        DebugControllers();
+        DebugControllers(); // Debugging controllers
 
-        currentScene = SceneManager.GetActiveScene();
+        currentScene = SceneManager.GetActiveScene(); // Getting the active scene
 
-        if (currentScene.name == "Main Quinn Version")
+        if (currentScene.name == "Main Quinn Version") // If the current scene is the main game scene
         {
-            if(gameSceneInitialized == false)
+            if(gameSceneInitialized == false) // Checking if the game has already been initialized
             {
-                spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
-                SpawnPlayers();
-                InitializePlayers();
-                SetCameras();
+                spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint"); // Getting the spawn point locations
+                SpawnPlayers(); // Spawning in the characters each character picked
+                InitializePlayers(); // Setting up the players
+                SetCameras(); // Diving the screen up to display each camera's view
 
-                gameSceneInitialized = true;
+                gameSceneInitialized = true; // Making sure the scene doesn't initialize repeatedly
             }
 
-            timer -= Time.deltaTime;
-            CheckLeader();
+            timer -= Time.deltaTime; // Time counting down
+            CheckLeader(); // Updating the leader indicator
 
             if(timer <= 0)
             {
@@ -266,24 +264,25 @@ public class GameManager : MonoBehaviour {
 
     void SpawnPlayers()
     {
-        for(int i = 0; i < controllers.Length; i++)
+        for(int i = 0; i < controllers.Length; i++) // For each player
         {
-            if (charSelections[i].Equals(1))
+            if (charSelections[i].Equals(1)) // If the player chooses random
             {
+                // Randomize the player selection
                 int tempRand;
                 tempRand = Random.Range(2,6);
                 print(tempRand);
 
-                if(tempRand == 2)
+                if(tempRand == 2) // Randomizer chooses rat
                 {
-                    playerList.Add(Instantiate(ratPrefab, spawnPoints[i].transform.position, Quaternion.identity));
-                    playerList[i].name = "Player " + (i + 1);
-                    playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
-                    playerList[i].GetComponent<Player>().maxHealth = 50f;
-                    playerList[i].GetComponent<Player>().health = 50f;
-                    playerList[i].GetComponent<Player>().playerNum = i + 1;
+                    playerList.Add(Instantiate(ratPrefab, spawnPoints[i].transform.position, Quaternion.identity)); // Spawning in the player prefab
+                    playerList[i].name = "Player " + (i + 1); // Setting the player name
+                    playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position; // Choosing a spawn and respawn point for the player
+                    playerList[i].GetComponent<Player>().maxHealth = 50f; // Setting the max health for the player
+                    playerList[i].GetComponent<Player>().health = 50f; // Making sure they spawn with full health
+                    playerList[i].GetComponent<Player>().playerNum = i + 1; // Setting their player number to correspond with their controller
                 }
-                else if(tempRand == 3)
+                else if(tempRand == 3) // Randomizer chooses bird
                 {
                     playerList.Add(Instantiate(birdPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                     playerList[i].name = "Player " + (i + 1);
@@ -292,7 +291,7 @@ public class GameManager : MonoBehaviour {
                     playerList[i].GetComponent<Player>().health = 40f;
                     playerList[i].GetComponent<Player>().playerNum = i + 1;
                 }
-                else if(tempRand == 4)
+                else if(tempRand == 4) // Randomizer chooses snake
                 {
                     playerList.Add(Instantiate(snakePrefab, spawnPoints[i].transform.position, Quaternion.identity));
                     playerList[i].name = "Player " + (i + 1);
@@ -301,7 +300,7 @@ public class GameManager : MonoBehaviour {
                     playerList[i].GetComponent<Player>().health = 70f;
                     playerList[i].GetComponent<Player>().playerNum = i + 1;
                 }
-                else if(tempRand == 5)
+                else if(tempRand == 5) // Randomizer chooses wombat
                 {
                     playerList.Add(Instantiate(wombatPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                     playerList[i].name = "Player " + (i + 1);
@@ -313,7 +312,7 @@ public class GameManager : MonoBehaviour {
                 
             }
 
-            else if(charSelections[i].Equals(2))
+            else if(charSelections[i].Equals(2)) // Player chooses rat
             {
                 playerList.Add(Instantiate(ratPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                 playerList[i].name = "Player " + (i + 1);
@@ -323,7 +322,7 @@ public class GameManager : MonoBehaviour {
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
             }
 
-            else if(charSelections[i].Equals(3))
+            else if(charSelections[i].Equals(3)) // Player chooses bird
             {
                 playerList.Add(Instantiate(birdPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                 playerList[i].name = "Player " + (i + 1);
@@ -333,7 +332,7 @@ public class GameManager : MonoBehaviour {
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
             }
 
-            else if(charSelections[i].Equals(4))
+            else if(charSelections[i].Equals(4)) // Player chooses snake
             {
                 playerList.Add(Instantiate(snakePrefab, spawnPoints[i].transform.position, Quaternion.identity));
                 playerList[i].name = "Player " + (i + 1);
@@ -343,7 +342,7 @@ public class GameManager : MonoBehaviour {
                 playerList[i].GetComponent<Player>().playerNum = i + 1;
             }
 
-            else if (charSelections[i].Equals(5))
+            else if (charSelections[i].Equals(5)) // Player chooses wombat
             {
                 playerList.Add(Instantiate(wombatPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                 playerList[i].name = "Player " + (i + 1);
@@ -358,8 +357,9 @@ public class GameManager : MonoBehaviour {
     void InitializePlayers()
     {
 
-        for(int i = 0; i < playerList.Count; i++)
+        for(int i = 0; i < playerList.Count; i++) // Playerlist based on number of controllers connected
         {
+            // Assigning player slots
             if(playerList[i].GetComponent<Player>().playerNum == 1)
             {
                 Player1 = playerList[i];

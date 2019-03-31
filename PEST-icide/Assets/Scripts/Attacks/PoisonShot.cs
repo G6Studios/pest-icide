@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// ## DEFUNCT SCRIPT - NO LONGER IN USE ##
+
 public class PoisonShot : MonoBehaviour {
 
     [SerializeField]
