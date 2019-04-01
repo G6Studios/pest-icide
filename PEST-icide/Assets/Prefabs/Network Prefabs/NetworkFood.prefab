@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4595433698728761151}
   - component: {fileID: 4593448102820137261}
   - component: {fileID: 4583532245464069563}
-  - component: {fileID: 4494433824431538757}
+  - component: {fileID: 4027796384832560874}
   - component: {fileID: 4494373876701145307}
   - component: {fileID: 4552463680155938119}
   - component: {fileID: 4542278293148191513}
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &4494433824431538757
+--- !u!114 &4027796384832560874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,10 +92,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4597803031738717717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ed3eecfc63c4147a80924b43571f15, type: 3}
+  m_Script: {fileID: 11500000, guid: f4a541ddb50a40149aa84d7529ba5f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crunch: {fileID: 8300000, guid: 9f693ead7e29cbe45ab1e80c82ff1c92, type: 3}
 --- !u!114 &4494373876701145307
 MonoBehaviour:
   m_ObjectHideFlags: 0

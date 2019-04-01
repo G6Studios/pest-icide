@@ -26,7 +26,7 @@ public class NetworkCamera : NetworkBehaviour
         // Value flipped for later in the process
         xj = angles.y;
 
-        joystickNumber = character.GetComponentInParent<Player>().playerNum;
+        joystickNumber = character.GetComponentInParent<NetworkPlayer>().playerNum;
 
 
     }
@@ -38,7 +38,7 @@ public class NetworkCamera : NetworkBehaviour
 
         if (joystickNumber != 0)
         {
-            if (target && !GetComponentInParent<Player>().died) // Making sure the camera has something to look at
+            if (target && !GetComponentInParent<NetworkPlayer>().died) // Making sure the camera has something to look at
             {
                 // Update x and y for the mouse
                 xj += Input.GetAxis("RightJoystickX_P" + joystickNumber) * xSensitivity;
