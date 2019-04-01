@@ -25,14 +25,16 @@ public class BirdController : MonoBehaviour
     private float airTimerLimit;
 
     // Attacking
-    private AttackController attacks;
+    public AttackController attacks;
     private float cooldown;
     private float cooldownTimer;
     private bool canAttack;
+    public ParticleSystem attackParticles;
 
     // Setup
     private int playerNumber;
     private AudioSource sounds;
+    public AudioClip attack;
 
     // Initialization
     void Start()
@@ -53,15 +55,17 @@ public class BirdController : MonoBehaviour
         airTimerLimit = 0.3f;
 
         // Attack related
-        attacks = gameObject.GetComponentInChildren<AttackController>();
+        //attacks = gameObject.GetComponentInChildren<AttackController>();
         cooldown = 1.5f;
         cooldownTimer = 0.0f;
+        //attackParticles = gameObject.GetComponentInChildren<ParticleSystem>();
 
 
         // Setup
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
         playerNumber = gameObject.GetComponent<Player>().playerNum;
         sounds = gameObject.GetComponent<AudioSource>();
+
     }
 
     void FixedUpdate()
@@ -119,7 +123,7 @@ public class BirdController : MonoBehaviour
     void MovementAnim()
     {
         float xVel = Input.GetAxis("LeftJoystickX_P" + playerNumber) * 5;
-        float yVel = Input.GetAxis("LeftJoystickY_P" + playerNumber) * 5;
+        float yVel = Input.GetAxis("LeftJoystickY_P" + playerNumber) * 2.5f;
 
         birdAnimator.SetFloat("Movement_X", xVel);
         birdAnimator.SetFloat("Movement_Y", yVel);
@@ -137,6 +141,7 @@ public class BirdController : MonoBehaviour
             _rigidbody.velocity = Vector3.up * jumpHeight;
             doubleJump = true;
         }
+        // Allowing the player to jump once while not touching the ground (exclusive to bird)
         else
         {
             if (doubleJump && Input.GetButtonDown("A_P" + playerNumber))
@@ -188,20 +193,21 @@ public class BirdController : MonoBehaviour
     // Checking if player is on the ground
     bool IsGrounded()
     {
-        return Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0f), -Vector3.up, 0.9f);
+        return Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0f), -Vector3.up, 0.9f); // Casts a ray downwards from the center of the player
 
     }
 
     // Attack function
     void Attacks()
     {
-
-        if (canAttack == true && IsGrounded())
+        if (canAttack == true && IsGrounded()) // Players can only attack while grounded
         {
-            _rigidbody.AddRelativeForce(Vector3.forward * 8f, ForceMode.VelocityChange);
-            sounds.Play();
-            birdAnimator.SetTrigger("Punch");
-            cooldownTimer = 0.0f;
+            _rigidbody.AddRelativeForce(Vector3.forward * 8f, ForceMode.VelocityChange); // Applying force to make character lunge forward
+            sounds.clip = attack; // Setting sound emitter to attack sound
+            sounds.Play(); // Play attack sound
+            attackParticles.Play();
+            birdAnimator.SetTrigger("Punch"); // Setting trigger in animation controller
+            cooldownTimer = 0.0f; // Putting attack on cooldown
         }
 
         else

@@ -18,6 +18,10 @@ public class AttackController : MonoBehaviour
     [HideInInspector]
     public float cooldownTimerProxy;
 
+    // Since the collider nows works by OnTriggerStay, this timer is necessary so the player can shred people's health in an instant
+    public float dmgCooldown;
+    private float dmgTimer;
+
     public float attackDamage;
 
     Vector3 offset;
@@ -44,13 +48,16 @@ public class AttackController : MonoBehaviour
 
     private void Update()
     {
-
+        if(dmgTimer < dmgCooldown)
+        {
+            dmgTimer += 0.01f;
+        }
     }
 
     // Resolving hits
-    private void OnTriggerEnter(Collider hit)
+    private void OnTriggerStay(Collider hit)
     {
-        if (attackActive)
+        if (attackActive && dmgTimer > dmgCooldown)
         {
             string target = hit.gameObject.tag;
 
@@ -61,6 +68,7 @@ public class AttackController : MonoBehaviour
                     break;
 
                 case "Player":
+                    dmgTimer = 0.0f;
                     Debug.Log("Hit:" + hit.name);
                     hit.GetComponent<Player>().TakeDamage(attackDamage);
                     GameObject instance = Instantiate(attackSprite, hit.transform.position + offset, Quaternion.identity);

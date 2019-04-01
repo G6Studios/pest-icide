@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// ## DEFUNCT SCRIPT - NO LONGER IN USE##
+
+
 public class EventManager : MonoBehaviour {
     // Dictionary for keeping track of events
     private Dictionary<string, UnityEvent> eventDictionary;

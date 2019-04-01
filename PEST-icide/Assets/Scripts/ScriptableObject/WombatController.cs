@@ -31,6 +31,7 @@ public class WombatController : MonoBehaviour
     // Setup
     private int playerNumber;
     private AudioSource sounds;
+    public AudioClip attack;
 
     // Initialization
     void Start()
@@ -183,6 +184,7 @@ public class WombatController : MonoBehaviour
 
         if (canAttack == true && IsGrounded())
         {
+            sounds.clip = attack;
             sounds.Play();
             wombatAnimator.SetTrigger("Punch");
             cooldownTimer = 0.0f;

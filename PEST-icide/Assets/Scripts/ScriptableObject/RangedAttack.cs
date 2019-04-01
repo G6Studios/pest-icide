@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// ## DEFUNCT SCRIPT - NO LONGER IN USE ##
+
 [CreateAssetMenu(fileName = "New Ranged Attack", menuName = "Ranged Attack")]
 public class RangedAttack : ScriptableObject {
 

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+// ## DEFUNCT SCRIPT - NO LONGER IN USE ##
+
 public class BiteAttack : MonoBehaviour
 {
 

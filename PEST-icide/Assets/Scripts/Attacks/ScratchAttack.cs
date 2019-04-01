@@ -2,6 +2,8 @@
 using UnityEngine.Events;
 using System.Runtime.InteropServices;
 
+// ## DEFUNCT SCRIPT - NO LONGER IN USE ##
+
 public class ScratchAttack : MonoBehaviour
 {
 

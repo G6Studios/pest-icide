@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// ## DEFUNCT SCRIPT - NO LONGER IN USE ##
+
 public class BirdAnimController : MonoBehaviour {
 
     private Animator birdAnimator;

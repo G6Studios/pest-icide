@@ -22,9 +22,20 @@ public class CheckReady : MonoBehaviour
     public GameObject timerObject;
     TextMeshProUGUI timerText;
 
+    public GameObject menu;
+    public GameObject progressBar;
+    public GameObject tutorialScreen;
+    public GameObject controlScreen;
+    public GameObject prompt;
+
     private float timer;
     private bool timerActive;
     private bool triggerOnce;
+
+    private float infoTimer;
+
+    // Used for loading scene asynchronously
+    AsyncOperation loading;
 
     bool allReady;
 
@@ -34,6 +45,11 @@ public class CheckReady : MonoBehaviour
         timerText = timerObject.GetComponent<TextMeshProUGUI>();
         allReady = false;
         timer = 5.0f;
+        menu.SetActive(true);
+        progressBar.SetActive(false);
+        tutorialScreen.SetActive(false);
+        controlScreen.SetActive(false);
+        prompt.SetActive(false);
 
     }
 
@@ -54,6 +70,21 @@ public class CheckReady : MonoBehaviour
             timer = 5.0f;
             timerText.text = timer.ToString("F");
             timerObject.SetActive(false);
+        }
+
+        if(progressBar.activeInHierarchy)
+        {
+            infoTimer+=0.1f;
+            if(infoTimer > 50f)
+            {
+                ChangeScreens();
+                infoTimer = 0.0f;
+            }
+            prompt.SetActive(true);
+            if(Input.GetButtonDown("A_P1") || Input.GetButtonDown("A_P2") || Input.GetButtonDown("A_P3") || Input.GetButtonDown("A_P4"))
+            {
+                loading.allowSceneActivation = true;
+            }
         }
     }
 
@@ -76,12 +107,49 @@ public class CheckReady : MonoBehaviour
             GameManager.instance.charSelections[1] = player2.characterNum;
             GameManager.instance.charSelections[2] = player3.characterNum;
             GameManager.instance.charSelections[3] = player4.characterNum;
-            SceneManager.LoadScene("Main Quinn Version");
+            StartCoroutine(LoadLevel(4)); // Since LoadSceneAsync returns an AsyncOption coroutine, we must use a coroutine to track loading progress
         }
 
         if(timer <= 0.0f)
         {
             timerText.text = "0.00";
+        }
+    }
+
+    // Coroutine for LoadSceneAsync
+    IEnumerator LoadLevel(int index)
+    {
+        loading = SceneManager.LoadSceneAsync(index); // Returns an AsyncOperation to track progress
+
+        loading.allowSceneActivation = false; // Prevents the scene from instantly switching on completion
+
+        menu.SetActive(false); // Hiding the character select menu
+        progressBar.SetActive(true); // Revealing the progress bar
+        tutorialScreen.SetActive(true); // Showing the tutorial screen
+
+        while (!loading.isDone)
+        {
+            float progress = Mathf.Clamp01(loading.progress / 0.9f); // When loading, Unity only goes from 0-0.9 (0.9-1 is during the activation stage) so we must divide by 0.9
+
+            progressBar.GetComponent<Slider>().value = progress; // Setting the slider progress to the loading progress
+
+            yield return null;
+        }
+
+    }
+
+    // Switching between information screens
+    void ChangeScreens()
+    {
+        if(tutorialScreen.activeInHierarchy && !controlScreen.activeInHierarchy)
+        {
+            tutorialScreen.SetActive(false);
+            controlScreen.SetActive(true);
+        }
+        else if(!tutorialScreen.activeInHierarchy && controlScreen.activeInHierarchy)
+        {
+            tutorialScreen.SetActive(true);
+            controlScreen.SetActive(false);
         }
     }
 

@@ -31,6 +31,7 @@ public class RatController : MonoBehaviour
     // Setup
     private int playerNumber;
     private AudioSource sounds;
+    public AudioClip attack;
 
     // Initialization
     void Start()
@@ -178,6 +179,7 @@ public class RatController : MonoBehaviour
 
         if (canAttack == true && IsGrounded())
         {
+            sounds.clip = attack;
             sounds.Play();
             ratAnimator.SetTrigger("Punch");
             cooldownTimer = 0.0f;
