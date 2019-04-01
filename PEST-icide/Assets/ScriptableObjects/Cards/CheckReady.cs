@@ -117,21 +117,21 @@ public class CheckReady : MonoBehaviour
     }
 
     // Coroutine for LoadSceneAsync
-    IEnumerator LoadLevel(int index) 
+    IEnumerator LoadLevel(int index)
     {
-        loading = SceneManager.LoadSceneAsync(index);
+        loading = SceneManager.LoadSceneAsync(index); // Returns an AsyncOperation to track progress
 
-        loading.allowSceneActivation = false;
+        loading.allowSceneActivation = false; // Prevents the scene from instantly switching on completion
 
-        menu.SetActive(false);
-        progressBar.SetActive(true);
-        tutorialScreen.SetActive(true);
+        menu.SetActive(false); // Hiding the character select menu
+        progressBar.SetActive(true); // Revealing the progress bar
+        tutorialScreen.SetActive(true); // Showing the tutorial screen
 
-        while(!loading.isDone)
+        while (!loading.isDone)
         {
-            float progress = Mathf.Clamp01(loading.progress / .9f);
+            float progress = Mathf.Clamp01(loading.progress / 0.9f); // When loading, Unity only goes from 0-0.9 (0.9-1 is during the activation stage) so we must divide by 0.9
 
-            progressBar.GetComponent<Slider>().value = progress;
+            progressBar.GetComponent<Slider>().value = progress; // Setting the slider progress to the loading progress
 
             yield return null;
         }
