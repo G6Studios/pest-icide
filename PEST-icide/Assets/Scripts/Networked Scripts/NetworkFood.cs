@@ -15,8 +15,9 @@ public class NetworkFood : NetworkBehaviour
             {
                 coll.gameObject.GetComponent<NetworkPlayer>().resources++;
                 //Instantiate(crunch);
-                gameObject.SetActive(false);
                 gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
+                //gameObject.SetActive(false);
+                Destroy(gameObject);
 
             }
         }

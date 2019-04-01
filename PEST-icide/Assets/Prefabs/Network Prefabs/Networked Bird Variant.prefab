@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 2007700020864392816}
   - component: {fileID: 4363579232679900706}
   - component: {fileID: 2039332419443621600}
-  - component: {fileID: 2267579105841095621}
+  - component: {fileID: 2886635610306316436}
   m_Layer: 0
   m_Name: Attack Hitbox
   m_TagString: Untagged
@@ -252,7 +252,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2267579105841095621
+--- !u!114 &2886635610306316436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,15 +261,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1420329545219532484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362b9d216cdacac4fbcf4ef1404743dc, type: 3}
+  m_Script: {fileID: 11500000, guid: e821cc6831bdc2a4cb51ffc913dc3a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackActive: 0
-  attackSprite: {fileID: 0}
+  attackSprite: {fileID: 2649159917031969194, guid: e4242af451c2d4b40bf1b9af64d97b3a,
+    type: 3}
   cooldownProxy: 0
   cooldownTimerProxy: 0
-  attackDamage: 0
-  attackHitSound: {fileID: 0}
+  attackDamage: 20
+  attackHitSound: {fileID: 8300000, guid: fa9f4165ee1f5924db2c433a3dcebbe7, type: 3}
 --- !u!1 &1546210040517391774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,8 +1567,9 @@ GameObject:
   - component: {fileID: 4747530287601492956}
   - component: {fileID: 5575966945573502565}
   - component: {fileID: 1988328381023663539}
+  - component: {fileID: 8611505455809810926}
   - component: {fileID: 535391989319026967}
-  - component: {fileID: 506068009504075486}
+  - component: {fileID: 8030214517595718243}
   m_Layer: 0
   m_Name: Networked Bird Variant
   m_TagString: Player
@@ -1684,6 +1686,28 @@ MonoBehaviour:
   p2Indicator: {fileID: 2100000, guid: 52b56dc53c8bbb94bb0edafb1c899462, type: 2}
   p3Indicator: {fileID: 2100000, guid: 129f2c62e352c8f468b0e84c9ceacee7, type: 2}
   p4Indicator: {fileID: 2100000, guid: 38f83180142548040b1c2ed12cd9dc42, type: 2}
+--- !u!114 &8611505455809810926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238733212966070293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &535391989319026967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1717,7 +1741,7 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &506068009504075486
+--- !u!114 &8030214517595718243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1726,19 +1750,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7238733212966070293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 3
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
+  m_Animator: {fileID: 1292401342624751748}
+  m_ParameterSendBits: 63
+  param0: 
+  param1: 
+  param2: 
+  param3: 
+  param4: 
+  param5: 
 --- !u!1 &7373094498627104296
 GameObject:
   m_ObjectHideFlags: 0

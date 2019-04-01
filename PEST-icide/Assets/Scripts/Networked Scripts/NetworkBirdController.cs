@@ -24,7 +24,7 @@ public class NetworkBirdController : NetworkBehaviour
     private bool doubleJump;
 
     // Attacking
-    private AttackController attacks;
+    private NetworkAttacks attacks;
     private float cooldown;
     private float cooldownTimer;
     private bool canAttack;
@@ -52,7 +52,7 @@ public class NetworkBirdController : NetworkBehaviour
         doubleJump = true;
 
         // Attack related
-        attacks = gameObject.GetComponentInChildren<AttackController>();
+        attacks = gameObject.GetComponentInChildren<NetworkAttacks>();
         cooldown = 1.5f;
         cooldownTimer = 0.0f;
 
@@ -69,7 +69,8 @@ public class NetworkBirdController : NetworkBehaviour
 
     void FixedUpdate()
     {
-
+        if (!isLocalPlayer)
+            return;
         //Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
         // Player shouldn't be able to do any of these things if they are dead
         if (!GetComponent<NetworkPlayer>().died)
@@ -198,6 +199,7 @@ public class NetworkBirdController : NetworkBehaviour
             if (canAttack == true)
             {
                 birdAnimator.SetTrigger("Punch");
+                ToggleActive();
                 cooldownTimer = 0.0f;
             }
 
@@ -219,8 +221,8 @@ public class NetworkBirdController : NetworkBehaviour
     void Cooldowns()
     {
         // Offloading this information to the attackcontroller so it can be easily accessed by the UI manager
-        GetComponentInChildren<AttackController>().cooldownProxy = cooldown;
-        GetComponentInChildren<AttackController>().cooldownTimerProxy = cooldownTimer;
+        GetComponentInChildren<NetworkAttacks>().cooldownProxy = cooldown;
+        GetComponentInChildren<NetworkAttacks>().cooldownTimerProxy = cooldownTimer;
         if (cooldownTimer < cooldown)
         {
             cooldownTimer += Time.deltaTime;

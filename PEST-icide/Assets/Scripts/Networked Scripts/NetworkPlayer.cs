@@ -22,16 +22,21 @@ public class NetworkPlayer : NetworkBehaviour
     public Material p3Indicator;
     public Material p4Indicator;
 
+    private int connectionId;
+ 
+
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
         resources = 0;
         spawnPoint = gameObject.transform.position;
+        Debug.Log(gameObject.GetComponent<NetworkIdentity>().connectionToClient);
+        connectionId = gameObject.GetComponent<NetworkIdentity>().connectionToClient.connectionId;
         died = false;
-
         SetIndicator();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -42,7 +47,6 @@ public class NetworkPlayer : NetworkBehaviour
             died = true;
             DropResources();
         }
-
         HurtSelf();
 
         GiveBarrels();
@@ -69,19 +73,19 @@ public class NetworkPlayer : NetworkBehaviour
     // Setting player indicator
     void SetIndicator()
     {
-        if (playerNum == 1)
+        if (connectionId == 0)
         {
             playerIndicator.GetComponent<Renderer>().material = p1Indicator;
         }
-        else if (playerNum == 2)
+        else if (connectionId == 1)
         {
             playerIndicator.GetComponent<Renderer>().material = p2Indicator;
         }
-        else if (playerNum == 3)
+        else if (connectionId == 2)
         {
             playerIndicator.GetComponent<Renderer>().material = p3Indicator;
         }
-        else if (playerNum == 4)
+        else if (connectionId == 3)
         {
             playerIndicator.GetComponent<Renderer>().material = p4Indicator;
         }
@@ -93,6 +97,7 @@ public class NetworkPlayer : NetworkBehaviour
             return;
         health -= dmg;
     }
+
 
     public void Death()
     {
