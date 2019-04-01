@@ -12,6 +12,13 @@ public class VictoryScreen : MonoBehaviour
     public TextMeshProUGUI player4Score;
     public TextMeshProUGUI winnerText;
 
+    public GameObject firstPlacePortrait;
+    public GameObject secondPlacePortrait;
+    public GameObject thirdPlacePortrait;
+    public GameObject fourthPlacePortrait;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +28,8 @@ public class VictoryScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Placements();
+
         // Setting player scores
         player1Score.text = GameManager.instance.player1DResource.ToString();
         player2Score.text = GameManager.instance.player2DResource.ToString();
@@ -46,6 +55,25 @@ public class VictoryScreen : MonoBehaviour
             GameManager.instance.player3DResource = 0;
             GameManager.instance.player4DResource = 0;
         }
+    }
+
+    void Placements()
+    {
+        int p1 = GameManager.instance.player1DResource;
+        int p2 = GameManager.instance.player2DResource;
+        int p3 = GameManager.instance.player3DResource;
+        int p4 = GameManager.instance.player4DResource;
+
+        List<int> scores = new List<int> { p1, p2, p3, p4 };
+
+        scores.Sort();
+
+        for(int i = 0; i < scores.Count; i++)
+        {
+            Debug.Log("Placement " + i + ":" + scores[i]);
+        }
+
+        
     }
 
     // Resetting the main scene for if the players want to play another round

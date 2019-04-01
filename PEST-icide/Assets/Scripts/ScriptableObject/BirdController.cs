@@ -25,10 +25,11 @@ public class BirdController : MonoBehaviour
     private float airTimerLimit;
 
     // Attacking
-    private AttackController attacks;
+    public AttackController attacks;
     private float cooldown;
     private float cooldownTimer;
     private bool canAttack;
+    public ParticleSystem attackParticles;
 
     // Setup
     private int playerNumber;
@@ -54,9 +55,10 @@ public class BirdController : MonoBehaviour
         airTimerLimit = 0.3f;
 
         // Attack related
-        attacks = gameObject.GetComponentInChildren<AttackController>();
+        //attacks = gameObject.GetComponentInChildren<AttackController>();
         cooldown = 1.5f;
         cooldownTimer = 0.0f;
+        //attackParticles = gameObject.GetComponentInChildren<ParticleSystem>();
 
 
         // Setup
@@ -121,7 +123,7 @@ public class BirdController : MonoBehaviour
     void MovementAnim()
     {
         float xVel = Input.GetAxis("LeftJoystickX_P" + playerNumber) * 5;
-        float yVel = Input.GetAxis("LeftJoystickY_P" + playerNumber) * 5;
+        float yVel = Input.GetAxis("LeftJoystickY_P" + playerNumber) * 2.5f;
 
         birdAnimator.SetFloat("Movement_X", xVel);
         birdAnimator.SetFloat("Movement_Y", yVel);
@@ -203,6 +205,7 @@ public class BirdController : MonoBehaviour
             _rigidbody.AddRelativeForce(Vector3.forward * 8f, ForceMode.VelocityChange); // Applying force to make character lunge forward
             sounds.clip = attack; // Setting sound emitter to attack sound
             sounds.Play(); // Play attack sound
+            attackParticles.Play();
             birdAnimator.SetTrigger("Punch"); // Setting trigger in animation controller
             cooldownTimer = 0.0f; // Putting attack on cooldown
         }

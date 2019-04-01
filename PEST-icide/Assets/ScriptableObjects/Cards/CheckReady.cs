@@ -24,10 +24,18 @@ public class CheckReady : MonoBehaviour
 
     public GameObject menu;
     public GameObject progressBar;
+    public GameObject tutorialScreen;
+    public GameObject controlScreen;
+    public GameObject prompt;
 
     private float timer;
     private bool timerActive;
     private bool triggerOnce;
+
+    private float infoTimer;
+
+    // Used for loading scene asynchronously
+    AsyncOperation loading;
 
     bool allReady;
 
@@ -39,6 +47,9 @@ public class CheckReady : MonoBehaviour
         timer = 5.0f;
         menu.SetActive(true);
         progressBar.SetActive(false);
+        tutorialScreen.SetActive(false);
+        controlScreen.SetActive(false);
+        prompt.SetActive(false);
 
     }
 
@@ -48,7 +59,8 @@ public class CheckReady : MonoBehaviour
         // Checking if each player is ready
         ReadyStatus();
         ReadyTimer();
-        if(player1.selected && player2.selected && player3.selected && player4.selected)
+        //if(player1.selected && player2.selected && player3.selected && player4.selected)
+        if(player1.selected)
         {
             timerObject.SetActive(true);
             timerActive = true;
@@ -58,6 +70,21 @@ public class CheckReady : MonoBehaviour
             timer = 5.0f;
             timerText.text = timer.ToString("F");
             timerObject.SetActive(false);
+        }
+
+        if(progressBar.activeInHierarchy)
+        {
+            infoTimer+=0.1f;
+            if(infoTimer > 50f)
+            {
+                ChangeScreens();
+                infoTimer = 0.0f;
+            }
+            prompt.SetActive(true);
+            if(Input.GetButtonDown("A_P1") || Input.GetButtonDown("A_P2") || Input.GetButtonDown("A_P3") || Input.GetButtonDown("A_P4"))
+            {
+                loading.allowSceneActivation = true;
+            }
         }
     }
 
@@ -92,10 +119,13 @@ public class CheckReady : MonoBehaviour
     // Coroutine for LoadSceneAsync
     IEnumerator LoadLevel(int index) 
     {
-        AsyncOperation loading = SceneManager.LoadSceneAsync(index);
+        loading = SceneManager.LoadSceneAsync(index);
+
+        loading.allowSceneActivation = false;
 
         menu.SetActive(false);
         progressBar.SetActive(true);
+        tutorialScreen.SetActive(true);
 
         while(!loading.isDone)
         {
@@ -106,6 +136,21 @@ public class CheckReady : MonoBehaviour
             yield return null;
         }
 
+    }
+
+    // Switching between information screens
+    void ChangeScreens()
+    {
+        if(tutorialScreen.activeInHierarchy && !controlScreen.activeInHierarchy)
+        {
+            tutorialScreen.SetActive(false);
+            controlScreen.SetActive(true);
+        }
+        else if(!tutorialScreen.activeInHierarchy && controlScreen.activeInHierarchy)
+        {
+            tutorialScreen.SetActive(true);
+            controlScreen.SetActive(false);
+        }
     }
 
     void ReadyStatus()

@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
             DropResources();
         }
 
-        //HurtSelf();
+        HurtSelf();
 
         //GiveBarrels();
 
