@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 8300000, guid: cc5b6e341d628e44eb04a0fd4e5db993, type: 3}
+  cam: {fileID: 5830347901921735398}
 --- !u!114 &3001109352088458919
 MonoBehaviour:
   m_ObjectHideFlags: 0

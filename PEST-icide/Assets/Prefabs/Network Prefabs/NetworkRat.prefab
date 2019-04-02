@@ -1994,6 +1994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 8300000, guid: 1bbd4a36ad9862b44a7a92de16033345, type: 3}
+  cam: {fileID: 506927219516645647}
 --- !u!114 &2166524787788302079
 MonoBehaviour:
   m_ObjectHideFlags: 0

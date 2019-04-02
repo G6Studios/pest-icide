@@ -128,10 +128,11 @@ public class NetworkedPlayer : NetworkBehaviour
     }
 
     // Called when an attack connects with a player
+    [Server]
     public void TakeDamage(float dmg)
     {
-        if (!isServer)
-            return;
+        //if (!isServer)
+           // return;
         health -= dmg;
     }
 

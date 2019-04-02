@@ -33,6 +33,8 @@ public class NetworkedWombatController : NetworkBehaviour
     private int playerNumber;
     private AudioSource sounds;
     public AudioClip attack;
+    public Camera cam;
+
 
     // Initialization
     void Start()
@@ -59,6 +61,10 @@ public class NetworkedWombatController : NetworkBehaviour
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
         playerNumber = gameObject.GetComponent<NetworkedPlayer>().playerNum;
         sounds = gameObject.GetComponent<AudioSource>();
+
+        if (isLocalPlayer)
+            return;
+        cam.enabled = false;
     }
 
     void FixedUpdate()
