@@ -59,8 +59,8 @@ public class CheckReady : MonoBehaviour
         // Checking if each player is ready
         ReadyStatus();
         ReadyTimer();
-        //if(player1.selected && player2.selected && player3.selected && player4.selected)
-        if(player1.selected)
+        if(player1.selected && player2.selected && player3.selected && player4.selected)
+        //if(player1.selected)
         {
             timerObject.SetActive(true);
             timerActive = true;

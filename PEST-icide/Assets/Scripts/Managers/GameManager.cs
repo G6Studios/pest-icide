@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
+    UIManager UI;
+
     // Player character prefabs
     public GameObject birdPrefab;
     public GameObject ratPrefab;
@@ -61,6 +63,8 @@ public class GameManager : MonoBehaviour {
     public bool player3Active;
     public bool player4Active;
 
+    public bool suddenDeath;
+
     Scene currentScene; // For holding the current active scene
 
     public int[] charSelections; // For interfacing with the character select screen
@@ -86,6 +90,7 @@ public class GameManager : MonoBehaviour {
         timer = startTime;
         spawnPoints = new GameObject[4];
 
+        suddenDeath = false;
 
     }
 
@@ -125,6 +130,7 @@ public class GameManager : MonoBehaviour {
     {
         if (CheckWinner() != null)
         {
+            suddenDeath = false;
             Debug.Log("Player " + CheckWinner().GetComponent<Player>().playerNum + "is the winner!");
             winner = CheckWinner().GetComponent<Player>().playerNum.ToString();
             SceneManager.LoadScene("Victory");
@@ -135,6 +141,7 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+            suddenDeath = true;
             Debug.Log("No winner");
             //end our scene
         }
@@ -305,8 +312,8 @@ public class GameManager : MonoBehaviour {
                     playerList.Add(Instantiate(wombatPrefab, spawnPoints[i].transform.position, Quaternion.identity));
                     playerList[i].name = "Player " + (i + 1);
                     playerList[i].GetComponent<Player>().spawnPoint = spawnPoints[i].transform.position;
-                    playerList[i].GetComponent<Player>().maxHealth = 100f;
-                    playerList[i].GetComponent<Player>().health = 100f;
+                    playerList[i].GetComponent<Player>().maxHealth = 90f;
+                    playerList[i].GetComponent<Player>().health = 90f;
                     playerList[i].GetComponent<Player>().playerNum = i + 1;
                 }
                 

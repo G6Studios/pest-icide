@@ -28,7 +28,10 @@ public class Player : MonoBehaviour
     public Material p4LeaderIndicator;
     public AudioClip death;
     public bool leader;
-    private AudioSource sounds; 
+    private AudioSource sounds;
+
+    [SerializeField]
+    private GameObject depositSound;
 
     void Start()
     {
@@ -54,7 +57,7 @@ public class Player : MonoBehaviour
             DropResources();
         }
 
-        HurtSelf();
+        //HurtSelf();
 
         //GiveBarrels();
 
@@ -93,6 +96,12 @@ public class Player : MonoBehaviour
         {
             playerIndicator.GetComponent<Renderer>().material = setIndicator;
         }
+    }
+
+    // Deposit sound playing
+    public void DepositSound()
+    {
+        depositSound.GetComponent<AudioSource>().Play();
     }
 
     // Setting player indicator

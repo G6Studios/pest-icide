@@ -9,6 +9,12 @@ public class MainMenu : MonoBehaviour {
     {
         SceneManager.LoadScene("CharacterSelect");
     }
+
+    public void viewCinematic()
+    {
+        SceneManager.LoadScene("Cinematic");
+    }
+
     public void exitGame()
     {
         Debug.Log("Exit Game");

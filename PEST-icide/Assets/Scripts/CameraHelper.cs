@@ -22,7 +22,7 @@ public class CameraHelper : MonoBehaviour {
 	void FixedUpdate () {
         transform.LookAt(parentCamera); // Makes the helper look at the camera before raycasting
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, maxDistance, layerMask))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, maxDistance))
         {
             helperDistance = hit.distance; // If the raycast hits anything but a barrel, set the helper distance to the hit distance
         }
