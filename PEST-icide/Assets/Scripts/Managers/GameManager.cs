@@ -92,6 +92,8 @@ public class GameManager : MonoBehaviour {
 
         suddenDeath = false;
 
+        Cursor.visible = false;
+
     }
 
     // Update is called once per frame

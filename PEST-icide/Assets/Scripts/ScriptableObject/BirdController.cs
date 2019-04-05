@@ -205,7 +205,6 @@ public class BirdController : MonoBehaviour
             _rigidbody.AddRelativeForce(Vector3.forward * 8f, ForceMode.VelocityChange); // Applying force to make character lunge forward
             sounds.clip = attack; // Setting sound emitter to attack sound
             sounds.Play(); // Play attack sound
-            attackParticles.Play();
             birdAnimator.SetTrigger("Punch"); // Setting trigger in animation controller
             cooldownTimer = 0.0f; // Putting attack on cooldown
         }

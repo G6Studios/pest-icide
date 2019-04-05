@@ -5293,12 +5293,13 @@ MonoBehaviour:
   player2Active: 0
   player3Active: 0
   player4Active: 0
+  suddenDeath: 0
   charSelections: 
   GasTrap: {fileID: 0}
   MouseTrap: {fileID: 0}
   winner: 
   gameSceneInitialized: 0
-  startTime: 10
+  startTime: 120
   timer: 0
 --- !u!4 &2083963483
 Transform:
