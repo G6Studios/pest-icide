@@ -11,9 +11,9 @@ public class NetworkFood : NetworkBehaviour
     {
         if (coll.gameObject.CompareTag("Player"))
         {
-            if (coll.gameObject.GetComponent<NetworkPlayer>().died == false)
+            if (coll.gameObject.GetComponent<NetworkedPlayer>().died == false)
             {
-                coll.gameObject.GetComponent<NetworkPlayer>().resources++;
+                coll.gameObject.GetComponent<NetworkedPlayer>().resources++;
                 //Instantiate(crunch);
                 gameObject.GetComponent<ObjectTimer>().SetDeactivatedTime();
                 //gameObject.SetActive(false);

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetworkBirdController : NetworkBehaviour
+public class NetworkedWombatController : NetworkBehaviour
 {
-
     // Movement
     private float moveSpeed;
     private Vector3 movementVector;
@@ -13,7 +12,7 @@ public class NetworkBirdController : NetworkBehaviour
     private float yVel;
 
     // Movement animation
-    private Animator birdAnimator;
+    private Animator wombatAnimator;
 
     // Jumping
     private float fallMultiplier;
@@ -21,16 +20,19 @@ public class NetworkBirdController : NetworkBehaviour
     private float distToGround;
     private float jumpHeight;
     private Rigidbody _rigidbody;
-    private bool doubleJump;
+    private float airTimer;
+    private float airTimerLimit;
 
     // Attacking
-    private NetworkAttacks attacks;
+    private NetworkAttackController attacks;
     private float cooldown;
     private float cooldownTimer;
     private bool canAttack;
 
     // Setup
     private int playerNumber;
+    private AudioSource sounds;
+    public AudioClip attack;
     public Camera cam;
 
 
@@ -38,42 +40,40 @@ public class NetworkBirdController : NetworkBehaviour
     void Start()
     {
         // Movement related
-        moveSpeed = gameObject.GetComponent<NetworkPlayer>().speed;
-
+        moveSpeed = gameObject.GetComponent<NetworkedPlayer>().speed;
 
         // Movement animation related
-        birdAnimator = gameObject.GetComponent<Animator>();
+        wombatAnimator = gameObject.GetComponent<Animator>();
 
         // Jump related
         fallMultiplier = 1.5f;
         lowJumpMultiplier = 2.0f;
-        jumpHeight = 6.0f;
+        jumpHeight = 5.0f;
         _rigidbody = gameObject.GetComponent<Rigidbody>();
-        doubleJump = true;
+        airTimerLimit = 0.2f;
 
         // Attack related
-        attacks = gameObject.GetComponentInChildren<NetworkAttacks>();
-        cooldown = 1.5f;
+        attacks = gameObject.GetComponentInChildren<NetworkAttackController>();
+        cooldown = 2.0f;
         cooldownTimer = 0.0f;
-
 
         // Setup
         distToGround = gameObject.GetComponent<Collider>().bounds.extents.y;
-        playerNumber = gameObject.GetComponent<NetworkPlayer>().playerNum;
+        playerNumber = gameObject.GetComponent<NetworkedPlayer>().playerNum;
+        sounds = gameObject.GetComponent<AudioSource>();
 
         if (isLocalPlayer)
             return;
         cam.enabled = false;
     }
 
-
     void FixedUpdate()
     {
         if (!isLocalPlayer)
             return;
-        //Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
+        Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (1.0f), Color.green);
         // Player shouldn't be able to do any of these things if they are dead
-        if (!GetComponent<NetworkPlayer>().died)
+        if (!GetComponent<NetworkedPlayer>().died)
         {
             // Updating movement
             Movement();
@@ -83,7 +83,7 @@ public class NetworkBirdController : NetworkBehaviour
 
             // Updating jumping
             // Waiting for jump button press
-            if (Input.GetButtonDown("A_P" + playerNumber))
+            if (Input.GetButton("A_P" + playerNumber))
             {
                 Jumping();
             }
@@ -95,7 +95,7 @@ public class NetworkBirdController : NetworkBehaviour
             JumpProcessing();
 
             // Updating attacks
-            if (Input.GetButtonDown("X_P" + playerNumber))
+            if (Input.GetButton("X_P" + playerNumber))
             {
                 Attacks();
             }
@@ -125,9 +125,10 @@ public class NetworkBirdController : NetworkBehaviour
         float xVel = Input.GetAxis("LeftJoystickX_P" + playerNumber) * 5;
         float yVel = Input.GetAxis("LeftJoystickY_P" + playerNumber) * 5;
 
-        birdAnimator.SetFloat("Movement_X", xVel);
-        birdAnimator.SetFloat("Movement_Y", yVel);
+        wombatAnimator.SetFloat("Movement_X", xVel);
+        wombatAnimator.SetFloat("Movement_Y", yVel);
     }
+
 
     // Jump function
     void Jumping()
@@ -138,16 +139,6 @@ public class NetworkBirdController : NetworkBehaviour
         {
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
             _rigidbody.velocity = Vector3.up * jumpHeight;
-            doubleJump = true;
-        }
-        else
-        {
-            if (doubleJump)
-            {
-                doubleJump = false;
-                _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
-                _rigidbody.velocity = Vector3.up * jumpHeight;
-            }
         }
 
     }
@@ -155,19 +146,22 @@ public class NetworkBirdController : NetworkBehaviour
     // Jump animation
     void JumpAnim()
     {
-        //if (Input.GetButtonDown("A_P" + playerNumber))
-        //{
-        //    birdAnimator.SetTrigger("Jump");
-        //}
 
-        if (IsGrounded())
+        if (!IsGrounded())
         {
-            birdAnimator.SetBool("isGrounded", true);
+            // Counts when the player is not grounded
+            airTimer += Time.deltaTime;
+            if (airTimer > airTimerLimit)
+            {
+                wombatAnimator.SetBool("isGrounded", false);
+            }
+
         }
 
         else
         {
-            birdAnimator.SetBool("isGrounded", false);
+            wombatAnimator.SetBool("isGrounded", true);
+            airTimer = 0.0f;
         }
     }
 
@@ -183,32 +177,33 @@ public class NetworkBirdController : NetworkBehaviour
             // Causes the player to fall faster and not jump as high if they tap the button
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+
+
     }
 
     // Checking if player is on the ground
     bool IsGrounded()
     {
-        return Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0f), -Vector3.up, 0.9f);
+        return Physics.Raycast(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up, 1.0f);
     }
 
     // Attack function
     void Attacks()
     {
-        if (Input.GetButtonDown("X_P" + playerNumber))
+
+        if (canAttack == true && IsGrounded())
         {
-            if (canAttack == true)
-            {
-                birdAnimator.SetTrigger("Punch");
-                ToggleActive();
-                cooldownTimer = 0.0f;
-            }
-
-            else
-            {
-                Debug.Log("Bird attack on cooldown!");
-            }
-
+            sounds.clip = attack;
+            sounds.Play();
+            wombatAnimator.SetTrigger("Punch");
+            cooldownTimer = 0.0f;
         }
+
+        else
+        {
+            Debug.Log("Wombat attack on cooldown!");
+        }
+
     }
 
     // Attack hitbox toggling function
@@ -221,8 +216,8 @@ public class NetworkBirdController : NetworkBehaviour
     void Cooldowns()
     {
         // Offloading this information to the attackcontroller so it can be easily accessed by the UI manager
-        GetComponentInChildren<NetworkAttacks>().cooldownProxy = cooldown;
-        GetComponentInChildren<NetworkAttacks>().cooldownTimerProxy = cooldownTimer;
+        GetComponentInChildren<NetworkAttackController>().cooldownProxy = cooldown;
+        GetComponentInChildren<NetworkAttackController>().cooldownTimerProxy = cooldownTimer;
         if (cooldownTimer < cooldown)
         {
             cooldownTimer += Time.deltaTime;
@@ -233,7 +228,5 @@ public class NetworkBirdController : NetworkBehaviour
         {
             canAttack = true;
         }
-
     }
-
 }

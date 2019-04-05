@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetworkAttacks : NetworkBehaviour
+public class NetworkAttackController : NetworkBehaviour
 {
     // Attack hitbox
     Collider attackHitbox;
@@ -18,6 +18,10 @@ public class NetworkAttacks : NetworkBehaviour
     public float cooldownProxy;
     [HideInInspector]
     public float cooldownTimerProxy;
+
+    // Since the collider nows works by OnTriggerStay, this timer is necessary so the player can shred people's health in an instant
+    public float dmgCooldown;
+    private float dmgTimer;
 
     public float attackDamage;
 
@@ -43,10 +47,18 @@ public class NetworkAttacks : NetworkBehaviour
         sounds = gameObject.GetComponent<AudioSource>();
     }
 
-    // Resolving hits
-    private void OnTriggerEnter(Collider hit)
+    private void Update()
     {
-        if (attackActive)
+        if (dmgTimer < dmgCooldown)
+        {
+            dmgTimer += 0.01f;
+        }
+    }
+
+    // Resolving hits
+    private void OnTriggerStay(Collider hit)
+    {
+        if (attackActive && dmgTimer > dmgCooldown)
         {
             string target = hit.gameObject.tag;
 
@@ -57,8 +69,9 @@ public class NetworkAttacks : NetworkBehaviour
                     break;
 
                 case "Player":
+                    dmgTimer = 0.0f;
                     Debug.Log("Hit:" + hit.name);
-                    hit.GetComponent<NetworkPlayer>().TakeDamage(attackDamage);
+                    hit.GetComponent<NetworkedPlayer>().TakeDamage(attackDamage);
                     GameObject instance = Instantiate(attackSprite, hit.transform.position + offset, Quaternion.identity);
                     sounds.Play();
                     attackSprite.GetComponent<ParticleSystem>().Play();
