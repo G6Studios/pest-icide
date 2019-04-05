@@ -39,7 +39,7 @@ public class NewCamera : MonoBehaviour
                 joystick += Input.GetAxis("RightJoystickX_P" + joystickNumber) * xSensitivity; // Update based on right joystick
 
                 // Updating the rotation quaternion
-                Quaternion currentRotation = Quaternion.Euler(22, joystick, 0); // Due to Unity calculating the rotation values in order of Z, X, Y, we need to trick it a bit, the x value is how much the camera is looking downward
+                Quaternion currentRotation = Quaternion.Euler(22, joystick, 0); // Due to Unity calculating the rotation values in order of Z, X, Y, we need to trick it a bit, the first value is how much the camera is looking downward
 
                 // Getting the camera's resting position from behind for the target and setting the camera position
                 Vector3 reverseDistance = new Vector3(0.0f, 0.0f, -currentDistance);
