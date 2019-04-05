@@ -47,7 +47,7 @@ public class WombatController : MonoBehaviour
         lowJumpMultiplier = 2.0f;
         jumpHeight = 5.0f;
         _rigidbody = gameObject.GetComponent<Rigidbody>();
-        airTimerLimit = 0.2f;
+        airTimerLimit = 0.1f;
 
         // Attack related
         attacks = gameObject.GetComponentInChildren<AttackController>();
@@ -62,7 +62,7 @@ public class WombatController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (1.0f), Color.green);
+        Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
         // Player shouldn't be able to do any of these things if they are dead
         if (!GetComponent<Player>().died)
         {
@@ -175,7 +175,7 @@ public class WombatController : MonoBehaviour
     // Checking if player is on the ground
     bool IsGrounded()
     {
-        return Physics.Raycast(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up, 1.0f);
+        return Physics.Raycast(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up, 1.1f);
     }
 
     // Attack function
@@ -184,6 +184,7 @@ public class WombatController : MonoBehaviour
 
         if (canAttack == true && IsGrounded())
         {
+            _rigidbody.AddRelativeForce(Vector3.forward * 4f, ForceMode.VelocityChange); // Applying force to make character lunge forward
             sounds.clip = attack;
             sounds.Play();
             wombatAnimator.SetTrigger("Punch");

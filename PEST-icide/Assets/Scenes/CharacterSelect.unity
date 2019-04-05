@@ -5293,6 +5293,7 @@ MonoBehaviour:
   player2Active: 0
   player3Active: 0
   player4Active: 0
+  suddenDeath: 0
   charSelections: 
   GasTrap: {fileID: 0}
   MouseTrap: {fileID: 0}

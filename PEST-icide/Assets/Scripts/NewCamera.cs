@@ -6,7 +6,7 @@ public class NewCamera : MonoBehaviour
 {
 
     public Transform target; // What the camera will be looking at
-    float xj = 0.0f; // Joystick x
+    float joystick = 0.0f; // Right joystick
     public float xSensitivity = 5.0f; // How sensitive the x movement will be
     public int joystickNumber; // Tied to the player number
     public float currentDistance = 3.0f; // Camera's starting distance
@@ -22,7 +22,7 @@ public class NewCamera : MonoBehaviour
         character = this.transform.parent.gameObject; // The character the player is currently playing
         Vector3 angles = transform.eulerAngles; // Getting the angles of the attached object (camera)
         // Value flipped for later in the process
-        xj = angles.y;
+        joystick = angles.y;
 
         joystickNumber = character.GetComponentInParent<Player>().playerNum;
 
@@ -36,10 +36,10 @@ public class NewCamera : MonoBehaviour
         {
             if (target && !GetComponentInParent<Player>().died) // Making sure the camera has something to look at
             {
-                xj += Input.GetAxis("RightJoystickX_P" + joystickNumber) * xSensitivity; // Update x and y for the mouse
+                joystick += Input.GetAxis("RightJoystickX_P" + joystickNumber) * xSensitivity; // Update based on right joystick
 
                 // Updating the rotation quaternion
-                Quaternion currentRotation = Quaternion.Euler(22, xj, 0); // Due to Unity calculating the rotation values in order of Z, X, Y, we need to trick it a bit, the x value is how much the camera is looking downward
+                Quaternion currentRotation = Quaternion.Euler(22, joystick, 0); // Due to Unity calculating the rotation values in order of Z, X, Y, we need to trick it a bit, the x value is how much the camera is looking downward
 
                 // Getting the camera's resting position from behind for the target and setting the camera position
                 Vector3 reverseDistance = new Vector3(0.0f, 0.0f, -currentDistance);
@@ -48,7 +48,7 @@ public class NewCamera : MonoBehaviour
                 // Updating the transformation and rotation of the camera, as well as the rotation of the player character
                 transform.rotation = currentRotation;
                 transform.position = currentPosition;
-                character.transform.localRotation = Quaternion.AngleAxis(xj, Vector3.up);
+                character.transform.localRotation = Quaternion.AngleAxis(joystick, Vector3.up);
 
                 // Setting the camera's current distance from the player
                 currentDistance = Mathf.Clamp(helper.helperDistance, minDistance, maxDistance);

@@ -47,11 +47,11 @@ public class RatController : MonoBehaviour
         lowJumpMultiplier = 2.0f;
         jumpHeight = 5.0f;
         _rigidbody = gameObject.GetComponent<Rigidbody>();
-        airTimerLimit = 0.25f;
+        airTimerLimit = 0.1f;
 
         // Attack related
         attacks = gameObject.GetComponentInChildren<AttackController>();
-        cooldown = 2.0f;
+        cooldown = 1f;
         cooldownTimer = 0.0f;
 
         // Setup
@@ -62,7 +62,7 @@ public class RatController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
+        Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
         // Player shouldn't be able to do any of these things if they are dead
         if (!GetComponent<Player>().died)
         {
@@ -170,7 +170,7 @@ public class RatController : MonoBehaviour
     // Checking if player is on the ground
     bool IsGrounded()
     {
-        return Physics.Raycast(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up, 0.9f);
+        return Physics.Raycast(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up, 1.05f);
     }
 
     // Attack function
@@ -179,6 +179,7 @@ public class RatController : MonoBehaviour
 
         if (canAttack == true && IsGrounded())
         {
+            _rigidbody.AddRelativeForce(Vector3.forward * 6f, ForceMode.VelocityChange); // Applying force to make character lunge forward
             sounds.clip = attack;
             sounds.Play();
             ratAnimator.SetTrigger("Punch");

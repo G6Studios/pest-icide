@@ -11,10 +11,14 @@ public class ResourceDeposit : MonoBehaviour
     private float depositInterval;
     private float timer;
 
+    private AudioSource sound;
+
+
     private void Start()
     {
         timer = 0.0f;
         depositInterval = 0.5f;
+        sound = gameObject.GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider coll)
@@ -45,6 +49,7 @@ public class ResourceDeposit : MonoBehaviour
                     {
                         playersInRadius[i].GetComponent<Player>().resources--; // Taking one resource from their person at a time
                         playersInRadius[i].GetComponent<Player>().depositedResources++; // Adding it to their deposited resources
+                        playersInRadius[i].GetComponent<Player>().DepositSound();
                     }
                 }
             }

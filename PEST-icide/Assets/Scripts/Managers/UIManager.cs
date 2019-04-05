@@ -44,6 +44,15 @@ public class UIManager : MonoBehaviour
     public Image player3Hurt;
     public Image player4Hurt;
 
+    // Death indicators
+    public GameObject player1Dead;
+    public GameObject player2Dead;
+    public GameObject player3Dead;
+    public GameObject player4Dead;
+
+    // Sudden death text
+    public GameObject suddenDeath;
+
     // Health percent holding variable
     float player1HealthPercent;
     float player2HealthPercent;
@@ -109,7 +118,14 @@ public class UIManager : MonoBehaviour
             timerText.text = string.Format("{0:0}:{1:00}", 0, 0);
         }
 
-
+        if(GameManager.instance.suddenDeath == true)
+        {
+            suddenDeath.SetActive(true);
+        }
+        else
+        {
+            suddenDeath.SetActive(false);
+        }
 
         // Managing elements for player 1
         if (GameManager.instance.player1Active)
@@ -139,11 +155,20 @@ public class UIManager : MonoBehaviour
             player1HealthNumber.text = player1.GetComponent<Player>().health.ToString();
             player1AttackImage.fillAmount = player1.GetComponentInChildren<AttackController>().cooldownTimerProxy / player1.GetComponentInChildren<AttackController>().cooldownProxy;
             player1Resource.GetComponentInChildren<TextMeshProUGUI>().text = player1.GetComponent<Player>().resources.ToString();
+            if(player1HealthPercent <= 0)
+            {
+                player1Dead.SetActive(true);
+            }
+            else
+            {
+                player1Dead.SetActive(false);
+            }
 
         }
         else
         {
             player1HealthImage.SetActive(false);
+            player1Hurt.gameObject.SetActive(false);
             player1HealthNumber.gameObject.SetActive(false);
             player1AttackImage.gameObject.SetActive(false);
             player1Resource.SetActive(false);
@@ -172,14 +197,25 @@ public class UIManager : MonoBehaviour
             {
                 tempColor.a = 0f;
             }
+
+            
             player2Hurt.color = tempColor;
             player2HealthNumber.text = player2.GetComponent<Player>().health.ToString();
             player2AttackImage.fillAmount = player2.GetComponentInChildren<AttackController>().cooldownTimerProxy / player2.GetComponentInChildren<AttackController>().cooldownProxy;
             player2Resource.GetComponentInChildren<TextMeshProUGUI>().text = player2.GetComponent<Player>().resources.ToString();
+            if (player2HealthPercent <= 0)
+            {
+                player2Dead.SetActive(true);
+            }
+            else
+            {
+                player2Dead.SetActive(false);
+            }
         }
         else
         {
             player2HealthImage.SetActive(false);
+            player2Hurt.gameObject.SetActive(false);
             player2HealthNumber.gameObject.SetActive(false);
             player2AttackImage.gameObject.SetActive(false);
             player2Resource.SetActive(false);
@@ -213,10 +249,19 @@ public class UIManager : MonoBehaviour
             player3HealthNumber.text = player3.GetComponent<Player>().health.ToString();
             player3AttackImage.fillAmount = player3.GetComponentInChildren<AttackController>().cooldownTimerProxy / player3.GetComponentInChildren<AttackController>().cooldownProxy;
             player3Resource.GetComponentInChildren<TextMeshProUGUI>().text = player3.GetComponent<Player>().resources.ToString();
+            if (player3HealthPercent <= 0)
+            {
+                player3Dead.SetActive(true);
+            }
+            else
+            {
+                player3Dead.SetActive(false);
+            }
         }
         else
         {
             player3HealthImage.SetActive(false);
+            player3Hurt.gameObject.SetActive(false);
             player3HealthNumber.gameObject.SetActive(false);
             player3AttackImage.gameObject.SetActive(false);
             player3Resource.SetActive(false);
@@ -249,10 +294,19 @@ public class UIManager : MonoBehaviour
             player4HealthNumber.text = player4.GetComponent<Player>().health.ToString();
             player4AttackImage.fillAmount = player4.GetComponentInChildren<AttackController>().cooldownTimerProxy / player4.GetComponentInChildren<AttackController>().cooldownProxy;
             player4Resource.GetComponentInChildren<TextMeshProUGUI>().text = player4.GetComponent<Player>().resources.ToString();
+            if (player4HealthPercent <= 0)
+            {
+                player4Dead.SetActive(true);
+            }
+            else
+            {
+                player4Dead.SetActive(false);
+            }
         }
         else
         {
             player4HealthImage.SetActive(false);
+            player4Hurt.gameObject.SetActive(false);
             player4HealthNumber.gameObject.SetActive(false);
             player4AttackImage.gameObject.SetActive(false);
             player4Resource.SetActive(false);

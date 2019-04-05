@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RazaSceneTwo.unity
     guid: 923ab315eb0803f4b8dcf9f4845ed049
+  - enabled: 1
+    path: Assets/Scenes/Cinematic.unity
+    guid: 3d061c2f2b5573a468dad2c6da31ca67
   m_configObjects: {}

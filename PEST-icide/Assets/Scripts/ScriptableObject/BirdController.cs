@@ -52,11 +52,11 @@ public class BirdController : MonoBehaviour
         jumpHeight = 6.0f;
         _rigidbody = gameObject.GetComponent<Rigidbody>();
         doubleJump = true;
-        airTimerLimit = 0.3f;
+        airTimerLimit = 0.1f;
 
         // Attack related
         //attacks = gameObject.GetComponentInChildren<AttackController>();
-        cooldown = 1.5f;
+        cooldown = 0.7f;
         cooldownTimer = 0.0f;
         //attackParticles = gameObject.GetComponentInChildren<ParticleSystem>();
 
@@ -71,7 +71,7 @@ public class BirdController : MonoBehaviour
     void FixedUpdate()
     {
 
-        //Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (0.9f), Color.green);
+        //Debug.DrawRay(transform.position + new Vector3(0f, 0.8f, 0f), -Vector3.up * (1.05f), Color.green);
         // Player shouldn't be able to do any of these things if they are dead
         if (!GetComponent<Player>().died)
         {
@@ -123,7 +123,7 @@ public class BirdController : MonoBehaviour
     void MovementAnim()
     {
         float xVel = Input.GetAxis("LeftJoystickX_P" + playerNumber) * 5;
-        float yVel = Input.GetAxis("LeftJoystickY_P" + playerNumber) * 2.5f;
+        float yVel = Input.GetAxis("LeftJoystickY_P" + playerNumber) * 5f;
 
         birdAnimator.SetFloat("Movement_X", xVel);
         birdAnimator.SetFloat("Movement_Y", yVel);
@@ -193,7 +193,7 @@ public class BirdController : MonoBehaviour
     // Checking if player is on the ground
     bool IsGrounded()
     {
-        return Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0f), -Vector3.up, 0.9f); // Casts a ray downwards from the center of the player
+        return Physics.Raycast(transform.position + new Vector3(0, 0.8f, 0f), -Vector3.up, 1.05f); // Casts a ray downwards from the center of the player
 
     }
 
@@ -205,7 +205,6 @@ public class BirdController : MonoBehaviour
             _rigidbody.AddRelativeForce(Vector3.forward * 8f, ForceMode.VelocityChange); // Applying force to make character lunge forward
             sounds.clip = attack; // Setting sound emitter to attack sound
             sounds.Play(); // Play attack sound
-            attackParticles.Play();
             birdAnimator.SetTrigger("Punch"); // Setting trigger in animation controller
             cooldownTimer = 0.0f; // Putting attack on cooldown
         }

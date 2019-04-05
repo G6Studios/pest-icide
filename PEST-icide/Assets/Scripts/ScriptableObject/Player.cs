@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     public int playerNum;
     public bool died;
     public Vector3 spawnPoint;
-    public GameObject playerIndicator;
     private Material setIndicator;
     private Material setLeaderIndicator;
     public Material p1Indicator;
@@ -26,9 +25,13 @@ public class Player : MonoBehaviour
     public Material p2LeaderIndicator;
     public Material p3LeaderIndicator;
     public Material p4LeaderIndicator;
+    public ParticleSystemRenderer indic;
     public AudioClip death;
     public bool leader;
-    private AudioSource sounds; 
+    private AudioSource sounds;
+
+    [SerializeField]
+    private GameObject depositSound;
 
     void Start()
     {
@@ -54,7 +57,7 @@ public class Player : MonoBehaviour
             DropResources();
         }
 
-        HurtSelf();
+        //HurtSelf();
 
         //GiveBarrels();
 
@@ -87,12 +90,18 @@ public class Player : MonoBehaviour
     {
         if(leader == true)
         {
-            playerIndicator.GetComponent<Renderer>().material = setLeaderIndicator;
+            indic.material = setLeaderIndicator;
         }
         else
         {
-            playerIndicator.GetComponent<Renderer>().material = setIndicator;
+            indic.material = setIndicator;
         }
+    }
+
+    // Deposit sound playing
+    public void DepositSound()
+    {
+        depositSound.GetComponent<AudioSource>().Play();
     }
 
     // Setting player indicator
