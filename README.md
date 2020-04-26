@@ -6,7 +6,7 @@ Xbox controllers required to play.
 
 Credits:
 - Quinn Daggett: Gameplay programmer
-- Jake Jandu: UI artist
+- Jake Jandu: UI artist, 3D Asset Modeller, Animations for Wombat Character
 - Raza Kazmi: Network programmer
 - Moishe Grosh: Character modeller, animator
 - Jean Duchene: Animator
